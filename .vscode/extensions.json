@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "mikestead.dotenv",
+    "coenraads.bracket-pair-colorizer",
+    "aaron-bond.better-comments",
+    "github.copilot",
+    "sonarsource.sonarlint-vscode",
+    "fabiospampinato.vscode-todo-plus"
+  ]
+}
