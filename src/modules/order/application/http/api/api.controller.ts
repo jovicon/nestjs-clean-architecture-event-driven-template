@@ -21,9 +21,6 @@ export class ApiController {
       items: body.items,
     };
 
-    console.log('body', body);
-    console.log('dto', dto);
-
     return this.apiService.getSeasonByYear(dto);
   }
 }

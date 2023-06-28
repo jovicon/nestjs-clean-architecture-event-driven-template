@@ -15,8 +15,6 @@ export class GetSeasonByYearUseCase implements UseCase<CreateOrderDTO, Promise<a
     try {
       const { items } = dto;
 
-      console.log('items', items);
-
       const itemsOrError = items.map((item) => OrderItem.create({ value: item }).getValue());
 
       const order = Order.create({ items: itemsOrError });
@@ -25,7 +23,7 @@ export class GetSeasonByYearUseCase implements UseCase<CreateOrderDTO, Promise<a
 
       return {
         status: 'success',
-        message: 'got season',
+        message: 'created order',
         data: {
           orderValidated,
         },
@@ -33,7 +31,7 @@ export class GetSeasonByYearUseCase implements UseCase<CreateOrderDTO, Promise<a
     } catch (err: any) {
       return {
         status: 'error',
-        message: 'error getting season',
+        message: 'error creating order',
         data: {
           error: err.message,
         },
