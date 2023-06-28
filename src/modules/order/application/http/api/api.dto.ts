@@ -1,8 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class GetSeasonByYearDTO {
-  @ApiProperty()
-  year: string;
+export class CreateOrderDTO {
+  @ApiProperty({
+    type: [String],
+  })
+  items: string[];
 }
 
 export class CreateClientDto {

@@ -3,11 +3,11 @@ import { Module } from '@nestjs/common';
 import { ApiController } from './api.controller';
 import ClientsService from './api.service';
 
-import { GetSeasonByYearModule } from '../../useCases/GetSeasonByYear/GetSeasonByYear.module';
+import { CreateOrderModule } from '../../useCases/CreateOrder/CreateOrder.module';
 
 @Module({
-  imports: [GetSeasonByYearModule],
+  imports: [CreateOrderModule],
   controllers: [ApiController],
   providers: [ClientsService],
 })
-export class FormulaOneModule {}
+export class OrderModule {}

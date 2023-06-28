@@ -1,14 +1,14 @@
 import { CoreModule } from './core/core.module';
-import { FormulaOneModule } from './api/api.module';
+import { OrderModule } from './api/api.module';
 
 const routes = [
   {
-    path: '/f1',
+    path: '/order',
     module: CoreModule,
     children: [
       {
         path: '/',
-        module: FormulaOneModule,
+        module: OrderModule,
       },
     ],
   },

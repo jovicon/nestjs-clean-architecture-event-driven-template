@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { GetSeasonByYearUseCase } from './GetSeasonByYear.usecase';
-import { GetSeasonByYearDTO } from './GetSeasonByYear.dto';
+import { GetSeasonByYearUseCase } from './CreateOrder.usecase';
+import { CreateOrderDTO } from './CreateOrder.dto';
 
 @Injectable()
 export class GetSeasonByYearController {
   constructor(private readonly getSeasonByYearUseCase: GetSeasonByYearUseCase) {}
 
-  async execute(dto: GetSeasonByYearDTO): Promise<any> {
+  async execute(dto: CreateOrderDTO): Promise<any> {
     return this.getSeasonByYearUseCase.execute(dto);
   }
 }
