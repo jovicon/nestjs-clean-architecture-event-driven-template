@@ -1,0 +1,15 @@
+# LAB 01
+[] Order Service
+  - [x] Module
+    - [x] API
+    - [x] Controller
+    - [x] Routes
+    - [x] Health Check
+    - [x] Tests
+  - [] Create Order Use Case
+    - [x] Use Case
+    - [x] Controller
+    - [x] Route
+    - [] Repository
+    - [] Events
+    - [] Tests
