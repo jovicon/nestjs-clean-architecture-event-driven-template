@@ -42,6 +42,12 @@ La arquitectura clean se basa en los tres siguientes pilares:
 npm i && npm run prepare
 ```
 
+## Run Docker Compose
+
+```bash
+docker-compose -f docker-compose.yml up
+```
+
 ## Description
 
 Las carpetas principales propuestas para el proyecto son:
