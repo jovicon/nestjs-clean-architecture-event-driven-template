@@ -34,6 +34,8 @@ La arquitectura clean se basa en los tres siguientes pilares:
 
 - **Design Patterns**: [Design Patterns - best approach](https://refactoring.guru/es/design-patterns)
 
+- **Repository Pattern**: [Implementing a generic repository Pattern](https://betterprogramming.pub/implementing-a-generic-repository-pattern-using-nestjs-fb4db1b61cce)
+
 ## Instalación del template
 
 ```bash
