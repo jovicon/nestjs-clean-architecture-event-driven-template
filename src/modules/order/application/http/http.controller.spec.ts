@@ -1,11 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
+import { OrderRepositoryModule } from '../../adapters/repository/order.module';
 
 import { GetSeasonByYearController } from '../useCases/CreateOrder/CreateOrder.controller';
 import { GetSeasonByYearUseCase } from '../useCases/CreateOrder/CreateOrder.usecase';
 
 import { FormulaOneHttpAdapter } from '../../adapters/http/axios.adapter';
+import { OrderRepositoryAdapter } from '../../adapters/repository/order.adapter';
 
 import { Logger } from './config/logger';
 
@@ -37,12 +39,24 @@ describe('CoreController', () => {
 describe('ApiController', () => {
   let appController: ApiController;
 
+  const mockRepository = {
+    orders: {
+      create: (items: any) =>
+        Promise.resolve({
+          items,
+        }),
+    },
+  };
+
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      imports: [OrderModule, HttpAdapterModule, Logger],
+      imports: [OrderModule, HttpAdapterModule, OrderRepositoryModule, Logger],
       controllers: [ApiController],
-      providers: [ApiService, GetSeasonByYearController, GetSeasonByYearUseCase, FormulaOneHttpAdapter],
-    }).compile();
+      providers: [ApiService, OrderRepositoryAdapter, GetSeasonByYearController, GetSeasonByYearUseCase],
+    })
+      .overrideProvider(OrderRepositoryAdapter)
+      .useValue(mockRepository)
+      .compile();
 
     appController = app.get<ApiController>(ApiController);
   });
@@ -50,17 +64,9 @@ describe('ApiController', () => {
   describe('getSeasonByYear', () => {
     it('should return "success"', async () => {
       const dto = {
-        items: ['2022', '2021'],
+        items: ['hola', 'mundo'],
       };
       expect(await (await appController.getSeasonByYear(dto)).status).toBe('success');
     });
-
-    // it('should return "error"', async () => {
-    //   const dto = {
-    //     items: ['2023'],
-    //   };
-
-    //   expect(await (await appController.getSeasonByYear(dto)).status).toBe('error');
-    // });
   });
 });

@@ -7,8 +7,6 @@ export interface OrderItemProps {
 }
 
 export class OrderItem extends ValueObject<OrderItemProps> {
-  static acceptableYears: string[] = ['2022', '2021'];
-
   get value(): string {
     return this.props.value;
   }

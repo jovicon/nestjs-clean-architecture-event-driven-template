@@ -1,1 +1,1 @@
-export type status = 'success' | 'error' | 'warning' | 'info';
+export type Status = 'success' | 'error' | 'warning' | 'info';

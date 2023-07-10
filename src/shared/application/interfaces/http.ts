@@ -1,7 +1,7 @@
-import { status } from '@shared/application/types/web_server';
+import { Status } from '@shared/application/types/web_server';
 
 export interface HttpResponse<T> {
-  status: status;
+  status: Status;
   message: string;
   data?: T;
 }

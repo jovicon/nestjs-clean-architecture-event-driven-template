@@ -19,7 +19,10 @@ export class Order extends AggregateRoot<OrderProps> {
 
   toJson(): OrderJson {
     return {
-      items: this.props.items,
+      items: this.props.items.map((item: OrderItem) => {
+        console.log('item: ', item);
+        return item.props;
+      }),
     };
   }
 
