@@ -13,6 +13,6 @@
     - [] Repository
       - [x] Repository Basic Module
       - [x] Repository Adapter
-      - [] Order Repository Service
+      - [x] Order Repository Service
     - [] Events
     - [] Tests
