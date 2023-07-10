@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { UseCase } from '@shared/core/UseCase';
 
 import { Order } from '../../../domain/order';
-import { OrderRepositoryAdapter } from '../../../adapters/repository/order.adapter';
+import { OrderService } from '../../../adapters/repository/order.service';
 
 import { OrderItem } from '../../../domain/orderItem';
 
@@ -10,7 +10,7 @@ import { CreateOrderDTO } from './CreateOrder.dto';
 
 @Injectable()
 export class GetSeasonByYearUseCase implements UseCase<CreateOrderDTO, Promise<any>> {
-  constructor(private readonly orderRepository: OrderRepositoryAdapter) {}
+  constructor(private readonly orderService: OrderService) {}
 
   public async execute(dto: CreateOrderDTO): Promise<any> {
     try {
@@ -26,7 +26,7 @@ export class GetSeasonByYearUseCase implements UseCase<CreateOrderDTO, Promise<a
 
       console.log('orders: ', orders);
 
-      this.orderRepository.orders.create({ items: orders });
+      this.orderService.createOrder({ items: orders });
 
       console.log('orderValidated: ', orderValidated);
 
