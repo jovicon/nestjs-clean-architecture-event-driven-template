@@ -15,4 +15,5 @@
       - [x] Repository Adapter
       - [x] Order Repository Service
     - [] Events
+    - [] Clean Code
     - [] Tests
