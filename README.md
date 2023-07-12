@@ -167,5 +167,4 @@ No se permiten caracteres especiales ($#&%?¿)
 
 Si necesitas mas información la puedes encontrar en:
 
-- [KB DevOps/Sre: Nomenclatura de repositorios GIT](https://gruposurachile.sharepoint.com/:w:/s/EquipoDevOpsSRE/EZ2FU8u2AStEs-_uRKacW5MBaGcAW-q-XSpIwIuUVTvmfQ?e=esZwnf)
 - [Tutorial flujo de trabajo Gitflow](https://www.atlassian.com/es/git/tutorials/comparing-workflows/gitflow-workflow)
