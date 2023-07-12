@@ -1,6 +1,6 @@
+import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 
-import { Model } from 'mongoose';
 import { Repository } from '@shared/adapters/repository/interface';
 
 @Injectable()
