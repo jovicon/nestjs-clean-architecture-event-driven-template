@@ -1,19 +1,19 @@
 import { EnvConfig, ConfigServices, ConfigFactoryParams } from './config.types';
-import { DataBaseConfig } from './container/database.config';
-import { MicroserviceConfig } from './container/microservice.config';
+import { DataBaseConfig } from './providers/database.config';
+import { MicroserviceConfig } from './providers/microservice.config';
 
 export class ConfigService {
   private readonly envConfig: EnvConfig;
 
-  readonly container: ConfigServices;
+  readonly providers: ConfigServices;
 
   constructor({ database, microservice }: ConfigServices) {
-    this.container = {
+    this.providers = {
       database,
       microservice,
     };
 
-    console.log('[ConfigService] - constructor init: OK');
+    console.log(`[${this.constructor.name}] - constructor init: OK`);
   }
 
   public static async create({ envFilePath, packageJsonPath }: ConfigFactoryParams): Promise<ConfigService> {

@@ -13,7 +13,7 @@ import { OrderService } from './order.service';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
-        uri: config.container.database.mongoUrl,
+        uri: config.providers.database.mongoUrl,
       }),
       inject: [ConfigService],
     }),
