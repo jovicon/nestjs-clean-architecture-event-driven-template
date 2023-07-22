@@ -2,6 +2,7 @@
 [] General Project Control
   - [x] Docker Compose
   - [] Config Module
+  - [] Logger Module
   - [] Order Module Service
   - [] Customer Module Service
 
