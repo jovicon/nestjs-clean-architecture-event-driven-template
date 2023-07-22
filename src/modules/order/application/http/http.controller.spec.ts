@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
+import { ConfigModule } from '@config/config.module';
 import { OrderRepositoryModule } from '../../adapters/repository/order.module';
 
 import { CreateOrderController } from '../useCases/CreateOrder/CreateOrder.controller';
@@ -49,7 +50,7 @@ describe('ApiController', () => {
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      imports: [OrderModule, HttpAdapterModule, OrderRepositoryModule, Logger],
+      imports: [ConfigModule, OrderModule, HttpAdapterModule, OrderRepositoryModule, Logger],
       controllers: [ApiController],
       providers: [ApiService, OrderRepositoryAdapter, CreateOrderController, CreateOrderUseCase],
     })

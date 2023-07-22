@@ -87,7 +87,14 @@
     "testEnvironment": "node",
     "moduleNameMapper": {
       "^@shared/(.*)$": "<rootDir>/shared/$1",
+      "@config/(.*)$": "<rootDir>/config/$1",
       "^lib/(.*)$": "<rootDir>/common/$1"
-    }
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/shared"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/shared"
+    ]
   }
 }
