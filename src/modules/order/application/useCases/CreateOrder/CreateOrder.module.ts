@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 
 import { OrderRepositoryModule } from '../../../adapters/repository/order.module';
-import { FormulaOneHttpModule } from '../../../adapters/http/axios.module';
 
-import { GetSeasonByYearUseCase } from './CreateOrder.usecase';
-import { GetSeasonByYearController } from './CreateOrder.controller';
+import { CreateOrderUseCase } from './CreateOrder.usecase';
+import { CreateOrderController } from './CreateOrder.controller';
 
 @Module({
-  imports: [FormulaOneHttpModule, OrderRepositoryModule],
-  providers: [GetSeasonByYearController, GetSeasonByYearUseCase],
-  exports: [GetSeasonByYearController],
+  imports: [OrderRepositoryModule],
+  providers: [CreateOrderController, CreateOrderUseCase],
+  exports: [CreateOrderController],
 })
 export class CreateOrderModule {}

@@ -3,10 +3,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { OrderRepositoryModule } from '../../adapters/repository/order.module';
 
-import { GetSeasonByYearController } from '../useCases/CreateOrder/CreateOrder.controller';
-import { GetSeasonByYearUseCase } from '../useCases/CreateOrder/CreateOrder.usecase';
+import { CreateOrderController } from '../useCases/CreateOrder/CreateOrder.controller';
+import { CreateOrderUseCase } from '../useCases/CreateOrder/CreateOrder.usecase';
 
-import { FormulaOneHttpAdapter } from '../../adapters/http/axios.adapter';
 import { OrderRepositoryAdapter } from '../../adapters/repository/order.adapter';
 
 import { Logger } from './config/logger';
@@ -52,7 +51,7 @@ describe('ApiController', () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [OrderModule, HttpAdapterModule, OrderRepositoryModule, Logger],
       controllers: [ApiController],
-      providers: [ApiService, OrderRepositoryAdapter, GetSeasonByYearController, GetSeasonByYearUseCase],
+      providers: [ApiService, OrderRepositoryAdapter, CreateOrderController, CreateOrderUseCase],
     })
       .overrideProvider(OrderRepositoryAdapter)
       .useValue(mockRepository)

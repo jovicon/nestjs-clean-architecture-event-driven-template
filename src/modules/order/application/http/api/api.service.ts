@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { HttpResponse } from '@application/interfaces/http';
 
-import { GetSeasonByYearController } from '../../useCases/CreateOrder/CreateOrder.controller';
+import { CreateOrderController } from '../../useCases/CreateOrder/CreateOrder.controller';
 import { CreateOrderDTO } from '../../useCases/CreateOrder/CreateOrder.dto';
 
 @Injectable()
 export default class ClientsService {
-  constructor(private readonly getSeasonByYearController: GetSeasonByYearController) {}
+  constructor(private readonly createOrderController: CreateOrderController) {}
 
   saveClient(client: any): HttpResponse<any> {
     return {
@@ -19,7 +19,7 @@ export default class ClientsService {
   }
 
   async getSeasonByYear(dto: CreateOrderDTO): Promise<HttpResponse<any>> {
-    const useCase = await this.getSeasonByYearController.execute(dto);
+    const useCase = await this.createOrderController.execute(dto);
 
     return {
       ...useCase,

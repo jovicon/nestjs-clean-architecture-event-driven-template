@@ -7,7 +7,7 @@ import { HttpResponse } from '@shared/application/interfaces/http';
 import { CreateOrderDTO } from './api.dto';
 import ClientsService from './api.service';
 
-@ApiTags('Formula one')
+@ApiTags('Orders')
 @Controller()
 export class ApiController {
   constructor(

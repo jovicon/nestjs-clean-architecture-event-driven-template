@@ -9,7 +9,7 @@ import { OrderItem } from '../../../domain/orderItem';
 import { CreateOrderDTO } from './CreateOrder.dto';
 
 @Injectable()
-export class GetSeasonByYearUseCase implements UseCase<CreateOrderDTO, Promise<any>> {
+export class CreateOrderUseCase implements UseCase<CreateOrderDTO, Promise<any>> {
   constructor(private readonly orderService: OrderService) {}
 
   public async execute(dto: CreateOrderDTO): Promise<any> {
