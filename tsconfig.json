@@ -21,7 +21,7 @@
       "@shared/*": ["src/shared/*"],
       "@adapters/*": ["src/shared/adapters/*"],
       "@application/*": ["src/shared/application/*"],
-      "@domain/*": ["src/shared/domain/*"]
+      "@domain/*": ["src/shared/ddd/*"]
     }
   }
 }

@@ -15,6 +15,13 @@
       - [x] Repository Adapter
       - [x] Order Repository Service
       - [] Events
+        - [] Microservice - TCP
+          - [] Order Created
+            - [] Emit
+            - [] Listen
+
+        - [] Event-based - Kafka
+
     - [] Clean Code
     - [] Tests
 

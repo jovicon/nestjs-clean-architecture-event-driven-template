@@ -1,6 +1,6 @@
 import { Result } from '@shared/core/Result';
 import { Guard } from '@shared/core/Guard';
-import { AggregateRoot } from '@shared/domain/AggregateRoot';
+import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
 import { OrderItem, OrderItemProps } from './orderItem';
 

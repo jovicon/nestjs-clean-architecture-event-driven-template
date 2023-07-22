@@ -1,4 +1,4 @@
-import { ValueObject } from '@shared/domain/ValueObject';
+import { ValueObject } from '@shared/ddd/ValueObject';
 import { Result } from '@shared/core/Result';
 import { Guard } from '@shared/core/Guard';
 
