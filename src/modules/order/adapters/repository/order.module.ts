@@ -5,6 +5,7 @@ import { OrderSchema, Order } from './order.schema';
 import { OrderRepositoryAdapter } from './order.adapter';
 import { OrderService } from './order.service';
 
+console.log('process.env.MONGO_URL', process.env.MONGO_URL);
 const mongoConnectionUrl = 'mongodb://root:example@localhost:27017/';
 @Module({
   imports: [
