@@ -2,6 +2,7 @@
 [] General Project Control
   - [x] Docker Compose
   - [] Config Module
+  - [] Application Layer Module
   - [] Logger Module
   - [] Order Module Service
   - [] Customer Module Service
@@ -34,3 +35,9 @@
     - [] Tests
 
 [] Config Module
+  - [x] Configure Environment Variables
+  - [x] Container Structure
+  - [x] Read .env file
+  - [x] Read package.json
+  - [x] Read environment variables from other modules
+  - [] Tests

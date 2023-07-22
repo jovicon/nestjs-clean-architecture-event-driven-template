@@ -18,6 +18,8 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
+      "@modules/*": ["src/modules/*"],
+      "@config/*": ["src/config/*"],
       "@shared/*": ["src/shared/*"],
       "@adapters/*": ["src/shared/adapters/*"],
       "@application/*": ["src/shared/application/*"],
