@@ -14,7 +14,7 @@
       - [x] Repository Basic Module
       - [x] Repository Adapter
       - [x] Order Repository Service
-    - [] Events
+      - [] Events
     - [] Clean Code
     - [] Tests
 
