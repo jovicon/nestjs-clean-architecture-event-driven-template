@@ -5,5 +5,6 @@
   },
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "cSpell.words": ["dompurify"]
+  "cSpell.words": ["dompurify"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
