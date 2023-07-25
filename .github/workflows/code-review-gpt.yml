@@ -25,7 +25,8 @@ jobs:
         run: npm install code-review-gpt
 
       - name: Run code review script
-        run: npx code-review-gpt review --ci --model=gpt-3.5-turbo
+        # run: npx code-review-gpt review --ci --model=gpt-3.5-turbo
+        run: npx code-review-gpt review --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
