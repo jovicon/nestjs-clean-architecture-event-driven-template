@@ -1,7 +1,7 @@
 import { CoreModule } from './core/core.module';
 import { OrderModule } from './api/api.module';
 
-const routes = [
+const orderRoutes = [
   {
     path: '/order',
     module: CoreModule,
@@ -14,6 +14,8 @@ const routes = [
   },
 ];
 
-const routesFlat = [];
+const allRoutes = [...orderRoutes];
 
-export default routes;
+const badcode = [];
+
+export default allRoutes;
