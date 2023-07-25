@@ -14,4 +14,6 @@ const routes = [
   },
 ];
 
+const routesFlat = [];
+
 export default routes;
