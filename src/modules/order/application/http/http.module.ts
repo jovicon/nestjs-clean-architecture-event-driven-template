@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { RouterModule, APP_INTERCEPTOR } from '@nestjs/core';
 
+import { RequestContextModule } from 'nestjs-request-context';
+
 import { ConfigModule } from '@config/config.module';
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
@@ -18,7 +20,7 @@ const interceptors = [
 ];
 
 @Module({
-  imports: [ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
+  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
   providers: [...interceptors],
 })
 export class HttpModule {}

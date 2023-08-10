@@ -68,7 +68,6 @@ describe('ApiController', () => {
       };
 
       const result = await appController.getSeasonByYear(dto);
-      console.log('result: ', result);
 
       expect(result.status).toBe('success');
     });
