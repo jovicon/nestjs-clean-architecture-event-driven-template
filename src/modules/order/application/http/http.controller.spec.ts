@@ -1,7 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { RequestContextModule, RequestContext } from 'nestjs-request-context';
-
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { ConfigModule } from '@config/config.module';
 import { OrderRepositoryModule } from '../../adapters/repository/order.module';
