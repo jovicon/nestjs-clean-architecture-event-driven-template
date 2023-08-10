@@ -12,6 +12,7 @@ export class AppRequestContext extends RequestContext {
 }
 
 export class RequestContextService {
+  // TODO: get a better way to do this (maybe a decorator) to remove of "|| { requestId: 'controller_testing' }"
   static getContext(): AppRequestContext {
     const ctx: AppRequestContext = RequestContext.currentContext?.req || { requestId: 'controller_testing' };
     return ctx;
