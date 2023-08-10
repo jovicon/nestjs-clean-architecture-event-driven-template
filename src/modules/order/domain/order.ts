@@ -2,6 +2,8 @@ import { Result } from '@shared/core/Result';
 import { Guard } from '@shared/core/Guard';
 import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
+import { OrderCreatedDomainEvent } from './events/order-created.domain-event';
+
 import { OrderItem, OrderItemProps } from './orderItem';
 
 export interface OrderProps {
@@ -34,6 +36,13 @@ export class Order extends AggregateRoot<OrderProps> {
     const order = new Order({
       ...props,
     });
+
+    order.addEvent(
+      new OrderCreatedDomainEvent({
+        aggregateId: '123123',
+        data: props.items,
+      })
+    );
 
     return Result.ok<Order>(order);
   }
