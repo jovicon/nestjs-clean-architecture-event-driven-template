@@ -45,7 +45,8 @@ General Project Control:
 
           [] Event-based - Kafka
 
-      [x] Clean Code
+      Clean Code: 
+        [] App Controller
       [] Tests
 
 # LAB 2

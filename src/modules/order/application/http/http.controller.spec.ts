@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { RequestContextModule, RequestContext } from 'nestjs-request-context';
+
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { ConfigModule } from '@config/config.module';
 import { OrderRepositoryModule } from '../../adapters/repository/order.module';
@@ -66,7 +68,11 @@ describe('ApiController', () => {
       const dto = {
         items: ['hola', 'mundo'],
       };
-      expect(await (await appController.getSeasonByYear(dto)).status).toBe('success');
+
+      const result = await appController.getSeasonByYear(dto);
+      console.log('result: ', result);
+
+      expect(result.status).toBe('success');
     });
   });
 });

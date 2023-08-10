@@ -13,7 +13,7 @@ export class AppRequestContext extends RequestContext {
 
 export class RequestContextService {
   static getContext(): AppRequestContext {
-    const ctx: AppRequestContext = RequestContext.currentContext.req;
+    const ctx: AppRequestContext = RequestContext.currentContext?.req || { requestId: '123' };
     return ctx;
   }
 
@@ -23,6 +23,7 @@ export class RequestContextService {
   }
 
   static getRequestId(): string {
+    console.log('this.getContext()', this.getContext().requestId);
     return this.getContext().requestId;
   }
 
