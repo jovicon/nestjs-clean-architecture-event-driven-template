@@ -25,8 +25,9 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, Promise<any>>
       const orders = orderValidated.items.map((item) => item.value);
 
       console.log('orders: ', orders);
+      console.log('order domain events: ', order.getValue().domainEvents);
 
-      this.orderService.createOrder({ items: orders });
+      this.orderService.createOrder({ items: orders }, order.getValue());
 
       console.log('orderValidated: ', orderValidated);
 

@@ -39,7 +39,8 @@ General Project Control:
         [x] Order Repository Service
         [] Events
           [] Microservice - TCP
-            [] Order Created
+            Order Created:
+              [x] add
               [] Emit
               [] Listen
 
