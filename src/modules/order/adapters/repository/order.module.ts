@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 import { ConfigModule } from '@config/config.module';
 import { ConfigService } from '@config/config.service';
@@ -10,6 +11,7 @@ import { OrderService } from './order.service';
 
 @Module({
   imports: [
+    EventEmitterModule.forRoot(),
     MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],

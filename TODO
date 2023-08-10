@@ -39,10 +39,10 @@ General Project Control:
         [x] Order Repository Service
         [] Events
           [] Microservice - TCP
-            Order Created:
-              [x] add
-              [] Emit
-              [] Listen
+          Order Created:
+            [x] add
+            [x] Emit
+            [] Listen - move to customer service
 
           [] Event-based - Kafka
 
