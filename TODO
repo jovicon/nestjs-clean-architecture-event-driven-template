@@ -3,7 +3,8 @@ General Project Control:
   [] Docker Compose
   [x] Config Module
   [] Application HTTP Layer Module
-  [] Logger Module
+  [] Logger Module Injectable
+  [] Injectable Error Interceptor
   [] Order Module Service
   [] Customer Module Service
 
@@ -42,12 +43,13 @@ General Project Control:
           Order Created:
             [x] add
             [x] Emit
-            [] Listen - move to customer service
+            [] Listen ? SAGA - move to customer service
 
           [] Event-based - Kafka
 
       Clean Code: 
         [] App Controller
+        
       [] Tests
 
 # LAB 2
