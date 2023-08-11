@@ -1,51 +1,55 @@
 # LAB 01
-[] General Project Control
-  - [] Docker Compose
-  - [x] Config Module
-  - [] Application HTTP Layer Module
-  - [] Logger Module
-  - [] Order Module Service
-  - [] Customer Module Service
+General Project Control:
+  [] Docker Compose
+  [x] Config Module
+  [] Application HTTP Layer Module
+  [] Logger Module Injectable
+  [] Injectable Error Interceptor
+  [] Order Module Service
+  [] Customer Module Service
 
 ## DESCRIPTION DETAILS
-  [] Docker Compose
-    - [x] Mongo
-    - [x] Mongo Express
-    - [] Kafka
+  Docker Compose:
+    [x] Mongo
+    [x] Mongo Express
+    [] Kafka
 
-  [x] Config Module
-    - [x] Configure Environment Variables
-    - [x] Container Structure
-    - [x] Read .env file
-    - [x] Read package.json
-    - [x] Read environment variables from other modules
-    - [x] Tests
+  Config Module:
+    [x] Configure Environment Variables
+    [x] Container Structure
+    [x] Read .env file
+    [x] Read package.json
+    [x] Read environment variables from other modules
+    [x] Tests
 
-  [] Order Module Service
-    - [x] Module
-      - [x] API
-      - [x] Controller
-      - [x] Routes
-      - [x] Health Check
-      - [x] Tests
-      - [x] Dockerfile
-    - [] Create Order Use Case
-      - [x] Use Case
-      - [x] Controller
-      - [x] Route
-      - [] Repository
-        - [x] Repository Basic Module
-        - [x] Repository Adapter
-        - [x] Order Repository Service
-        - [] Events
-          - [] Microservice - TCP
-            - [] Order Created
-              - [] Emit
-              - [] Listen
+  Order Module Service:
+    Module:
+      [x] API
+      [x] Controller
+      [x] Routes
+      [x] Health Check
+      [x] Tests
+      [x] Dockerfile
+    Create Order Use Case:
+      [x] Use Case
+      [x] Controller
+      [x] Route
+      [] Repository
+        [x] Repository Basic Module
+        [x] Repository Adapter
+        [x] Order Repository Service
+        [] Events
+          [] Microservice - TCP
+          Order Created:
+            [x] add
+            [x] Emit
+            [] Listen ? SAGA - move to customer service
 
-          - [] Event-based - Kafka
+          [] Event-based - Kafka
 
-      - [x] Clean Code
-      - [] Tests
+      Clean Code: 
+        [] App Controller
+        
+      [] Tests
 
 # LAB 2

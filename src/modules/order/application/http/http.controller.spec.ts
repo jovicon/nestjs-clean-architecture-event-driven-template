@@ -66,7 +66,10 @@ describe('ApiController', () => {
       const dto = {
         items: ['hola', 'mundo'],
       };
-      expect(await (await appController.getSeasonByYear(dto)).status).toBe('success');
+
+      const result = await appController.getSeasonByYear(dto);
+
+      expect(result.status).toBe('success');
     });
   });
 });

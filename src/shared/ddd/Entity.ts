@@ -9,4 +9,8 @@ export abstract class Entity<T> {
     this._id = id || new UniqueEntityID();
     this.props = props;
   }
+
+  get id(): UniqueEntityID {
+    return this._id;
+  }
 }
