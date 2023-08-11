@@ -34,16 +34,16 @@ General Project Control:
       [x] Use Case
       [x] Controller
       [x] Route
-      [] Repository
+      [x] Repository
         [x] Repository Basic Module
         [x] Repository Adapter
         [x] Order Repository Service
-        [] Events
-          [] Microservice - TCP
+        [x] Events
+          [x] Microservice - TCP
           Order Created:
             [x] add
             [x] Emit
-            [] Listen ? SAGA - move to customer service
+            [x] Listen ? SAGA - move to customer service
 
           [] Event-based - Kafka
 
