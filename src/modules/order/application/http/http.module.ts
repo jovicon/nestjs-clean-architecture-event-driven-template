@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { RouterModule, APP_INTERCEPTOR } from '@nestjs/core';
-import { CqrsModule } from '@nestjs/cqrs';
 
 import { RequestContextModule } from 'nestjs-request-context';
 import { ConfigModule } from '@config/config.module';
@@ -22,15 +21,7 @@ const interceptors = [
 ];
 
 @Module({
-  imports: [
-    CqrsModule,
-    RequestContextModule,
-    ConfigModule,
-    CoreModule,
-    OrderModule,
-    RouterModule.register(routes),
-    Logger,
-  ],
+  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
   providers: [...interceptors, OrderSagas],
 })
 export class HttpModule {}

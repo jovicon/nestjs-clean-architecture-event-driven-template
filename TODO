@@ -1,18 +1,23 @@
 # LAB 01
 General Project Control:
-  [] Docker Compose
+  [x] Docker Compose
   [x] Config Module
   [] Application HTTP Layer Module
   [] Logger Module Injectable
   [] Injectable Error Interceptor
   [] Order Module Service
   [] Customer Module Service
+    [] Define Customer Service module
+  [] Logger Module Service
+    [] Define Logger Service module
+  [] TCP Microservice connection definition
+    [] Define TCP Microservice connection module
 
 ## DESCRIPTION DETAILS
   Docker Compose:
     [x] Mongo
     [x] Mongo Express
-    [] Kafka
+    [x] Kafka
 
   Config Module:
     [x] Configure Environment Variables

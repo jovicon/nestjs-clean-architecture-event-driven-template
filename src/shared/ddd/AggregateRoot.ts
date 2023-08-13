@@ -1,5 +1,4 @@
 import { EventEmitter2 } from '@nestjs/event-emitter';
-// import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { LoggerPort } from '@shared/ports/logger.port';
 
 import { Entity } from './Entity';
