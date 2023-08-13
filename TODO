@@ -12,6 +12,16 @@ General Project Control:
     [] Define Logger Service module
   [] TCP Microservice connection definition
     [] Define TCP Microservice connection module
+  [] Circuit breaker pattern
+    [] Define Circuit breaker pattern module
+  [] Event-based communication
+    [] Define Event-based communication module
+  [] SAGA Pattern
+    [] Define SAGA Pattern module
+  [] Tests
+    [] Unit Tests
+    [] Integration Tests
+    [] E2E Tests
 
 ## DESCRIPTION DETAILS
   Docker Compose:
