@@ -11,7 +11,7 @@ General Project Control:
   [] Logger Module Service
     [] Define Logger Service module
   [] TCP Microservice connection definition
-    [] Define TCP Microservice connection module  
+    [] Define TCP Microservice connection module
 
 ## DESCRIPTION DETAILS
   Docker Compose:
