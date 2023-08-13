@@ -68,5 +68,35 @@ General Project Control:
         [] App Controller
         
       [] Tests
+  
+  Logger Module Service:
+    Module:
+      [] API
+      [] Controller
+      [] Routes
+      [x] Health Check
+      [] Tests
+      [] Dockerfile
+    Create Logger Use Case:
+      [] Use Case
+      [] Controller
+      [] Route
+      [] Repository
+        [] Repository Basic Module
+        [] Repository Adapter
+        [] Logger Repository Service
+        [] Events
+          [] Microservice - TCP
+          Logger Created:
+            [] add
+            [] Emit
+            [] Listen ? SAGA - move to customer service
+
+          [] Event-based - Kafka
+
+      Clean Code: 
+        [] App Controller
+        
+      [] Tests
 
 # LAB 2
