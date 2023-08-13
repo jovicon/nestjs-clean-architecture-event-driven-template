@@ -14,6 +14,8 @@ General Project Control:
     [] Define TCP Microservice connection module
   [] Circuit breaker pattern
     [] Define Circuit breaker pattern module
+    [] Reintentar
+    [] Fallback to queue
   [] Event-based communication
     [] Define Event-based communication module
   [] SAGA Pattern
