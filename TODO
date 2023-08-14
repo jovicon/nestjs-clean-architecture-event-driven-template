@@ -12,6 +12,18 @@ General Project Control:
     [] Define Logger Service module
   [] TCP Microservice connection definition
     [] Define TCP Microservice connection module
+  [] Circuit breaker pattern
+    [] Define Circuit breaker pattern module
+    [] Reintentar
+    [] Fallback to queue
+  [] Event-based communication
+    [] Define Event-based communication module
+  [] SAGA Pattern
+    [] Define SAGA Pattern module
+  [] Tests
+    [] Unit Tests
+    [] Integration Tests
+    [] E2E Tests
 
 ## DESCRIPTION DETAILS
   Docker Compose:
@@ -49,6 +61,36 @@ General Project Control:
             [x] add
             [x] Emit
             [x] Listen ? SAGA - move to customer service
+
+          [] Event-based - Kafka
+
+      Clean Code: 
+        [] App Controller
+        
+      [] Tests
+  
+  Logger Module Service:
+    Module:
+      [] API
+      [] Controller
+      [] Routes
+      [x] Health Check
+      [] Tests
+      [] Dockerfile
+    Create Logger Use Case:
+      [] Use Case
+      [] Controller
+      [] Route
+      [] Repository
+        [] Repository Basic Module
+        [] Repository Adapter
+        [] Logger Repository Service
+        [] Events
+          [] Microservice - TCP
+          Logger Created:
+            [] add
+            [] Emit
+            [] Listen ? SAGA - move to customer service
 
           [] Event-based - Kafka
 

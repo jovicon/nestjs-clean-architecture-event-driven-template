@@ -4,10 +4,18 @@
     "esbenp.prettier-vscode",
     "streetsidesoftware.code-spell-checker",
     "mikestead.dotenv",
-    "coenraads.bracket-pair-colorizer",
     "aaron-bond.better-comments",
     "github.copilot",
     "sonarsource.sonarlint-vscode",
-    "fabiospampinato.vscode-todo-plus"
+    "fabiospampinato.vscode-todo-plus",
+    "DavidAnson.vscode-markdownlint",
+    "eamodio.gitlens",
+    "ms-vsliveshare.vsliveshare",
+    "Postman.postman-for-vscode",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "christian-kohler.npm-intellisense",
+    "vscodevim.vim",
+    "GitHub.vscode-pull-request-github"
   ]
 }
