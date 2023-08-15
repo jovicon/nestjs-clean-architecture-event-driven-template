@@ -8,7 +8,7 @@ Clean architecture es un conjunto de principios cuya finalidad principal es ocul
 
 De esta manera mantenemos aislada la lógica de negocios, consiguiendo tener un código mucho más mantenible y escalable en el tiempo.
 
-<img src="/assets/clean-architecture.png" alt="Alt text" title="clean-architecture">
+![Clean Architecture basic diagram](/assets/clean-architecture.png "Clean Architecture diagram")
 
 ## Porque Clean Architecture?
 
@@ -42,12 +42,6 @@ La arquitectura clean se basa en los tres siguientes pilares:
 npm i && npm run prepare
 ```
 
-## Run Docker Compose
-
-```bash
-docker-compose -f docker-compose.yml up
-```
-
 ## Description
 
 Las carpetas principales propuestas para el proyecto son:
@@ -57,7 +51,7 @@ Las carpetas principales propuestas para el proyecto son:
 
 ### Estructura interna de la carpeta shared
 
-```
+```bin
 shared/
   - adapters/
   - application/
@@ -70,7 +64,7 @@ shared/
 
 ### Estructura interna de la carpeta modules
 
-```
+```bin
 modules/
   - module_name (ej: users)
     - adapters/
@@ -115,13 +109,13 @@ modules/
 
 - [API Formula uno](http://ergast.com/mrd/methods/seasons/)
 
-## Versionado 📌:
+## Versionado 📌
 
 - Ocupar [SemVer](http://semver.org/) para el versionado semantico.
 
-## Rules 📢:
+## Rules 📢
 
-### Nomenclatura Ramas:
+### Nomenclatura Ramas
 
 - feature-\*
 
@@ -133,15 +127,15 @@ modules/
 
 - **main** _----> Protegida_
 
-#### Ejemplo:
+#### Ejemplo
 
-```
+```bin
 Feature-login-re-v1-1
 ```
 
-#### Rules:
+#### Rules
 
-```
+```bin
 No se permiten mayúsculas
 
 No se permiten guiones bajos
@@ -151,15 +145,15 @@ No se permiten espacios
 No se permiten caracteres especiales ($#&%?¿)
 ```
 
-### REGEX Ramas:
+### REGEX Ramas
 
-```
+```bin
 (((feature|release|hotfix){1}-{1})\/*([a-z|0-9|-]*)$)|develop|release|main
 ```
 
-### REGEX TAGs:
+### REGEX TAG
 
-```
+```bin
 /^main-v\d+\.\d+\.\d+$
 ```
 
