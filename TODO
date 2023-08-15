@@ -2,10 +2,12 @@
 General Project Control:
   [x] Docker Compose
   [x] Config Module
+
+  [] Order Module Service - working 90%
+
   [] Application HTTP Layer Module
   [] Logger Module Injectable
   [] Injectable Error Interceptor
-  [] Order Module Service
   [] Customer Module Service
     [] Define Customer Service module
   [] Logger Module Service
@@ -25,11 +27,24 @@ General Project Control:
     [] Integration Tests
     [] E2E Tests
 
+Actual work:
+  [] Order Module Service - working 90% 
+
 ## DESCRIPTION DETAILS
   Docker Compose:
     [x] Mongo
     [x] Mongo Express
     [x] Kafka
+    [x] Elastic Stack
+    [] Zookeeper
+    [] Kibana
+    [] Jaeger
+    [] RabbitMQ
+    [] Redis
+    [] Postgres
+    [] MySQL
+    [] Nats
+    [] NATS Streaming
 
   Config Module:
     [x] Configure Environment Variables
@@ -64,17 +79,17 @@ General Project Control:
 
           [] Event-based - Kafka
 
-      Clean Code: 
-        [] App Controller
+    Clean Code: 
+      [] App Controller
         
       [] Tests
   
   Logger Module Service:
     Module:
+      [x] Health Check
       [] API
       [] Controller
       [] Routes
-      [x] Health Check
       [] Tests
       [] Dockerfile
     Create Logger Use Case:
