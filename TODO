@@ -77,7 +77,7 @@ Actual work:
             [x] Emit
             [x] Listen ? SAGA - move to customer service
 
-          [] Event-based - Kafka
+          [] Event-based - Logger Module
 
     Clean Code: 
       [] App Controller
@@ -93,7 +93,7 @@ Actual work:
       [] Tests
       [] Dockerfile
     Create Logger Use Case:
-      [] Use Case
+      [] Use Case - SendQueueMessage
       [] Controller
       [] Route
       [] Repository
