@@ -3,7 +3,7 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { NestFactory } from '@nestjs/core';
-import { HttpModule } from './http.module';
+import { HttpLoggerModule } from './http.module';
 
 const PATH_BASE_MS = '';
 const PORT = 3000;
@@ -16,7 +16,7 @@ async function httpServerBootstrap(): Promise<void> {
       credentials: true,
     };
 
-    const app = await NestFactory.create(HttpModule, { cors: corsConfig });
+    const app = await NestFactory.create(HttpLoggerModule, { cors: corsConfig });
     const winstonLogger = app.get(WINSTON_MODULE_NEST_PROVIDER);
     app.useLogger(winstonLogger);
     app.use(helmet());

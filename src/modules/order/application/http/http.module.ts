@@ -24,4 +24,4 @@ const interceptors = [
   imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
   providers: [...interceptors, OrderSagas],
 })
-export class HttpModule {}
+export class HttpLoggerModule {}

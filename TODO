@@ -3,15 +3,18 @@ General Project Control:
   [x] Docker Compose
   [x] Config Module
 
+  [] Connection between services like nest Microservices
+
   [] Order Module Service - working 90%
+
+  [] Logger Module Service - 30%
+    [] Define Logger Service module
 
   [] Application HTTP Layer Module
   [] Logger Module Injectable
   [] Injectable Error Interceptor
   [] Customer Module Service
     [] Define Customer Service module
-  [] Logger Module Service
-    [] Define Logger Service module
   [] TCP Microservice connection definition
     [] Define TCP Microservice connection module
   [] Circuit breaker pattern
@@ -77,7 +80,7 @@ Actual work:
             [x] Emit
             [x] Listen ? SAGA - move to customer service
 
-          [] Event-based - Kafka
+          [] Event-based - Logger Module
 
     Clean Code: 
       [] App Controller
@@ -93,7 +96,7 @@ Actual work:
       [] Tests
       [] Dockerfile
     Create Logger Use Case:
-      [] Use Case
+      [] Use Case - SendQueueMessage
       [] Controller
       [] Route
       [] Repository
