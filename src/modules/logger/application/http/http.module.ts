@@ -7,6 +7,7 @@ import { ContextInterceptor } from '@shared/application/context/ContextIntercept
 
 import routes from './http.routes';
 import { CoreModule } from './core/core.module';
+import { LoggerModule } from './api/api.module';
 
 import { Logger } from './config/logger';
 
@@ -18,7 +19,7 @@ const interceptors = [
 ];
 
 @Module({
-  imports: [RequestContextModule, ConfigModule, CoreModule, RouterModule.register(routes), Logger],
+  imports: [RequestContextModule, ConfigModule, CoreModule, LoggerModule, RouterModule.register(routes), Logger],
   providers: [...interceptors],
 })
 export class HttpModule {}
