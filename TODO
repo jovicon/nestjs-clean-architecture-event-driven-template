@@ -2,6 +2,7 @@
 General Project Control:
   [x] Docker Compose
   [x] Config Module
+  [] Sanitization library
 
   [] Connection between services like nest Microservices
 
