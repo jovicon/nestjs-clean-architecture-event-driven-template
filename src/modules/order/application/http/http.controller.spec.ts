@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { ClientsModule, Transport } from '@nestjs/microservices';
+
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { ConfigModule } from '@config/config.module';
 import { OrderRepositoryModule } from '../../adapters/repository/order.module';
@@ -50,7 +52,16 @@ describe('ApiController', () => {
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      imports: [ConfigModule, OrderModule, HttpAdapterModule, OrderRepositoryModule, Logger],
+      imports: [
+        ClientsModule.register([
+          { name: 'LOGGER_SERVICE', options: { host: 'localhost:3001' }, transport: Transport.TCP },
+        ]),
+        ConfigModule,
+        OrderModule,
+        HttpAdapterModule,
+        OrderRepositoryModule,
+        Logger,
+      ],
       controllers: [ApiController],
       providers: [ApiService, OrderRepositoryAdapter, CreateOrderController, CreateOrderUseCase],
     })
