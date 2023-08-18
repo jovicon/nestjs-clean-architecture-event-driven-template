@@ -18,7 +18,7 @@ export default class ClientsService {
     };
   }
 
-  async getSeasonByYear(dto: CreateOrderDTO): Promise<HttpResponse<any>> {
+  async createOrder(dto: CreateOrderDTO): Promise<HttpResponse<any>> {
     const useCase = await this.createOrderController.execute(dto);
 
     return {

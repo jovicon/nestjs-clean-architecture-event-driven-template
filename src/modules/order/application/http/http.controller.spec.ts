@@ -67,7 +67,7 @@ describe('ApiController', () => {
         items: ['hola', 'mundo'],
       };
 
-      const result = await appController.getSeasonByYear(dto);
+      const result = await appController.createOrder(dto);
 
       expect(result.status).toBe('success');
     });

@@ -16,13 +16,11 @@ export class ApiController {
   ) {}
 
   @Post('/')
-  getSeasonByYear(@Body() body: CreateOrderDTO): Promise<HttpResponse<string>> {
+  createOrder(@Body() body: CreateOrderDTO): Promise<HttpResponse<string>> {
     const dto = {
       items: body.items,
     };
 
-    console.log('dto', dto);
-
-    return this.apiService.getSeasonByYear(dto);
+    return this.apiService.createOrder(dto);
   }
 }

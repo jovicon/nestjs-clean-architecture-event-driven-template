@@ -24,6 +24,8 @@ General Project Control:
 
   [] Application HTTP Layer Module
   [] Logger Module Injectable
+    [] Color library injectable
+    [] Winston injectable
   [] Injectable Error Interceptor
   [] Customer Module Service
     [] Define Customer Service module
