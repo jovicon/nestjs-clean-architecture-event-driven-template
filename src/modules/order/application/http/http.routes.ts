@@ -1,9 +1,10 @@
+import { PATH_BASE_MS } from './http.config';
 import { CoreModule } from './core/core.module';
 import { OrderModule } from './api/api.module';
 
 const orderRoutes = [
   {
-    path: '/order',
+    path: `/${PATH_BASE_MS}`,
     module: CoreModule,
     children: [
       {
