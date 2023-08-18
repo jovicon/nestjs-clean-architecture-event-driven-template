@@ -8,7 +8,19 @@ General Project Control:
   [] Order Module Service - working 90%
 
   [] Logger Module Service - 30%
-    [] Define Logger Service module
+    [] health check
+    [] path to generate logs
+    [] Design Pattern to execute multiples queues at the same time
+      [] Which pattern do I have to use?
+      [] Strategy pattern
+    [] shared queue adapters
+    [] Elastic Stack
+    [] Kafka
+    [] Redis
+    [] Nats
+    [] NATS Streaming
+    [] Jaeger
+    [] RabbitMQ
 
   [] Application HTTP Layer Module
   [] Logger Module Injectable
