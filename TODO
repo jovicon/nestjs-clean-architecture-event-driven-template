@@ -5,6 +5,7 @@
     [x] Choreography-based saga
       [x] TCP
     [] Orchestration-based saga
+    [] Final Diagram
 
     Connection between services like nest Microservices:
       [x] TCP
