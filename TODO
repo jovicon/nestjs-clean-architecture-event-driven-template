@@ -1,54 +1,92 @@
-# LAB 01
-General Project Control:
-  [x] Docker Compose
-  [x] Config Module
-  [] Sanitization library
+# GLOBAL GOALS
+  General Project Control:
+    [x] Docker Compose
+    [x] Config Module
+    [x] Choreography-based saga
+      [x] TCP
+    [] Orchestration-based saga
+    [] Final Diagram
 
-  [] Connection between services like nest Microservices
+    Connection between services like nest Microservices:
+      [x] TCP
+      [x] HTTP
+      [] REDIS
+      [] NATS
+      [] NATS Streaming
+      [] Kafka
+      [] RabbitMQ
+      [] Jaeger  
+    
+    Libraries:
+      [] Sanitization library
 
-  [] Order Module Service - working 90%
+    Modules:
+      [] Logger Module Injectable - Start to working
+        [] Describe into Actual Work
 
-  [] Logger Module Service - 30%
-    [] health check
-    [] path to generate logs
-    [] Design Pattern to execute multiples queues at the same time
-      [] Which pattern do I have to use?
-      [] Strategy pattern
-    [] shared queue adapters
-    [] Elastic Stack
-    [] Kafka
-    [] Redis
-    [] Nats
-    [] NATS Streaming
-    [] Jaeger
-    [] RabbitMQ
+      [] Order Module Service - working 90%
 
-  [] Application HTTP Layer Module
-  [] Logger Module Injectable
-    [] Color library injectable
-    [] Winston injectable
-  [] Injectable Error Interceptor
-  [] Customer Module Service
-    [] Define Customer Service module
-  [] TCP Microservice connection definition
-    [] Define TCP Microservice connection module
-  [] Circuit breaker pattern
-    [] Define Circuit breaker pattern module
-    [] Reintentar
-    [] Fallback to queue
-  [] Event-based communication
-    [] Define Event-based communication module
-  [] SAGA Pattern
-    [] Define SAGA Pattern module
-  [] Tests
-    [] Unit Tests
-    [] Integration Tests
-    [] E2E Tests
+      [] Logger Module Service - 30%
+        [x] health check
+        [x] path to generate logs
+        [] Design Pattern to execute multiples services at the same time
+          [] Which pattern do I have to use?
+          [] Strategy pattern
+        [] Services to Log
+          [] Elastic Stack
+          [] Mongo
+          [] Firebase
+          
+      [] Queue Module Service
+        [] shared queue adapters
+          [] Kafka
+          [] Redis
+          [] Nats
+          [] NATS Streaming
+          [] Jaeger
+          [] RabbitMQ
 
-Actual work:
-  [] Order Module Service - working 90% 
+          
+      [] Circuit breaker pattern
+        [] Define Circuit breaker pattern module
+        [] Reintentar
+        [] Fallback to queue
+        [] Fallback to database
+        [] Fallback to cache
+        [] Fallback to another service/microservice
+          
+      [] Customer Module Service
+        [] Define Customer Service module
+          
+    Utilities:
+      [] Logger Utility
+        [] Color library injectable
+        [] Winston or Logger injectable
 
-## DESCRIPTION DETAILS
+      [] Injectable Error Interceptor
+      
+      [] SAGA Pattern
+        [] Define SAGA Pattern module
+      
+      [] Tests
+        [] Unit Tests
+        [] Integration Tests
+        [] E2E Tests
+
+  Actual work:
+    [] Order Module Service - working 80%
+      [] tcp host to config ms
+      [] Reorder application folder
+      [] Implement SAGA PATTERN
+      [] clean code
+
+    [] Logger Module Controller - working 50%
+      [] Implement SAGA PATTERN
+      [] Use Case - Save To Elastic
+      [] Reuse Use Case - Save To Elastic
+      [] clean code
+
+# DESCRIPTION DETAILS
   Docker Compose:
     [x] Mongo
     [x] Mongo Express
@@ -95,47 +133,60 @@ Actual work:
             [x] Emit
             [x] Listen ? SAGA - move to customer service
 
-          [] Event-based - Logger Module
+          [X] Event-based - Logger Module
 
     Clean Code: 
-      [] App Controller
-        
+      [] code quality & clean
+      [] Folder Structure
+    
       [] Tests
   
   Logger Module Service:
     Module:
-      [x] Health Check
-      [] API
-      [] Controller
-      [] Routes
-      [] Tests
       [] Dockerfile
-    Create Logger Use Case:
-      [] Use Case - SendQueueMessage
-      [] Controller
-      [] Route
-      [] Repository
-        [] Repository Basic Module
-        [] Repository Adapter
-        [] Logger Repository Service
-        [] Events
-          [] Microservice - TCP
-          Logger Created:
-            [] add
-            [] Emit
-            [] Listen ? SAGA - move to customer service
 
-          [] Event-based - Kafka
+      Config:
+        [] Port value to Config
 
-      Clean Code: 
-        [] App Controller
-        
-      [] Tests
+      HTTP:
+        [x] Health Check
+        [x] API
+        [x] Controller
+        [x] Routes
+        [] Tests
 
+      TCP:
+        Events:
+          [x] Created Order
+          [] Inject Use Case
+          [] Tests
+    
+      Create Logger Use Case:
+        [] Use Case - SendQueueMessage
+        [] Controller
+        [] Route
+        [] Repository
+          [] Repository Basic Module
+          [] Repository Adapter
+          [] Logger Repository Service
+          [] Events
+            [] Microservice - TCP
+            Logger Created:
+              [] add
+              [] Emit
+              [] Listen ? SAGA - move to customer service
 
+            [] Event-based - Kafka
 
-Que falta para entregar a Sura:
-  [] Enviar evento desde Saga
-  [] Recibir eventos desde Saga
+        Clean Code: 
+          [] App Controller
+          
+        [] Tests
 
-# LAB 2
+# SURA
+  Que falta para entregar a Sura:
+    [x] Enviar evento desde Event Handler
+    [x] Recibir eventos en Module Logger
+    [] Order Module - Actual Work
+    [] Logger Module - Actual Work
+    [] Presentación

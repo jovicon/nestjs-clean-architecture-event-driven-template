@@ -23,7 +23,9 @@ const interceptors = [
 
 @Module({
   imports: [
-    ClientsModule.register([{ name: 'LOGGER_SERVICE', options: { host: 'localhost:3001' }, transport: Transport.TCP }]),
+    ClientsModule.register([
+      { name: 'LOGGER_SERVICE', options: { host: 'localhost', port: 3001 }, transport: Transport.TCP },
+    ]),
     RequestContextModule,
     ConfigModule,
     CoreModule,

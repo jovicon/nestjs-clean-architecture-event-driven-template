@@ -9,7 +9,7 @@ import routes from './http.routes';
 import { CoreModule } from './core/core.module';
 import { LoggerModule } from './api/api.module';
 
-import { Logger } from './config/logger';
+import { Logger } from '../config/logger';
 
 const interceptors = [
   {
