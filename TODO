@@ -46,7 +46,13 @@ General Project Control:
     [] E2E Tests
 
 Actual work:
-  [] Order Module Service - working 90% 
+  [] Order Module Service - working 90%
+    [] tcp host to config ms
+    [] Reorder application folder
+    [] Implement SAGA PATTERN
+
+  [] Logger Module Controller
+    [] Use Case - Save To Elastic
 
 ## DESCRIPTION DETAILS
   Docker Compose:
@@ -135,7 +141,7 @@ Actual work:
 
 
 Que falta para entregar a Sura:
-  [] Enviar evento desde Saga
-  [] Recibir eventos desde Saga
+  [x] Enviar evento desde Event Handler
+  [x] Recibir eventos en Module Logger
 
 # LAB 2
