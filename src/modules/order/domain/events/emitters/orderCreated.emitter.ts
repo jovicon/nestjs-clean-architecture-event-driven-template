@@ -1,5 +1,5 @@
 import { DomainEvent, DomainEventProps } from '@shared/ddd';
-import { OrderItem } from '../orderItem';
+import { OrderItem } from '../../orderItem';
 
 export class OrderCreatedDomainEvent extends DomainEvent {
   readonly data: OrderItem[];

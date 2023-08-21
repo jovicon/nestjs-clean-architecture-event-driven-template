@@ -16,6 +16,7 @@
     "ms-vscode-remote.remote-containers",
     "christian-kohler.npm-intellisense",
     "vscodevim.vim",
-    "GitHub.vscode-pull-request-github"
+    "GitHub.vscode-pull-request-github",
+    "hediet.vscode-drawio"
   ]
 }
