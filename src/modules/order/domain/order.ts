@@ -2,7 +2,7 @@ import { Result } from '@shared/core/Result';
 import { Guard } from '@shared/core/Guard';
 import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
-import { OrderCreatedDomainEvent } from './events/order-created.domain-event';
+import { OrderCreatedDomainEvent } from './events/emitters/orderCreated.emitter';
 
 import { OrderItem, OrderItemProps } from './orderItem';
 
