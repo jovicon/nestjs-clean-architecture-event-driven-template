@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { RouterModule, APP_INTERCEPTOR } from '@nestjs/core';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import { RequestContextModule } from 'nestjs-request-context';
 import { ConfigModule } from '@config/config.module';
@@ -21,7 +22,15 @@ const interceptors = [
 ];
 
 @Module({
-  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
+  imports: [
+    ClientsModule.register([{ name: 'LOGGER_SERVICE', options: { host: 'localhost:3001' }, transport: Transport.TCP }]),
+    RequestContextModule,
+    ConfigModule,
+    CoreModule,
+    OrderModule,
+    RouterModule.register(routes),
+    Logger,
+  ],
   providers: [...interceptors, OrderCreatedEventHandler],
 })
 export class HttpModule {}
