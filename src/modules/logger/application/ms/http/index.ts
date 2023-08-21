@@ -6,7 +6,7 @@ import { NestFactory } from '@nestjs/core';
 import { HttpModule } from './http.module';
 
 const PATH_BASE_MS = '';
-const PORT = 3001;
+const PORT = 3002;
 
 async function httpServerBootstrap(): Promise<void> {
   try {
