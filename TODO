@@ -4,8 +4,8 @@
     [x] Config Module
     [x] Choreography-based saga
       [x] TCP
+    [x] Final Diagram
     [] Orchestration-based saga
-    [] Final Diagram
 
     Connection between services like nest Microservices:
       [x] TCP

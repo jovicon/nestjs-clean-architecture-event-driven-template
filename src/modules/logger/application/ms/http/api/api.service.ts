@@ -1,19 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { HttpResponse } from '@application/interfaces/http';
+
+import { CreateLogController } from '../../../useCases/SendQueuesMessage/SendQueuesMessage.controller';
+import { CreateLogDTO } from '../../../useCases/SendQueuesMessage/SendQueuesMessage.dto';
 
 @Injectable()
-export default class ClientsService {
-  saveClient(client: any): HttpResponse<any> {
-    return {
-      status: 'success',
-      message: 'saved client',
-      data: {
-        ...client,
-      },
-    };
-  }
+export class ClientsService {
+  constructor(private readonly createLogController: CreateLogController) {}
 
-  async getSeasonByYear(): Promise<void> {
-    console.log('getSeasonByYear Logger');
+  async createLog(dto: CreateLogDTO): Promise<any> {
+    const useCase = await this.createLogController.execute(dto);
+
+    return {
+      ...useCase,
+    };
   }
 }
