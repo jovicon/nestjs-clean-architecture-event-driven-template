@@ -4,9 +4,9 @@ import { CreateOrderDTO } from './SendQueuesMessage.dto';
 
 @Injectable()
 export class CreateOrderController {
-  constructor(private readonly getSeasonByYearUseCase: SendQueuesMessageUseCase) {}
+  constructor(private readonly sendQueuesMessageUseCase: SendQueuesMessageUseCase) {}
 
   async execute(dto: CreateOrderDTO): Promise<any> {
-    return this.getSeasonByYearUseCase.execute();
+    return this.sendQueuesMessageUseCase.execute(dto);
   }
 }

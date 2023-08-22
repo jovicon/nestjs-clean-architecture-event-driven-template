@@ -5,7 +5,9 @@ import { CreateOrderDTO } from './SendQueuesMessage.dto';
 
 @Injectable()
 export class SendQueuesMessageUseCase implements UseCase<CreateOrderDTO, Promise<any>> {
-  public async execute(): Promise<any> {
+  public async execute(dto: CreateOrderDTO): Promise<any> {
+    console.log('SendQueuesMessageUseCase', dto);
+
     try {
       return {
         status: 'success',
