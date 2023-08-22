@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { SendQueuesMessageUseCase } from './SendQueuesMessage.usecase';
-import { CreateOrderDTO } from './SendQueuesMessage.dto';
+import { CreateLogDTO } from './SendQueuesMessage.dto';
 
 @Injectable()
-export class CreateOrderController {
+export class CreateLogController {
   constructor(private readonly sendQueuesMessageUseCase: SendQueuesMessageUseCase) {}
 
-  async execute(dto: CreateOrderDTO): Promise<any> {
+  async execute(dto: CreateLogDTO): Promise<any> {
     return this.sendQueuesMessageUseCase.execute(dto);
   }
 }

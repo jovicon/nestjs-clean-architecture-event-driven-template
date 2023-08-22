@@ -1,3 +1,3 @@
-export interface CreateOrderDTO {
-  items: any[];
+export interface CreateLogDTO {
+  item: any;
 }
