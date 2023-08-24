@@ -76,13 +76,14 @@
   Actual work:
     [] Order Module Service - working 80%
       [] tcp host to config ms
-      [] Reorder application folder
+      [x] Reorder application folder
       [] Implement SAGA PATTERN
       [] clean code
 
     [] Logger Module Controller - working 50%
       [] Implement SAGA PATTERN
-      [] Use Case - Save To Elastic
+      [x] Use Case - Save To Elastic
+      [] Creds to config
       [] Reuse Use Case - Save To Elastic
       [] clean code
 
