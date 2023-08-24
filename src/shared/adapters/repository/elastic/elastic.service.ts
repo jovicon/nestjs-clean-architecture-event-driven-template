@@ -12,7 +12,7 @@ export class ElasticService<T> {
 
   create(item: T): Promise<any> {
     console.log('ElasticService', item);
-    return this._repository.create({ id: '1', index: 'test', body: item });
+    return this._repository.create({ id: '2', index: 'test', body: item });
   }
 
   // update(id: string, item: T) {
