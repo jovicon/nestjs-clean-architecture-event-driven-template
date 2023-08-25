@@ -7,6 +7,9 @@
     [x] Final Diagram
     [] Orchestration-based saga
 
+    General Architecture:
+      [] Use Case Folder Outside Application Folder?
+
     Connection between services like nest Microservices:
       [x] TCP
       [x] HTTP
