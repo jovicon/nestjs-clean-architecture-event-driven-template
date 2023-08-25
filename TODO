@@ -75,7 +75,7 @@
 
   Actual work:
     [] Order Module Service - working 80%
-      [] tcp host to config ms
+      [x] tcp host to config ms
       [x] Reorder application folder
       [] Implement SAGA PATTERN
       [] clean code
