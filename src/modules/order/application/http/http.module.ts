@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { RouterModule, APP_INTERCEPTOR } from '@nestjs/core';
-import { ClientsModule, Transport } from '@nestjs/microservices';
+import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 
 import { RequestContextModule } from 'nestjs-request-context';
 import { ConfigModule } from '@config/config.module';
+import { ConfigService } from '@config/config.service';
+
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
 import { OrderCreatedEventHandler } from '../../domain/events/handlers/orderCreated.handler';
@@ -21,18 +23,21 @@ const interceptors = [
   },
 ];
 
+const loggerMicroserviceProvider = {
+  provide: 'LOGGER_SERVICE',
+  useFactory: (configService: ConfigService) =>
+    ClientProxyFactory.create({
+      options: {
+        host: configService.providers.loggerModule.loggerHost,
+        port: configService.providers.loggerModule.loggerPort,
+      },
+      transport: Transport.TCP,
+    }),
+  inject: [ConfigService],
+};
+
 @Module({
-  imports: [
-    ClientsModule.register([
-      { name: 'LOGGER_SERVICE', options: { host: 'localhost', port: 3001 }, transport: Transport.TCP },
-    ]),
-    RequestContextModule,
-    ConfigModule,
-    CoreModule,
-    OrderModule,
-    RouterModule.register(routes),
-    Logger,
-  ],
-  providers: [...interceptors, OrderCreatedEventHandler],
+  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
+  providers: [...interceptors, OrderCreatedEventHandler, loggerMicroserviceProvider],
 })
 export class HttpModule {}

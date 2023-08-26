@@ -17,4 +17,12 @@ export class MicroserviceConfig implements IMicroserviceConfig {
   get microserviceVersion(): string {
     return this.envConfig.version;
   }
+
+  get loggerHost(): string {
+    return this.envConfig.LOGGER_HOST;
+  }
+
+  get loggerPort(): number {
+    return +this.envConfig.LOGGER_PORT;
+  }
 }

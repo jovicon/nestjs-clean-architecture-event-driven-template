@@ -1,5 +1,5 @@
-import { parse } from 'dotenv';
 import { readFile } from 'fs/promises';
+import { parse } from 'dotenv';
 import { EnvConfig, IDatabaseConfig } from '@config/config.types';
 
 export class DataBaseConfig implements IDatabaseConfig {
