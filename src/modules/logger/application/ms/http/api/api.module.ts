@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { ApiController } from './api.controller';
 import { ClientsService as ApiService } from './api.service';
 
-import { CreateOrderModule } from '../../../useCases/SendQueuesMessage/SendQueuesMessage.module';
+import { CreateOrderModule } from '../../../useCases/SendQueuesMessage/CreateLog.module';
 
 @Module({
   imports: [CreateOrderModule],

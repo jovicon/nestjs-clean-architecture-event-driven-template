@@ -23,4 +23,24 @@ export class LoggerModuleConfig implements ILoggerModuleConfig {
   get loggerPort(): number {
     return +this.envConfig.LOGGER_PORT;
   }
+
+  get elasticHost(): string {
+    return this.envConfig.ELASTICSEARCH_HOST;
+  }
+
+  get elasticPort(): number {
+    return +this.envConfig.ELASTICSEARCH_PORT;
+  }
+
+  get elasticUsername(): string {
+    return this.envConfig.ELASTICSEARCH_USERNAME;
+  }
+
+  get elasticPassword(): string {
+    return this.envConfig.ELASTICSEARCH_PASSWORD;
+  }
+
+  get elasticIndex(): string {
+    return this.envConfig.ELASTICSEARCH_INDEX;
+  }
 }

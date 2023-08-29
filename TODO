@@ -79,7 +79,7 @@
   Actual work:
     [] Order Module Service - working 80%
       [x] tcp host to config ms
-      [] Reorder application folder
+      [x] Reorder application folder
       [] Implement SAGA PATTERN
       [] clean code
 

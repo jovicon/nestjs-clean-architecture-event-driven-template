@@ -3,16 +3,21 @@ import { Injectable } from '@nestjs/common';
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 @Injectable()
-export class ElasticService<T> {
+export class ElasticService {
   private _repository: ElasticsearchService;
 
   constructor(private readonly elasticsearchService: ElasticsearchService) {
-    this._repository = elasticsearchService;
+    this._repository = this.elasticsearchService;
   }
 
-  create(item: T): Promise<any> {
-    console.log('ElasticService', item);
-    return this._repository.create({ id: '2', index: 'test', body: item });
+  create({ id, item }: { id: string; item: any }): Promise<any> {
+    return this._repository.create({
+      id,
+      index: 'test',
+      body: {
+        ...item,
+      },
+    });
   }
 
   // update(id: string, item: T) {

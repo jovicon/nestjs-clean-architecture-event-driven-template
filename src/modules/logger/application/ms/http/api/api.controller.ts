@@ -14,7 +14,8 @@ export class ApiController {
   @Post('/')
   async saveLogs(@Body() body: CreateLogDTO): Promise<HttpResponse<string>> {
     const dto = {
-      item: body.trackingId,
+      id: body.trackingId,
+      item: body,
     };
 
     return this.apiService.createLog(dto);
