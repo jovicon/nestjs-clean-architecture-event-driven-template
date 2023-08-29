@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 
 import { ElasticAdapterModule } from '@shared/adapters/repository/elastic/elastic.module';
 
-import { SendQueuesMessageUseCase } from './SendQueuesMessage.usecase';
-import { CreateLogController } from './SendQueuesMessage.controller';
+import { CreateLogUseCase } from './CreateLog.usecase';
+import { CreateLogController } from './CreateLog.controller';
 
 @Module({
   imports: [ElasticAdapterModule],
-  providers: [CreateLogController, SendQueuesMessageUseCase],
+  providers: [CreateLogController, CreateLogUseCase],
   exports: [CreateLogController],
 })
 export class CreateOrderModule {}

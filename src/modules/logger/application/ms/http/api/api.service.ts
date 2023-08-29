@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { CreateLogController } from '../../../useCases/SendQueuesMessage/SendQueuesMessage.controller';
-import { CreateLogDTO } from '../../../useCases/SendQueuesMessage/SendQueuesMessage.dto';
+import { CreateLogController } from '../../../useCases/SendQueuesMessage/CreateLog.controller';
+import { CreateLogDTO } from '../../../useCases/SendQueuesMessage/CreateLog.dto';
 
 @Injectable()
 export class ClientsService {

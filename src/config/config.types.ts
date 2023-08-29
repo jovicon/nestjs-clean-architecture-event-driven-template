@@ -14,6 +14,11 @@ export interface IDatabaseConfig {
 export interface ILoggerModuleConfig {
   loggerHost: string;
   loggerPort: number;
+  elasticHost: string;
+  elasticPort: number;
+  elasticUsername: string;
+  elasticPassword: string;
+  elasticIndex: string;
 }
 
 export interface IMicroserviceConfig {

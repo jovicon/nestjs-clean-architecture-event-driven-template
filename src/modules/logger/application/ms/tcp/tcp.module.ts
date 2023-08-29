@@ -7,8 +7,10 @@ import { Logger } from '../config/logger';
 
 import { LoggerController } from './tcp.controller';
 
+import { CreateOrderModule } from '../../useCases/SendQueuesMessage/CreateLog.module';
+
 @Module({
+  imports: [RequestContextModule, ConfigModule, CreateOrderModule, Logger],
   controllers: [LoggerController],
-  imports: [RequestContextModule, ConfigModule, Logger],
 })
 export class TcpModule {}

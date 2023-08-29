@@ -3,17 +3,23 @@ import { UseCase } from '@shared/core/UseCase';
 
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
-import { CreateLogDTO } from './SendQueuesMessage.dto';
+import { CreateLogDTO } from './CreateLog.dto';
 
 @Injectable()
-export class SendQueuesMessageUseCase implements UseCase<CreateLogDTO, Promise<any>> {
-  constructor(private readonly elasticService: ElasticService<any>) {}
+export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<any>> {
+  constructor(private readonly elasticService: ElasticService) {}
 
   public async execute(dto: CreateLogDTO): Promise<any> {
-    console.log('SendQueuesMessageUseCase', dto);
+    console.log('CreateLogUseCase - DTO: ', dto);
 
+    const log = {
+      id: dto.id,
+      item: dto,
+    };
+
+    console.log('CreateLogUseCase - LOG: ', log);
     try {
-      await this.elasticService.create(dto);
+      await this.elasticService.create(log);
       return {
         status: 'success',
         message: 'created order',
