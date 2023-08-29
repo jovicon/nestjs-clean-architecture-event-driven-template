@@ -4,12 +4,12 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { ConfigModule } from '@config/config.module';
-import { OrderRepositoryModule } from '../../adapters/repository/order.module';
+import { OrderRepositoryModule } from '../../../adapters/repository/order.module';
 
-import { CreateOrderController } from '../useCases/CreateOrder/CreateOrder.controller';
-import { CreateOrderUseCase } from '../useCases/CreateOrder/CreateOrder.usecase';
+import { CreateOrderController } from '../../useCases/CreateOrder/CreateOrder.controller';
+import { CreateOrderUseCase } from '../../useCases/CreateOrder/CreateOrder.usecase';
 
-import { OrderRepositoryAdapter } from '../../adapters/repository/order.adapter';
+import { OrderRepositoryAdapter } from '../../../adapters/repository/order.adapter';
 
 import { Logger } from './config/logger';
 
