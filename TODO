@@ -81,13 +81,18 @@
       [x] tcp host to config ms
       [x] Reorder application folder
       [] Implement SAGA PATTERN
+      [] Application to Class Module
+        [] HTTP
       [] clean code
 
     [] Logger Module Controller - working 50%
       [] Implement SAGA PATTERN
       [x] Use Case - Save To Elastic
-      [] Creds to config
-      [] Reuse Use Case - Save To Elastic
+      [x] Creds to config
+      [x] Reuse Use Case - Save To Elastic
+      [] Application to Class Module
+        [] HTTP
+        [] TCP
       [] clean code
 
 # DESCRIPTION DETAILS
