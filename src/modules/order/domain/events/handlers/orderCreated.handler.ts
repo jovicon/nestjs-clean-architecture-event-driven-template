@@ -15,6 +15,7 @@ export class OrderCreatedEventHandler {
     console.log(clc.redBright('[OrderCreated eventHandler] - Inside handler'));
     console.log(clc.redBright('[OrderCreated eventHandler] - event: ', JSON.stringify(event)));
 
+    // TODO: Reintentos en caso de fallbacks
     this.clientLoggerService.emit('createdOrder', event);
 
     return { success: true };
