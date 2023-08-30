@@ -6,6 +6,7 @@
       [x] TCP
     [x] Final Diagram
     [] Orchestration-based saga
+    [] Sources documentation
 
     General Architecture:
       [x] Use Case Folder Outside Application Folder?
