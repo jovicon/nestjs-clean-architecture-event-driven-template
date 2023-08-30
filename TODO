@@ -8,7 +8,7 @@
     [] Orchestration-based saga
 
     General Architecture:
-      [] Use Case Folder Outside Application Folder?
+      [x] Use Case Folder Outside Application Folder?
 
     Connection between services like nest Microservices:
       [x] TCP
@@ -81,6 +81,8 @@
       [] Separete Clean architecture from principal Readme
       [] Principal Readme Just for Project Diagram, Installation & how it works
       [] Separete Event Driven Docs
+
+    [] Queue event Fallback
 
     [] Order Module Service - working 90%
       [x] tcp host to config ms
