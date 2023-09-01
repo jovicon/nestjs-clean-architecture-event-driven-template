@@ -6,9 +6,10 @@
       [x] TCP
     [x] Final Diagram
     [] Orchestration-based saga
+    [] Sources documentation
 
     General Architecture:
-      [] Use Case Folder Outside Application Folder?
+      [x] Use Case Folder Outside Application Folder?
 
     Connection between services like nest Microservices:
       [x] TCP
@@ -18,7 +19,7 @@
       [] NATS Streaming
       [] Kafka
       [] RabbitMQ
-      [] Jaeger  
+      [] Jaeger
     
     Libraries:
       [] Sanitization library
@@ -77,17 +78,29 @@
         [] E2E Tests
 
   Actual work:
-    [] Order Module Service - working 80%
+    [] Docs
+      [] Separete Clean architecture from principal Readme
+      [] Principal Readme Just for Project Diagram, Installation & how it works
+      [] Separete Event Driven Docs
+
+    [] Queue event Fallback
+
+    [] Order Module Service - working 90%
       [x] tcp host to config ms
       [x] Reorder application folder
       [] Implement SAGA PATTERN
-      [] clean code
+      [] Application to Class Module
+        [] HTTP
+      [x] clean code
 
-    [] Logger Module Controller - working 50%
+    [] Logger Module Controller - working 60%
       [] Implement SAGA PATTERN
       [x] Use Case - Save To Elastic
-      [] Creds to config
-      [] Reuse Use Case - Save To Elastic
+      [x] Creds to config
+      [x] Reuse Use Case - Save To Elastic
+      [] Application to Class Module
+        [] HTTP
+        [] TCP
       [] clean code
 
 # DESCRIPTION DETAILS
@@ -195,3 +208,15 @@
     [] Logger Module - Actual Work
     [] Validación de Arquitectura
     [] Presentación
+
+
+# Sources
+- CQRS & Event Driven Design
+  - https://www.youtube.com/playlist?list=PLesmOrW3mp4jpSbdFMtVWINJZ7OLdSASS
+
+- Repository: 
+  - https://betterprogramming.pub/implementing-a-generic-repository-pattern-using-nestjs-fb4db1b61cce
+  - https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design
+
+- Saga pattern:
+  - https://blog.bitsrc.io/how-to-use-saga-pattern-in-microservices-9eaadde79748
