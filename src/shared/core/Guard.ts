@@ -86,4 +86,50 @@ export class Guard {
     }
     return { succeeded: false, message: `${argumentName} is not an array` };
   }
+
+  public static againstAtLeast(numChars: number, text: string, argumentName: string): IGuardResult {
+    if (text.length < numChars) {
+      return { succeeded: false, message: `${argumentName} is not at least ${numChars} chars.` };
+    }
+    return { succeeded: true };
+  }
+
+  public static againstAtMost(numChars: number, text: string, argumentName: string): IGuardResult {
+    if (text.length > numChars) {
+      return { succeeded: false, message: `${argumentName} is greater than ${numChars} chars.` };
+    }
+    return { succeeded: true };
+  }
+
+  public static isValidRut(value: string): IGuardResult {
+    const validator = {
+      validatingRut: (rut: string) => {
+        if (!rut.includes('-')) {
+          return false;
+        }
+
+        const cleanRut = validator.rutClean(rut);
+        let rutDigits = parseInt(cleanRut.slice(0, -1), 10);
+        let m = 0;
+        let s = 1;
+
+        while (rutDigits > 0) {
+          s = (s + (rutDigits % 10) * (9 - (m++ % 6))) % 11;
+          rutDigits = Math.floor(rutDigits / 10);
+        }
+
+        const checkDigit = s > 0 ? String(s - 1) : 'K';
+
+        return checkDigit === cleanRut.slice(-1);
+      },
+      rutClean: (rut: string) => (typeof rut === 'string' ? rut.replace(/[^0-9kK]+/g, '').toUpperCase() : ''),
+    };
+
+    const isValidRut = validator.validatingRut(value);
+
+    return {
+      succeeded: isValidRut,
+      message: isValidRut ? '' : 'Rut invalido',
+    };
+  }
 }

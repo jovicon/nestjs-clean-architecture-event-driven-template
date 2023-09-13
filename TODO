@@ -78,6 +78,10 @@
         [] E2E Tests
 
   Actual work:
+    [] Rut Validator
+      [] Try catch
+      [] Throw error with object
+
     [] Docs
       [] Separete Clean architecture from principal Readme
       [] Principal Readme Just for Project Diagram, Installation & how it works
