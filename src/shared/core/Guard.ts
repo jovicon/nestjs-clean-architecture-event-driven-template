@@ -35,6 +35,13 @@ export class Guard {
     return { succeeded: true };
   }
 
+  public static isPositiveNumber(argument: number, argumentName: string): IGuardResult {
+    if (argument <= 0) {
+      return { succeeded: false, message: `${argumentName} is not greater than 0` };
+    }
+    return { succeeded: true };
+  }
+
   public static valueBetween(argument: any, argumentName: string, min: number, max: number): IGuardResult {
     if (argument < min || argument > max) {
       return { succeeded: false, message: `${argumentName} must be between ${min} and ${max}` };
