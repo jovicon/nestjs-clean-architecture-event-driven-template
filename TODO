@@ -7,6 +7,8 @@
     [x] Final Diagram
     [] Orchestration-based saga
     [] Sources documentation
+    [] Update source code folders
+    [] Multi tenancy DB connection
 
     General Architecture:
       [x] Use Case Folder Outside Application Folder?
@@ -15,10 +17,10 @@
       [x] TCP
       [x] HTTP
       [] REDIS
-      [] NATS
-      [] NATS Streaming
       [] Kafka
       [] RabbitMQ
+      [] NATS
+      [] NATS Streaming
       [] Jaeger
     
     Libraries:
