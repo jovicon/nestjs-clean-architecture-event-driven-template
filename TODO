@@ -2,11 +2,52 @@
   General Project Control:
     [x] Docker Compose
     [x] Config Module
-    [x] Choreography-based saga
-      [x] TCP
-    [x] Final Diagram
+    [] VS code extensions
+    [] Update libraries
+    [] Update docker
+    [] Code review
+    [] Reorder from best sura practices
+      [] OT 
+        [] INJECTION FROM PORTS
+        [] SIMPLE USE CASES
+      [] TOC SIMPY
+      [] BFF
+    [] Final Diagram
+    [] Choreography-based saga
+      [] TCP
     [] Orchestration-based saga
     [] Sources documentation
+    [] Update source code folders
+    [] Multi tenancy DB connection
+
+    Security:
+      [] Talisman
+      [] JWT
+      [] Helmet
+      [] Rate Limit
+      [] SQL Injection
+      [] Sanitization
+
+    Code Quality:
+      [] SonarQube
+      [] Code Climate
+      [] Code Quality
+      [] Code Coverage
+      [] Code Review
+      [] Code Smells
+      [] Code Duplication
+      [] Code Complexity
+      [] Code Security
+      [] Code Style
+
+    Unit Test:
+      [] Mocks
+      [] Infra
+      [] Spies
+      [] Stubs
+    
+    Monitoring:
+      [] New Relic
 
     General Architecture:
       [x] Use Case Folder Outside Application Folder?
@@ -15,14 +56,15 @@
       [x] TCP
       [x] HTTP
       [] REDIS
-      [] NATS
-      [] NATS Streaming
       [] Kafka
       [] RabbitMQ
+      [] NATS
+      [] NATS Streaming
       [] Jaeger
     
     Libraries:
       [] Sanitization library
+      [] SQL Injection
 
     Modules:
       [] Logger Module Injectable - Start to working

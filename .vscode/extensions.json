@@ -5,8 +5,6 @@
     "streetsidesoftware.code-spell-checker",
     "mikestead.dotenv",
     "aaron-bond.better-comments",
-    "github.copilot",
-    "sonarsource.sonarlint-vscode",
     "fabiospampinato.vscode-todo-plus",
     "DavidAnson.vscode-markdownlint",
     "eamodio.gitlens",
@@ -17,6 +15,13 @@
     "christian-kohler.npm-intellisense",
     "vscodevim.vim",
     "GitHub.vscode-pull-request-github",
-    "hediet.vscode-drawio"
+    "hediet.vscode-drawio",
+    "Orta.vscode-jest",
+    "firsttris.vscode-jest-runner",
+    "SonarSource.sonarlint-vscode",
+    "GitHub.copilot",
+    "jasonnutter.search-node-modules",
+    "vscode-icons-team.vscode-icons",
+    "kisstkondoros.vscode-codemetrics"
   ]
 }
