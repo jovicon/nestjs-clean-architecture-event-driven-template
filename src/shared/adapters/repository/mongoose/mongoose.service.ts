@@ -23,8 +23,8 @@ export class MongoRepositoryService<T> implements Repository<T> {
     return this._repository.findByIdAndUpdate(id, item);
   }
 
-  delete(id: string): Promise<T> {
-    return this._repository.findByIdAndRemove(id);
+  delete(id: string): Promise<any> {
+    return this._repository.deleteOne({id: id});
   }
 
   find(id: string): Promise<any> {

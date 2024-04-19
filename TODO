@@ -2,8 +2,8 @@
   General Project Control:
     [x] Docker Compose
     [x] Config Module
-    [] VS code extensions
-    [] Update libraries
+    [x] VS code extensions
+    [x] Update libraries
     [] Update docker
     [] Code review
     [] Reorder from best sura practices
@@ -12,6 +12,7 @@
         [] SIMPLE USE CASES
       [] TOC SIMPY
       [] BFF
+    [] Best Docker practices
     [] Final Diagram
     [] Choreography-based saga
       [] TCP
