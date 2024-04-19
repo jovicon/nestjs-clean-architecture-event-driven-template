@@ -2,6 +2,9 @@
   General Project Control:
     [x] Docker Compose
     [x] Config Module
+    [] VS code extensions
+    [] Update libraries
+    [] Update docker
     [] Code review
     [] Reorder from best sura practices
       [] OT 
@@ -36,6 +39,12 @@
       [] Code Complexity
       [] Code Security
       [] Code Style
+
+    Unit Test:
+      [] Mocks
+      [] Infra
+      [] Spies
+      [] Stubs
     
     Monitoring:
       [] New Relic
