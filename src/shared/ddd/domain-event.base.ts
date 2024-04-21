@@ -1,7 +1,6 @@
-import { v4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
 import { Guard } from '@shared/core/guard';
-// import { ArgumentNotProvidedException } from '../exceptions';
 
 type DomainEventMetadata = {
   /** Timestamp when this domain event occurred */
@@ -39,7 +38,7 @@ export abstract class DomainEvent {
       throw new Error('DomainEvent props should not be empty');
     }
 
-    this.id = v4();
+    this.id = nanoid(24);
     this.aggregateId = props.aggregateId;
     this.metadata = {
       correlationId: props?.metadata?.correlationId || RequestContextService.getRequestId(),

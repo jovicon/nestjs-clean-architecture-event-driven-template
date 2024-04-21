@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { Identifier } from './Identifier';
 
 export class UniqueEntityID extends Identifier<string | number> {
   constructor(id?: string) {
-    super(id || uuidv4());
+    super(id || nanoid(24));
   }
 }
