@@ -1,14 +1,13 @@
 import { v4 } from 'uuid';
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { Guard } from '@shared/core/guard';
 // import { ArgumentNotProvidedException } from '../exceptions';
-// import { Guard } from '../guard';
 
 type DomainEventMetadata = {
   /** Timestamp when this domain event occurred */
   readonly timestamp: number;
 
-  /** ID for correlation purposes (for Integration Events,logs correlation, etc).
-   */
+  /** ID for correlation purposes (for Integration Events,logs correlation, etc). */
   readonly correlationId: string;
 
   /**
@@ -36,9 +35,10 @@ export abstract class DomainEvent {
   public readonly metadata: DomainEventMetadata;
 
   constructor(props: DomainEventProps<unknown>) {
-    // if (Guard.isEmpty(props)) {
-    //   throw new ArgumentNotProvidedException('DomainEvent props should not be empty');
-    // }
+    if (Guard.isEmpty(props)) {
+      throw new Error('DomainEvent props should not be empty');
+    }
+
     this.id = v4();
     this.aggregateId = props.aggregateId;
     this.metadata = {
