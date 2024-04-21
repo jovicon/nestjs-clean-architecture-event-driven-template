@@ -1,8 +1,8 @@
 import { EventEmitter2 } from '@nestjs/event-emitter';
-import { LoggerPort } from '@shared/ports/logger.port';
+import { EventHandler } from '@shared/core/Event.handler';
 
 import { Entity } from './Entity';
-import { DomainEvent } from './domain-event.base';
+import { DomainEvent } from './DomainEvent.base';
 import { RequestContextService } from '../application/context/AppRequestContext';
 
 export abstract class AggregateRoot<T> extends Entity<T> {
@@ -16,11 +16,11 @@ export abstract class AggregateRoot<T> extends Entity<T> {
     this._domainEvents.push(domainEvent);
   }
 
-  public clearEvents(): void {
+  private clearEvents(): void {
     this._domainEvents = [];
   }
 
-  public async publishEvents(logger: LoggerPort, eventEmitter: EventEmitter2): Promise<void> {
+  public async publishEvents(eventEmitter: EventEmitter2): Promise<void> {
     await Promise.all(
       this.domainEvents.map(async (event) => {
         console.log(

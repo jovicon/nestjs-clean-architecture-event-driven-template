@@ -6,8 +6,6 @@ import { HttpAdapterService } from './http.service';
 export const http = HttpModule.registerAsync({
   useFactory: () => ({
     timeout: 5000,
-    maxRedirects: 5,
-    baseURL: 'http://ergast.com/api/f1/',
   }),
 });
 

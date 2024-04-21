@@ -26,7 +26,7 @@ export class OrderService {
   // TODO: Logger to Publish Events
   async createOrder(order: Order, entity: OrderEntity): Promise<Order> {
     const queryResult = await this.orderRepository.orders.create(order);
-    entity.publishEvents(undefined, this.eventEmitter);
+    entity.publishEvents(this.eventEmitter);
 
     return queryResult;
   }

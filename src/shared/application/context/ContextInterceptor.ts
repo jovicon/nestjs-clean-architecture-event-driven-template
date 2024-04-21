@@ -12,7 +12,7 @@ export class ContextInterceptor implements NestInterceptor {
      * Setting an ID in the global context for each request.
      * This ID can be used as correlation id shown in logs
      */
-    const requestId = request?.body?.requestId ?? nanoid(6);
+    const requestId = request?.body?.requestId ?? nanoid(24);
 
     RequestContextService.setRequestId(requestId);
 
