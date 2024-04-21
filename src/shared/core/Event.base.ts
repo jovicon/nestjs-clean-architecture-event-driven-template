@@ -1,12 +1,13 @@
 import { nanoid } from 'nanoid';
-import { RequestContextService } from '@shared/application/context/AppRequestContext';
+
 import { Guard } from '@shared/core/guard';
 
-type DomainEventMetadata = {
+export type EventMetadata = {
   /** Timestamp when this domain event occurred */
   readonly timestamp: number;
 
-  /** ID for correlation purposes (for Integration Events,logs correlation, etc). */
+  /** ID for correlation purposes (for Integration Events,logs correlation, etc).
+   */
   readonly correlationId: string;
 
   /**
@@ -18,30 +19,30 @@ type DomainEventMetadata = {
    * User ID for debugging and logging purposes
    */
   readonly userId?: string;
+
+  /**
+   * User ID for debugging and logging purposes
+   */
+  readonly requestId?: string;
 };
 
-export type DomainEventProps<T> = Omit<T, 'id' | 'metadata'> & {
-  aggregateId: string;
-  metadata?: DomainEventMetadata;
+export type EventProps<T> = Omit<T, 'id' | 'metadata'> & {
+  metadata?: EventMetadata;
 };
 
-export abstract class DomainEvent {
+export abstract class Event {
   public readonly id: string;
 
-  /** Aggregate ID where domain event occurred */
-  public readonly aggregateId: string;
+  public readonly metadata: EventMetadata;
 
-  public readonly metadata: DomainEventMetadata;
-
-  constructor(props: DomainEventProps<unknown>) {
+  constructor(props: EventProps<unknown>) {
     if (Guard.isEmpty(props)) {
       throw new Error('DomainEvent props should not be empty');
     }
 
     this.id = nanoid(24);
-    this.aggregateId = props.aggregateId;
     this.metadata = {
-      correlationId: props?.metadata?.correlationId || RequestContextService.getRequestId(),
+      correlationId: props?.metadata?.requestId,
       causationId: props?.metadata?.causationId,
       timestamp: props?.metadata?.timestamp || Date.now(),
       userId: props?.metadata?.userId,

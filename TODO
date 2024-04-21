@@ -9,22 +9,30 @@
       [x] nanoid or uuid - Nanoid
       [x] Clean DomainEvent
       [] Event Handler
+      [] Clean anys
       [] Config
+    [] Postman
+    [] Plain logs
     [] Reorder from best sura practices
       [] OT 
         [] INJECTION FROM PORTS
         [] SIMPLE USE CASES
       [] TOC SIMPY
       [] BFF
+    [] Version desde package json
     [] Best Docker practices
     [] Ordering the TODO List
     [] External libraries mask
       [] dotenv
       [] nanoid
     [] Exceptions handlers
+    [] Http good practicas
+      [] Routes
+      [] Code error handlers
+    [] Mongo transactions
     [] Fastify
+
     [] ChatGPT Code reviews
-    [] Version desde package json
     [] Docs Folder
     [] Final Diagram
     [] Choreography-based saga

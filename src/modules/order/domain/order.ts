@@ -2,7 +2,7 @@ import { Result } from '@shared/core/Result';
 import { Guard } from '@shared/core/Guard';
 import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
-import { OrderCreatedDomainEvent } from './events/emitters/orderCreated.emitter';
+import { OrderCreated } from './events/emitters/OrderCreated.emitter';
 
 import { OrderItem, OrderItemProps } from './orderItem';
 
@@ -37,12 +37,12 @@ export class Order extends AggregateRoot<OrderProps> {
       ...props,
     });
 
-    order.addEvent(
-      new OrderCreatedDomainEvent({
-        aggregateId: '123123',
-        data: props.items,
-      })
-    );
+    const domainEvent = new OrderCreated({
+      aggregateId: order.id,
+      data: props.items,
+    });
+
+    order.addEvent(domainEvent);
 
     return Result.ok<Order>(order);
   }
