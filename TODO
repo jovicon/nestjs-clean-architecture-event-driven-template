@@ -6,9 +6,10 @@
     [x] Update libraries
     [x] Update docker
     [] Code review
-      [] nanoid or uuid
+      [x] nanoid or uuid - Nanoid
       [x] Clean DomainEvent
       [] Event Handler
+      [] Config
     [] Reorder from best sura practices
       [] OT 
         [] INJECTION FROM PORTS
@@ -16,7 +17,11 @@
       [] TOC SIMPY
       [] BFF
     [] Best Docker practices
-    [] Order TODO
+    [] Ordering the TODO List
+    [] External libraries mask
+      [] dotenv
+      [] nanoid
+    [] Exceptions handlers
     [] Fastify
     [] ChatGPT Code reviews
     [] Version desde package json
