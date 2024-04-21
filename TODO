@@ -4,8 +4,11 @@
     [x] Config Module
     [x] VS code extensions
     [x] Update libraries
-    [] Update docker
+    [x] Update docker
     [] Code review
+      [] nanoid or uuid
+      [x] Clean DomainEvent
+      [] Event Handler
     [] Reorder from best sura practices
       [] OT 
         [] INJECTION FROM PORTS
@@ -13,6 +16,11 @@
       [] TOC SIMPY
       [] BFF
     [] Best Docker practices
+    [] Order TODO
+    [] Fastify
+    [] ChatGPT Code reviews
+    [] Version desde package json
+    [] Docs Folder
     [] Final Diagram
     [] Choreography-based saga
       [] TCP
