@@ -22,6 +22,9 @@
     [] Version desde package json
     [] Best Docker practices
     [] Ordering the TODO List
+    [] Docker analisis
+      [] Docker scout
+      [] snyk
     [] External libraries mask
       [] dotenv
       [] nanoid

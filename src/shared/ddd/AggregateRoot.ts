@@ -1,5 +1,4 @@
 import { EventEmitter2 } from '@nestjs/event-emitter';
-import { EventHandler } from '@shared/core/Event.handler';
 
 import { Entity } from './Entity';
 import { DomainEvent } from './DomainEvent.base';
