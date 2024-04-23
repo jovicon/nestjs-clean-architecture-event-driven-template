@@ -8,9 +8,10 @@
     [] Code review
       [x] nanoid or uuid - Nanoid
       [x] Clean DomainEvent
-      [] Event Handler
+      [x] Event Handler
       [] Clean anys
       [] Config
+    [] Unit tests
     [] Postman
     [] Plain logs
     [] Reorder from best sura practices

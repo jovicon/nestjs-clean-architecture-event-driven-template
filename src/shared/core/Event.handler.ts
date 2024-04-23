@@ -3,8 +3,8 @@ import { Event } from './Event.base';
 
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
 
-export class EventHandler {
-  private requestId: string = RequestContextService.getRequestId();
+export abstract class EventHandler {
+  protected requestId: string = RequestContextService.getRequestId();
 
   private _events: Event[] = [];
 
@@ -12,11 +12,11 @@ export class EventHandler {
     return this._events;
   }
 
-  protected addEvent(domainEvent: Event): void {
-    this._events.push(domainEvent);
+  protected addEvent(event: Event): void {
+    this._events.push(event);
   }
 
-  private clearEvents(): void {
+  protected clearEvents(): void {
     this._events = [];
   }
 
