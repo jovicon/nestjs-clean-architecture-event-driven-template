@@ -1,9 +1,9 @@
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { NestFactory } from '@nestjs/core';
 import helmet from 'helmet';
 
-import { NestFactory } from '@nestjs/core';
+import { version, name, author } from '@base/package.json';
 import { PATH_BASE_MS, PORT, CORS_CONFIG, SERVICE_NAME } from './http.config';
 import { HttpModule } from './http.module';
 
@@ -17,7 +17,7 @@ async function httpServerBootstrap(): Promise<void> {
     const config = new DocumentBuilder()
       .setTitle(SERVICE_NAME)
       .setDescription(`${SERVICE_NAME} API description & documentation`)
-      .setVersion('1.0')
+      .setVersion(version)
       .build();
 
     const document = SwaggerModule.createDocument(app, config);
@@ -25,10 +25,13 @@ async function httpServerBootstrap(): Promise<void> {
 
     await app.listen(PORT, () => {
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
+      winstonLogger.log(`| APP NAME: ${name}', 'httpServerBootstrap`);
+      winstonLogger.log(`| AUTHOR: ${author}', 'httpServerBootstrap`);
       winstonLogger.log(`| SERVICE: ${SERVICE_NAME}', 'httpServerBootstrap`);
       winstonLogger.log('| WEB SERVER - REST API OK', 'httpServerBootstrap');
       winstonLogger.log(`| PATH BASE: ${PATH_BASE_MS}`, 'httpServerBootstrap');
       winstonLogger.log(`| RUNNING PORT: ${PORT}`, 'httpServerBootstrap');
+      winstonLogger.log(`| VERSION: ${version}`, 'httpServerBootstrap');
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
       winstonLogger.log(`| Swagger path: /${PATH_BASE_MS}/api`, 'httpServerBootstrap');
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
@@ -39,5 +42,5 @@ async function httpServerBootstrap(): Promise<void> {
 }
 
 (async () => {
-  httpServerBootstrap();
+  await httpServerBootstrap();
 })();

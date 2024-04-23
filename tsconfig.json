@@ -15,15 +15,17 @@
     "skipLibCheck": true,
     "strictNullChecks": false,
     "strictBindCallApply": false,
+    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@modules/*": ["src/modules/*"],
+      "@base/*": ["./*"],
       "@config/*": ["src/config/*"],
       "@shared/*": ["src/shared/*"],
       "@adapters/*": ["src/shared/adapters/*"],
       "@application/*": ["src/shared/application/*"],
-      "@domain/*": ["src/shared/ddd/*"]
+      "@domain/*": ["src/shared/ddd/*"],
+      "@modules/*": ["src/modules/*"]
     }
   }
 }

@@ -2,9 +2,11 @@ import helmet from 'helmet';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
+import { version, name, author } from '@base/package.json';
 import { NestFactory } from '@nestjs/core';
 import { HttpModule } from './http.module';
 
+const SERVICE_NAME = 'LOGGER';
 const PATH_BASE_MS = '';
 const PORT = 3002;
 
@@ -32,12 +34,15 @@ async function httpServerBootstrap(): Promise<void> {
 
     await app.listen(PORT, () => {
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
-      winstonLogger.log('| SERVICE: SERVICE NAME MS', 'httpServerBootstrap');
+      winstonLogger.log(`| APP NAME: ${name}', 'httpServerBootstrap`);
+      winstonLogger.log(`| AUTHOR: ${author}', 'httpServerBootstrap`);
+      winstonLogger.log(`| SERVICE: ${SERVICE_NAME}', 'httpServerBootstrap`);
       winstonLogger.log('| WEB SERVER - REST API OK', 'httpServerBootstrap');
       winstonLogger.log(`| PATH BASE: ${PATH_BASE_MS}`, 'httpServerBootstrap');
       winstonLogger.log(`| RUNNING PORT: ${PORT}`, 'httpServerBootstrap');
+      winstonLogger.log(`| VERSION: ${version}`, 'httpServerBootstrap');
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
-      winstonLogger.log(`| Swagger path: ${PATH_BASE_MS}/api`, 'httpServerBootstrap');
+      winstonLogger.log(`| Swagger path: /${PATH_BASE_MS}/api`, 'httpServerBootstrap');
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
     });
   } catch (error) {
@@ -46,5 +51,5 @@ async function httpServerBootstrap(): Promise<void> {
 }
 
 (async () => {
-  httpServerBootstrap();
+  await httpServerBootstrap();
 })();

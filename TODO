@@ -20,7 +20,7 @@
         [] SIMPLE USE CASES
       [] TOC SIMPY
       [] BFF
-    [] Version desde package json
+    [x] Version desde package json
     [] Best Docker practices
     [] Ordering the TODO List
     [] Docker analisis
