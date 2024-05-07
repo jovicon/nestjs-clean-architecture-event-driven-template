@@ -1,4 +1,16 @@
 # GLOBAL GOALS
+  Docs:
+    [] Docs Folder
+    [] Updete Diagram
+    [] Sources documentation
+    [] Code review guidelines
+    [] Separete Clean architecture from principal Readme
+    [] Principal Readme Just for Project Diagram, Installation & how it works
+    [] Separete Event Driven Docs
+    [] Postman
+      [] Documentation
+      [] PostBot usage
+
   General Project Control:
     [x] Docker Compose
     [x] Config Module
@@ -12,8 +24,7 @@
       [] Clean anys
       [] Config
     [] Unit tests
-    [] Postman
-    [] Plain logs
+    [] Plain logs (Better logger class)
     [] Reorder from best sura practices
       [] OT 
         [] INJECTION FROM PORTS
@@ -48,6 +59,7 @@
 
     Security:
       [] Talisman
+      [] Docker security
       [] JWT
       [] Helmet
       [] Rate Limit
@@ -55,7 +67,7 @@
       [] Sanitization
 
     Code Quality:
-      [] SonarQube
+      [] Install SonarQube
       [] Code Climate
       [] Code Quality
       [] Code Coverage
@@ -81,6 +93,7 @@
     Connection between services like nest Microservices:
       [x] TCP
       [x] HTTP
+      [] Websockets
       [] REDIS
       [] Kafka
       [] RabbitMQ
@@ -150,11 +163,6 @@
       [] Try catch
       [] Throw error with object
 
-    [] Docs
-      [] Separete Clean architecture from principal Readme
-      [] Principal Readme Just for Project Diagram, Installation & how it works
-      [] Separete Event Driven Docs
-
     [] Queue event Fallback
 
     [] Order Module Service - working 90%
@@ -181,6 +189,7 @@
     [x] Mongo Express
     [x] Kafka
     [x] Elastic Stack
+    [] SonarQube
     [] Zookeeper
     [] Kibana
     [] Jaeger
@@ -271,15 +280,6 @@
           [] App Controller
           
         [] Tests
-
-# SURA
-  Que falta para entregar a Sura:
-    [x] Enviar evento desde Event Handler
-    [x] Recibir eventos en Module Logger
-    [] Order Module - Actual Work
-    [] Logger Module - Actual Work
-    [] Validación de Arquitectura
-    [] Presentación
 
 
 # Sources
