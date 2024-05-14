@@ -1,8 +1,6 @@
 # Sonarqube User:
 # admin password: admin
 # Changed to 123123123
-# Local Token sqp_558b8f6976598dc9ee8d996a022eef920b68dc03
-# Local Token sqp_5ddaa54da139c6054e560be69a1fd00e0d72446a
 
 version: '3.1'
 

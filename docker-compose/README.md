@@ -69,6 +69,6 @@ docker run --network=host -e SONAR_HOST_URL='http://127.0.0.1:9000' --user="$(id
 docker run --network=host -e SONAR_HOST_URL='http://127.0.0.1:9000' --user="$(id -u):$(id -g)" -v "$PWD:/src" \
     -e SONAR_HOST_URL="http://localhost:9000" \
     -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=nestjs-architecture-ms" \
-    -e SONAR_LOGIN="sqp_5ddaa54da139c6054e560be69a1fd00e0d72446a" \
+    -e SONAR_LOGIN="sqp_123123123" \
     sonar/scanner-client:latest
 ```
