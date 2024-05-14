@@ -67,7 +67,7 @@
       [] Sanitization
 
     Code Quality:
-      [] Install SonarQube
+      [x] Install SonarQube
       [] Code Climate
       [] Code Quality
       [] Code Coverage
@@ -89,6 +89,10 @@
 
     General Architecture:
       [x] Use Case Folder Outside Application Folder?
+
+
+    Event Driven Design:
+      [] connect a data base to event order handler -- https://learn.nestjs.com/courses/2216378/lectures/49542778
 
     Connection between services like nest Microservices:
       [x] TCP
@@ -189,7 +193,7 @@
     [x] Mongo Express
     [x] Kafka
     [x] Elastic Stack
-    [] SonarQube
+    [x] SonarQube
     [] Zookeeper
     [] Kibana
     [] Jaeger
