@@ -25,7 +25,7 @@ docker-compose -f docker-compose/kafka.yml up
 ### Run SonarQube Server From Docker Compose
 
 ```bash
-docker-compose -f docker-compose/sonarqube.yml up
+docker-compose -f docker-compose/sonar/sonarqube.yml up
 ```
 
 ### Run SonarQube Server From Dockerfile
@@ -63,5 +63,12 @@ docker run --network=host -e SONAR_HOST_URL='http://127.0.0.1:9000' --user="$(id
     -e SONAR_HOST_URL="http://localhost:9000" \
     -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=${PROJECT_NAME}" \
     -e SONAR_LOGIN="${SONAR_APP_TOKEN}" \
+    sonar/scanner-client:latest
+
+# Final exampple
+docker run --network=host -e SONAR_HOST_URL='http://127.0.0.1:9000' --user="$(id -u):$(id -g)" -v "$PWD:/src" \
+    -e SONAR_HOST_URL="http://localhost:9000" \
+    -e SONAR_SCANNER_OPTS="-Dsonar.projectKey=nestjs-architecture-ms" \
+    -e SONAR_LOGIN="sqp_5ddaa54da139c6054e560be69a1fd00e0d72446a" \
     sonar/scanner-client:latest
 ```
