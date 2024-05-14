@@ -1,4 +1,16 @@
 # GLOBAL GOALS
+  Docs:
+    [] Docs Folder
+    [] Updete Diagram
+    [] Sources documentation
+    [] Code review guidelines
+    [] Separete Clean architecture from principal Readme
+    [] Principal Readme Just for Project Diagram, Installation & how it works
+    [] Separete Event Driven Docs
+    [] Postman
+      [] Documentation
+      [] PostBot usage
+
   General Project Control:
     [x] Docker Compose
     [x] Config Module
@@ -8,20 +20,24 @@
     [] Code review
       [x] nanoid or uuid - Nanoid
       [x] Clean DomainEvent
-      [] Event Handler
+      [x] Event Handler
+      [] Test over 80%
       [] Clean anys
       [] Config
-    [] Postman
-    [] Plain logs
+    [] Unit tests
+    [] Plain logs (Better logger class)
     [] Reorder from best sura practices
       [] OT 
         [] INJECTION FROM PORTS
         [] SIMPLE USE CASES
       [] TOC SIMPY
       [] BFF
-    [] Version desde package json
+    [x] Version desde package json
     [] Best Docker practices
     [] Ordering the TODO List
+    [] Docker analisis
+      [] Docker scout
+      [] snyk
     [] External libraries mask
       [] dotenv
       [] nanoid
@@ -44,6 +60,7 @@
 
     Security:
       [] Talisman
+      [] Docker security
       [] JWT
       [] Helmet
       [] Rate Limit
@@ -51,7 +68,7 @@
       [] Sanitization
 
     Code Quality:
-      [] SonarQube
+      [x] Install SonarQube
       [] Code Climate
       [] Code Quality
       [] Code Coverage
@@ -74,9 +91,14 @@
     General Architecture:
       [x] Use Case Folder Outside Application Folder?
 
+
+    Event Driven Design:
+      [] connect a data base to event order handler -- https://learn.nestjs.com/courses/2216378/lectures/49542778
+
     Connection between services like nest Microservices:
       [x] TCP
       [x] HTTP
+      [] Websockets
       [] REDIS
       [] Kafka
       [] RabbitMQ
@@ -146,11 +168,6 @@
       [] Try catch
       [] Throw error with object
 
-    [] Docs
-      [] Separete Clean architecture from principal Readme
-      [] Principal Readme Just for Project Diagram, Installation & how it works
-      [] Separete Event Driven Docs
-
     [] Queue event Fallback
 
     [] Order Module Service - working 90%
@@ -177,6 +194,7 @@
     [x] Mongo Express
     [x] Kafka
     [x] Elastic Stack
+    [x] SonarQube
     [] Zookeeper
     [] Kibana
     [] Jaeger
@@ -186,6 +204,13 @@
     [] MySQL
     [] Nats
     [] NATS Streaming
+  
+  Docker:
+    [x] Dockerfile
+    [x] Docker Compose
+    [] Test Containers
+    [] Docker Scout
+    [] Snyk
 
   Config Module:
     [x] Configure Environment Variables
@@ -267,15 +292,6 @@
           [] App Controller
           
         [] Tests
-
-# SURA
-  Que falta para entregar a Sura:
-    [x] Enviar evento desde Event Handler
-    [x] Recibir eventos en Module Logger
-    [] Order Module - Actual Work
-    [] Logger Module - Actual Work
-    [] Validación de Arquitectura
-    [] Presentación
 
 
 # Sources

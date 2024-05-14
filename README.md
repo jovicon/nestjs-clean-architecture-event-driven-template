@@ -95,6 +95,7 @@ modules/
 
 - Jest
 - Husky
+- Talisman (implentar)
 
 ## Fuentes de información
 

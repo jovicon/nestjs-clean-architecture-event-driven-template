@@ -140,3 +140,9 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 package-lock.json
+
+# Coverage directory used by tools like istanbul
+coverage
+test-reporter.xml
+*.lcov
+__tests__/

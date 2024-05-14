@@ -1,0 +1,8 @@
+FROM sonarsource/sonar-scanner-cli:latest
+
+WORKDIR /usr/src/
+
+COPY coverage ./coverage
+COPY test-reporter.xml ./test-reporter.xml
+COPY src ./src
+COPY sonar-project.properties ./sonar-project.properties
