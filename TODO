@@ -21,6 +21,7 @@
       [x] nanoid or uuid - Nanoid
       [x] Clean DomainEvent
       [x] Event Handler
+      [] Test over 80%
       [] Clean anys
       [] Config
     [] Unit tests
@@ -203,6 +204,13 @@
     [] MySQL
     [] Nats
     [] NATS Streaming
+  
+  Docker:
+    [x] Dockerfile
+    [x] Docker Compose
+    [] Test Containers
+    [] Docker Scout
+    [] Snyk
 
   Config Module:
     [x] Configure Environment Variables

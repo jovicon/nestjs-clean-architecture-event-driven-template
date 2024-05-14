@@ -3,6 +3,5 @@ npm-debug.log
 dist
 .nyc_output
 .vscode
-coverage
 .env
 package-lock.json
