@@ -91,6 +91,34 @@
     General Architecture:
       [x] Use Case Folder Outside Application Folder?
 
+    Microservices Patterns:
+      [] Saga Pattern
+      [] Circuit Breaker Pattern
+      [] Event Driven Design
+      [] CQRS
+      [] SAGA Pattern
+      [] Event Sourcing
+      [] Domain Driven Design
+      [] Side car pattern
+      [] API Gateway
+      [] BFF
+      [] Service Mesh
+      [] Strangler Fig Pattern
+      [] Bulkhead Pattern
+      [] Retry Pattern
+      [] Timeout Pattern
+      [] Rate Limit Pattern
+      [] Fallback Pattern
+      [] Cache Aside Pattern
+      [] Throttling Pattern
+      [] Load Balancer Pattern
+      [] Service Discovery Pattern
+      [] Blue Green Deployment Pattern
+      [] Canary Deployment Pattern
+      [] A/B Testing Pattern
+      [] Dark Launch Pattern
+      [] Feature Flag Pattern
+
 
     Event Driven Design:
       [] connect a data base to event order handler -- https://learn.nestjs.com/courses/2216378/lectures/49542778
