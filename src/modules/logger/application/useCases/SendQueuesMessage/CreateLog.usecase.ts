@@ -3,13 +3,14 @@ import { UseCase } from '@shared/core/UseCase';
 
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
-import { CreateLogDTO } from './CreateLog.dto';
+import { CreateLogDTO, CreateLogUseCaseResponse } from './CreateLog.dto';
+import { HttpResponse } from '@base/src/shared/application/interfaces/http';
 
 @Injectable()
-export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<any>> {
+export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<HttpResponse<CreateLogUseCaseResponse>>> {
   constructor(private readonly elasticService: ElasticService) {}
 
-  public async execute(dto: CreateLogDTO): Promise<any> {
+  public async execute(dto: CreateLogDTO): Promise<HttpResponse<CreateLogUseCaseResponse>> {
     console.log('CreateLogUseCase - DTO: ', dto);
 
     const log = {
@@ -25,12 +26,12 @@ export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<any>> {
         message: 'created order',
         data: {},
       };
-    } catch (err: any) {
+    } catch (error) {
       return {
         status: 'error',
         message: 'error creating order',
         data: {
-          error: err.message,
+          error: error?.message,
         },
       };
     }
