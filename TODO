@@ -21,9 +21,9 @@
       [x] nanoid or uuid - Nanoid
       [x] Clean DomainEvent
       [x] Event Handler
-      [] Test over 80%
       [] Clean anys
       [] Config
+      [] Test over 80%
     [] Unit tests
     [] Plain logs (Better logger class)
     [] Reorder from best sura practices
@@ -94,6 +94,7 @@
 
     Event Driven Design:
       [] connect a data base to event order handler -- https://learn.nestjs.com/courses/2216378/lectures/49542778
+      [] rehydrate aggredate --
 
     Connection between services like nest Microservices:
       [x] TCP
@@ -157,6 +158,8 @@
       
       [] SAGA Pattern
         [] Define SAGA Pattern module
+        [] Transaction UP
+        [] Transactions DOWN
       
       [] Tests
         [] Unit Tests
