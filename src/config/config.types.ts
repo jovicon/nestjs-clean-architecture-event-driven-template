@@ -23,8 +23,6 @@ export interface ILoggerModuleConfig {
 
 export interface IMicroserviceConfig {
   microserviceVersion: string;
-  loggerHost: string;
-  loggerPort: number;
 }
 
 export interface ConfigServices {

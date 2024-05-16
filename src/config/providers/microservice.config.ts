@@ -2,9 +2,9 @@ import { readFile } from 'fs/promises';
 import { IMicroserviceConfig } from '@config/config.types';
 
 export class MicroserviceConfig implements IMicroserviceConfig {
-  private readonly envConfig: any;
+  private readonly envConfig;
 
-  constructor(file: string) {
+  private constructor(file: string) {
     this.envConfig = JSON.parse(file);
     console.log(`[${this.constructor.name}] - constructor init: OK`);
   }
@@ -16,13 +16,5 @@ export class MicroserviceConfig implements IMicroserviceConfig {
 
   get microserviceVersion(): string {
     return this.envConfig.version;
-  }
-
-  get loggerHost(): string {
-    return this.envConfig.LOGGER_HOST;
-  }
-
-  get loggerPort(): number {
-    return +this.envConfig.LOGGER_PORT;
   }
 }

@@ -17,4 +17,4 @@ const orderRoutes = [
 
 const allRoutes = [...orderRoutes];
 
-export default allRoutes;
+export { allRoutes };

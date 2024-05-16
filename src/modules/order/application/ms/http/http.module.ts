@@ -10,7 +10,7 @@ import { ContextInterceptor } from '@shared/application/context/ContextIntercept
 
 import { OrderCreatedEventHandler } from '../../../domain/events/handlers/OrderCreated.handler';
 
-import routes from './http.routes';
+import { allRoutes } from './http.routes';
 import { CoreModule } from './core/core.module';
 import { OrderModule } from './api/api.module';
 
@@ -37,7 +37,7 @@ const loggerMicroserviceProvider = {
 };
 
 @Module({
-  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(routes), Logger],
+  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(allRoutes), Logger],
   providers: [...interceptors, OrderCreatedEventHandler, loggerMicroserviceProvider],
 })
 export class HttpModule {}
