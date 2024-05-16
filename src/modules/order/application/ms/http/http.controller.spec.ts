@@ -43,7 +43,7 @@ describe('ApiController', () => {
 
   const mockRepository = {
     orders: {
-      create: (items: any) =>
+      create: (items: string[]) =>
         Promise.resolve({
           items,
         }),

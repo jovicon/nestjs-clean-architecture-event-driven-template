@@ -1,4 +1,6 @@
 export interface CreateLogDTO {
   id: string;
-  item: any;
+  item: string[];
 }
+
+export type CreateLogUseCaseResponse = {};

@@ -8,7 +8,7 @@ export class ConfigService {
 
   readonly providers: ConfigServices;
 
-  constructor({ database, microservice, loggerModule }: ConfigServices) {
+  private constructor({ database, microservice, loggerModule }: ConfigServices) {
     this.providers = {
       database,
       microservice,
@@ -24,29 +24,5 @@ export class ConfigService {
     const loggerModule = await LoggerModuleConfig.create(envFilePath);
 
     return new ConfigService({ database, microservice, loggerModule });
-  }
-
-  get env(): string {
-    return this.envConfig.NODE_ENV;
-  }
-
-  get microserviceVersion(): string {
-    return this.envConfig.npm_package_version;
-  }
-
-  get projectId(): string {
-    return this.envConfig.PROJECT_ID;
-  }
-
-  get pathBaseMs(): string {
-    return this.envConfig.PATH_BASE_MS;
-  }
-
-  get port(): number {
-    return Number(this.envConfig.NODE_PORT);
-  }
-
-  get apiConnectUrl(): string {
-    return this.envConfig.API_CONNECT_BASE_URL;
   }
 }

@@ -18,6 +18,4 @@ describe('AppController (e2e)', () => {
   it('/order/health (GET)', () => request(app.getHttpServer()).get('/order/health').expect(200));
 
   it('/order/health (GET)', () => request(app.getHttpServer()).get('/order/health').expect(200));
-
-  // it('/order/season/2022 (GET)', () => request(app.getHttpServer()).get('/order/season/2022').expect(200));
 });

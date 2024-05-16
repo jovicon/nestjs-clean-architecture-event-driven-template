@@ -5,4 +5,9 @@ export class CreateLogDTO {
     type: String,
   })
   trackingId: string;
+
+  @ApiProperty({
+    type: [String],
+  })
+  items: string[];
 }

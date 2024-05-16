@@ -2,17 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { UseCase } from '@shared/core/UseCase';
 
 import { Order } from '../../../domain/order';
-import { OrderService } from '../../../adapters/repository/order.service';
-
 import { OrderItem } from '../../../domain/orderItem';
 
-import { CreateOrderDTO } from './CreateOrder.dto';
+import { OrderService } from '../../../adapters/repository/order.service';
+
+import { CreateOrderDTO, CreateOrderUseCaseResponse } from './CreateOrder.dto';
 
 @Injectable()
-export class CreateOrderUseCase implements UseCase<CreateOrderDTO, Promise<any>> {
+export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUseCaseResponse> {
   constructor(private readonly orderService: OrderService) {}
 
-  public async execute(dto: CreateOrderDTO): Promise<any> {
+  public async execute(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
     try {
       const { items } = dto;
 
