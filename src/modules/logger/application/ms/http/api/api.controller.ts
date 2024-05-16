@@ -16,7 +16,7 @@ export class ApiController {
   async saveLogs(@Body() body: CreateLogDTO): Promise<HttpResponse<CreateLogUseCaseResponse>> {
     const dto = {
       id: body.trackingId,
-      item: body,
+      item: body.items,
     };
 
     return this.apiService.createLog(dto);

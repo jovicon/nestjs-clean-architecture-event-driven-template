@@ -25,6 +25,7 @@
       [] Config
       [] Test over 80%
     [] Unit tests
+    [] Log messages data object structure
     [] Plain logs (Better logger class)
     [] Reorder from best sura practices
       [] OT 

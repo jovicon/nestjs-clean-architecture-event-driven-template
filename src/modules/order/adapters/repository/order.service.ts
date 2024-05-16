@@ -17,7 +17,7 @@ export class OrderService {
     return this.orderRepository.orders.findAll();
   }
 
-  getOrderById(id: any): Promise<Order> {
+  getOrderById(id: string): Promise<Order> {
     return this.orderRepository.orders.find(id);
   }
 
