@@ -1,6 +1,6 @@
-# Sonarqube User:
-# admin password: admin
-# Changed to 123123123
+# Sonarqube
+# user: admin 
+# pass: admin
 
 version: '3.1'
 

@@ -33,7 +33,7 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
           orderValidated,
         },
       };
-    } catch (err: any) {
+    } catch (err) {
       return {
         status: 'error',
         message: 'error creating order',
