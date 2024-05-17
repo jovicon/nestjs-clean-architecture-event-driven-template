@@ -1,7 +1,8 @@
 # TODO LIST
   Docs:
-    [] Docs Folder structure
-    [] Docker .env file configuration
+    Docs Folder structure:
+      [] Course folder
+    [] Docker .env file configuration tutorial
     [] Updete Diagram
     [] Sources documentation
     [] Code review guidelines
@@ -17,6 +18,10 @@
   General Project Control:
 
     Actual tackling:
+      [] Websocket
+
+    Next tackling:
+      [] Side car Pattern (with docker)
 
     Code review Back:
       [] Clean anys - Shared Folder
