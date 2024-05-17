@@ -2,7 +2,6 @@ import { Controller, Post, Inject, LoggerService, Body } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { ApiTags } from '@nestjs/swagger';
 
-import { HttpResponse } from '@shared/application/interfaces/http';
 import { CreateOrderUseCaseResponse } from '../../../useCases/CreateOrder/CreateOrder.dto';
 
 import { CreateOrderDTO } from './api.dto';
