@@ -2,7 +2,8 @@
   Docs:
     Docs Folder structure:
       [] Course folder
-    [] Docker .env file configuration tutorial
+    [] Docker .env file configuration readme
+    [] Jest Sonar config readme
     [] Updete Diagram
     [] Sources documentation
     [] Code review guidelines
