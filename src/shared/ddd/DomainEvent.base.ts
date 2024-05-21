@@ -1,7 +1,7 @@
 import { UniqueEntityID } from './UniqueEntityID';
 import { EventMetadata, Event } from '@shared/core/Event.base';
 
-import { Guard } from '@shared/core/guard';
+import { Guard } from '@shared/core/Guard';
 
 export type DomainEventProps<T> = Omit<T, 'id' | 'metadata'> & {
   aggregateId: UniqueEntityID;
