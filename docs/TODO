@@ -20,6 +20,8 @@
 
     Actual tackling:
       [] Websocket
+        [x] Base
+        [x] Sources
         [] rooms
         [] tests
         [] test wss
