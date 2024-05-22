@@ -7,7 +7,7 @@
 ```bash
 sudo docker build -t nest-js-architecture-app:latest -f Dockerfile .
 
-sudo docker run -it --rm -p 3000:3000 nest-js-architecture-app:latest
+sudo docker run -it --rm -p 3000:3000 nest-js-architecture-app:latest --network="host"
 
 # Docker Scout
 docker scout cves local://nest-js-architecture-app:latest
