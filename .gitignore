@@ -146,3 +146,6 @@ coverage
 test-reporter.xml
 *.lcov
 __tests__/
+
+# Generate Bun ignore files
+bun.lockb

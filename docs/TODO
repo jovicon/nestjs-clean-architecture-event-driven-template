@@ -20,6 +20,18 @@
 
     Actual tackling:
       [] Websocket
+        [x] Base
+        [x] Sources
+        [] rooms
+        [] tests
+        [] test wss
+        [] Connect Front
+        [] Connect Back
+        [] Articulo corto
+        [] Diagrama
+        [] Fuentes
+        [] Docs
+        [] Postman
 
     Next tackling:
       [] Side car Pattern (with docker)

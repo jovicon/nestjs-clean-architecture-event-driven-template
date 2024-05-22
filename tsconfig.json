@@ -18,6 +18,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
     "paths": {
       "@base/*": ["./*"],
       "@config/*": ["src/config/*"],
