@@ -1,7 +1,9 @@
 # TODO LIST
   Docs:
     Docs Folder structure:
-      [] Course folder
+    [] English Docs
+    [] Websocket Docs
+    [] Course folder
     [] Docker .env file configuration readme
     [] Jest Sonar config readme
     [] Updete Diagram
@@ -27,11 +29,11 @@
         [] test wss
         [] Connect Front
         [] Connect Back
-        [] Articulo corto
-        [] Diagrama
-        [] Fuentes
+        [] short article
+        [] Diagram
+        [] Sources
         [] Docs
-        [] Postman
+        [] Postman docs example
 
     Next tackling:
       [] Side car Pattern (with docker)
