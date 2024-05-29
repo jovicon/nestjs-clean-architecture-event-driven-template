@@ -1,4 +1,4 @@
-# Websocket
+# Websockets
 
 ## What is a WebSocket?
 

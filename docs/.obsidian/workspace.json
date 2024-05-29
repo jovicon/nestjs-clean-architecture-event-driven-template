@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "de3479b6699d6129",
+        "id": "79d0662ab0626820",
         "type": "tabs",
         "children": [
           {
-            "id": "3561289e15ace12b",
+            "id": "1b980ff44dbb69a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "infra/Websocket.md",
+                "file": "infra/websocket.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "infra/Websocket.md",
+                "file": "infra/websocket.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "infra/Websocket.md",
+                "file": "infra/websocket.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "infra/Websocket.md"
+                "file": "infra/websocket.md"
               }
             }
           }
@@ -146,10 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3561289e15ace12b",
+  "active": "97e4edc8deb04a61",
   "lastOpenFiles": [
+    "microservice_labs/01/lab 01.png",
+    "Untitled.canvas",
+    "infra/websocket.md",
+    "Untitled 1.canvas",
+    "infra/Untitled.md",
     "infra/Untitled.canvas",
-    "infra/Websocket.md",
     "infra",
     "diagrams/architecture.drawio.svg",
     "docker/Sonar_install.md",
@@ -157,7 +161,6 @@
     "docker/sonar_install.md",
     "docker/Install.md",
     "docker",
-    "microservice_labs/01/lab 01.png",
     "microservice_labs/01/docs.md"
   ]
 }
