@@ -37,7 +37,7 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     client.to(data.roomId).emit('roomCreated', { room: data.roomId });
 
     this.logger.log(`Message received from client id: ${client.id}`);
-    this.logger.log(`roomCreated`, `${this.constructor.name} - createRoom - Room id: ${data.data.roomId}`);
+    this.logger.log(`roomCreated`, `${this.constructor.name} - createRoom - Room id: ${data.roomId}`);
 
     return {
       event: 'roomCreated',
