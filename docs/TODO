@@ -35,8 +35,15 @@
         [] Docs
         [] Postman docs example
 
+        
     Next tackling:
       [] Side car Pattern (with docker)
+      [] Bun
+        [x] Docker File Base
+        [] Optimized Docker File
+        [] Performance test vs Node
+        [] Docs
+      [] Typespec API Microsoft
 
     Code review Back:
       [] Clean anys - Shared Folder
