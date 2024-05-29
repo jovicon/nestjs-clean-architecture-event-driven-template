@@ -8,7 +8,7 @@ Clean architecture es un conjunto de principios cuya finalidad principal es ocul
 
 De esta manera mantenemos aislada la lógica de negocios, consiguiendo tener un código mucho más mantenible y escalable en el tiempo.
 
-![Clean Architecture basic diagram](/assets/clean-architecture.png "Clean Architecture diagram")
+![Clean Architecture basic diagram](/docs/assets/clean-architecture.png "Clean Architecture diagram")
 
 ## Porque Clean Architecture?
 

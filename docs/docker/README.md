@@ -62,4 +62,3 @@ docker-compose -f docker-compose/mongo.yml up
 ```bash
 docker-compose -f docker-compose/kafka.yml up
 ```
-
