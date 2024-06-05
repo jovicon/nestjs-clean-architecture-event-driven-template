@@ -31,6 +31,19 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     this.logger.log(`Cliend id:${client.id} disconnected`);
   }
 
+  @SubscribeMessage('ping')
+  handleMessage(client: any, data: any) {
+    this.logger.log(`Message received from client id: ${client.id}`);
+    this.logger.debug(`Payload: ${data}`);
+
+    return {
+      event: 'pong',
+      data: {
+        message: 'world',
+      },
+    };
+  }
+
   @SubscribeMessage('createRoom')
   createRoom(client: Socket, data: any) {
     client.join(data.roomId);
@@ -45,16 +58,16 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     };
   }
 
-  @SubscribeMessage('ping')
-  handleMessage(client: any, data: any) {
+  @SubscribeMessage('roomMessage')
+  roomMessage(client: Socket, data: any) {
+    client.to(data.roomId).emit('message', { room: data.roomId, message: 'hello' });
+
     this.logger.log(`Message received from client id: ${client.id}`);
-    this.logger.debug(`Payload: ${data}`);
+    this.logger.log(`room`, `${this.constructor.name} - createRoom - Room id: ${data.roomId}`);
 
     return {
-      event: 'pong',
-      data: {
-        message: 'world',
-      },
+      event: 'roomCreated',
+      data,
     };
   }
 }

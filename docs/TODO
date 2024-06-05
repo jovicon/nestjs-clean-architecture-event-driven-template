@@ -25,7 +25,7 @@
       [] Websocket
         [x] Base
         [x] Sources
-        [] rooms
+        [x] rooms
         [] tests
         [] test wss
         [] Connect Front
