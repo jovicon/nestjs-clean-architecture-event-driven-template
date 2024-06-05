@@ -26,6 +26,7 @@
         [x] Base
         [x] Sources
         [x] rooms
+        [] move to shared folder - application
         [] tests
         [] test wss
         [] Connect Front
