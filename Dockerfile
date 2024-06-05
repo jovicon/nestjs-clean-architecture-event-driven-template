@@ -5,6 +5,7 @@ RUN apk upgrade busybox
 RUN apk upgrade openssl 
 
 WORKDIR /usr/src/app
+
 COPY ["package.json", "./"]
 COPY [".env.example", "./.env"]
 

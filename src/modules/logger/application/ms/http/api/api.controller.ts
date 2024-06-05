@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { HttpResponse } from '@shared/application/interfaces/http';
+import { Responses } from '@base/src/shared/application/interfaces/responses';
 import { CreateLogUseCaseResponse } from '../../../useCases/SendQueuesMessage/CreateLog.dto';
 
 import { ClientsService } from './api.service';
@@ -13,7 +13,7 @@ export class ApiController {
   constructor(private readonly apiService: ClientsService) {}
 
   @Post('/')
-  async saveLogs(@Body() body: CreateLogDTO): Promise<HttpResponse<CreateLogUseCaseResponse>> {
+  async saveLogs(@Body() body: CreateLogDTO): Promise<Responses<CreateLogUseCaseResponse>> {
     const dto = {
       id: body.trackingId,
       item: body.items,

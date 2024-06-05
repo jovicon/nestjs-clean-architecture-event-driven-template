@@ -1,7 +1,10 @@
 # TODO LIST
   Docs:
     Docs Folder structure:
-      [] Course folder
+    [x] Obsidian docs
+    [] English Docs
+    [] Websocket Docs
+    [] Course folder
     [] Docker .env file configuration readme
     [] Jest Sonar config readme
     [] Updete Diagram
@@ -22,19 +25,30 @@
       [] Websocket
         [x] Base
         [x] Sources
-        [] rooms
+        [x] rooms
+        [] define message structure
+        [] typed websocket
+        [] move to shared folder - application
         [] tests
         [] test wss
         [] Connect Front
         [] Connect Back
-        [] Articulo corto
-        [] Diagrama
-        [] Fuentes
+        [] short article
+        [] Diagram
+        [] Sources
         [] Docs
-        [] Postman
+        [] Postman docs example
 
+        
     Next tackling:
+      [] Vercel Deploy
       [] Side car Pattern (with docker)
+      [] Bun
+        [x] Docker File Base
+        [] Optimized Docker File
+        [] Performance test vs Node
+        [] Docs
+      [] Typespec API Microsoft
 
     Code review Back:
       [] Clean anys - Shared Folder

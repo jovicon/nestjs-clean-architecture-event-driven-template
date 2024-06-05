@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { HttpResponse } from '@shared/application/interfaces/http';
+import { Responses } from '@base/src/shared/application/interfaces/responses';
 
 import CoreService from './core.service';
 
@@ -11,7 +11,7 @@ export default class CoreController {
   constructor(private readonly appService: CoreService) {}
 
   @Get('health')
-  healthCheck(): HttpResponse<null> {
+  healthCheck(): Responses<null> {
     return this.appService.healthCheck();
   }
 }

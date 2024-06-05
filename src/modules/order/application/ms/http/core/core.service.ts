@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { HttpResponse } from '@shared/application/interfaces/http';
+import { Responses } from '@base/src/shared/application/interfaces/responses';
 
 @Injectable()
 export default class CoreService {
-  healthCheck(): HttpResponse<null> {
+  healthCheck(): Responses<null> {
     return {
       status: 'success',
       message: 'NestJS is working!!!',

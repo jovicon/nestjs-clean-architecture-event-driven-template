@@ -8,7 +8,7 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 
-import { Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway()
 export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
@@ -24,32 +24,50 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     const { sockets } = this.io.sockets;
 
     this.logger.log(`Client id: ${client.id} connected`);
-    this.logger.debug(`Number of connected clients: ${sockets.size}`);
+    this.logger.log(`Number of connected clients: ${sockets.size}`);
   }
 
   handleDisconnect(client: any) {
     this.logger.log(`Cliend id:${client.id} disconnected`);
   }
 
-  @SubscribeMessage('create_room')
-  createRoom(client: any, data: any) {
-    client.join(data.roomId);
-    client.to(data.roomId).emit(data.roomId, { room: 'aRoom' });
-    this.logger.log(`Message received from client id: ${client.id}`);
-    this.logger.debug(`Payload: ${data}`);
-    return {
-      event: 'pong',
-      data: 'Wrong data that will make the test fail',
-    };
-  }
-
   @SubscribeMessage('ping')
   handleMessage(client: any, data: any) {
     this.logger.log(`Message received from client id: ${client.id}`);
     this.logger.debug(`Payload: ${data}`);
+
     return {
       event: 'pong',
-      data: 'Wrong data that will make the test fail',
+      data: {
+        message: 'world',
+      },
+    };
+  }
+
+  @SubscribeMessage('createRoom')
+  createRoom(client: Socket, data: any) {
+    client.join(data.roomId);
+    client.to(data.roomId).emit('roomCreated', { room: data.roomId });
+
+    this.logger.log(`Message received from client id: ${client.id}`);
+    this.logger.log(`roomCreated`, `${this.constructor.name} - createRoom - Room id: ${data.roomId}`);
+
+    return {
+      event: 'roomCreated',
+      data,
+    };
+  }
+
+  @SubscribeMessage('roomMessage')
+  roomMessage(client: Socket, data: any) {
+    client.to(data.roomId).emit('message', { room: data.roomId, message: 'hello' });
+
+    this.logger.log(`Message received from client id: ${client.id}`);
+    this.logger.log(`room`, `${this.constructor.name} - createRoom - Room id: ${data.roomId}`);
+
+    return {
+      event: 'roomCreated',
+      data,
     };
   }
 }
