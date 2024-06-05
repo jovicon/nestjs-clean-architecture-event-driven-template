@@ -1,5 +1,5 @@
 import { OrderJson } from '@modules/order/domain/order';
-import { HttpResponse } from '@base/src/shared/application/interfaces/http';
+import { Responses } from '@base/src/shared/application/interfaces/responses';
 
 export interface CreateOrderDTO {
   items: string[];
@@ -13,4 +13,4 @@ type CreateOrderError = {
   error: string;
 };
 
-export type CreateOrderUseCaseResponse = Promise<HttpResponse<CreateOrderSuccess | CreateOrderError>>;
+export type CreateOrderUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;

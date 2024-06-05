@@ -4,13 +4,13 @@ import { UseCase } from '@shared/core/UseCase';
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
 import { CreateLogDTO, CreateLogUseCaseResponse } from './CreateLog.dto';
-import { HttpResponse } from '@base/src/shared/application/interfaces/http';
+import { Responses } from '@base/src/shared/application/interfaces/responses';
 
 @Injectable()
-export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<HttpResponse<CreateLogUseCaseResponse>>> {
+export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<Responses<CreateLogUseCaseResponse>>> {
   constructor(private readonly elasticService: ElasticService) {}
 
-  public async execute(dto: CreateLogDTO): Promise<HttpResponse<CreateLogUseCaseResponse>> {
+  public async execute(dto: CreateLogDTO): Promise<Responses<CreateLogUseCaseResponse>> {
     console.log('CreateLogUseCase - DTO: ', dto);
 
     const log = {

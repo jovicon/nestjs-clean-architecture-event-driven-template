@@ -10,6 +10,9 @@ import { CreateOrderDTO, CreateOrderUseCaseResponse } from './CreateOrder.dto';
 
 @Injectable()
 export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUseCaseResponse> {
+  private successMessage = 'created order';
+  private errorMessage = 'error creating order';
+
   constructor(private readonly orderService: OrderService) {}
 
   public async execute(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
@@ -28,7 +31,7 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
 
       return {
         status: 'success',
-        message: 'created order',
+        message: this.successMessage,
         data: {
           orderValidated,
         },
@@ -36,7 +39,7 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
     } catch (err) {
       return {
         status: 'error',
-        message: 'error creating order',
+        message: this.errorMessage,
         data: {
           error: err.message,
         },

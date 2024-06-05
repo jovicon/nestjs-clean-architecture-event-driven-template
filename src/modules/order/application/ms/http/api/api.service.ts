@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
 
-import { HttpResponse } from '@application/interfaces/http';
-
 import { CreateOrderController } from '../../../useCases/CreateOrder/CreateOrder.controller';
 import { CreateOrderDTO, CreateOrderUseCaseResponse } from '../../../useCases/CreateOrder/CreateOrder.dto';
 

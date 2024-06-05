@@ -40,6 +40,7 @@
 
         
     Next tackling:
+      [] Vercel Deploy
       [] Side car Pattern (with docker)
       [] Bun
         [x] Docker File Base
