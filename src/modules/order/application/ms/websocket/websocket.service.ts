@@ -21,7 +21,10 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
   }
 
   handleConnection(client: any, ...args: any[]) {
+    console.log('io', this.io);
     const { sockets } = this.io.sockets;
+
+    console.log('sockets', sockets);
 
     this.logger.log(`Client id: ${client.id} connected`);
     this.logger.log(`Number of connected clients: ${sockets.size}`);
@@ -45,7 +48,7 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
   }
 
   @SubscribeMessage('createRoom')
-  createRoom(client: Socket, data: any) {
+  createRoom(client: any, data: any) {
     client.join(data.roomId);
     client.to(data.roomId).emit('roomCreated', { room: data.roomId });
 
@@ -59,7 +62,7 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
   }
 
   @SubscribeMessage('roomMessage')
-  roomMessage(client: Socket, data: any) {
+  roomMessage(client: any, data: any) {
     client.to(data.roomId).emit('message', { room: data.roomId, message: 'hello' });
 
     this.logger.log(`Message received from client id: ${client.id}`);

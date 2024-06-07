@@ -26,6 +26,7 @@
         [x] Base
         [x] Sources
         [x] rooms
+        [] test rooms with no connection
         [] define message structure
         [] typed websocket
         [] move to shared folder - application
