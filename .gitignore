@@ -149,3 +149,6 @@ __tests__/
 
 # Generate Bun ignore files
 bun.lockb
+
+debug.json
+debug.*

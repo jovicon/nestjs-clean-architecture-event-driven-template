@@ -50,16 +50,16 @@ describe('WebsocketGateway', () => {
     expect(websocketGateway).toBeDefined();
   });
 
-  // it('should handle connection', () => {
-  //   const client = { id: 'test-client-id' } as Socket;
-  //   const sockets = { size: 1 } || {}; // Initialize with an empty object if null or undefined
-  //   const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+  it('should handle connection', () => {
+    const client = { id: 'test-client-id' } as Socket;
+    const sockets = { size: 1 } || {};
+    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
-  //   websocketGateway.handleConnection(client, sockets);
+    websocketGateway.handleConnection(client, sockets);
 
-  //   expect(loggerSpy).toHaveBeenCalledWith(`Client id: ${client.id} connected`);
-  //   expect(loggerSpy).toHaveBeenCalledWith(`Number of connected clients: ${sockets.size}`);
-  // });
+    expect(loggerSpy).toHaveBeenCalledWith(`Client id: ${client.id} connected`);
+    expect(loggerSpy).toHaveBeenCalledWith(`Number of connected clients: ${sockets.size}`);
+  });
 
   it('should handle disconnection', () => {
     const client = { id: 'test-client-id' };
@@ -88,26 +88,31 @@ describe('WebsocketGateway', () => {
     });
   });
 
-  // it('should handle "createRoom" message', () => {
-  //   const data = { roomId: 'test-room-id' };
-  //   const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+  it('should handle "createRoom" message', () => {
+    const data = { roomId: 'test-room-id' };
+    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
-  //   const client = { id: 'test-client-id', join: jest.fn(), to: jest.fn() };
+    const client = {
+      id: 'test-client-id',
+      join: jest.fn().mockReturnThis(),
+      to: jest.fn().mockReturnThis(),
+      emit: jest.fn(),
+    };
 
-  //   const result = websocketGateway.createRoom(client, data);
+    const result = websocketGateway.createRoom(client, data);
 
-  //   expect(client.join).toHaveBeenCalledWith(data.roomId);
-  //   expect(client.to).toHaveBeenCalledWith(data.roomId);
-  //   expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
-  //   expect(loggerSpy).toHaveBeenCalledWith(
-  //     `roomCreated`,
-  //     `${websocketGateway.constructor.name} - createRoom - Room id: ${data.roomId}`
-  //   );
-  //   expect(result).toEqual({
-  //     event: 'roomCreated',
-  //     data,
-  //   });
-  // });
+    expect(client.join).toHaveBeenCalledWith(data.roomId);
+    expect(client.to).toHaveBeenCalledWith(data.roomId);
+    expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
+    expect(loggerSpy).toHaveBeenCalledWith(
+      `roomCreated`,
+      `${websocketGateway.constructor.name} - createRoom - Room id: ${data.roomId}`
+    );
+    expect(result).toEqual({
+      event: 'roomCreated',
+      data,
+    });
+  });
 
   it('should handle "roomMessage" message', () => {
     const client = {
