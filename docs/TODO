@@ -26,11 +26,11 @@
         [x] Base
         [x] Sources
         [x] rooms
+        [x] Unit tests
         [] test rooms with no connection
         [] define message structure
         [] typed websocket
         [] move to shared folder - application
-        [] tests
         [] test wss
         [] Connect Front
         [] Connect Back
