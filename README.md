@@ -2,6 +2,17 @@
 
 Node web server running over Express for a Rest API
 
+
+## [![Repography logo](https://images.repography.com/logo.svg)](https://repography.com) / Recent activity [![Time period](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_badge.svg)](https://repography.com)
+[![Timeline graph](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_timeline.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/commits)
+[![Issue status graph](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_issues.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/issues)
+[![Pull request status graph](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_prs.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/pulls)
+[![Trending topics](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_words.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/commits)
+[![Top contributors](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_users.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/graphs/contributors)
+[![Activity map](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_map.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/commits)
+
+
+
 ## Que es clean architecture
 
 Clean architecture es un conjunto de principios cuya finalidad principal es ocultar los detalles de implementación a la lógica de dominio de la aplicación.

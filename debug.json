@@ -1,14 +1,14 @@
 {
-  "numFailedTestSuites": 1,
-  "numFailedTests": 1,
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
   "numPassedTestSuites": 0,
   "numPassedTests": 0,
   "numPendingTestSuites": 0,
-  "numPendingTests": 5,
+  "numPendingTests": 0,
   "numRuntimeErrorTestSuites": 0,
   "numTodoTests": 0,
-  "numTotalTestSuites": 1,
-  "numTotalTests": 6,
+  "numTotalTestSuites": 0,
+  "numTotalTests": 0,
   "openHandles": [],
   "snapshot": {
     "added": 0,
@@ -26,149 +26,8 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1717729129974,
-  "success": false,
-  "testResults": [
-    {
-      "leaks": false,
-      "numFailingTests": 1,
-      "numPassingTests": 0,
-      "numPendingTests": 5,
-      "numTodoTests": 0,
-      "openHandles": [],
-      "perfStats": {
-        "end": 1717729132009,
-        "runtime": 1977,
-        "slow": false,
-        "start": 1717729130032
-      },
-      "skipped": false,
-      "snapshot": {
-        "added": 0,
-        "fileDeleted": false,
-        "matched": 0,
-        "unchecked": 0,
-        "uncheckedKeys": [],
-        "unmatched": 0,
-        "updated": 0
-      },
-      "testFilePath": "/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/src/modules/order/application/ms/websocket/websocket.service.spec.ts",
-      "testResults": [
-        {
-          "ancestorTitles": [
-            "WebsocketGateway"
-          ],
-          "duration": null,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "WebsocketGateway should be defined",
-          "invocations": 1,
-          "location": {
-            "column": 3,
-            "line": 49
-          },
-          "numPassingAsserts": 0,
-          "retryReasons": [],
-          "status": "pending",
-          "title": "should be defined"
-        },
-        {
-          "ancestorTitles": [
-            "WebsocketGateway"
-          ],
-          "duration": 15,
-          "failureDetails": [
-            {}
-          ],
-          "failureMessages": [
-            "TypeError: Cannot read properties of undefined (reading 'size')\n    at WebsocketGateway.handleConnection (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/src/modules/order/application/ms/websocket/websocket.service.ts:29:61)\n    at Object.<anonymous> (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/src/modules/order/application/ms/websocket/websocket.service.spec.ts:58:22)\n    at Promise.then.completed (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async _runTest (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/run.js:252:3)\n    at async _runTestsForDescribeBlock (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/run.js:126:9)\n    at async _runTestsForDescribeBlock (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/run.js:121:9)\n    at async run (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/run.js:71:3)\n    at async runAndTransformResultsToJestFormat (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at async jestAdapter (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at async runTestInternal (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-runner/build/runTest.js:367:16)\n    at async runTest (/Users/jcontreras03/personal/code/lab01-choreography-based-sagas/node_modules/jest-runner/build/runTest.js:444:34)"
-          ],
-          "fullName": "WebsocketGateway should handle connection",
-          "invocations": 1,
-          "location": {
-            "column": 3,
-            "line": 53
-          },
-          "numPassingAsserts": 0,
-          "retryReasons": [],
-          "status": "failed",
-          "title": "should handle connection"
-        },
-        {
-          "ancestorTitles": [
-            "WebsocketGateway"
-          ],
-          "duration": null,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "WebsocketGateway should handle disconnection",
-          "invocations": 1,
-          "location": {
-            "column": 3,
-            "line": 64
-          },
-          "numPassingAsserts": 0,
-          "retryReasons": [],
-          "status": "pending",
-          "title": "should handle disconnection"
-        },
-        {
-          "ancestorTitles": [
-            "WebsocketGateway"
-          ],
-          "duration": null,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "WebsocketGateway should handle \"ping\" message",
-          "invocations": 1,
-          "location": {
-            "column": 3,
-            "line": 73
-          },
-          "numPassingAsserts": 0,
-          "retryReasons": [],
-          "status": "pending",
-          "title": "should handle \"ping\" message"
-        },
-        {
-          "ancestorTitles": [
-            "WebsocketGateway"
-          ],
-          "duration": null,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "WebsocketGateway should handle \"createRoom\" message",
-          "invocations": 1,
-          "location": {
-            "column": 3,
-            "line": 91
-          },
-          "numPassingAsserts": 0,
-          "retryReasons": [],
-          "status": "pending",
-          "title": "should handle \"createRoom\" message"
-        },
-        {
-          "ancestorTitles": [
-            "WebsocketGateway"
-          ],
-          "duration": null,
-          "failureDetails": [],
-          "failureMessages": [],
-          "fullName": "WebsocketGateway should handle \"roomMessage\" message",
-          "invocations": 1,
-          "location": {
-            "column": 3,
-            "line": 112
-          },
-          "numPassingAsserts": 0,
-          "retryReasons": [],
-          "status": "pending",
-          "title": "should handle \"roomMessage\" message"
-        }
-      ],
-      "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mWebsocketGateway › should handle connection\u001b[39m\u001b[22m\n\n    TypeError: Cannot read properties of undefined (reading 'size')\n\u001b[2m\u001b[22m\n\u001b[2m      27 |\u001b[22m\n\u001b[2m      28 |     this.logger.log(`Client id: ${client.id} connected`);\u001b[22m\n\u001b[2m    > 29 |     this.logger.log(`Number of connected clients: ${sockets.size}`);\u001b[22m\n\u001b[2m         |                                                             ^\u001b[22m\n\u001b[2m      30 |   }\u001b[22m\n\u001b[2m      31 |\u001b[22m\n\u001b[2m      32 |   handleDisconnect(client: any) {\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat WebsocketGateway.handleConnection (\u001b[22m\u001b[2mmodules/order/application/ms/websocket/websocket.service.ts\u001b[2m:29:61)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36mmodules/order/application/ms/websocket/websocket.service.spec.ts\u001b[39m\u001b[0m\u001b[2m:58:22)\u001b[22m\u001b[2m\u001b[22m\n"
-    }
-  ],
+  "startTime": 1717989875029,
+  "success": true,
+  "testResults": [],
   "wasInterrupted": false
 }
