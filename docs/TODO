@@ -2,8 +2,11 @@
   Docs:
     Docs Folder structure:
     [x] Obsidian docs
+    [x] Project Board
     [] English Docs
     [] Websocket Docs
+    [] Issues
+    [] git definitions
     [] Course folder
     [] Docker .env file configuration readme
     [] Jest Sonar config readme
@@ -27,10 +30,11 @@
         [x] Sources
         [x] rooms
         [x] Unit tests
+        [x] define message structure
         [] test rooms with no connection
-        [] define message structure
         [] typed websocket
         [] move to shared folder - application
+        [] authentication to websocket
         [] test wss
         [] Connect Front
         [] Connect Back
