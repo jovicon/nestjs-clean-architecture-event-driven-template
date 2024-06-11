@@ -71,15 +71,23 @@ describe('WebsocketGateway', () => {
   });
 
   it('should handle "ping" message', () => {
-    const client = { id: 'test-client-id' };
-    const data = 'test-payload';
+    const client = { id: 'test-client-id', request: { headers: {} } };
+    const data = {
+      detail: {
+        data: {
+          message: 'hello',
+        },
+      },
+    };
+
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
-    const loggerDebugSpy = jest.spyOn(websocketGateway['logger'], 'debug');
+    // const loggerDebugSpy = jest.spyOn(websocketGateway['logger'], 'debug');
 
     const result = websocketGateway.handleMessage(client, data);
 
     expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
-    expect(loggerDebugSpy).toHaveBeenCalledWith(`Payload: ${data}`);
+    expect(loggerSpy).toHaveBeenCalledWith(`Payload: ${JSON.stringify(data)}`);
+
     expect(result).toEqual({
       event: 'pong',
       data: {
