@@ -66,3 +66,4 @@ A Message, is a data record that the `messaging system` can transmit through a `
 - [AWS - Events Data structure explanation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html)
 - [AWS - EventBridge schema registry](https://docs.aws.amazon.com/eventbridge/latest/userguide/schema-registry.html)
 - [Defining events payloads](https://medium.com/p/bd5cc4809415)
+- [Defining an event schema in an Event-Driven Architecture](https://pandaquests.medium.com/defining-an-event-schema-in-an-event-driven-architecture-4fc2d011a201)
