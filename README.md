@@ -29,6 +29,7 @@ TODO IS HERE!!
 - [Clean Architecture - Frontend Structure](https://dev.to/bespoyasov/clean-architecture-on-frontend-4311)
 - [Full Clean Architecture Explained](https://docs.google.com/drawings/d/1E_hx5B4czRVFVhGJbrbPDlb_JFxJC8fYB86OMzZuAhg/edit)
 
+
 ## [![Repography logo](https://images.repography.com/logo.svg)](https://repography.com) / Recent activity [![Time period](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_badge.svg)](https://repography.com)
 [![Timeline graph](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_timeline.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/commits)
 [![Issue status graph](https://images.repography.com/51691792/jovicon/nestjs-clean-architecture-event-driven-template/recent-activity/KZWYrbxoHDfbz6c0ZN2T5hESuNbpkMbbdVeF9U0B2ck/eGfBR628vaP1dbiC0egJij8VZmydu8mzyxQQwoSrCBE_issues.svg)](https://github.com/jovicon/nestjs-clean-architecture-event-driven-template/issues)
