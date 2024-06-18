@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-import { Guard } from '@shared/core/Guard';
+import { Guard } from '@shared/commons/Guard';
 
 export type EventMetadata = {
   /** Timestamp when this domain event occurred */

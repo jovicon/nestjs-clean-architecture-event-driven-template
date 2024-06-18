@@ -1,5 +1,5 @@
 import { Result } from '@shared/core/Result';
-import { Guard } from '@shared/core/Guard';
+import { Guard } from '@shared/commons/Guard';
 import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
 import { OrderCreated } from './events/emitters/OrderCreated.emitter';
