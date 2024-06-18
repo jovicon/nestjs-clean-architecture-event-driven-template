@@ -48,17 +48,17 @@ Run this commands from base repo project to get up project container needs
 ### Elastic Stack
 
 ```bash
-docker-compose -f docker-compose/elasticstack.yml up
+docker-compose -f docker/elasticstack.yml up
 ```
 
 ### Mongo
 
 ```bash
-docker-compose -f docker-compose/mongo.yml up
+docker-compose -f docker/mongo.yml up
 ```
 
 ### Kafka
 
 ```bash
-docker-compose -f docker-compose/kafka.yml up
+docker-compose -f docker/kafka.yml up
 ```

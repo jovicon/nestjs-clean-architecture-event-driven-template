@@ -13,9 +13,9 @@ const config: Config = {
   coverageDirectory: '../coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
+    '^lib/(.*)$': '<rootDir>/common/$1',
     '^@shared/(.*)$': '<rootDir>/shared/$1',
     '@config/(.*)$': '<rootDir>/config/$1',
-    '^lib/(.*)$': '<rootDir>/common/$1',
     '^@base/(.*)$': '<rootDir>/$1',
   },
   testPathIgnorePatterns: ['<rootDir>/shared'],

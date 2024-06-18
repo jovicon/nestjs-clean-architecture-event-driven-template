@@ -3,14 +3,14 @@
     Docs Folder structure:
     [x] Obsidian docs
     [x] Project Board
-    [] English Docs
+    [x] English Docs
+    [x] Issues
     [] Websocket Docs
-    [] Issues
     [] git definitions
     [] Course folder
     [] Docker .env file configuration readme
     [] Jest Sonar config readme
-    [] Updete Diagram
+    [] Update Diagram
     [] Sources documentation
     [] Code review guidelines
     [] API Composition Docs
