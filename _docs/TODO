@@ -1,0 +1,390 @@
+# TODO LIST
+  Docs:
+    Docs Folder structure:
+    [x] Obsidian docs
+    [x] Project Board
+    [x] English Docs
+    [x] Issues
+    [] Websocket Docs
+    [] git definitions
+    [] Course folder
+    [] Docker .env file configuration readme
+    [] Jest Sonar config readme
+    [] Update Diagram
+    [] Sources documentation
+    [] Code review guidelines
+    [] API Composition Docs
+    [] Define Unit tests Good practices
+    [] Separete Clean architecture from principal Readme
+    [] Principal Readme Just for Project Diagram, Installation & how it works
+    [] Separete Event Driven Docs
+    [] Postman
+      [] Documentation
+      [] PostBot usage
+
+  General Project Control:
+
+    Actual tackling:
+      [] Websocket
+        [x] Base
+        [x] Sources
+        [x] rooms
+        [x] Unit tests
+        [x] define message structure
+        [] test rooms with no connection
+        [] typed websocket
+        [] move to shared folder - application
+        [] authentication to websocket
+        [] test wss
+        [] Connect Front
+        [] Connect Back
+        [] short article
+        [] Diagram
+        [] Sources
+        [] Docs
+        [] Postman docs example
+
+        
+    Next tackling:
+      [] Vercel Deploy
+      [] Side car Pattern (with docker)
+      [] Bun
+        [x] Docker File Base
+        [] Optimized Docker File
+        [] Performance test vs Node
+        [] Docs
+      [] Typespec API Microsoft
+
+    Code review Back:
+      [] Clean anys - Shared Folder
+      [] Config Class Review
+      [] Test cover over 80%
+      
+    Reorder from best practices:
+      [] INJECTION FROM PORTS - TOC
+      [] SIMPLE USE CASES - TOC
+      [] Multi tenancy DB connection
+
+    Http good practices:
+      [] Routes definitions
+      [] Code error handlers
+      [] Code errors
+      
+    Docker analisis:
+      [] Docker scout
+      [] snyk
+
+    External libraries mask:
+      [] dotenv
+      [] nanoid
+
+    External libraries to test:
+      [] Sanitization library
+      [] SQL Injection
+      [] Prisma - https://www.prisma.io/
+    
+    Delete & Order:
+      [] Github actions
+
+    To Order: 
+      [] Log messages data object structure
+      [] Plain logs (Better logger class)
+      [] Best Docker practices
+      [] Ordering the TODO List
+      [] Exceptions handlers
+
+      [] Mongo transactions
+      [] Fastify
+
+      [] ChatGPT Code reviews
+      [] Docs Folder
+      [] Final Diagram
+      [] Choreography-based saga
+        [] TCP
+      [] Orchestration-based saga
+      [] Sources documentation
+      [] Update source code folders
+      [] Multi tenancy DB connection
+
+      Security:
+        [] Talisman
+        [] Docker security
+        [] JWT
+        [] Helmet
+        [] Rate Limit
+        [] SQL Injection
+        [] Sanitization
+
+      Code Quality:
+        [x] Install SonarQube
+        [x] Code Coverage
+        [] Code Climate
+        [] Code Quality
+        [] Code Review
+        [] Code Smells
+        [] Code Duplication
+        [] Code Complexity
+        [] Code Security
+        [] Define Code Style
+
+      Unit Test:
+        [] Mocks
+        [] Infra
+        [] Spies
+        [] Stubs
+      
+      Monitoring:
+        [] New Relic
+
+      Microservices Patterns:
+        [] Side car pattern
+        [] Saga Pattern
+        [] Circuit Breaker Pattern
+        [] Event Driven Design
+        [] CQRS
+        [] SAGA Pattern
+        [] Event Sourcing
+        [] Domain Driven Design
+        [] API Gateway
+        [] BFF
+        [] Service Mesh
+        [] Strangler Fig Pattern
+        [] Bulkhead Pattern
+        [] Retry Pattern
+        [] Timeout Pattern
+        [] Rate Limit Pattern
+        [] Fallback Pattern
+        [] Cache Aside Pattern
+        [] Throttling Pattern
+        [] Load Balancer Pattern
+        [] Service Discovery Pattern
+        [] Blue Green Deployment Pattern
+        [] Canary Deployment Pattern
+        [] A/B Testing Pattern
+        [] Dark Launch Pattern
+        [] Feature Flag Pattern
+
+
+      Event Driven Design Course:
+        [] connect a data base to event order handler -- https://learn.nestjs.com/courses/2216378/lectures/49542778
+        [] rehydrate aggredate --
+
+      Connection between services like nest Microservices:
+        [x] TCP
+        [x] HTTP
+        [] Websockets
+        [] REDIS
+        [] Kafka
+        [] RabbitMQ
+        [] NATS
+        [] NATS Streaming
+        [] Jaeger
+
+      Modules:
+        [] Logger Module Injectable - Start to working
+          [] Describe into Actual Work
+
+        [] Order Module Service - working 90%
+
+        [] Logger Module Service - 30%
+          [x] health check
+          [x] path to generate logs
+          [] Design Pattern to execute multiples services at the same time
+            [] Which pattern do I have to use?
+            [] Strategy pattern
+          [] Services to Log
+            [] Elastic Stack
+            [] Mongo
+            [] Firebase
+            
+        [] Queue Module Service
+          [] shared queue adapters
+            [] Kafka
+            [] Redis
+            [] Nats
+            [] NATS Streaming
+            [] Jaeger
+            [] RabbitMQ
+
+            
+        [] Circuit breaker pattern
+          [] Define Circuit breaker pattern module
+          [] Reintentar
+          [] Fallback to queue
+          [] Fallback to database
+          [] Fallback to cache
+          [] Fallback to another service/microservice
+            
+        [] Customer Module Service
+          [] Define Customer Service module
+            
+      Utilities:
+        [] Logger Utility
+          [] Color library injectable
+          [] Winston or Logger injectable
+
+        [] Injectable Error Interceptor
+        
+        [] SAGA Pattern
+          [] Define SAGA Pattern module
+          [] Transaction UP
+          [] Transactions DOWN
+        
+        [] Tests
+          [] Unit Tests
+          [] Integration Tests
+          [] E2E Tests
+
+  Actual work:
+    [] Rut Validator
+      [] Try catch
+      [] Throw error with object
+
+    [] Queue event Fallback
+
+    [] Order Module Service - working 90%
+      [x] tcp host to config ms
+      [x] Reorder application folder
+      [] Implement SAGA PATTERN
+      [] Application to Class Module
+        [] HTTP
+      [x] clean code
+
+    [] Logger Module Controller - working 60%
+      [] Implement SAGA PATTERN
+      [x] Use Case - Save To Elastic
+      [x] Creds to config
+      [x] Reuse Use Case - Save To Elastic
+      [] Application to Class Module
+        [] HTTP
+        [] TCP
+      [] clean code
+
+  Docker Compose:
+    [x] Mongo
+    [x] Mongo Express
+    [x] Kafka
+    [x] Elastic Stack
+    [x] SonarQube
+    [] Zookeeper
+    [] Kibana
+    [] Jaeger
+    [] RabbitMQ
+    [] Redis
+    [] Postgres
+    [] MySQL
+    [] Nats
+    [] NATS Streaming
+  
+  Docker:
+    [x] Dockerfile
+    [x] Docker Compose
+    [] Test Containers
+    [] Docker Scout
+    [] Snyk Docker
+    [] Docker Security
+
+  Config Module:
+    [x] Configure Environment Variables
+    [x] Container Structure
+    [x] Read .env file
+    [x] Read package.json
+    [x] Read environment variables from other modules
+    [] Tests
+
+  Order Module Service:
+    Data:
+      [] Build a better data object
+
+    Clean Code: 
+      [] code quality & clean
+      [] Folder Structure from project
+      [] Tests
+  
+  Logger Module Service:
+    Module:
+      [] Dockerfile
+
+      Config:
+        [] Port value to Config
+
+      HTTP Communication config:
+        [x] Health Check Config
+        [x] API Config 
+        [x] Controller Config
+        [x] Routes Config
+        [] Tests
+
+      TCP:
+        Events:
+          [x] Created Order
+          [] Inject Use Case
+          [] Tests
+    
+      Create Logger Use Case:
+        [] Use Case - SendQueueMessage
+        [] Controller
+        [] Route
+        [] Repository
+          [] Repository Basic Module
+          [] Repository Adapter
+          [] Logger Repository Service
+          [] Events
+            [] Microservice - TCP
+            Logger Created:
+              [] add
+              [] Emit
+              [] Listen ? SAGA - move to customer service
+
+            [] Event-based - Kafka
+
+        Clean Code: 
+          [] App Controller
+          
+        [] Tests
+
+# DONE LIST
+Not Full finished:
+  Order Module Service:
+    Module:
+      [x] API
+      [x] Controller
+      [x] Routes
+      [x] Health Check
+      [x] Tests
+      [x] Dockerfile
+    Create Order Use Case:
+      [x] Use Case
+      [x] Controller
+      [x] Route
+      [x] Repository
+        [x] Repository Basic Module
+        [x] Repository Adapter
+        [x] Order Repository Service
+        [x] Events
+          [x] Microservice - TCP
+          Order Created:
+            [x] add
+            [x] Emit
+            [x] Listener - move to customer service
+
+  Code review Back:
+    [x] nanoid or uuid - Nanoid
+    [x] Clean DomainEvent
+    [x] Event Handler
+    [x] Clean anys - Modules
+
+  Code Quality:
+    [x] Install SonarQube
+    [x] Code Coverage
+
+Full Finished:
+  [x] Docker Compose - V1
+  [x] Config Module
+  [x] VS code extensions
+  [x] Update libraries
+  [x] Update docker
+  [x] Version desde package json
+
+  Architecture:
+    [x] Use Case Folder Outside Application Folder?
