@@ -6,18 +6,11 @@ import {
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
+  WsResponse,
 } from '@nestjs/websockets';
 
 import { Server, Socket } from 'socket.io';
-import { EventMessageDetails } from './websocket.interface';
-
-interface PingData
-  extends EventMessageDetails<
-    {
-      message: string;
-    },
-    {}
-  > {}
+import { Message, PingMessage, CreateRoomMessage, RoomMessageEvent } from './websocket.interface';
 
 @WebSocketGateway()
 export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
@@ -36,13 +29,16 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     this.logger.log(`Number of connected clients: ${sockets.size}`);
   }
 
-  handleDisconnect(client: any) {
+  handleDisconnect(client: Socket) {
     this.logger.log(`Cliend id:${client.id} disconnected`);
   }
 
   @SubscribeMessage('ping')
-  handleMessage(client: any, data: PingData) {
-    console.log('data: ', data);
+  handleMessage(client: Socket, data: PingMessage): WsResponse<Message> {
+    const { message } = data.detail.data;
+
+    console.log('PING - data: ', data);
+    console.log('PING - message: ', message);
 
     const { headers } = client.request;
 
@@ -58,13 +54,15 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     };
   }
 
-  @SubscribeMessage('createRoom')
-  createRoom(client: any, data: any) {
-    client.join(data.roomId);
-    client.to(data.roomId).emit('roomCreated', { room: data.roomId });
+  @SubscribeMessage('JoinRoom')
+  async createRoom(client: Socket, data: CreateRoomMessage) {
+    const { roomId } = data.detail.data;
+
+    await client.join(roomId);
+    client.to(roomId).emit('WelcomeRoom', { room: roomId });
 
     this.logger.log(`Message received from client id: ${client.id}`);
-    this.logger.log(`roomCreated`, `${this.constructor.name} - createRoom - Room id: ${data.roomId}`);
+    this.logger.log(`roomCreated`, `${this.constructor.name} - createRoom - Room id: ${roomId}`);
 
     return {
       event: 'roomCreated',
@@ -72,15 +70,17 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     };
   }
 
-  @SubscribeMessage('roomMessage')
-  roomMessage(client: any, data: any) {
-    client.to(data.roomId).emit('message', { room: data.roomId, message: 'hello' });
+  @SubscribeMessage('MessageRoom')
+  roomMessage(client: Socket, data: RoomMessageEvent) {
+    const { roomId, message } = data.detail.data;
+
+    client.to(roomId).emit('message', { room: roomId, message });
 
     this.logger.log(`Message received from client id: ${client.id}`);
-    this.logger.log(`room`, `${this.constructor.name} - createRoom - Room id: ${data.roomId}`);
+    this.logger.log(`room`, `${this.constructor.name} - roomMessage - Room id: ${roomId}`);
 
     return {
-      event: 'roomCreated',
+      event: 'MessageSended',
       data,
     };
   }
