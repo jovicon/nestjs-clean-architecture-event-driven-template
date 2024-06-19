@@ -62,7 +62,7 @@ describe('WebsocketGateway', () => {
   });
 
   it('should handle disconnection', () => {
-    const client = { id: 'test-client-id' };
+    const client = { id: 'test-client-id' } as Socket;
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
     websocketGateway.handleDisconnect(client);
@@ -71,7 +71,7 @@ describe('WebsocketGateway', () => {
   });
 
   it('should handle "ping" message', () => {
-    const client = { id: 'test-client-id', request: { headers: {} } };
+    const client = { id: 'test-client-id', request: { headers: {} } } as Socket;
     const data = {
       detail: {
         data: {
@@ -96,25 +96,29 @@ describe('WebsocketGateway', () => {
     });
   });
 
-  it('should handle "createRoom" message', () => {
-    const data = { roomId: 'test-room-id' };
+  it('should handle "JoinRoom" message', async () => {
+    const data = {
+      detail: {
+        data: { roomId: 'test-room-id' },
+      },
+    };
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
     const client = {
       id: 'test-client-id',
       join: jest.fn().mockReturnThis(),
-      to: jest.fn().mockReturnThis(),
+      to: jest.fn().mockReturnValue({ emit: jest.fn() }),
       emit: jest.fn(),
-    };
+    } as unknown as Socket;
 
-    const result = websocketGateway.createRoom(client, data);
+    const result = await websocketGateway.createRoom(client, data);
 
-    expect(client.join).toHaveBeenCalledWith(data.roomId);
-    expect(client.to).toHaveBeenCalledWith(data.roomId);
+    expect(client.join).toHaveBeenCalledWith(data.detail.data.roomId);
+    expect(client.to).toHaveBeenCalledWith(data.detail.data.roomId);
     expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
     expect(loggerSpy).toHaveBeenCalledWith(
       `roomCreated`,
-      `${websocketGateway.constructor.name} - createRoom - Room id: ${data.roomId}`
+      `${websocketGateway.constructor.name} - createRoom - Room id: ${data.detail.data.roomId}`
     );
     expect(result).toEqual({
       event: 'roomCreated',
@@ -128,20 +132,28 @@ describe('WebsocketGateway', () => {
       join: jest.fn().mockReturnThis(),
       to: jest.fn().mockReturnThis(),
       emit: jest.fn(),
+    } as unknown as Socket;
+
+    const data = {
+      detail: {
+        data: {
+          roomId: 'test-room-id',
+          message: 'hello',
+        },
+      },
     };
-    const data = { roomId: 'test-room-id' };
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
     const result = websocketGateway.roomMessage(client, data);
 
-    expect(client.to).toHaveBeenCalledWith(data.roomId);
+    expect(client.to).toHaveBeenCalledWith(data.detail.data.roomId);
     expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
     expect(loggerSpy).toHaveBeenCalledWith(
       `room`,
-      `${websocketGateway.constructor.name} - createRoom - Room id: ${data.roomId}`
+      `${websocketGateway.constructor.name} - roomMessage - Room id: ${data.detail.data.roomId}`
     );
     expect(result).toEqual({
-      event: 'roomCreated',
+      event: 'MessageSended',
       data,
     });
   });
