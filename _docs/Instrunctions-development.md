@@ -19,7 +19,19 @@
 ➜ $ npm i && npm run prepare
 ```
 
-## 2. Run the project
+## 2. Docker and Docker Compose Running with mongoDB
+
+```bash
+➜ $ sudo docker-compose -f docker/mongo.yml up
+```
+
+## 3. Copy the .env.example file to .env
+
+```bash
+➜ $ cp .env.example .env
+```
+
+## 4. Run the project
 
 ```bash
 ➜ $ npm run start:dev
