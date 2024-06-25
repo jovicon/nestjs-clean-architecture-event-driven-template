@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { Responses } from '@base/src/shared/application/interfaces/responses';
 
-import { CreateLogController } from '../../../useCases/SendQueuesMessage/CreateLog.controller';
-import { CreateLogDTO, CreateLogUseCaseResponse } from '../../../useCases/SendQueuesMessage/CreateLog.dto';
+import { CreateLogController } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.controller';
+import {
+  CreateLogDTO,
+  CreateLogUseCaseResponse,
+} from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
 
 @Injectable()
 export class ClientsService {

@@ -1,8 +1,8 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { CreateLogController } from '../../useCases/SendQueuesMessage/CreateLog.controller';
+import { CreateLogController } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.controller';
 
-import { CreateLogDTO } from '../../useCases/SendQueuesMessage/CreateLog.dto';
+import { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
 
 @Controller()
 export class LoggerController {
