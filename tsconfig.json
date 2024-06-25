@@ -22,12 +22,12 @@
     "esModuleInterop": true,
     "paths": {
       "@base/*": ["./*"],
-      "@config/*": ["src/config/*"],
-      "@shared/*": ["src/shared/*"],
-      "@adapters/*": ["src/shared/adapters/*"],
-      "@application/*": ["src/shared/application/*"],
-      "@domain/*": ["src/shared/ddd/*"],
-      "@modules/*": ["src/modules/*"]
+      "@config/*": ["./src/config/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@adapters/*": ["./src/shared/adapters/*"],
+      "@application/*": ["./src/shared/application/*"],
+      "@domain/*": ["./src/shared/ddd/*"],
+      "@modules/*": ["./src/modules/*"]
     }
   }
 }
