@@ -1,4 +1,5 @@
 {
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "module": "commonjs",
     "noImplicitAny": true,
