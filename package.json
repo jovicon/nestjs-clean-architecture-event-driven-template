@@ -20,6 +20,8 @@
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
+    "type-check": "tsc -p tsconfig.json --noEmit",
+    "vercel:build": "vercel build",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -62,6 +64,7 @@
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
+    "@vercel/node": "^3.1.7",
     "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -77,7 +80,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "4.2.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   },
   "jestSonar": {
     "reportFile": "test-reporter.xml",

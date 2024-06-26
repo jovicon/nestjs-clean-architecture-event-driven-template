@@ -17,6 +17,7 @@ const config: Config = {
     '^@shared/(.*)$': '<rootDir>/shared/$1',
     '@config/(.*)$': '<rootDir>/config/$1',
     '^@base/(.*)$': '<rootDir>/$1',
+    '^@modules/(.*)$': '<rootDir>/modules/$1',
   },
   testPathIgnorePatterns: ['<rootDir>/shared'],
   coveragePathIgnorePatterns: ['<rootDir>/shared', 'node_modules', 'main.ts'],

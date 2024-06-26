@@ -4,7 +4,7 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Order } from './order.schema';
 import { OrderRepositoryAdapter } from './order.adapter';
 
-import { Order as OrderEntity } from '../../domain/order';
+import { Order as OrderEntity } from '@modules/order/domain/order';
 
 @Injectable()
 export class OrderService {

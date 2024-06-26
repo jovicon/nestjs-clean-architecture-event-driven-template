@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { UseCase } from '@shared/core/UseCase';
 
-import { Order } from '../../../domain/order';
-import { OrderItem } from '../../../domain/orderItem';
+import { Order } from '@modules/order/domain/order';
+import { OrderItem } from '@modules/order/domain/orderItem';
 
-import { OrderService } from '../../../adapters/repository/order.service';
+import { OrderService } from '@modules/order/adapters/repository/order.service';
 
 import { CreateOrderDTO, CreateOrderUseCaseResponse } from './CreateOrder.dto';
 
