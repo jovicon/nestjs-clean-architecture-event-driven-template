@@ -4,7 +4,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { OnEvent } from '@nestjs/event-emitter';
 
-import { OrderCreated } from '@modules/order/domain/events/emitters/OrderCreated.emitter';
+import { OrderCreated } from '@base/src/modules/order/domain/events/emitters/orderCreated.emitter';
 
 type EventResponse = { success: boolean };
 
