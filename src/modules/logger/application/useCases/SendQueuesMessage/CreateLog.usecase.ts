@@ -4,7 +4,7 @@ import { UseCase } from '@shared/core/UseCase';
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
 import { CreateLogDTO, CreateLogUseCaseResponse } from './CreateLog.dto';
-import { Responses } from '@base/src/shared/application/interfaces/responses';
+import { Responses } from '@shared/application/interfaces/responses';
 
 @Injectable()
 export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<Responses<CreateLogUseCaseResponse>>> {

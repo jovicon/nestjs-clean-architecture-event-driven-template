@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Responses } from '@base/src/shared/application/interfaces/responses';
+import { Responses } from '@shared/application/interfaces/responses';
 
 import { CreateLogController } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.controller';
 import {
