@@ -1,5 +1,5 @@
 import { OrderJson } from '@modules/order/domain/order';
-import { Responses } from '@base/src/shared/application/interfaces/responses';
+import { Responses } from '@shared/application/interfaces/responses';
 
 export interface CreateOrderDTO {
   items: string[];

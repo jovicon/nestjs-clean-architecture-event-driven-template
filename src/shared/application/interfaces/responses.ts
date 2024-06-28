@@ -1,4 +1,4 @@
-import { Status } from '@base/src/shared/application/types/status';
+import { Status } from '@shared/application/types/status';
 
 export interface Responses<T> {
   status: Status;
