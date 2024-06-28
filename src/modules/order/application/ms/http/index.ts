@@ -7,7 +7,7 @@ import { version, name, author } from '@base/package.json';
 import { PATH_BASE_MS, PORT, CORS_CONFIG, SERVICE_NAME } from './http.config';
 import { HttpModule } from './http.module';
 
-async function httpServerBootstrap(): Promise<void> {
+export async function httpServerBootstrap(): Promise<void> {
   try {
     const app = await NestFactory.create(HttpModule, { cors: CORS_CONFIG });
     const winstonLogger = app.get(WINSTON_MODULE_NEST_PROVIDER);
