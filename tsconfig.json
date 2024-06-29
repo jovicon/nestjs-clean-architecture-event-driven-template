@@ -1,5 +1,5 @@
 {
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules", "__tests__/**"],
   "include": ["."],
   "compilerOptions": {
     "module": "commonjs",
@@ -13,10 +13,10 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": ".",
-    "incremental": true,
+    // "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
-    "strictBindCallApply": false,
+    // "strictBindCallApply": false,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
