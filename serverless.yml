@@ -21,7 +21,7 @@ package:
 
 functions:
   main:
-    handler: src/main.handler
+    handler: src/serverless.handler
     events:
       - http:
           method: any
