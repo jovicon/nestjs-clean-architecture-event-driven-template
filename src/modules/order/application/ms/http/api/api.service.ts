@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { CreateOrderController } from '@modules/order/application/useCases/CreateOrder/CreateOrder.controller';
+import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder/CreateOrder.usecase';
 import {
   CreateOrderDTO,
   CreateOrderUseCaseResponse,
@@ -8,10 +8,10 @@ import {
 
 @Injectable()
 export default class ClientsService {
-  constructor(private readonly createOrderController: CreateOrderController) {}
+  constructor(private readonly createOrderUseCase: CreateOrderUseCase) {}
 
   async createOrder(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
-    const useCase = await this.createOrderController.execute(dto);
+    const useCase = await this.createOrderUseCase.execute(dto);
 
     return {
       ...useCase,

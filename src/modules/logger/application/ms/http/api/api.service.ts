@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Responses } from '@shared/application/interfaces/responses';
 
-import { CreateLogController } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.controller';
+import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
 import {
   CreateLogDTO,
   CreateLogUseCaseResponse,
@@ -9,10 +9,10 @@ import {
 
 @Injectable()
 export class ClientsService {
-  constructor(private readonly createLogController: CreateLogController) {}
+  constructor(private readonly createLogUseCase: CreateLogUseCase) {}
 
   async createLog(dto: CreateLogDTO): Promise<Responses<CreateLogUseCaseResponse>> {
-    const useCase = await this.createLogController.execute(dto);
+    const useCase = await this.createLogUseCase.execute(dto);
 
     return {
       ...useCase,

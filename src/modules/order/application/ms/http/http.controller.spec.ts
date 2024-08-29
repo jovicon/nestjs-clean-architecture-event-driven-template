@@ -6,7 +6,6 @@ import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { ConfigModule } from '@config/config.module';
 import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
 
-import { CreateOrderController } from '@modules/order/application/useCases/CreateOrder/CreateOrder.controller';
 import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder/CreateOrder.usecase';
 
 import { OrderRepositoryAdapter } from '@modules/order/adapters/repository/order.adapter';
@@ -63,7 +62,7 @@ describe('ApiController', () => {
         Logger,
       ],
       controllers: [ApiController],
-      providers: [ApiService, OrderRepositoryAdapter, CreateOrderController, CreateOrderUseCase],
+      providers: [ApiService, OrderRepositoryAdapter, CreateOrderUseCase],
     })
       .overrideProvider(OrderRepositoryAdapter)
       .useValue(mockRepository)
