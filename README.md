@@ -8,18 +8,20 @@ TODO IS HERE!!
 
 ## Getting Started 🚀
 
+## Inspirations
+
+- [The 8 Important Documents](https://www.ssw.com.au/rules/awesome-documentation/)
+
 ## Documentation
 
 - [APIs](_docs/APIs.md)
 - [Versioning && Gitflow](_docs/versioning-gitflow.md)
 - [Instructions for development & install](_docs/Instrunctions-development.md)
-- [Instructions for deployment](_docs/Instrunctions-deployment.md) -- Missing
-  - Ideas: Vercel, Heroku, AWS, GCP, Azure, etc.
 - [Business Example](_docs/Business.md) -- Missing
 - [Testing](_docs/Testing.md) -- Missing
 - [Technologies & Architecture](_docs/Technologies-and-Architecture.md) -- Missing
 
-## Sources & Inspirations 📚
+## Sources 📚
 
 - [Base Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [Explicit Clean Architecture](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together)

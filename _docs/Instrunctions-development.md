@@ -19,10 +19,16 @@
 ➜ $ npm i && npm run prepare
 ```
 
-## 2. Docker and Docker Compose Running with mongoDB
+## 2. Docker Running with mongoDB
 
 ```bash
 ➜ $ sudo docker-compose -f docker/mongo.yml up
+```
+
+## 3. Docker Running with Elastic Stack
+
+```bash
+➜ $ sudo docker-compose -f docker/elasticstack.yml up
 ```
 
 ## 3. Copy the .env.example file to .env
@@ -66,7 +72,7 @@ modules/
     - adapters/
     - application/
       - ms
-        - infrastructure_name -- (eg: http - queue - websocket - daemon - jobs)
+        - infrastructure_name -- (eg: http, tlc, queue, websocket, daemon, jobs)
       - usecases/
     - domain/
 ```
