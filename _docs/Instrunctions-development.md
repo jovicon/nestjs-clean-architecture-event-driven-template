@@ -19,31 +19,31 @@
 ➜ $ npm i && npm run prepare
 ```
 
-## 2. Docker Running with mongoDB
+## 2. Docker and Docker Compose Running with mongoDB
 
 ```bash
 ➜ $ sudo docker-compose -f docker/mongo.yml up
 ```
 
-## 3. Docker Running with Elastic Stack
+## 3. Docker and Docker Compose Running with Elastic Stack
 
 ```bash
 ➜ $ sudo docker-compose -f docker/elasticstack.yml up
 ```
 
-## 3. Copy the .env.example file to .env
+## 4. Copy the .env.example file to .env
 
 ```bash
 ➜ $ cp .env.example .env
 ```
 
-## 4. Run the project
+## 5. Run the project
 
 ```bash
 ➜ $ npm run start:dev
 ```
 
-## 2. Description
+## Folder Description
 
 The main folders proposed for the project are:
 
