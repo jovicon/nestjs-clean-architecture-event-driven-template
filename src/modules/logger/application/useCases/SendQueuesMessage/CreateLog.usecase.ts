@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UseCase } from '@shared/core/UseCase';
+import { UseCase } from '@base/src/shared/commons/core/UseCase';
 
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 

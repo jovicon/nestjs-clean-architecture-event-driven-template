@@ -1,10 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { UseCase } from '@shared/core/UseCase';
+import { Inject } from '@nestjs/common';
+import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
 
-import { Order } from '@modules/order/domain/order';
-import { OrderItem } from '@modules/order/domain/orderItem';
+import { UseCase } from '@base/src/shared/commons/core/UseCase';
 
-import { OrderService } from '@modules/order/adapters/repository/order.service';
+import { Order } from '@modules/products/domain/order';
+import { OrderItem } from '@modules/products/domain/orderItem';
+
+import { OrderService } from '@modules/products/adapters/repository/order.service';
 
 import { CreateOrderDTO, CreateOrderUseCaseResponse } from './CreateProduct.dto';
 
@@ -13,7 +16,10 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
   private successMessage = 'created order';
   private errorMessage = 'error creating order';
 
-  constructor(private readonly orderService: OrderService) {}
+  constructor(
+    private readonly orderService: OrderService,
+    @Inject(CACHE_MANAGER) private cacheManager: Cache
+  ) {}
 
   public async execute(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
     try {
@@ -28,6 +34,10 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
       const orders = orderValidated.items.map((item) => item.value);
 
       this.orderService.createOrder({ items: orders }, order.getValue());
+
+      await this.cacheManager.set('key', 'value');
+
+      console.log('Example created');
 
       return {
         status: 'success',

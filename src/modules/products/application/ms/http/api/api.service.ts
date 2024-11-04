@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder/CreateOrder.usecase';
+import { CreateOrderUseCase } from '@modules/products/application/useCases/CreateProduct/CreateProduct.usecase';
 import {
   CreateOrderDTO,
   CreateOrderUseCaseResponse,

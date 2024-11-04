@@ -1,5 +1,5 @@
 import { ValueObject } from '@shared/ddd/ValueObject';
-import { Result } from '@shared/core/Result';
+import { Result } from '@base/src/shared/commons/core/Result';
 import { Guard } from '@shared/commons/Guard';
 
 export interface OrderItemProps {

@@ -7,6 +7,7 @@ import { ConfigModule } from '@config/config.module';
 import { ConfigService } from '@config/config.service';
 
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
+import { InternalCacheModule } from '@shared/adapters/cache/CacheModule';
 
 import { OrderCreatedEventHandler } from '@modules/order/domain/events/handlers/orderCreated.handler';
 
@@ -37,7 +38,15 @@ const loggerMicroserviceProvider = {
 };
 
 @Module({
-  imports: [RequestContextModule, ConfigModule, CoreModule, OrderModule, RouterModule.register(allRoutes), Logger],
+  imports: [
+    RequestContextModule,
+    ConfigModule,
+    CoreModule,
+    OrderModule,
+    RouterModule.register(allRoutes),
+    Logger,
+    InternalCacheModule,
+  ],
   providers: [...interceptors, OrderCreatedEventHandler, loggerMicroserviceProvider],
 })
 export class HttpModule {}

@@ -1,6 +1,6 @@
-export const PATH_BASE_MS = 'order';
-export const PORT = 3000;
-export const SERVICE_NAME = 'ORDER';
+export const PATH_BASE_MS = 'products';
+export const PORT = 3003;
+export const SERVICE_NAME = 'PRODUCTS';
 export const CORS_CONFIG = {
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   origin: '*',

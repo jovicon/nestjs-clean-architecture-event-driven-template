@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 
-import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
+import { OrderRepositoryModule } from '@modules/products/adapters/repository/order.module';
+import { InternalCacheModule } from '@base/src/shared/adapters/cache/CacheModule';
 
 import { CreateOrderUseCase } from './CreateProduct.usecase';
 
 @Module({
-  imports: [OrderRepositoryModule],
+  imports: [OrderRepositoryModule, InternalCacheModule],
   providers: [CreateOrderUseCase],
   exports: [CreateOrderUseCase],
 })

@@ -41,3 +41,7 @@ This Clean architecture template is based on the following three pillars:
 ## Full example diagram
 
 ![Full Clean Architecture diagram](/_docs/assets/full-clean-architecture.png "Full Clean Architecture diagram")
+
+## Caching with Clean Architecture
+
+- [Caching with Clean Architecture diagram](https://www.linkedin.com/pulse/implementing-clean-architecture-adding-caching-layer-joel-ndoh-dkswf/)
