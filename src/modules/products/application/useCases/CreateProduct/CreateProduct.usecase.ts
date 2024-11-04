@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Inject } from '@nestjs/common';
 import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
 
-import { UseCase } from '@base/src/shared/commons/core/UseCase';
+import { UseCase } from '@shared/commons/core/UseCase';
 
 import { Order } from '@modules/products/domain/order';
 import { OrderItem } from '@modules/products/domain/orderItem';

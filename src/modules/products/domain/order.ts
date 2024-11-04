@@ -1,4 +1,4 @@
-import { Result } from '@base/src/shared/commons/core/Result';
+import { Result } from '@shared/commons/core/Result';
 import { Guard } from '@shared/commons/Guard';
 import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 

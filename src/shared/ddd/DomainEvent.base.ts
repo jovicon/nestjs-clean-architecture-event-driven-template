@@ -1,5 +1,5 @@
 import { UniqueEntityID } from './UniqueEntityID';
-import { EventMetadata, Event } from '@base/src/shared/commons/core/Event.base';
+import { EventMetadata, Event } from '@shared/commons/core/Event.base';
 
 import { Guard } from '@shared/commons/Guard';
 

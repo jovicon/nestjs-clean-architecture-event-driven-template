@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UseCase } from '@base/src/shared/commons/core/UseCase';
+import { UseCase } from '@shared/commons/core/UseCase';
 
 import { Order } from '@modules/order/domain/order';
 import { OrderItem } from '@modules/order/domain/orderItem';

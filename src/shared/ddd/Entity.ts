@@ -1,4 +1,4 @@
-import { EventHandler } from '@base/src/shared/commons/core/Event.handler';
+import { EventHandler } from '@shared/commons/core/Event.handler';
 import { UniqueEntityID } from './UniqueEntityID';
 
 export abstract class Entity<T> extends EventHandler {
