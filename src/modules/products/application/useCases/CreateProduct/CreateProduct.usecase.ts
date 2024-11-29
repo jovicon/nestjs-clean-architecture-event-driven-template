@@ -17,8 +17,8 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
   private errorMessage = 'error creating order';
 
   constructor(
-    private readonly orderService: OrderService,
-    @Inject(CACHE_MANAGER) private cacheManager: Cache
+    private readonly orderService: OrderService
+    // @Inject(CACHE_MANAGER) private cacheManager: Cache
   ) {}
 
   public async execute(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
@@ -35,7 +35,7 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
 
       this.orderService.createOrder({ items: orders }, order.getValue());
 
-      await this.cacheManager.set('key', 'value');
+      // await this.cacheManager.set('key', 'value');
 
       console.log('Example created');
 
