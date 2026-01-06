@@ -52,7 +52,7 @@ describe('WebsocketGateway', () => {
 
   it('should handle connection', () => {
     const client = { id: 'test-client-id' } as Socket;
-    const sockets = { size: 1 } || {};
+    const sockets = { size: 1 };
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
     websocketGateway.handleConnection(client, sockets);

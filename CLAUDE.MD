@@ -451,7 +451,7 @@ The `_docs/` directory contains:
 - `shared/commons/core/UseCase.ts` - Use case interface
 - `shared/commons/Guard.ts` - Validation guards
 
-### Infrastructure
+### Infrastructure folder
 
 - `shared/adapters/repository/` - Repository implementations
 - `shared/adapters/cache/` - Caching layer

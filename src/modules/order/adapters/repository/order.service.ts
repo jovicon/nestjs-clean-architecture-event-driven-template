@@ -5,19 +5,20 @@ import { Order } from './order.schema';
 import { OrderRepositoryAdapter } from './order.adapter';
 
 import { Order as OrderEntity } from '@modules/order/domain/order';
+import { IOrderService } from '../../application/ports/ordenService.port';
 
 @Injectable()
-export class OrderService {
+export class OrderService implements IOrderService {
   constructor(
     private readonly orderRepository: OrderRepositoryAdapter,
     protected readonly eventEmitter: EventEmitter2
   ) {}
 
-  getAllOrders(): Promise<Order[]> {
+  async getAllOrders(): Promise<Order[]> {
     return this.orderRepository.orders.findAll();
   }
 
-  getOrderById(id: string): Promise<Order> {
+  async getOrderById(id: string): Promise<Order> {
     return this.orderRepository.orders.find(id);
   }
 

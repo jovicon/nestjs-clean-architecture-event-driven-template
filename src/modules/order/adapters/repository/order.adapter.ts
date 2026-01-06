@@ -16,6 +16,6 @@ export class OrderRepositoryAdapter implements OnApplicationBootstrap {
   ) {}
 
   onApplicationBootstrap() {
-    this.orders = new MongoRepositoryService<Order>(this.orderRepository);
+    this.orders = new MongoRepositoryService<Order>(this.orderRepository as Model<Order>);
   }
 }
