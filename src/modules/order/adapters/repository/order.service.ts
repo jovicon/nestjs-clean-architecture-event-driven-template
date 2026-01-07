@@ -5,10 +5,10 @@ import { Order } from './order.schema';
 import { OrderRepositoryAdapter } from './order.adapter';
 
 import { Order as OrderEntity } from '@modules/order/domain/order';
-import { IOrderService } from '../../application/ports/ordenService.port';
+import { OrderServicePort } from '../../application/ports/orderService.port';
 
 @Injectable()
-export class OrderService implements IOrderService {
+export class OrderService implements OrderServicePort {
   constructor(
     private readonly orderRepository: OrderRepositoryAdapter,
     protected readonly eventEmitter: EventEmitter2

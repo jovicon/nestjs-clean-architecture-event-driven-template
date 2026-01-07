@@ -4,13 +4,13 @@ import { Injectable, Inject } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { OnEvent } from '@nestjs/event-emitter';
 
-import { OrderCreated } from '@modules/order/domain/events/emitters/orderCreated.emitter';
+import { OrderCreated } from '@base/src/modules/order/domain/events/orderCreated';
 
 type EventResponse = { success: boolean };
 
 @Injectable()
 export class OrderCreatedEventHandler {
-  constructor(@Inject('LOGGER_SERVICE') private clientLoggerService: ClientProxy) {}
+  constructor(@Inject('LOGGER_SERVICE') private readonly clientLoggerService: ClientProxy) {}
 
   @OnEvent(OrderCreated.name, { async: true, promisify: true })
   async eventHandler(event: any): Promise<EventResponse> {
