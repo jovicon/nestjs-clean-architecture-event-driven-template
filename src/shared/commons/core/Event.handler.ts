@@ -1,7 +1,8 @@
 import { EventEmitter2 } from '@nestjs/event-emitter';
-import { Event } from './Event.base';
 
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
+
+import { Event } from './Event.base';
 
 export abstract class EventHandler {
   protected requestId: string = RequestContextService.getRequestId();

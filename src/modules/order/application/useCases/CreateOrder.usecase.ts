@@ -2,12 +2,22 @@ import { Injectable, Inject } from '@nestjs/common';
 import { UseCase } from '@shared/commons/core/UseCase';
 import { StatusValues } from '@shared/application/types/status';
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { Responses } from '@shared/application/interfaces/responses';
 
-import { Order } from '@modules/order/domain/order';
+import { Order, OrderJson } from '@modules/order/domain/order';
 import { OrderItem } from '@modules/order/domain/orderItem';
 
-import { CreateOrderDTO, CreateOrderUseCaseResponse } from './CreateOrder.dto';
-import { OrderServicePort } from '../../ports/orderService.port';
+import { OrderServicePort, CreateOrderDTO } from '../ports/orderService.port';
+
+type CreateOrderSuccess = {
+  orderValidated: OrderJson;
+};
+
+type CreateOrderError = {
+  error: string;
+};
+
+export type CreateOrderUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;
 
 @Injectable()
 export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUseCaseResponse> {

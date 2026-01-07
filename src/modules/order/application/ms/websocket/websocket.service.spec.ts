@@ -1,10 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { Logger } from '@nestjs/common';
-import { WebsocketGateway } from './websocket.service';
-import { INestApplication } from '@nestjs/common';
-
-import { Socket as ClientSocket, io } from 'socket.io-client';
 import { Socket } from 'socket.io';
+import { Socket as ClientSocket, io } from 'socket.io-client';
+import { INestApplication, Logger } from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
+
+import { WebsocketGateway } from './websocket.service';
 
 async function createNestApp(...gateways: any): Promise<INestApplication> {
   const testingModule = await Test.createTestingModule({

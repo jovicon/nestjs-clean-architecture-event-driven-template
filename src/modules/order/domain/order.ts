@@ -3,7 +3,6 @@ import { Guard } from '@shared/commons/Guard';
 import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
 import { OrderCreated } from './events/orderCreated';
-
 import { OrderItem, OrderItemProps } from './orderItem';
 
 export interface OrderProps {
