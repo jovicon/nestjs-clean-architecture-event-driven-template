@@ -17,8 +17,8 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 - [ ] ❌ 🔴 Review `src/modules/order/` for layer boundary violations
   - [x] Check: `src/modules/order/domain/` - Should have ZERO imports from `application/adapters`
-  - [] Check: `src/modules/order/application/useCases/` - Should only use port interfaces
-  - [] Check: `src/modules/order/adapters/` - Should implement ports from application layer
+  - [x] Check: `src/modules/order/application/useCases/` - Should only use port interfaces
+  - [x] Check: `src/modules/order/adapters/` - Should implement ports from application layer
 
 - [ ] ❌ 🔴 Review `src/modules/products/` for layer boundary violations
   - Check: `src/modules/products/domain/` - Should have ZERO imports from application/adapters

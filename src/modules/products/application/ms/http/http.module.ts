@@ -9,7 +9,7 @@ import { ConfigService } from '@config/config.service';
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 import { InternalCacheModule } from '@shared/adapters/cache/CacheModule';
 
-import { OrderCreatedEventHandler } from '@modules/order/domain/events/handlers/orderCreated.handler';
+import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler';
 
 import { allRoutes } from './http.routes';
 import { CoreModule } from './core/core.module';
