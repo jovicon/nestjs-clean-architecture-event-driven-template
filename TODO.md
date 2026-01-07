@@ -22,6 +22,8 @@ This file tracks the implementation of the three critical approaches for maximiz
   - [x] Created `infrastructure/` layer for NestJS wiring ✅
   - [x] Moved event handlers from domain to application layer ✅
 
+- [ ] ❌ 🟠 Husky for lefthook
+
 - [ ] ❌ 🔴 Review `src/modules/products/` for layer boundary violations
   - Check: `src/modules/products/domain/` - Should have ZERO imports from application/adapters
   - Check: `src/modules/products/application/useCases/` - Should only use port interfaces
