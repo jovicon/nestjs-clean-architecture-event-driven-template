@@ -13,14 +13,6 @@ export class OrderService {
     protected readonly eventEmitter: EventEmitter2
   ) {}
 
-  getAllOrders(): Promise<Order[]> {
-    return this.orderRepository.orders.findAll();
-  }
-
-  getOrderById(id: string): Promise<Order> {
-    return this.orderRepository.orders.find(id);
-  }
-
   // TODO: Schema and Entity in the same parameter
   // TODO: ID from ID REQUEST
   // TODO: Logger to Publish Events

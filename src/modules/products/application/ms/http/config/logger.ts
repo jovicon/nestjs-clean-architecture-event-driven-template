@@ -1,5 +1,5 @@
-import * as winston from 'winston';
 import { WinstonModule } from 'nest-winston';
+import * as winston from 'winston';
 
 export const Logger = WinstonModule.forRootAsync({
   useFactory: () => ({

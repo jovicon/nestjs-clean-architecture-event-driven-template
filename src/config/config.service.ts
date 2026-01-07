@@ -1,7 +1,7 @@
-import { EnvConfig, ConfigServices, ConfigFactoryParams } from './config.types';
+import { ConfigFactoryParams, ConfigServices, EnvConfig } from './config.types';
 import { DataBaseConfig } from './providers/database.config';
-import { MicroserviceConfig } from './providers/microservice.config';
 import { LoggerModuleConfig } from './providers/logger.module.config';
+import { MicroserviceConfig } from './providers/microservice.config';
 
 export class ConfigService {
   private readonly envConfig: EnvConfig;

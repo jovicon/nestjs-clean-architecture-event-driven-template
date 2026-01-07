@@ -1,5 +1,6 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'dotenv';
+
 import { EnvConfig, ILoggerModuleConfig } from '@config/config.types';
 
 export class LoggerModuleConfig implements ILoggerModuleConfig {

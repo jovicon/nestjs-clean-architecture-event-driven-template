@@ -24,7 +24,7 @@ export class MongoRepositoryService<T> implements Repository<T> {
   }
 
   delete(id: string): Promise<any> {
-    return this._repository.deleteOne({id: id});
+    return this._repository.deleteOne({ id: id });
   }
 
   find(id: string): Promise<any> {

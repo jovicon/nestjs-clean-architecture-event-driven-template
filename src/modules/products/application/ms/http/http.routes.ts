@@ -1,6 +1,6 @@
-import { PATH_BASE_MS } from './http.config';
-import { CoreModule } from './core/core.module';
 import { OrderModule } from './api/api.module';
+import { CoreModule } from './core/core.module';
+import { PATH_BASE_MS } from './http.config';
 
 const orderRoutes = [
   {

@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { Transport, MicroserviceOptions } from '@nestjs/microservices';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+
 import { TcpModule } from './tcp.module';
 
 async function bootstrap() {

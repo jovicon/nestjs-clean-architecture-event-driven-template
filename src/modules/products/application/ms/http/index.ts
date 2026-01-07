@@ -1,10 +1,10 @@
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { author, name, version } from '@base/package.json';
+import helmet from 'helmet';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { NestFactory } from '@nestjs/core';
-import helmet from 'helmet';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-import { version, name, author } from '@base/package.json';
-import { PATH_BASE_MS, PORT, CORS_CONFIG, SERVICE_NAME } from './http.config';
+import { CORS_CONFIG, PATH_BASE_MS, PORT, SERVICE_NAME } from './http.config';
 import { HttpModule } from './http.module';
 
 export async function httpServerBootstrap(): Promise<void> {

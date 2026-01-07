@@ -1,4 +1,5 @@
 import { readFile } from 'fs/promises';
+
 import { IMicroserviceConfig } from '@config/config.types';
 
 export class MicroserviceConfig implements IMicroserviceConfig {

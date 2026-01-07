@@ -14,14 +14,6 @@ export class OrderService implements OrderServicePort {
     protected readonly eventEmitter: EventEmitter2
   ) {}
 
-  async getAllOrders(): Promise<Order[]> {
-    return this.orderRepository.orders.findAll();
-  }
-
-  async getOrderById(id: string): Promise<Order> {
-    return this.orderRepository.orders.find(id);
-  }
-
   // TODO: Schema and Entity in the same parameter
   // TODO: ID from ID REQUEST
   // TODO: Logger to Publish Events

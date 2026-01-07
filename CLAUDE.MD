@@ -16,28 +16,69 @@ This is a production-ready template implementing Clean Architecture, Domain-Driv
 
 ### Clean Architecture Layers
 
-The codebase strictly follows Clean Architecture with three main layers:
+The codebase strictly follows Clean Architecture with four main layers:
+
+```bash
+┌─────────────────────────────────────────┐
+│           Infrastructure                │  ← NestJS module wiring, DI config
+├─────────────────────────────────────────┤
+│              Adapters                   │  ← Repository impl, external services
+├─────────────────────────────────────────┤
+│            Application                  │  ← Use Cases, Ports (interfaces), DTOs
+├─────────────────────────────────────────┤
+│              Domain                     │  ← Entities, Value Objects, Domain Events
+└─────────────────────────────────────────┘
+```
 
 1. **Domain Layer** (`modules/*/domain/`)
    - Pure business logic
    - Entities, Aggregates, and Value Objects
-   - Domain Events
+   - Domain Events (data only, no framework dependencies)
    - Zero framework dependencies
 
 2. **Application Layer** (`modules/*/application/`)
    - Use Cases (business workflows)
    - DTOs for request/response contracts
-   - Port definitions (interfaces for infrastructure)
-   - Organized into: `useCases/` and `ms/` (microservice infrastructure)
+   - Port definitions (interfaces for adapters)
+   - Event Handlers (react to domain events with framework support)
+   - Organized into: `useCases/`, `ports/`, `events/`, and `ms/`
 
-3. **Adapter/Infrastructure Layer** (`modules/*/adapters/` + `shared/adapters/`)
+3. **Adapters Layer** (`modules/*/adapters/`)
    - Repository implementations
    - External service integrations
-   - Database, cache, HTTP adapters
+   - Database schemas, cache adapters
+
+4. **Infrastructure Layer** (`modules/*/infrastructure/`)
+   - NestJS module wiring and dependency injection
+   - Framework configuration
+   - Connects ports to adapter implementations
 
 ### Dependency Rule
 
-Dependencies flow inward only: Infrastructure → Application → Domain. The domain layer must never depend on outer layers.
+Dependencies flow inward only: Infrastructure → Adapters → Application → Domain. The domain layer must never depend on outer layers.
+
+### Domain Events vs Event Handlers
+
+| Component | Layer | Responsibility |
+|-----------|-------|----------------|
+| **Domain Event** | Domain | Represents a fact that occurred (data only, no decorators) |
+| **Event Handler** | Application | Reacts to events with framework support (@OnEvent, @Injectable) |
+
+```typescript
+// Domain Event (domain/events/) - Pure data
+export class OrderCreated extends DomainEvent {
+  constructor(props: DomainEventProps<OrderCreated>) {
+    super(props);
+  }
+}
+
+// Event Handler (application/events/handlers/) - Framework integration
+@Injectable()
+export class OrderCreatedHandler {
+  @OnEvent(OrderCreated.name)
+  async handle(event: OrderCreated) { /* ... */ }
+}
+```
 
 ## Directory Structure
 
@@ -244,27 +285,44 @@ Each feature module follows this consistent structure:
 
 ```bash
 module_name/
-├── domain/
+├── domain/                         # Pure business logic (NO framework deps)
 │   ├── [aggregate].ts              # Main business entity
 │   ├── [valueobject].ts            # Value objects
-│   └── events/
-│       ├── emitters/               # Domain event definitions
-│       └── handlers/               # Event listeners
-├── adapters/
-│   └── repository/                 # Data access implementations
-│       ├── [entity].repository.ts
-│       └── [entity].schema.ts      # Database schema
-└── application/
-    ├── useCases/
-    │   └── [UseCase]/
-    │       ├── [UseCase].usecase.ts
-    │       ├── [UseCase].dto.ts
-    │       └── [UseCase].module.ts
-    └── ms/                         # Microservice entry points
-        ├── http/                   # REST API controllers
-        ├── websocket/              # WebSocket gateways
-        └── tcp/                    # TCP microservice controllers
+│   └── events/                     # Domain events (data only)
+│       └── [Event].ts              # e.g., OrderCreated.ts
+├── application/                    # Use cases and orchestration
+│   ├── ports/                      # Interfaces for adapters
+│   │   └── [Service].port.ts       # e.g., OrderService.port.ts
+│   ├── events/                     # Event handlers (framework integration)
+│   │   └── handlers/
+│   │       └── [Event].handler.ts  # e.g., OrderCreated.handler.ts
+│   ├── useCases/
+│   │   └── [UseCase]/
+│   │       ├── [UseCase].usecase.ts
+│   │       ├── [UseCase].dto.ts
+│   │       └── [UseCase].module.ts # Minimal module (no adapter imports)
+│   └── ms/                         # Microservice entry points
+│       ├── http/                   # REST API controllers
+│       ├── websocket/              # WebSocket gateways
+│       └── tcp/                    # TCP microservice controllers
+├── adapters/                       # Port implementations
+│   └── repository/
+│       ├── [entity].service.ts     # Implements port interface
+│       ├── [entity].adapter.ts     # Repository adapter
+│       ├── [entity].schema.ts      # Database schema
+│       └── [entity].module.ts      # Adapter module
+└── infrastructure/                 # NestJS wiring (DI configuration)
+    └── [module].module.ts          # Connects ports to adapters
 ```
+
+### Layer Import Rules
+
+| Layer | Can Import From |
+|-------|-----------------|
+| Domain | Only `@shared/ddd`, `@shared/commons` |
+| Application | Domain, `@shared` |
+| Adapters | Domain, Application, `@shared` |
+| Infrastructure | All layers (wiring only) |
 
 ## Request Context & Tracing
 

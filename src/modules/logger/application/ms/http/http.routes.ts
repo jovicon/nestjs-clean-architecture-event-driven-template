@@ -1,5 +1,5 @@
-import { CoreModule } from './core/core.module';
 import { LoggerModule } from './api/api.module';
+import { CoreModule } from './core/core.module';
 
 const loggerRoutes = [
   {

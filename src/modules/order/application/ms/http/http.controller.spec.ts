@@ -1,23 +1,19 @@
+import { ClientsModule, Transport } from '@nestjs/microservices';
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { ClientsModule, Transport } from '@nestjs/microservices';
-
-import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 import { ConfigModule } from '@config/config.module';
-import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
-
-import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder/CreateOrder.usecase';
+import { HttpAdapterModule } from '@shared/adapters/http/axios/http.module';
 
 import { OrderRepositoryAdapter } from '@modules/order/adapters/repository/order.adapter';
+import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
+import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
 
-import { Logger } from './config/logger';
-
-import { CoreModule } from './core/core.module';
-import CoreController from './core/core.controller';
-
-import { OrderModule } from './api/api.module';
 import { ApiController } from './api/api.controller';
+import { OrderModule } from './api/api.module';
 import ApiService from './api/api.service';
+import { Logger } from './config/logger';
+import CoreController from './core/core.controller';
+import { CoreModule } from './core/core.module';
 
 describe('CoreController', () => {
   let appController: CoreController;
@@ -40,13 +36,10 @@ describe('CoreController', () => {
 describe('ApiController', () => {
   let appController: ApiController;
 
-  const mockRepository = {
-    orders: {
-      create: (items: string[]) =>
-        Promise.resolve({
-          items,
-        }),
-    },
+  const mockOrderService = {
+    getAllOrders: () => Promise.resolve([]),
+    getOrderById: (_id: string) => Promise.resolve({ items: [] }),
+    createOrder: (order: any) => Promise.resolve(order),
   };
 
   beforeEach(async () => {
@@ -62,10 +55,15 @@ describe('ApiController', () => {
         Logger,
       ],
       controllers: [ApiController],
-      providers: [ApiService, OrderRepositoryAdapter, CreateOrderUseCase],
+      providers: [
+        ApiService,
+        OrderRepositoryAdapter,
+        CreateOrderUseCase,
+        { provide: 'OrderServicePort', useValue: mockOrderService },
+      ],
     })
       .overrideProvider(OrderRepositoryAdapter)
-      .useValue(mockRepository)
+      .useValue({ orders: { create: (items: string[]) => Promise.resolve({ items }) } })
       .compile();
 
     appController = app.get<ApiController>(ApiController);

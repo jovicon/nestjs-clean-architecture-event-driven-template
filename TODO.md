@@ -15,10 +15,12 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 ### 1.1 Audit Current Architecture
 
-- [ ] ❌ 🔴 Review `src/modules/order/` for layer boundary violations
-  - [x] Check: `src/modules/order/domain/` - Should have ZERO imports from `application/adapters`
-  - [x] Check: `src/modules/order/application/useCases/` - Should only use port interfaces
-  - [x] Check: `src/modules/order/adapters/` - Should implement ports from application layer
+- [x] ✅ 🔴 Review `src/modules/order/` for layer boundary violations
+  - [x] Check: `src/modules/order/domain/` - Should have ZERO imports from `application/adapters` ✅
+  - [x] Check: `src/modules/order/application/useCases/` - Should only use port interfaces ✅
+  - [x] Check: `src/modules/order/adapters/` - Should implement ports from application layer ✅
+  - [x] Created `infrastructure/` layer for NestJS wiring ✅
+  - [x] Moved event handlers from domain to application layer ✅
 
 - [ ] ❌ 🔴 Review `src/modules/products/` for layer boundary violations
   - Check: `src/modules/products/domain/` - Should have ZERO imports from application/adapters
@@ -369,27 +371,85 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 ---
 
+## 5. Module Migration to New Structure
+
+**Goal:** Migrate all modules to follow the new 4-layer architecture (Domain → Application → Adapters → Infrastructure).
+
+### 5.1 Migrate Products Module
+
+- [ ] ❌ 🔴 Create `src/modules/products/infrastructure/` layer
+  - [ ] Create `products.module.ts` with DI wiring
+  - [ ] Move adapter imports from application to infrastructure
+
+- [ ] ❌ 🔴 Review and fix layer boundary violations
+  - [ ] Ensure domain has zero framework dependencies
+  - [ ] Move event handlers to `application/events/handlers/`
+  - [ ] Update ports to not import from adapters
+
+- [ ] ❌ 🟠 Update module imports
+  - [ ] Update HTTP module to use infrastructure module
+  - [ ] Update tests with new module structure
+
+### 5.2 Migrate Logger Module
+
+- [ ] ❌ 🔴 Create `src/modules/logger/infrastructure/` layer
+  - [ ] Create `logger.module.ts` with DI wiring
+  - [ ] Move adapter imports from application to infrastructure
+
+- [ ] ❌ 🟠 Review and fix layer boundary violations
+  - [ ] Ensure domain has zero framework dependencies
+  - [ ] Update ports to not import from adapters
+
+### 5.3 Validate All Modules
+
+- [ ] ❌ 🟠 Run architecture validation
+  - [ ] Verify all domain layers have zero `@nestjs/*` imports
+  - [ ] Verify all application layers don't import from adapters
+  - [ ] Verify all ports use DTOs instead of schemas
+
+- [ ] ❌ 🟢 Update documentation
+  - [ ] Update module-specific READMEs if they exist
+  - [ ] Add migration notes to `_docs/`
+
+---
+
 ## Progress Tracker
 
 | Approach | Total Tasks | Completed | In Progress | Not Started | % Complete |
 |----------|-------------|-----------|-------------|-------------|------------|
-| 1. Port-Adapter Pattern | 11 | 0 | 0 | 11 | 0% |
+| 1. Port-Adapter Pattern | 11 | 1 | 0 | 10 | 9% |
 | 2. Event-Driven Design | 13 | 0 | 0 | 13 | 0% |
 | 3. Result Pattern | 14 | 0 | 0 | 14 | 0% |
 | 4. Bonus Improvements | 7 | 0 | 0 | 7 | 0% |
-| **TOTAL** | **45** | **0** | **0** | **45** | **0%** |
+| 5. Module Migration | 8 | 0 | 0 | 8 | 0% |
+| **TOTAL** | **53** | **1** | **0** | **52** | **2%** |
+
+---
+
+## Completed Tasks Log
+
+### 2026-01-07
+
+- ✅ **Order Module Layer Boundary Audit**
+  - Fixed domain layer: removed all `@nestjs/*` imports from event handlers
+  - Moved `orderCreated.handler.ts` from `domain/events/handlers/` to `application/events/`
+  - Fixed port `orderService.port.ts`: replaced schema import with DTO
+  - Created `infrastructure/order.module.ts` for NestJS DI wiring
+  - Updated `CreateOrder.module.ts` to not import from adapters
+  - Updated `api.module.ts` to use `OrderInfrastructureModule`
+  - Fixed all unit tests (12 passing)
 
 ---
 
 ## Next Steps
 
-1. **Start Here:** Begin with approach #1 (Port-Adapter Pattern) as it establishes the foundation
-2. **Priority Order:**
+1. ~~**Start Here:** Begin with approach #1 (Port-Adapter Pattern) as it establishes the foundation~~ ✅ Done for Order module
+2. **Current Focus:** Migrate `products` and `logger` modules to new structure
+3. **Priority Order:**
    - Complete all 🔴 High priority tasks first
    - Then tackle 🟠 Medium priority tasks
    - Finally address 🟢 Low priority tasks
-3. **One Module at a Time:** Focus on `order` module first as the reference implementation
-4. **Replicate Pattern:** Once order module is complete, apply same patterns to other modules
+4. **Replicate Pattern:** Apply same patterns from `order` module to other modules
 
 ---
 
@@ -402,5 +462,5 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 ---
 
-**Last Updated:** 2026-01-06
-**Current Focus:** Not started - Ready to begin with Port-Adapter Pattern audit
+**Last Updated:** 2026-01-07
+**Current Focus:** Migrate remaining modules (products, logger) to new 4-layer architecture

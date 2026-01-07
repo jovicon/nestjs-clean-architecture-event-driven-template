@@ -8,7 +8,7 @@ import { ConfigService } from '@config/config.service';
 
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
-import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler';
+import { OrderCreatedEventHandler } from '@modules/order/application/events/orderCreated.handler';
 
 import { allRoutes } from './http.routes';
 import { CoreModule } from './core/core.module';

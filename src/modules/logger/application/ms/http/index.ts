@@ -1,9 +1,9 @@
+import { author, name, version } from '@base/package.json';
 import helmet from 'helmet';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-
-import { version, name, author } from '@base/package.json';
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
 import { HttpModule } from './http.module';
 
 const SERVICE_NAME = 'LOGGER';

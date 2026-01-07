@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-
-import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
-
 import { EventEmitter2 } from '@nestjs/event-emitter';
 
-import { CreateOrderUseCase } from './CreateOrder.usecase';
-import { OrderService } from '../../../adapters/repository/order.service';
-import { OrderRepositoryAdapter } from '../../../adapters/repository/order.adapter';
+import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
+import { OrderRepositoryAdapter } from '@modules/order/adapters/repository/order.adapter';
+import { OrderService } from '@modules/order/adapters/repository/order.service';
+
+import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
+
 @Module({
   imports: [OrderRepositoryModule],
   providers: [
@@ -20,4 +20,4 @@ import { OrderRepositoryAdapter } from '../../../adapters/repository/order.adapt
   ],
   exports: [CreateOrderUseCase],
 })
-export class CreateOrderModule {}
+export class OrderInfrastructureModule {}
