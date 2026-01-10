@@ -21,5 +21,8 @@ describe('AppController (e2e)', () => {
   });
 
   it('/health (GET)', () =>
-    request(app.getHttpServer()).get('/health').expect(200).expect({ status: 'success', message: 'NestJS is working!!!' }));
+    request(app.getHttpServer())
+      .get('/health')
+      .expect(200)
+      .expect({ status: 'success', message: 'NestJS is working!!!' }));
 });

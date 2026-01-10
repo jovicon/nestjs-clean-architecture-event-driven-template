@@ -1,5 +1,4 @@
 import { Socket } from 'socket.io';
-import { Socket as ClientSocket, io } from 'socket.io-client';
 import { INestApplication, Logger } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -14,20 +13,10 @@ async function createNestApp(...gateways: any): Promise<INestApplication> {
 
 describe('WebsocketGateway', () => {
   let websocketGateway: WebsocketGateway;
-  let gateway: WebsocketGateway;
   let app: INestApplication;
-  let ioClient: ClientSocket;
 
   beforeAll(async () => {
     app = await createNestApp(WebsocketGateway);
-
-    gateway = app.get<WebsocketGateway>(WebsocketGateway);
-
-    ioClient = io('http://localhost:4000', {
-      autoConnect: true,
-      transports: ['websocket', 'polling'],
-    });
-
     app.listen(4000);
   });
 
@@ -51,13 +40,12 @@ describe('WebsocketGateway', () => {
 
   it('should handle connection', () => {
     const client = { id: 'test-client-id' } as Socket;
-    const sockets = { size: 1 };
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
 
-    websocketGateway.handleConnection(client, sockets);
+    websocketGateway.handleConnection(client);
 
     expect(loggerSpy).toHaveBeenCalledWith(`Client id: ${client.id} connected`);
-    expect(loggerSpy).toHaveBeenCalledWith(`Number of connected clients: ${sockets.size}`);
+    expect(loggerSpy).toHaveBeenCalledWith(`Number of connected clients: 1`);
   });
 
   it('should handle disconnection', () => {
@@ -80,7 +68,6 @@ describe('WebsocketGateway', () => {
     };
 
     const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
-    // const loggerDebugSpy = jest.spyOn(websocketGateway['logger'], 'debug');
 
     const result = websocketGateway.handleMessage(client, data);
 

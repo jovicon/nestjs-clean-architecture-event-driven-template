@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
 import { AxiosRequestConfig } from 'axios';
+import { HttpService } from '@nestjs/axios';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class HttpAdapterService {

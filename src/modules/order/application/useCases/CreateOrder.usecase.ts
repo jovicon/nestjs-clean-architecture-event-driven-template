@@ -1,13 +1,14 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { UseCase } from '@shared/commons/core/UseCase';
-import { StatusValues } from '@shared/application/types/status';
+import { Inject, Injectable } from '@nestjs/common';
+
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
 import { Responses } from '@shared/application/interfaces/responses';
+import { StatusValues } from '@shared/application/types/status';
+import { UseCase } from '@shared/commons/core/UseCase';
 
 import { Order, OrderJson } from '@modules/order/domain/order';
 import { OrderItem } from '@modules/order/domain/orderItem';
 
-import { OrderServicePort, CreateOrderDTO } from '../ports/orderService.port';
+import { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port';
 
 type CreateOrderSuccess = {
   orderValidated: OrderJson;

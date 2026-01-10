@@ -1,5 +1,5 @@
-import { Controller, Post, Inject, LoggerService, Body } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { Body, Controller, Inject, LoggerService, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { CreateOrderUseCaseResponse } from '@modules/products/application/useCases/CreateProduct/CreateProduct.dto';

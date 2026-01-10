@@ -1,21 +1,18 @@
+import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler';
+import { RequestContextModule } from 'nestjs-request-context';
 import { Module } from '@nestjs/common';
-import { RouterModule, APP_INTERCEPTOR } from '@nestjs/core';
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 
-import { RequestContextModule } from 'nestjs-request-context';
 import { ConfigModule } from '@config/config.module';
 import { ConfigService } from '@config/config.service';
-
-import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 import { InternalCacheModule } from '@shared/adapters/cache/CacheModule';
+import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
-import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler';
-
-import { allRoutes } from './http.routes';
-import { CoreModule } from './core/core.module';
 import { OrderModule } from './api/api.module';
-
 import { Logger } from './config/logger';
+import { CoreModule } from './core/core.module';
+import { allRoutes } from './http.routes';
 
 const interceptors = [
   {

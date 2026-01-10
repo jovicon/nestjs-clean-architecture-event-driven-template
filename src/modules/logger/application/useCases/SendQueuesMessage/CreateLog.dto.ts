@@ -3,4 +3,4 @@ export interface CreateLogDTO {
   item: string[];
 }
 
-export type CreateLogUseCaseResponse = {};
+export type CreateLogUseCaseResponse = Record<string, never>;

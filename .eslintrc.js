@@ -6,6 +6,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: false,
     },
+    // Requerido por airbnb-typescript para reglas type-aware
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
   },
@@ -14,18 +15,16 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'eslint-config-prettier',
     'airbnb-base',
     'airbnb-typescript/base',
-    'prettier',
+    'plugin:prettier/recommended',
   ],
   root: true,
   env: {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'dist', 'node_modules', 'coverage', '.eslintcache'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -37,5 +36,6 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
     'max-classes-per-file': 'off',
+    'no-console': 'warn',
   },
 };

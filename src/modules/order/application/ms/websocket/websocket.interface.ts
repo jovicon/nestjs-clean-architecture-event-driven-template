@@ -23,17 +23,17 @@ export interface Message {
   message: string;
 }
 
-export interface PingMessage extends EventMessageDetails<Message, {}> {}
+export interface PingMessage extends EventMessageDetails<Message, unknown> {}
 
 interface CreateRoom {
   roomId: string;
 }
 
-export interface CreateRoomMessage extends EventMessageDetails<CreateRoom, {}> {}
+export interface CreateRoomMessage extends EventMessageDetails<CreateRoom, unknown> {}
 
 interface RoomMessage {
   roomId: string;
   message: string;
 }
 
-export interface RoomMessageEvent extends EventMessageDetails<RoomMessage, {}> {}
+export interface RoomMessageEvent extends EventMessageDetails<RoomMessage, unknown> {}

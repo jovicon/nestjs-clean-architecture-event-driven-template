@@ -1,23 +1,22 @@
-import { Injectable } from '@nestjs/common';
-import { Inject } from '@nestjs/common';
-import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
+import { Inject, Injectable } from '@nestjs/common';
 
 import { UseCase } from '@shared/commons/core/UseCase';
 
+import { OrderService } from '@modules/products/adapters/repository/order.service';
+import { OrderServicePort } from '@modules/products/application/ports/OrderService.port';
 import { Order } from '@modules/products/domain/order';
 import { OrderItem } from '@modules/products/domain/orderItem';
-
-import { OrderService } from '@modules/products/adapters/repository/order.service';
 
 import { CreateOrderDTO, CreateOrderUseCaseResponse } from './CreateProduct.dto';
 
 @Injectable()
 export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUseCaseResponse> {
-  private successMessage = 'created order';
-  private errorMessage = 'error creating order';
+  private readonly successMessage = 'created order';
+
+  private readonly errorMessage = 'error creating order';
 
   constructor(
-    private readonly orderService: OrderService
+    @Inject(OrderService) private readonly orderService: OrderServicePort
     // @Inject(CACHE_MANAGER) private cacheManager: Cache
   ) {}
 
