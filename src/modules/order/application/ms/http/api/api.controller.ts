@@ -2,7 +2,7 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { Body, Controller, Inject, LoggerService, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CreateOrderUseCaseResponse } from '@modules/products/application/useCases/CreateProduct/CreateProduct.dto';
+import { CreateOrderUseCaseResponse } from '@modules/order/application/useCases/CreateOrder.usecase';
 
 import { CreateOrderDTO } from './api.dto';
 import ClientsService from './api.service';

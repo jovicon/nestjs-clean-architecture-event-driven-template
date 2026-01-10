@@ -2,12 +2,12 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { Body, Controller, Inject, LoggerService, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CreateOrderUseCaseResponse } from '@modules/products/application/useCases/CreateProduct/CreateProduct.dto';
+import { CreateProductUseCaseResponse } from '@modules/products/application/useCases/CreateProduct.usecase';
 
 import { CreateOrderDTO } from './api.dto';
 import ClientsService from './api.service';
 
-@ApiTags('Orders')
+@ApiTags('Products')
 @Controller()
 export class ApiController {
   constructor(
@@ -16,11 +16,11 @@ export class ApiController {
   ) {}
 
   @Post('/')
-  createOrder(@Body() body: CreateOrderDTO): CreateOrderUseCaseResponse {
+  createOrder(@Body() body: CreateOrderDTO): CreateProductUseCaseResponse {
     const dto = {
       items: body.items,
     };
 
-    return this.apiService.createOrder(dto);
+    return this.apiService.createProduct(dto);
   }
 }

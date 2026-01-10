@@ -26,13 +26,12 @@ export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<Responses
         message: 'created order',
         data: {},
       };
-    } catch (error: any) {
+    } catch (error) {
+      console.error('CreateLogUseCase - ERROR: ', error);
       return {
         status: 'error',
         message: 'error creating order',
-        data: {
-          error: error?.message,
-        },
+        data: {},
       };
     }
   }

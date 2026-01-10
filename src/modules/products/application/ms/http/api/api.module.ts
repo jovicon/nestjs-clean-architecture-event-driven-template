@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 
-import { CreateOrderModule } from '@modules/products/application/useCases/CreateProduct/CreateProduct.module';
+import { ProductInfrastructureModule } from '@modules/products/infrastructure/product.module';
 
 import { ApiController } from './api.controller';
 import ClientsService from './api.service';
 
 @Module({
-  imports: [CreateOrderModule],
+  imports: [ProductInfrastructureModule],
   controllers: [ApiController],
   providers: [ClientsService],
 })
-export class OrderModule {}
+export class ProductModule {}

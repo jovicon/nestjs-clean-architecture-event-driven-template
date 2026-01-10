@@ -9,7 +9,7 @@ import { ConfigService } from '@config/config.service';
 import { InternalCacheModule } from '@shared/adapters/cache/CacheModule';
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
-import { OrderModule } from './api/api.module';
+import { ProductModule } from './api/api.module';
 import { Logger } from './config/logger';
 import { CoreModule } from './core/core.module';
 import { allRoutes } from './http.routes';
@@ -39,7 +39,7 @@ const loggerMicroserviceProvider = {
     RequestContextModule,
     ConfigModule,
     CoreModule,
-    OrderModule,
+    ProductModule,
     RouterModule.register(allRoutes),
     Logger,
     InternalCacheModule,

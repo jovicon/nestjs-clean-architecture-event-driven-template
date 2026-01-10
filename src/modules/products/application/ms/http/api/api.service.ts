@@ -1,15 +1,17 @@
 import { Injectable } from '@nestjs/common';
 
 import { CreateOrderDTO } from '@modules/order/application/ports/orderService.port';
-import { CreateOrderUseCaseResponse } from '@modules/products/application/useCases/CreateProduct/CreateProduct.dto';
-import { CreateOrderUseCase } from '@modules/products/application/useCases/CreateProduct/CreateProduct.usecase';
+import {
+  CreateProductUseCase,
+  CreateProductUseCaseResponse,
+} from '@modules/products/application/useCases/CreateProduct.usecase';
 
 @Injectable()
 export default class ClientsService {
-  constructor(private readonly createOrderUseCase: CreateOrderUseCase) {}
+  constructor(private readonly createProductUseCase: CreateProductUseCase) {}
 
-  async createOrder(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
-    const useCase = await this.createOrderUseCase.execute(dto);
+  async createProduct(dto: CreateOrderDTO): CreateProductUseCaseResponse {
+    const useCase = await this.createProductUseCase.execute(dto);
 
     return {
       ...useCase,

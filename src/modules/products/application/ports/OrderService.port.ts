@@ -4,6 +4,6 @@ export interface CreateOrderDTO {
   items: string[];
 }
 
-export interface OrderServicePort {
+export interface ProductServicePort {
   createOrder(order: CreateOrderDTO, entity: OrderEntity): Promise<CreateOrderDTO>;
 }
