@@ -418,7 +418,7 @@ This file tracks the implementation of the three critical approaches for maximiz
 ## Progress Tracker
 
 | Approach | Total Tasks | Completed | In Progress | Not Started | % Complete |
-|----------|-------------|-----------|-------------|-------------|------------|
+| -------- | ----------- | --------- | ----------- | ----------- | ---------- |
 | 1. Port-Adapter Pattern | 11 | 2 | 0 | 9 | 18% |
 | 2. Event-Driven Design | 13 | 0 | 0 | 13 | 0% |
 | 3. Result Pattern | 14 | 0 | 0 | 14 | 0% |

@@ -2,21 +2,23 @@ import request from 'supertest';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { HttpModule } from './http.module';
+import { CoreModule } from './core/core.module';
 
-describe('AppController (e2e)', () => {
+describe('Order HttpModule (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [HttpModule],
+      imports: [CoreModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
   });
 
-  it('/order/health (GET)', () => request(app.getHttpServer()).get('/order/health').expect(200));
+  afterEach(async () => {
+    await app.close();
+  });
 
-  it('/order/health (GET)', () => request(app.getHttpServer()).get('/order/health').expect(200));
+  it('/health (GET)', () => request(app.getHttpServer()).get('/health').expect(200));
 });
