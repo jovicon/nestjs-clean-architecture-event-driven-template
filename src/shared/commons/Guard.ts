@@ -50,7 +50,7 @@ export class Guard {
   }
 
   public static isNaN(argument: any, argumentName: string): IGuardResult {
-    if (isNaN(argument)) {
+    if (Number.isNaN(argument)) {
       return { succeeded: false, message: `${argumentName} is not a number` };
     }
     return { succeeded: true };
@@ -121,7 +121,8 @@ export class Guard {
         let s = 1;
 
         while (rutDigits > 0) {
-          s = (s + (rutDigits % 10) * (9 - (m++ % 6))) % 11;
+          s = (s + (rutDigits % 10) * (9 - (m % 6))) % 11;
+          m += 1;
           rutDigits = Math.floor(rutDigits / 10);
         }
 

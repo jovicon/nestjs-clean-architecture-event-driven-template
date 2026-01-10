@@ -1,5 +1,5 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { Test, TestingModule } from '@nestjs/testing';
 
 import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
 

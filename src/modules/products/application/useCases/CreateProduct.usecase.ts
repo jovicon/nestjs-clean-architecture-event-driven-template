@@ -1,14 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
 
-import { RequestContextService } from '@shared/application/context/AppRequestContext';
 import { Responses } from '@shared/application/interfaces/responses';
 import { StatusValues } from '@shared/application/types/status';
 import { UseCase } from '@shared/commons/core/UseCase';
 
-import { Order, OrderJson } from '@modules/order/domain/order';
-import { OrderItem } from '@modules/order/domain/orderItem';
-
-import { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port';
+import { CreateOrderDTO, ProductServicePort } from '@modules/products/application/ports/OrderService.port';
+import { Order, OrderJson } from '@modules/products/domain/order';
+import { OrderItem } from '@modules/products/domain/orderItem';
 
 type CreateOrderSuccess = {
   orderValidated: OrderJson;
@@ -18,15 +16,10 @@ type CreateOrderError = {
   error: string;
 };
 
-export type CreateOrderUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;
+export type CreateProductUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;
 
 @Injectable()
-export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUseCaseResponse> {
-  private readonly useCaseName = this.constructor.name;
-
-  private readonly log = (logMessage: string, ...args: string[]) =>
-    console.log(`[${this.useCaseName}]-[${RequestContextService.getRequestId()}]: ${logMessage}`, ...args);
-
+export class CreateProductUseCase implements UseCase<CreateOrderDTO, CreateProductUseCaseResponse> {
   private readonly success = {
     status: StatusValues.SUCCESS,
     message: 'created order successfully',
@@ -37,13 +30,11 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
     message: 'error creating order',
   };
 
-  constructor(@Inject('OrderServicePort') private readonly orderService: OrderServicePort) {}
+  constructor(@Inject('ProductServicePort') private readonly productService: ProductServicePort) {}
 
-  public async execute(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
+  public async execute(dto: CreateOrderDTO): CreateProductUseCaseResponse {
     try {
       const { items } = dto;
-
-      this.log('dto', JSON.stringify(dto));
 
       const itemsOrError = items.map((item) => OrderItem.create({ value: item }).getValue());
 
@@ -53,7 +44,7 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
 
       const orders = orderValidated.items.map((item) => item.value);
 
-      this.orderService.createOrder({ items: orders }, order.getValue());
+      this.productService.createOrder({ items: orders }, order.getValue());
 
       return {
         status: this.success.status,

@@ -4,19 +4,19 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { OrderRepositoryAdapter } from '@modules/order/adapters/repository/order.adapter';
 import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';
 import { OrderService } from '@modules/order/adapters/repository/order.service';
-import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
+import { CreateProductUseCase } from '@modules/products/application/useCases/CreateProduct.usecase';
 
 @Module({
   imports: [OrderRepositoryModule],
   providers: [
-    CreateOrderUseCase,
+    CreateProductUseCase,
     {
-      provide: 'OrderServicePort',
+      provide: 'ProductServicePort',
       useFactory: (orderRepositoryAdapter: OrderRepositoryAdapter, eventEmitter: EventEmitter2) =>
         new OrderService(orderRepositoryAdapter, eventEmitter),
       inject: [OrderRepositoryAdapter, EventEmitter2],
     },
   ],
-  exports: [CreateOrderUseCase],
+  exports: [CreateProductUseCase],
 })
-export class OrderInfrastructureModule {}
+export class ProductInfrastructureModule {}

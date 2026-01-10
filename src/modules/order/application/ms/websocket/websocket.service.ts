@@ -1,3 +1,4 @@
+import { Server, Socket } from 'socket.io';
 import { Logger } from '@nestjs/common';
 import {
   OnGatewayConnection,
@@ -9,8 +10,7 @@ import {
   WsResponse,
 } from '@nestjs/websockets';
 
-import { Server, Socket } from 'socket.io';
-import { Message, PingMessage, CreateRoomMessage, RoomMessageEvent } from './websocket.interface';
+import { CreateRoomMessage, Message, PingMessage, RoomMessageEvent } from './websocket.interface';
 
 @WebSocketGateway()
 export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
@@ -22,7 +22,7 @@ export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnG
     this.logger.log('Initialized');
   }
 
-  handleConnection(client: any, ...args: any[]) {
+  handleConnection(client: any) {
     const { sockets } = this.io.sockets;
 
     this.logger.log(`Client id: ${client.id} connected`);

@@ -1,15 +1,15 @@
-import { Module } from '@nestjs/common';
-import { RouterModule, APP_INTERCEPTOR } from '@nestjs/core';
-
 import { RequestContextModule } from 'nestjs-request-context';
+import { Module } from '@nestjs/common';
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
+
 import { ConfigModule } from '@config/config.module';
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
-import routes from './http.routes';
-import { CoreModule } from './core/core.module';
-import { LoggerModule } from './api/api.module';
-
 import { Logger } from '@modules/logger/application/ms/config/logger';
+
+import { LoggerModule } from './api/api.module';
+import { CoreModule } from './core/core.module';
+import routes from './http.routes';
 
 const interceptors = [
   {

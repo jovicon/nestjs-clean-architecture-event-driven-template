@@ -15,5 +15,6 @@
     "^@modules/(.*)$",
     "",
     "^[./]"
-  ]
+  ],
+  "importOrderParserPlugins": ["typescript", "decorators-legacy"]
 }

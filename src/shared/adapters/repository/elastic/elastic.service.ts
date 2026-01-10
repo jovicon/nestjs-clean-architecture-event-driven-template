@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-
 import { ElasticsearchService } from '@nestjs/elasticsearch';
 
 @Injectable()
@@ -11,13 +10,19 @@ export class ElasticService {
   }
 
   create({ id, item }: { id: string; item: any }): Promise<any> {
-    return this._repository.create({
-      id,
-      index: 'test',
-      body: {
-        ...item,
-      },
-    });
+    try {
+      console.log('ElasticService - ITEM: ', item);
+      return this._repository.create({
+        id,
+        index: 'test',
+        body: {
+          ...item,
+        },
+      });
+    } catch (error) {
+      console.error('ElasticService - ERROR: ', error);
+      throw error;
+    }
   }
 
   // update(id: string, item: T) {

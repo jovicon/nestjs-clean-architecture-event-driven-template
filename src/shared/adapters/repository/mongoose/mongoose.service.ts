@@ -1,6 +1,5 @@
-import { Injectable } from '@nestjs/common';
-
 import { Model } from 'mongoose';
+import { Injectable } from '@nestjs/common';
 
 import { Repository } from '@shared/adapters/repository/interface';
 
@@ -24,7 +23,7 @@ export class MongoRepositoryService<T> implements Repository<T> {
   }
 
   delete(id: string): Promise<any> {
-    return this._repository.deleteOne({ id: id });
+    return this._repository.deleteOne({ id });
   }
 
   find(id: string): Promise<any> {
