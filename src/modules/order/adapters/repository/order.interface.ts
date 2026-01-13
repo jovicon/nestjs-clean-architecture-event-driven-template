@@ -1,4 +1,4 @@
-import { Repository } from '@shared/adapters/repository/interface';
+import { Repository } from '@shared/adapters/repository/Repository.port';
 
 import { OrderProps } from '@modules/order/domain/order';
 

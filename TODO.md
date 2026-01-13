@@ -31,9 +31,29 @@ This file tracks the implementation of the three critical approaches for maximiz
   - Decision: Left as-is for example purposes, documented in audit file
   - Note: DO NOT use this module as reference for clean architecture
 
-- [ ] ❌ 🟠 Review `src/shared/` for proper abstraction separation
-  - Check: `src/shared/adapters/ports/` - Ensure all ports are properly defined
-  - Check: `src/shared/adapters/repository/` - Verify implementations reference ports only
+- [x] ✅ 🟠 Review `src/shared/` for proper abstraction separation
+  - ⚠️ **CRITICAL VIOLATIONS FOUND** - See review findings below
+  - Found 3 high-severity layer boundary violations:
+    1. `ddd/AggregateRoot.ts` - Imports `@nestjs/event-emitter` (framework in domain)
+    2. `commons/core/Event.handler.ts` - Imports `@nestjs/event-emitter` (framework in commons)
+    3. `commons/core/Event.handler.ts` - Upward dependency to Application layer
+  - Impact: Domain layer indirectly coupled to NestJS through EventHandler
+  - Positive: Guard, Result, UseCase, ValueObject are pure (zero framework deps)
+  - Recommendation: Refactor event publishing to use DI instead of direct imports
+
+- [ ] ❌ 🔴 Fix `src/shared/` layer boundary violations
+  - [ ] Refactor `AggregateRoot.ts` to remove `@nestjs/event-emitter` import
+    - Change `publishEvents()` to accept generic interface/callback
+    - Move EventEmitter2 integration to Infrastructure layer
+  - [ ] Refactor `Event.handler.ts` to remove framework dependencies
+    - Remove `@nestjs/event-emitter` import
+    - Remove upward dependency to `RequestContextService`
+    - Pass requestId as parameter instead of static initialization
+  - [ ] Separate event management from context awareness
+    - Extract event storage logic (add/clear) to pure base class
+    - Move publishing logic to Infrastructure layer
+  - [x] Rename `adapters/repository/interface.ts` to `Repository.port.ts` for consistency ✅
+  - [x] Add comprehensive documentation comments to port interfaces ✅
 
 ### 1.2 Define Missing Ports (Interfaces)
 
@@ -422,16 +442,59 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 | Approach | Total Tasks | Completed | In Progress | Not Started | % Complete |
 | -------- | ----------- | --------- | ----------- | ----------- | ---------- |
-| 1. Port-Adapter Pattern | 11 | 3 | 0 | 8 | 27% |
+| 1. Port-Adapter Pattern | 12 | 4 | 0 | 8 | 33% |
 | 2. Event-Driven Design | 13 | 0 | 0 | 13 | 0% |
 | 3. Result Pattern | 14 | 0 | 0 | 14 | 0% |
 | 4. Bonus Improvements | 7 | 0 | 0 | 7 | 0% |
 | 5. Module Migration | 8 | 0 | 0 | 8 | 0% |
-| **TOTAL** | **53** | **3** | **0** | **50** | **6%** |
+| **TOTAL** | **54** | **4** | **0** | **50** | **7%** |
 
 ---
 
 ## Completed Tasks Log
+
+### 2026-01-12
+
+- ✅ **Shared Layer Abstraction Separation Review**
+  - Reviewed entire `src/shared/` directory for Clean Architecture compliance
+  - Found 3 critical layer boundary violations:
+    - `ddd/AggregateRoot.ts` imports `@nestjs/event-emitter` (framework dependency in domain)
+    - `commons/core/Event.handler.ts` imports `@nestjs/event-emitter` (framework in commons)
+    - `commons/core/Event.handler.ts` has upward dependency to `application/context/RequestContextService`
+  - Identified root cause: EventHandler base class pollutes domain layer with framework coupling
+  - Documented structural issues:
+    - EventHandler mixing concerns (event management + context + framework)
+    - Static RequestContext dependency problematic for domain objects outside HTTP context
+    - Inconsistent port naming (`interface.ts` vs `logger.port.ts`)
+  - Positive findings:
+    - Guard, Result, UseCase, ValueObject, Identifier are pure (zero framework deps)
+    - Repository interfaces properly separated from implementations
+    - Adapters correctly isolated
+  - Created task list for fixing violations with refactoring strategy
+  - Impact: Every domain Entity is indirectly coupled to NestJS through EventHandler inheritance
+
+- ✅ **Port Interface Naming Standardization & Documentation**
+  - Renamed `src/shared/adapters/repository/interface.ts` to `Repository.port.ts`
+  - Added comprehensive JSDoc documentation to `Repository.port.ts`:
+    - Interface overview with architecture context
+    - Generic type parameter documentation
+    - Detailed method documentation with @param, @returns, @throws, @remarks
+    - Code examples for each method
+    - Best practices and usage patterns
+    - @todo annotations for future improvements (pagination, better type safety)
+  - Enhanced `src/shared/adapters/ports/logger.port.ts` with comprehensive documentation:
+    - Port interface overview and purpose
+    - Dependency injection examples
+    - Detailed method documentation for log(), error(), warn(), debug()
+    - Use case examples for each log level
+    - Best practices for production vs development logging
+  - Updated all 3 import references to use new `Repository.port.ts`:
+    - `src/shared/adapters/repository/mongoose/mongoose.service.ts`
+    - `src/modules/order/adapters/repository/order.interface.ts`
+    - `src/modules/products/adapters/repository/order.interface.ts`
+  - Deleted old `interface.ts` file
+  - Verified build passes with new structure
+  - Consistent naming convention now established: `[InterfaceName].port.ts`
 
 ### 2026-01-10
 
@@ -491,5 +554,5 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 ---
 
-**Last Updated:** 2026-01-10
-**Current Focus:** Migrate remaining modules (products, logger) to new 4-layer architecture
+**Last Updated:** 2026-01-12
+**Current Focus:** Fix `src/shared/` layer boundary violations before migrating remaining modules
