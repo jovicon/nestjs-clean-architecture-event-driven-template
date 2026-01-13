@@ -1,7 +1,7 @@
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 
-import { Repository } from '@shared/adapters/repository/interface';
+import { Repository } from '@shared/adapters/repository/Repository.port';
 
 @Injectable()
 export class MongoRepositoryService<T> implements Repository<T> {
