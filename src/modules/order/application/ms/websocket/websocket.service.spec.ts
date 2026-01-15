@@ -3,6 +3,7 @@ import { INestApplication, Logger } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { WebsocketGateway } from './websocket.service';
+import { WebsocketGatewayModule } from './websocket.module';
 
 async function createNestApp(...gateways: any): Promise<INestApplication> {
   const testingModule = await Test.createTestingModule({
@@ -142,5 +143,34 @@ describe('WebsocketGateway', () => {
       event: 'MessageSended',
       data,
     });
+  });
+});
+
+describe('WebsocketGatewayModule', () => {
+  it('should be defined', async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [WebsocketGatewayModule],
+    }).compile();
+
+    expect(module).toBeDefined();
+  });
+
+  it('should provide WebsocketGateway', async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [WebsocketGatewayModule],
+    }).compile();
+
+    const gateway = module.get<WebsocketGateway>(WebsocketGateway);
+    expect(gateway).toBeDefined();
+    expect(gateway).toBeInstanceOf(WebsocketGateway);
+  });
+
+  it('should export WebsocketGateway', async () => {
+    const parentModule: TestingModule = await Test.createTestingModule({
+      imports: [WebsocketGatewayModule],
+    }).compile();
+
+    const gateway = parentModule.get<WebsocketGateway>(WebsocketGateway);
+    expect(gateway).toBeDefined();
   });
 });

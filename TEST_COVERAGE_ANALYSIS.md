@@ -1,22 +1,27 @@
 # Test Coverage Analysis Report
 
-**Date:** 2026-01-14
-**Total Tests:** 56 passed across 9 test suites
-**Execution Time:** 5.795s
+**Date:** 2026-01-14 (Updated)
+**Total Tests:** 62 passed across 10 test suites
+**Execution Time:** 4.413s
 
 ---
 
 ## Overall Coverage Summary
 
-| Metric | Coverage | Status |
-|--------|----------|--------|
-| **Statements** | 12.11% | 🔴 Low |
-| **Branches** | 0% | 🔴 Critical |
-| **Functions** | 21.11% | 🔴 Low |
-| **Lines** | 19.35% | 🔴 Low |
+| Metric | Coverage | Status | Change from Baseline |
+|--------|----------|--------|----------------------|
+| **Statements** | 12.91% | 🔴 Low | +0.80% ⬆️ |
+| **Branches** | 0% | 🔴 Critical | No change |
+| **Functions** | 22.36% | 🔴 Low | +1.25% ⬆️ |
+| **Lines** | 20.56% | 🔴 Low | +1.21% ⬆️ |
 
 **Target:** >80% coverage (as specified in TODO.md)
-**Gap:** 67.89% statements coverage needed
+**Gap:** 67.09% statements coverage needed
+
+**Progress:**
+
+- Tests: 62 passed (was 56, +6 tests)
+- Test Suites: 10 passed (was 9, +1 suite)
 
 ---
 
@@ -57,6 +62,32 @@
 | `core.module.ts` | 100% | 100% | 100% | 100% |
 | `core.service.ts` | 100% | 100% | 100% | 100% |
 
+#### Order Module - WebSocket - 100% Coverage ✅ 🆕
+
+| File | Statements | Branches | Functions | Lines |
+|------|------------|----------|-----------|-------|
+| `index.ts` | 100% | 100% | 100% | 100% |
+| `websocket.module.ts` | 100% | 100% | 100% | 100% |
+| `websocket.service.ts` | 100% | 100% | 100% | 100% |
+
+**Test Coverage:**
+
+- 12 tests across 2 test suites
+- Tests for gateway, module wiring, and bootstrap
+- Connection/disconnection handling tested
+- Message handling (ping, JoinRoom, roomMessage) tested
+- Module instantiation and DI tested
+- Bootstrap function with IIFE tested
+
+**Improvement:** 🎉
+
+- Previous: 76.08% coverage (6 tests)
+- Current: 100% coverage (12 tests)
+- Added: `index.spec.ts` for bootstrap testing
+- Enhanced: `websocket.service.spec.ts` with module tests
+
+### 🟡 Partial Coverage (20-80%)
+
 #### Order Module - HTTP API - 79.41% Coverage 🟡
 
 | Component | Statements | Branches | Functions | Lines |
@@ -66,17 +97,6 @@
 | `api.service.ts` | 100% | 100% | 100% | 100% |
 | `api.module.ts` | 0% | 100% | 100% | 0% |
 | **Average** | **79.41%** | **100%** | **100%** | **82.14%** |
-
-#### Order Module - WebSocket - 76.08% Coverage 🟡
-
-| File | Statements | Branches | Functions | Lines | Uncovered |
-|------|------------|----------|-----------|-------|-----------|
-| `websocket.service.ts` | 100% | 100% | 100% | 100% | - |
-| `websocket.module.ts` | 0% | 100% | 100% | 0% | 1-10 |
-| `index.ts` | 0% | 100% | 0% | 0% | 1-11 |
-| **Average** | **76.08%** | **100%** | **77.77%** | **78.57%** |
-
-**Test Coverage:** 6 tests for WebSocket gateway
 
 ---
 
