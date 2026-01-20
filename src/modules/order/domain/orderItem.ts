@@ -16,6 +16,12 @@ export class OrderItem extends ValueObject<OrderItemProps> {
   }
 
   public static create(props: OrderItemProps): Result<OrderItem> {
+    const propsGuardResult = Guard.againstNullOrUndefined(props, 'props');
+
+    if (!propsGuardResult.succeeded) {
+      return Result.fail<OrderItem>(propsGuardResult.message);
+    }
+
     const nullGuardResult = Guard.againstNullOrUndefined(props.value, 'item');
 
     if (!nullGuardResult.succeeded) {
