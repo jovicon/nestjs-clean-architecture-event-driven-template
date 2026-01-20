@@ -28,6 +28,12 @@ export class Order extends AggregateRoot<OrderProps> {
   }
 
   public static create(props: OrderProps): Result<Order> {
+    const propsGuardResult = Guard.againstNullOrUndefined(props, 'props');
+
+    if (!propsGuardResult.succeeded) {
+      return Result.fail<Order>(propsGuardResult.message);
+    }
+
     const guardResult = Guard.againstNullOrUndefinedBulk([{ argument: props.items, argumentName: 'items' }]);
 
     if (!guardResult.succeeded) return Result.fail<Order>(guardResult.message);

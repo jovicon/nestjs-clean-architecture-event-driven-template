@@ -20,8 +20,8 @@
 
 **Progress:**
 
-- Tests: 62 passed (was 56, +6 tests)
-- Test Suites: 10 passed (was 9, +1 suite)
+- Tests: 95 passed (was 62, +33 tests)
+- Test Suites: 12 passed (was 10, +2 suites)
 
 ---
 
