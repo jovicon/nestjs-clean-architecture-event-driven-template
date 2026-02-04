@@ -6,5 +6,9 @@
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "cSpell.words": ["dompurify"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "sonarlint.connectedMode.project": {
+    "connectionId": "jovicon",
+    "projectKey": "jovicon_nestjs-clean-architecture-event-driven-template"
+  }
 }

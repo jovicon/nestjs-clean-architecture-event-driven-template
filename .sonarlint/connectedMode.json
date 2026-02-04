@@ -1,0 +1,5 @@
+{
+    "sonarCloudOrganization": "jovicon",
+    "projectKey": "jovicon_nestjs-clean-architecture-event-driven-template",
+    "region": "EU"
+}
