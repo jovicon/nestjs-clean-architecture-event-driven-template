@@ -1,9 +1,5 @@
 FROM node:20.13.1-alpine
 
-# Docker Scout -- Vulnerability Scanning solved
-RUN apk upgrade busybox 
-RUN apk upgrade openssl 
-
 WORKDIR /usr/src/app
 
 COPY ["package.json", "./"]
