@@ -1,4 +1,4 @@
-import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler';
+import { OrderCreatedEventHandler } from '@modules/order/application/events/orderCreated.handler';
 import { RequestContextModule } from 'nestjs-request-context';
 import { Module } from '@nestjs/common';
 import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
