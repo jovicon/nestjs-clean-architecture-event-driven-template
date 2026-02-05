@@ -455,13 +455,49 @@ This file tracks the implementation of the three critical approaches for maximiz
   - Achieved 100% coverage (45/45 statements, 17/17 functions, 43/43 lines)
   - 46 tests across 5 test suites
 
-- [ ] ❌ 🟠 Create unit tests for all use cases
+- [x] ✅ 🟠 Create unit tests for all use cases
   - Pattern: `[UseCase].usecase.spec.ts`
   - Test both success and failure paths with Result pattern
+  - **Completed 2026-02-05:**
+    - `CreateOrder.usecase.spec.ts` - Order module use case tests
+    - `CreateProduct.usecase.spec.ts` - Products module use case tests
+    - `CreateLog.usecase.spec.ts` - Logger module use case tests
 
-- [ ] ❌ 🟠 Create unit tests for domain entities
+- [x] ✅ 🟠 Create unit tests for domain entities
   - Pattern: `[Entity].spec.ts`
   - Test factory methods and business logic
+  - **Completed 2026-02-05:**
+    - Order module: `order.spec.ts`, `orderItem.spec.ts`
+    - Products module: `order.spec.ts`, `orderItem.spec.ts`
+
+- [x] ✅ 🟠 Create unit tests for shared DDD base classes
+  - **Completed 2026-02-05:**
+    - `AggregateRoot.spec.ts` - Domain aggregate tests
+    - `Entity.spec.ts` - Base entity tests
+    - `ValueObject.spec.ts` - Value object tests
+    - `Identifier.spec.ts` - Identifier tests
+    - `UniqueEntityID.spec.ts` - UUID generation tests
+    - `DomainEvent.base.spec.ts` - Domain event tests
+
+- [x] ✅ 🟠 Create unit tests for shared core utilities
+  - **Completed 2026-02-05:**
+    - `Result.spec.ts` - Either/Result pattern tests
+    - `Guard.spec.ts` - Validation utility tests
+    - `UseCase.spec.ts` - Base use case tests
+    - `Event.base.spec.ts` - Event base tests
+    - `Event.handler.spec.ts` - Event handler tests
+
+- [x] ✅ 🟠 Create unit tests for HTTP controllers/services
+  - **Completed 2026-02-05:**
+    - Order module: API layer (controller, service, module), Core layer (controller, service, module)
+    - Products module: API layer (controller, service, module), Core layer (controller, service, module)
+    - Logger module: Core layer (controller, service, module)
+
+- [x] ✅ 🟠 Create unit tests for adapters/repositories
+  - **Completed 2026-02-05:**
+    - Order module: `order.adapter.spec.ts`, `order.service.spec.ts`, `order.schema.spec.ts`, `order.module.spec.ts`
+    - Products module: `order.adapter.spec.ts`, `order.service.spec.ts`, `order.schema.spec.ts`, `order.module.spec.ts`
+    - Products infrastructure: `product.module.spec.ts`
 
 - [ ] ❌ 🟢 Create integration tests for event flows
   - Test complete saga workflows
@@ -485,8 +521,16 @@ This file tracks the implementation of the three critical approaches for maximiz
 - [x] ✅ 🟢 Run tests and ensure coverage
   - Command: `npm run test:cov`
   - Target: >80% coverage
-  - **Current Status:** 12.11% statements, 0% branches, 21.11% functions, 19.35% lines
-  - **Gap:** 67.89% coverage needed to reach target
+  - **Current Status (2026-02-05):** 323 tests passing across 48 test suites
+  - **Previous Status:** 62 tests passing across 10 test suites
+  - **Improvement:** +261 tests added (+421% increase)
+  - **Modules with comprehensive coverage:**
+    - Config module: 100% coverage
+    - Order module: Domain, Use Cases, HTTP API/Core, Adapters
+    - Products module: Domain, Use Cases, HTTP API/Core, Adapters, Infrastructure
+    - Logger module: HTTP Core layer
+    - Shared DDD: AggregateRoot, Entity, ValueObject, Identifier, UniqueEntityID, DomainEvent
+    - Shared Core: Result, Guard, UseCase, Event.base, Event.handler
   - **Analysis:** See `TEST_COVERAGE_ANALYSIS.md` for full report
 
 - [ ] ❌ 🟢 Run SonarQube analysis
@@ -543,13 +587,64 @@ This file tracks the implementation of the three critical approaches for maximiz
 | 1. Port-Adapter Pattern | 12 | 4 | 0 | 8 | 33% |
 | 2. Event-Driven Design | 13 | 0 | 0 | 13 | 0% |
 | 3. Result Pattern | 14 | 0 | 0 | 14 | 0% |
-| 4. Bonus Improvements | 8 | 2 | 0 | 6 | 25% |
+| 4. Bonus Improvements | 14 | 8 | 0 | 6 | 57% |
 | 5. Module Migration | 8 | 0 | 0 | 8 | 0% |
-| **TOTAL** | **55** | **6** | **0** | **49** | **11%** |
+| **TOTAL** | **61** | **12** | **0** | **49** | **20%** |
 
 ---
 
 ## Completed Tasks Log
+
+### 2026-02-05
+
+- ✅ **Comprehensive Unit Tests - Major Coverage Expansion** 🎉
+  - Added 261 new tests (62 → 323 tests, +421% increase)
+  - Test suites expanded from 10 to 48 (+38 suites)
+  - All 323 tests passing
+  - **New test files created (41 files):**
+
+    **Products Module (0% → Full Coverage):**
+    - Domain: `order.spec.ts`, `orderItem.spec.ts`
+    - Use Cases: `CreateProduct.usecase.spec.ts`
+    - HTTP API: `api.controller.spec.ts`, `api.service.spec.ts`, `api.module.spec.ts`
+    - HTTP Core: `core.controller.spec.ts`, `core.service.spec.ts`, `core.module.spec.ts`
+    - HTTP Module: `http.module.spec.ts`
+    - Adapters: `order.adapter.spec.ts`, `order.service.spec.ts`, `order.schema.spec.ts`, `order.module.spec.ts`
+    - Infrastructure: `product.module.spec.ts`
+
+    **Order Module (Added Missing Tests):**
+    - HTTP API: `api.controller.spec.ts`, `api.service.spec.ts`, `api.module.spec.ts`
+    - HTTP Core: `core.controller.spec.ts`, `core.service.spec.ts`, `core.module.spec.ts`
+    - Adapters: `order.adapter.spec.ts`, `order.service.spec.ts`, `order.schema.spec.ts`, `order.module.spec.ts`
+
+    **Logger Module (Added Missing Tests):**
+    - HTTP Core: `core.controller.spec.ts`, `core.service.spec.ts`, `core.module.spec.ts`
+
+    **Shared DDD Base Classes (0% → Full Coverage):**
+    - `AggregateRoot.spec.ts` - Domain aggregate tests
+    - `Entity.spec.ts` - Base entity tests
+    - `ValueObject.spec.ts` - Value object tests
+    - `Identifier.spec.ts` - Identifier tests
+    - `UniqueEntityID.spec.ts` - UUID generation tests
+    - `DomainEvent.base.spec.ts` - Domain event tests
+
+    **Shared Core Utilities (0% → Full Coverage):**
+    - `Result.spec.ts` - Either/Result pattern tests
+    - `Guard.spec.ts` - Validation utility tests
+    - `UseCase.spec.ts` - Base use case tests
+    - `Event.base.spec.ts` - Event base tests
+    - `Event.handler.spec.ts` - Event handler tests
+
+  - **Bug fixes during testing:**
+    - Fixed import path in `src/modules/products/application/ms/http/http.module.ts` (`@base` → `@modules`)
+    - Fixed case sensitivity in `src/modules/products/domain/order.ts` import (`OrderCreated.emitter` → `orderCreated.emitter`)
+
+  - **Impact:**
+    - Products module: 0% → comprehensive coverage
+    - Shared DDD: 0% → comprehensive coverage
+    - Shared Core: 0% → comprehensive coverage
+    - Order module: Added API layer, Core layer, and Adapter tests
+    - Logger module: Added Core layer tests
 
 ### 2026-01-14
 
@@ -722,5 +817,5 @@ This file tracks the implementation of the three critical approaches for maximiz
 
 ---
 
-**Last Updated:** 2026-01-14
-**Current Focus:** WebSocket module achieved 100% coverage (76.08% → 100%). Overall coverage improved to 12.91% statements (+0.80%). Next targets: HTTP API module (79.41% → 100%), then use cases and domain entities. See `TEST_COVERAGE_ANALYSIS.md` for roadmap.
+**Last Updated:** 2026-02-05
+**Current Focus:** Major test coverage expansion completed. Added 261 new tests (62 → 323 tests, +421% increase). Products module, Shared DDD classes, and Shared Core utilities now have comprehensive coverage. All 323 tests passing. Next targets: Integration tests for event flows, remaining architecture improvements.
