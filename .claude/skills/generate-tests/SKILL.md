@@ -16,31 +16,37 @@ Generate comprehensive tests for: **$0**
 First, determine what type of code we're testing:
 
 **If Use Case:**
+
 - Location: `src/modules/*/application/useCases/*/[UseCase].usecase.ts`
 - Generate: Unit tests for use case logic
 - Test file: `[UseCase].usecase.spec.ts` (same directory)
 
 **If Domain Entity/Aggregate:**
+
 - Location: `src/modules/*/domain/[Entity].ts`
 - Generate: Unit tests for domain logic
 - Test file: `[Entity].spec.ts` (same directory)
 
 **If Value Object:**
+
 - Location: `src/modules/*/domain/[ValueObject].ts`
 - Generate: Unit tests for value object validation
 - Test file: `[ValueObject].spec.ts` (same directory)
 
 **If Repository:**
+
 - Location: `src/modules/*/adapters/repository/[Entity].adapter.ts`
 - Generate: Integration tests with database mocking
 - Test file: `[Entity].adapter.spec.ts` (same directory)
 
 **If HTTP Controller:**
+
 - Location: `src/modules/*/application/ms/http/[controller].ts`
 - Generate: E2E tests for API endpoints
 - Test file: `test/e2e/[module]-[controller].e2e-spec.ts`
 
 **If Event Handler:**
+
 - Location: `src/modules/*/application/events/handlers/[Handler].ts`
 - Generate: Unit tests for event handling
 - Test file: `[Handler].spec.ts` (same directory)
@@ -520,8 +526,8 @@ describe('[Entity]RepositoryAdapter (Integration)', () => {
 ### E2E Tests - HTTP Endpoints
 
 ```typescript
-import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 
@@ -640,6 +646,7 @@ describe('[Module] - [Controller] (E2E)', () => {
 ## Output
 
 Generate the complete test file with:
+
 - All necessary imports
 - Proper describe/it structure
 - Comprehensive test cases

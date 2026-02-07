@@ -13,6 +13,7 @@ Provide a comprehensive guide for the requested topic. If no topic or "overview"
 ## Overview: Clean Architecture + DDD + Event-Driven
 
 ### Key Principles
+
 1. **Dependency Rule**: Dependencies point inward (Infrastructure → Adapters → Application → Domain)
 2. **Domain Purity**: Domain layer has zero framework dependencies
 3. **Port & Adapters**: Application defines interfaces, adapters implement them
@@ -22,54 +23,62 @@ Provide a comprehensive guide for the requested topic. If no topic or "overview"
 ### When to Use What
 
 **Use Entity when:**
+
 - The object has an identity that matters over time
 - Two instances with same data are NOT equal (different IDs = different objects)
 - The object has a lifecycle
 
 **Use Value Object when:**
+
 - Identity doesn't matter, only the values
 - Immutable
 - Two instances with same values ARE equal
 - Examples: Money, Email, Address, DateRange
 
 **Use Aggregate when:**
+
 - You need transaction boundaries
 - You need to publish domain events
 - You control a cluster of entities/value objects
 
 **Use Use Case when:**
+
 - Orchestrating a business workflow
 - Coordinating multiple aggregates
 - Defining application-specific logic
 
 **Use Domain Event when:**
+
 - Something important happened in the domain
 - Other parts of the system need to react
 - You want loose coupling
 
 ### Layer Cheat Sheet
 
-| Layer | Purpose | Can Import | Cannot Import | Examples |
-|-------|---------|------------|---------------|----------|
-| Domain | Business logic | @shared/ddd, @shared/commons | NestJS, DB, HTTP | Order.ts, Money.ts |
-| Application | Use cases | Domain, @shared | Adapters, Infrastructure | CreateOrder.usecase.ts |
-| Adapters | Implementations | Domain, Application, @shared | Infrastructure | OrderRepository.ts |
-| Infrastructure | DI wiring | All layers | None (wiring only) | order.module.ts |
+| Layer          | Purpose         | Can Import                   | Cannot Import            | Examples               |
+| -------------- | --------------- | ---------------------------- | ------------------------ | ---------------------- |
+| Domain         | Business logic  | @shared/ddd, @shared/commons | NestJS, DB, HTTP         | Order.ts, Money.ts     |
+| Application    | Use cases       | Domain, @shared              | Adapters, Infrastructure | CreateOrder.usecase.ts |
+| Adapters       | Implementations | Domain, Application, @shared | Infrastructure           | OrderRepository.ts     |
+| Infrastructure | DI wiring       | All layers                   | None (wiring only)       | order.module.ts        |
 
 ---
 
 ## Layer Responsibilities & Boundaries
 
 ### Domain Layer (`domain/`)
+
 **Purpose**: Pure business logic and rules
 
 **Contains:**
+
 - Entities and Aggregates
 - Value Objects
 - Domain Events (data only, NO decorators)
 - Business rules and invariants
 
 **Rules:**
+
 - ✅ Only import from `@shared/ddd`, `@shared/commons`
 - ✅ Use TypeScript only (no framework)
 - ❌ NO @Injectable, @Module, or any NestJS decorators
@@ -77,6 +86,7 @@ Provide a comprehensive guide for the requested topic. If no topic or "overview"
 - ❌ NO HTTP/transport layer code
 
 **Example:**
+
 ```typescript
 // ✅ GOOD - Pure domain
 export class Order extends AggregateRoot<OrderProps> {
@@ -101,15 +111,18 @@ export class Order { ... }
 ```
 
 ### Application Layer (`application/`)
+
 **Purpose**: Use cases and orchestration
 
 **Contains:**
+
 - Use Cases (business workflows)
 - Ports (interface definitions)
 - Event Handlers (with @OnEvent decorator)
 - DTOs
 
 **Rules:**
+
 - ✅ Can import domain, @shared
 - ✅ Use NestJS decorators in event handlers
 - ✅ Define interfaces (ports), not implementations
@@ -117,18 +130,22 @@ export class Order { ... }
 - ❌ NO direct database/external service usage (use ports)
 
 ### Adapters Layer (`adapters/`)
+
 **Purpose**: Implement ports with external services
 
 **Contains:**
+
 - Repository implementations
 - External API clients
 - Database schemas
 - Cache adapters
 
 ### Infrastructure Layer (`infrastructure/`)
+
 **Purpose**: Dependency injection configuration
 
 **Contains:**
+
 - NestJS modules
 - Provider configurations
 - DI wiring
@@ -138,9 +155,11 @@ export class Order { ... }
 ## Domain-Driven Design Patterns
 
 ### 1. Entities
+
 Objects with identity that persists over time.
 
 **Template:**
+
 ```typescript
 interface OrderProps {
   customerId: string;
@@ -176,9 +195,11 @@ export class Order extends Entity<OrderProps> {
 ```
 
 ### 2. Aggregates
+
 Cluster of entities/value objects with a root entity that controls access.
 
 **Template:**
+
 ```typescript
 export class Order extends AggregateRoot<OrderProps> {
   private constructor(props: OrderProps, id?: UniqueEntityID) {
@@ -208,9 +229,11 @@ export class Order extends AggregateRoot<OrderProps> {
 ```
 
 ### 3. Value Objects
+
 Immutable objects defined by their values, not identity.
 
 **Template:**
+
 ```typescript
 interface MoneyProps {
   amount: number;
@@ -273,6 +296,7 @@ export class OrderCreated extends DomainEvent {
 ```
 
 **Rules:**
+
 - ✅ Pure data class
 - ✅ Extends DomainEvent
 - ❌ NO @Injectable decorator
@@ -307,6 +331,7 @@ export class OrderCreatedHandler {
 ## Error Handling with Result Pattern
 
 ### Why Result Pattern?
+
 - ✅ Explicit error handling
 - ✅ Type-safe errors
 - ✅ No hidden control flow (no thrown exceptions)
@@ -353,10 +378,10 @@ if (!guardResults.succeeded) {
 
 ```typescript
 export interface IOrderRepository {
-  save(order: Order): Promise<Result<Order>>;
-  findById(id: string): Promise<Result<Order>>;
-  findByCustomerId(customerId: string): Promise<Result<Order[]>>;
-  delete(id: string): Promise<Result<void>>;
+  save: (order: Order) => Promise<Result<Order>>;
+  findById: (id: string) => Promise<Result<Order>>;
+  findByCustomerId: (customerId: string) => Promise<Result<Order[]>>;
+  delete: (id: string) => Promise<Result<void>>;
 }
 ```
 
@@ -377,7 +402,8 @@ export class OrderRepositoryAdapter implements IOrderRepository {
       const orderDoc = this.toPersistence(order);
       await this.orderModel.create(orderDoc);
       return Result.ok(order);
-    } catch (error) {
+    }
+    catch (error) {
       return Result.fail(error.message);
     }
   }
@@ -404,6 +430,7 @@ export class OrderRepositoryAdapter implements IOrderRepository {
 ## Naming Conventions
 
 ### Files
+
 - **Entities:** `Order.ts`, `Customer.ts` (PascalCase, singular)
 - **Value Objects:** `Money.ts`, `Email.ts` (PascalCase)
 - **Use Cases:** `CreateOrder.usecase.ts`, `UpdateUser.usecase.ts`
@@ -414,6 +441,7 @@ export class OrderRepositoryAdapter implements IOrderRepository {
 - **Tests:** `Order.spec.ts`, `CreateOrder.spec.ts`
 
 ### Classes & Interfaces
+
 - **Entities:** `Order`, `User` (PascalCase, no suffix)
 - **Aggregates:** `Order` (same as entity, extends AggregateRoot)
 - **Value Objects:** `Money`, `Email` (PascalCase, descriptive)
@@ -423,6 +451,7 @@ export class OrderRepositoryAdapter implements IOrderRepository {
 - **DTOs:** `CreateOrderDTO`, `UpdateUserDTO`
 
 ### Methods
+
 - **Domain:** Business language (`cancel()`, `approve()`, `calculateTotal()`)
 - **CRUD:** `create()`, `update()`, `delete()` (static factories)
 - **Queries:** `findById()`, `findByCustomerId()`

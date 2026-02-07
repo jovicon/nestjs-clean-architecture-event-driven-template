@@ -1,4 +1,5 @@
-import { DomainEvent, DomainEventProps } from './DomainEvent.base';
+import type { DomainEventProps } from './DomainEvent.base';
+import { DomainEvent } from './DomainEvent.base';
 import { UniqueEntityID } from './UniqueEntityID';
 
 class TestDomainEvent extends DomainEvent {
@@ -10,7 +11,7 @@ class TestDomainEvent extends DomainEvent {
   }
 }
 
-describe('DomainEvent', () => {
+describe('domainEvent', () => {
   describe('constructor', () => {
     it('should create a DomainEvent with aggregateId', () => {
       const aggregateId = new UniqueEntityID('test-aggregate-id');
@@ -157,7 +158,7 @@ describe('DomainEvent', () => {
     });
   });
 
-  describe('Event inheritance', () => {
+  describe('event inheritance', () => {
     it('should inherit from Event base class', () => {
       const aggregateId = new UniqueEntityID();
       const props: DomainEventProps<TestDomainEvent> = {

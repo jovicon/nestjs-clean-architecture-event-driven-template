@@ -1,8 +1,8 @@
-import { EventEmitter2 } from '@nestjs/event-emitter';
+import type { EventEmitter2 } from '@nestjs/event-emitter';
+
+import type { Event } from './Event.base';
 
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
-
-import { Event } from './Event.base';
 
 export abstract class EventHandler {
   protected requestId: string = RequestContextService.getRequestId();
@@ -28,7 +28,7 @@ export abstract class EventHandler {
           console.log(`[${this.requestId}] -- publishing events on handler: `, handler);
           eventEmitter.emitAsync(handler, event);
         });
-      })
+      }),
     );
 
     this.clearEvents();

@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import type { CreateOrderDTO, ProductServicePort } from '../ports/OrderService.port';
 
-import { CreateProductUseCase } from './CreateProduct.usecase';
-import { CreateOrderDTO, ProductServicePort } from '../ports/OrderService.port';
+import { Test } from '@nestjs/testing';
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { CreateProductUseCase } from './CreateProduct.usecase';
 
-describe('CreateProductUseCase', () => {
+describe('createProductUseCase', () => {
   let useCase: CreateProductUseCase;
   let productService: ProductServicePort;
 
@@ -84,7 +85,7 @@ describe('CreateProductUseCase', () => {
 
       expect(productService.createOrder).toHaveBeenCalledWith(
         { items: ['single-item'] },
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
@@ -161,7 +162,7 @@ describe('CreateProductUseCase', () => {
       expect(result.status).toBe('success');
 
       if ('orderValidated' in result.data) {
-        const values = result.data.orderValidated.items.map((item) => item.value);
+        const values = result.data.orderValidated.items.map(item => item.value);
         expect(values).toEqual(['first', 'second', 'third', 'fourth']);
       }
     });

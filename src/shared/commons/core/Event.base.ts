@@ -1,12 +1,13 @@
-import { nanoid } from 'nanoid';
-
 import { Guard } from '@shared/commons/Guard';
 
-export type EventMetadata = {
+import { nanoid } from 'nanoid';
+
+export interface EventMetadata {
   /** Timestamp when this domain event occurred */
   readonly timestamp: number;
 
-  /** ID for correlation purposes (for Integration Events,logs correlation, etc).
+  /**
+    ID for correlation purposes (for Integration Events,logs correlation, etc).
    */
   readonly correlationId: string;
 
@@ -24,7 +25,7 @@ export type EventMetadata = {
    * User ID for debugging and logging purposes
    */
   readonly requestId?: string;
-};
+}
 
 export type EventProps<T> = Omit<T, 'id' | 'metadata'> & {
   metadata?: EventMetadata;

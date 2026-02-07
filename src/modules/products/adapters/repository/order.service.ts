@@ -1,16 +1,16 @@
+import type { Order as OrderEntity } from '@modules/order/domain/order';
+import type { Order } from './order.schema';
+
 import { Injectable } from '@nestjs/common';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 
-import { Order as OrderEntity } from '@modules/order/domain/order';
-
 import { OrderRepositoryAdapter } from './order.adapter';
-import { Order } from './order.schema';
 
 @Injectable()
 export class OrderService {
   constructor(
     private readonly orderRepository: OrderRepositoryAdapter,
-    protected readonly eventEmitter: EventEmitter2
+    protected readonly eventEmitter: EventEmitter2,
   ) {}
 
   // TODO: Schema and Entity in the same parameter

@@ -41,6 +41,7 @@ $0/
 ```
 
 Follow these requirements:
+
 1. Domain layer: Pure business logic, NO framework dependencies
 2. Application layer: Use cases and orchestration
 3. Adapters layer: Repository and external service implementations

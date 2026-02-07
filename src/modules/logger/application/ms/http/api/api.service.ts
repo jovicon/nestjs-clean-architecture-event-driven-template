@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-
-import { Responses } from '@shared/application/interfaces/responses';
-
-import {
+import type {
   CreateLogDTO,
   CreateLogUseCaseResponse,
 } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
+import type { Responses } from '@shared/application/interfaces/responses';
+
+import { Injectable } from '@nestjs/common';
+
 import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
 
 @Injectable()

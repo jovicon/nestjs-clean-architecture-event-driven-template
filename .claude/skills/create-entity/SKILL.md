@@ -14,14 +14,17 @@ Create file: **src/modules/$0/domain/$1.ts**
 Requirements:
 
 **If aggregate root (default):**
+
 - Extend AggregateRoot<Props> from '@shared/ddd/AggregateRoot'
 - Include domain event publishing capability
 - Control transaction boundaries
 
 **If regular entity:**
+
 - Extend Entity<Props> from '@shared/ddd/Entity'
 
 **Common requirements for both:**
+
 - Use private constructor with static create() factory method
 - Include props interface for entity properties
 - Use UniqueEntityID for identity
@@ -31,6 +34,7 @@ Requirements:
 - Pure business logic - NO framework dependencies
 
 Follow DDD principles:
+
 - Encapsulate business rules
 - Protect invariants
 - Use domain language

@@ -7,7 +7,9 @@ Successfully migrated all 12 skills from the old `.claudeskill` format to the pr
 ### What Changed
 
 #### 1. **File Structure** ✅
+
 **Before:**
+
 ```
 .claude/skills/
 ├── analyze-architecture.claudeskill
@@ -16,6 +18,7 @@ Successfully migrated all 12 skills from the old `.claudeskill` format to the pr
 ```
 
 **After:**
+
 ```
 .claude/skills/
 ├── analyze-architecture/
@@ -26,11 +29,14 @@ Successfully migrated all 12 skills from the old `.claudeskill` format to the pr
 ```
 
 #### 2. **Removed Jinja Templating** ✅
+
 - ❌ Removed: `{% if %}`, `{% elsif %}`, `{% endif %}`, `{{ }}`
 - ✅ Replaced with: `$0`, `$1`, `$2` for argument substitution
 
 #### 3. **Fixed Frontmatter Fields** ✅
+
 **Before:**
+
 ```yaml
 args:
   - name: module_name
@@ -39,11 +45,13 @@ args:
 ```
 
 **After:**
+
 ```yaml
 argument-hint: [module-name]
 ```
 
 #### 4. **Enhanced Descriptions** ✅
+
 All skills now have proper descriptions that Claude can use to decide when to apply them automatically.
 
 ### Skills Migrated (12 total)
@@ -64,11 +72,13 @@ All skills now have proper descriptions that Claude can use to decide when to ap
 ### How to Use
 
 **Claude can now automatically invoke skills** when you ask questions like:
+
 - "Check the architecture" → triggers `/analyze-architecture`
 - "Show me the architecture guide" → triggers `/architecture-guide`
 - "Audit security" → triggers `/security-audit`
 
 **Or invoke them manually:**
+
 ```
 /create-module payments
 /create-usecase order CreateOrder

@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { EventEmitterModule } from '@nestjs/event-emitter';
-import { MongooseModule } from '@nestjs/mongoose';
-
 import { ConfigModule } from '@config/config.module';
 import { ConfigService } from '@config/config.service';
+import { Module } from '@nestjs/common';
+
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { MongooseModule } from '@nestjs/mongoose';
 
 import { OrderRepositoryAdapter } from './order.adapter';
 import { Order, OrderSchema } from './order.schema';

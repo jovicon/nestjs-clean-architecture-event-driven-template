@@ -1,8 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 import { ConfigModule } from './config.module';
 import { ConfigService } from './config.service';
 
-describe('ConfigModule', () => {
+describe('configModule', () => {
   let module: TestingModule;
 
   beforeEach(async () => {

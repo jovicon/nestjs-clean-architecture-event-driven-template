@@ -19,7 +19,7 @@ class TestValueObject extends ValueObject<TestValueObjectProps> {
   }
 }
 
-describe('ValueObject', () => {
+describe('valueObject', () => {
   describe('constructor', () => {
     it('should create a ValueObject with given props', () => {
       const props: TestValueObjectProps = {

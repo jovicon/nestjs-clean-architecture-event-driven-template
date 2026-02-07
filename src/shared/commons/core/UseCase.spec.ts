@@ -1,4 +1,4 @@
-import { UseCase } from './UseCase';
+import type { UseCase } from './UseCase';
 
 interface TestRequest {
   id: string;
@@ -52,7 +52,7 @@ class OptionalRequestUseCase implements UseCase<TestRequest | undefined, TestRes
   }
 }
 
-describe('UseCase', () => {
+describe('useCase', () => {
   describe('synchronous execute', () => {
     it('should execute with request and return response', () => {
       const useCase = new TestUseCase();

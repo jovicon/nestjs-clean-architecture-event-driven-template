@@ -1,8 +1,8 @@
-import { CoreModule } from './core.module';
 import CoreController from './core.controller';
+import { CoreModule } from './core.module';
 import CoreService from './core.service';
 
-describe('CoreModule (Order)', () => {
+describe('coreModule (Order)', () => {
   it('should have CoreModule metadata', () => {
     const imports = Reflect.getMetadata('imports', CoreModule);
     const controllers = Reflect.getMetadata('controllers', CoreModule);

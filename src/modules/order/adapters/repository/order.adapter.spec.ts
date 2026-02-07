@@ -1,11 +1,13 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import type { Model } from 'mongoose';
+import type { OrderDocument } from './order.schema';
 import { getModelToken } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
 
+import { Test } from '@nestjs/testing';
 import { OrderRepositoryAdapter } from './order.adapter';
-import { Order, OrderDocument } from './order.schema';
+import { Order } from './order.schema';
 
-describe('OrderRepositoryAdapter (Order)', () => {
+describe('orderRepositoryAdapter (Order)', () => {
   let adapter: OrderRepositoryAdapter;
   let orderModel: Model<OrderDocument>;
 

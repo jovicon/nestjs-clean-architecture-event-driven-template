@@ -1,12 +1,13 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-import { LoggerModule } from './api.module';
-import { ApiController } from './api.controller';
-import { ClientsService } from './api.service';
+import type { TestingModule } from '@nestjs/testing';
 import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
-import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
-describe('Logger ApiModule', () => {
+import { Test } from '@nestjs/testing';
+import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
+import { ApiController } from './api.controller';
+import { LoggerModule } from './api.module';
+import { ClientsService } from './api.service';
+
+describe('logger ApiModule', () => {
   let module: TestingModule;
 
   const mockElasticService = {

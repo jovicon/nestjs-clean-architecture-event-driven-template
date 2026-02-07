@@ -1,6 +1,6 @@
+import { RequestContextService } from '@shared/application/context/AppRequestContext';
 import { Entity } from './Entity';
 import { UniqueEntityID } from './UniqueEntityID';
-import { RequestContextService } from '@shared/application/context/AppRequestContext';
 
 interface TestEntityProps {
   name: string;
@@ -21,7 +21,7 @@ class TestEntity extends Entity<TestEntityProps> {
   }
 }
 
-describe('Entity', () => {
+describe('entity', () => {
   beforeEach(() => {
     jest.spyOn(RequestContextService, 'getRequestId').mockReturnValue('test-request-id');
   });
@@ -124,7 +124,7 @@ describe('Entity', () => {
     });
   });
 
-  describe('EventHandler inheritance', () => {
+  describe('eventHandler inheritance', () => {
     it('should have events property from EventHandler', () => {
       const props: TestEntityProps = {
         name: 'event-test',

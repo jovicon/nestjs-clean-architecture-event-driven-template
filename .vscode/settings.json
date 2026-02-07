@@ -1,12 +1,16 @@
 {
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "cSpell.words": ["dompurify"],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "sonarlint.connectedMode.project": {
     "connectionId": "jovicon",
     "projectKey": "jovicon_nestjs-clean-architecture-event-driven-template"

@@ -1,7 +1,7 @@
-import { readFile } from 'fs/promises';
-import { parse } from 'dotenv';
+import type { EnvConfig, ILoggerModuleConfig } from '@config/config.types';
+import { readFile } from 'node:fs/promises';
 
-import { EnvConfig, ILoggerModuleConfig } from '@config/config.types';
+import { parse } from 'dotenv';
 
 export class LoggerModuleConfig implements ILoggerModuleConfig {
   private readonly envConfig: EnvConfig;

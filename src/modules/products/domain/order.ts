@@ -1,9 +1,9 @@
+import type { OrderItem, OrderItemProps } from './orderItem';
 import { Result } from '@shared/commons/core/Result';
 import { Guard } from '@shared/commons/Guard';
-import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 
+import { AggregateRoot } from '@shared/ddd/AggregateRoot';
 import { OrderCreated } from './events/emitters/orderCreated.emitter';
-import { OrderItem, OrderItemProps } from './orderItem';
 
 export interface OrderProps {
   items: OrderItem[];
@@ -30,7 +30,8 @@ export class Order extends AggregateRoot<OrderProps> {
   public static create(props: OrderProps): Result<Order> {
     const guardResult = Guard.againstNullOrUndefinedBulk([{ argument: props.items, argumentName: 'items' }]);
 
-    if (!guardResult.succeeded) return Result.fail<Order>(guardResult.message);
+    if (!guardResult.succeeded)
+      return Result.fail<Order>(guardResult.message);
 
     const order = new Order({
       ...props,

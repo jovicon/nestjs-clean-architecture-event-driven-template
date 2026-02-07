@@ -1,11 +1,11 @@
-import { RequestContextModule } from 'nestjs-request-context';
-import { Module } from '@nestjs/common';
-import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
-
 import { ConfigModule } from '@config/config.module';
+import { Logger } from '@modules/logger/application/ms/config/logger';
+import { Module } from '@nestjs/common';
+
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
-import { Logger } from '@modules/logger/application/ms/config/logger';
+import { RequestContextModule } from 'nestjs-request-context';
 
 import { LoggerModule } from './api/api.module';
 import { CoreModule } from './core/core.module';

@@ -1,11 +1,11 @@
-import { redBright } from 'cli-color';
+import type { ClientProxy } from '@nestjs/microservices';
+import { OrderCreated } from '@modules/order/domain/events/orderCreated';
 import { Inject, Injectable } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
-import { ClientProxy } from '@nestjs/microservices';
 
-import { OrderCreated } from '@modules/order/domain/events/orderCreated';
+import { redBright } from 'cli-color';
 
-type EventResponse = { success: boolean };
+interface EventResponse { success: boolean }
 
 @Injectable()
 export class OrderCreatedEventHandler {

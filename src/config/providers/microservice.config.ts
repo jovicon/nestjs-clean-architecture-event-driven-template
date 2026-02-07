@@ -1,6 +1,6 @@
-import { readFile } from 'fs/promises';
+import type { IMicroserviceConfig } from '@config/config.types';
 
-import { IMicroserviceConfig } from '@config/config.types';
+import { readFile } from 'node:fs/promises';
 
 export class MicroserviceConfig implements IMicroserviceConfig {
   private readonly envConfig;

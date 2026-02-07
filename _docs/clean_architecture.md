@@ -6,7 +6,7 @@ Clean architecture is a set of principles whose main purpose is to hide implemen
 
 This architecture is based on the separation of concerns, where the business logic is the most important part of the application.
 
-![Basic Clean Architecture diagram](/_docs/assets/basic-clean-architecture.png "Clean Architecture diagram")
+![Basic Clean Architecture diagram](/_docs/assets/basic-clean-architecture.png 'Clean Architecture diagram')
 
 ## Why use clean architecture?
 
@@ -40,7 +40,7 @@ This Clean architecture template is based on the following three pillars:
 
 ## Full example diagram
 
-![Full Clean Architecture diagram](/_docs/assets/full-clean-architecture.png "Full Clean Architecture diagram")
+![Full Clean Architecture diagram](/_docs/assets/full-clean-architecture.png 'Full Clean Architecture diagram')
 
 ## Caching with Clean Architecture
 

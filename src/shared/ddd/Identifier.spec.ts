@@ -1,6 +1,6 @@
 import { Identifier } from './Identifier';
 
-describe('Identifier', () => {
+describe('identifier', () => {
   describe('constructor', () => {
     it('should create an Identifier with string value', () => {
       const identifier = new Identifier<string>('test-id');

@@ -1,9 +1,9 @@
-import { readFile } from 'fs/promises';
+import { readFile } from 'node:fs/promises';
 import { MicroserviceConfig } from './microservice.config';
 
 jest.mock('fs/promises');
 
-describe('MicroserviceConfig', () => {
+describe('microserviceConfig', () => {
   const mockReadFile = readFile as jest.MockedFunction<typeof readFile>;
 
   beforeEach(() => {

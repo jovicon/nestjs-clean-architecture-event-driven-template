@@ -7,7 +7,13 @@ const config: Config = {
   testRegex: '.*\\.spec\\.ts$',
   testResultsProcessor: 'jest-sonar-reporter',
   transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
+    '^.+\\.(t|j)s$': ['ts-jest', {
+      tsconfig: {
+        module: 'commonjs',
+        esModuleInterop: true,
+        allowSyntheticDefaultImports: true,
+      },
+    }],
   },
   collectCoverageFrom: ['**/*.(t|j)s'],
   coverageDirectory: '../coverage',
@@ -21,6 +27,7 @@ const config: Config = {
   },
   testPathIgnorePatterns: ['<rootDir>/shared'],
   coveragePathIgnorePatterns: ['<rootDir>/shared', 'node_modules', 'main.ts'],
+  transformIgnorePatterns: ['node_modules/(?!(nanoid)/)'],
   reporters: [
     'default',
     [

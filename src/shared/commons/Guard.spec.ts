@@ -1,6 +1,6 @@
-import { Guard, IGuardResult } from './Guard';
+import { Guard } from './Guard';
 
-describe('Guard', () => {
+describe('guard', () => {
   describe('againstNullOrUndefined', () => {
     it('should succeed for valid string', () => {
       const result = Guard.againstNullOrUndefined('valid', 'testArg');
@@ -202,7 +202,7 @@ describe('Guard', () => {
     });
 
     it('should fail for NaN', () => {
-      const result = Guard.isNaN(NaN, 'testArg');
+      const result = Guard.isNaN(Number.NaN, 'testArg');
 
       expect(result.succeeded).toBe(false);
       expect(result.message).toBe('testArg is not a number');
@@ -220,7 +220,7 @@ describe('Guard', () => {
       const result = Guard.isOneOf('unknown', ['active', 'inactive'], 'status');
 
       expect(result.succeeded).toBe(false);
-      expect(result.message).toBe("status 'unknown' isn't a correct value.");
+      expect(result.message).toBe('status \'unknown\' isn\'t a correct value.');
     });
 
     it('should work with numbers', () => {
@@ -268,7 +268,7 @@ describe('Guard', () => {
       const result = Guard.checkArrayValues(['a', 'd'], 'items', ['a', 'b', 'c']);
 
       expect(result.succeeded).toBe(false);
-      expect(result.message).toContain("'d' isn't a correct value");
+      expect(result.message).toContain('\'d\' isn\'t a correct value');
     });
 
     it('should fail when not an array', () => {

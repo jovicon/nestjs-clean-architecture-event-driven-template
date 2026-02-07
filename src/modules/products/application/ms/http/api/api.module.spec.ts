@@ -1,10 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-import { ProductModule } from './api.module';
 import { ApiController } from './api.controller';
+import { ProductModule } from './api.module';
 import ClientsService from './api.service';
 
-describe('ProductModule', () => {
+describe('productModule', () => {
   it('should have ProductModule metadata', () => {
     const imports = Reflect.getMetadata('imports', ProductModule);
     const controllers = Reflect.getMetadata('controllers', ProductModule);

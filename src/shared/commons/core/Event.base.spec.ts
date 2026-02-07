@@ -1,4 +1,5 @@
-import { Event, EventProps, EventMetadata } from './Event.base';
+import type { EventProps } from './Event.base';
+import { Event } from './Event.base';
 
 class TestEvent extends Event {
   readonly data: string;
@@ -9,7 +10,7 @@ class TestEvent extends Event {
   }
 }
 
-describe('Event', () => {
+describe('event', () => {
   describe('constructor', () => {
     it('should create an Event with auto-generated ID', () => {
       const props: EventProps<{ data: string }> = {
@@ -175,7 +176,7 @@ describe('Event', () => {
     });
   });
 
-  describe('ID generation', () => {
+  describe('iD generation', () => {
     it('should generate nanoid-style IDs', () => {
       const props: EventProps<{ data: string }> = {
         data: 'id-test',
@@ -184,7 +185,7 @@ describe('Event', () => {
       const event = new TestEvent(props);
 
       // nanoid generates URL-friendly IDs
-      expect(event.id).toMatch(/^[A-Za-z0-9_-]+$/);
+      expect(event.id).toMatch(/^[\w-]+$/);
     });
 
     it('should generate unique IDs across multiple creations', () => {

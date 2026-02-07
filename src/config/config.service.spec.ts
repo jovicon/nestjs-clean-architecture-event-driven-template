@@ -7,7 +7,7 @@ jest.mock('./providers/database.config');
 jest.mock('./providers/logger.module.config');
 jest.mock('./providers/microservice.config');
 
-describe('ConfigService', () => {
+describe('configService', () => {
   const mockDatabaseConfig = {
     mongoUrl: 'mongodb://localhost:27017/test',
   };

@@ -10,6 +10,7 @@ Create a new value object "$1" in the $0 module.
 Create file: **src/modules/$0/domain/$1.ts**
 
 Requirements:
+
 - Extend ValueObject<Props> from '@shared/ddd/ValueObject'
 - Immutable - no setters, only getters
 - Equality based on values, not identity
@@ -19,6 +20,7 @@ Requirements:
 - NO framework dependencies
 
 Value Object characteristics:
+
 - Measures, quantifies, or describes a domain concept
 - Immutable
 - Compared by value equality
@@ -26,6 +28,7 @@ Value Object characteristics:
 - Self-validated
 
 Example value objects:
+
 - Email (validates email format)
 - Money (amount + currency)
 - Address (street, city, country)

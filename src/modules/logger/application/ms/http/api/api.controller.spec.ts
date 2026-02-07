@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import type { CreateLogDTO } from './api.dto';
 
+import { Test } from '@nestjs/testing';
 import { ApiController } from './api.controller';
 import { ClientsService } from './api.service';
-import { CreateLogDTO } from './api.dto';
 
-describe('Logger ApiController', () => {
+describe('logger ApiController', () => {
   let controller: ApiController;
   let service: ClientsService;
 

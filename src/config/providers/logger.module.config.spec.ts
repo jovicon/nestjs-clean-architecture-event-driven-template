@@ -1,9 +1,9 @@
-import { readFile } from 'fs/promises';
+import { readFile } from 'node:fs/promises';
 import { LoggerModuleConfig } from './logger.module.config';
 
 jest.mock('fs/promises');
 
-describe('LoggerModuleConfig', () => {
+describe('loggerModuleConfig', () => {
   const mockReadFile = readFile as jest.MockedFunction<typeof readFile>;
 
   beforeEach(() => {

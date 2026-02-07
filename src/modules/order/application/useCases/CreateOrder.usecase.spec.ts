@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import type { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port';
 
-import { CreateOrderUseCase } from './CreateOrder.usecase';
-import { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port';
+import { Test } from '@nestjs/testing';
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { CreateOrderUseCase } from './CreateOrder.usecase';
 
-describe('CreateOrderUseCase', () => {
+describe('createOrderUseCase', () => {
   let useCase: CreateOrderUseCase;
   let orderService: OrderServicePort;
 
@@ -95,7 +96,7 @@ describe('CreateOrderUseCase', () => {
 
       expect(consoleLogSpy).toHaveBeenCalledWith(
         '[CreateOrderUseCase]-[test-request-id-123]: dto',
-        JSON.stringify(dto)
+        JSON.stringify(dto),
       );
     });
 
@@ -158,7 +159,7 @@ describe('CreateOrderUseCase', () => {
 
       expect(consoleLogSpy).toHaveBeenCalledWith(
         expect.stringContaining('Failed to create order items'),
-        expect.any(String)
+        expect.any(String),
       );
     });
 
@@ -209,7 +210,7 @@ describe('CreateOrderUseCase', () => {
 
       expect(consoleLogSpy).toHaveBeenCalledWith(
         expect.stringContaining('[CreateOrderUseCase]'),
-        expect.stringContaining('item is null or undefined')
+        expect.stringContaining('item is null or undefined'),
       );
     });
 
@@ -223,7 +224,7 @@ describe('CreateOrderUseCase', () => {
       expect(result.status).toBe('success');
 
       if ('orderValidated' in result.data) {
-        const values = result.data.orderValidated.items.map((item) => item.value);
+        const values = result.data.orderValidated.items.map(item => item.value);
         expect(values).toEqual(['first', 'second', 'third', 'fourth']);
       }
     });
@@ -250,7 +251,7 @@ describe('CreateOrderUseCase', () => {
       await useCase.execute(dto);
 
       expect(consoleLogSpy).toHaveBeenCalled();
-      const logCall = consoleLogSpy.mock.calls.find((call) => call[0].includes('CreateOrderUseCase'));
+      const logCall = consoleLogSpy.mock.calls.find(call => call[0].includes('CreateOrderUseCase'));
       expect(logCall).toBeDefined();
     });
 

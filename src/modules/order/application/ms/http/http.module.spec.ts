@@ -1,10 +1,11 @@
+import type { INestApplication } from '@nestjs/common';
+import type { TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 import request from 'supertest';
-import { INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
 
 import { CoreModule } from './core/core.module';
 
-describe('Order HttpModule (e2e)', () => {
+describe('order HttpModule (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {

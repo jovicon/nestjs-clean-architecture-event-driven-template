@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 
+import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 import { CreateOrderModule } from './CreateLog.module';
 import { CreateLogUseCase } from './CreateLog.usecase';
-import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
-describe('CreateLogModule', () => {
+describe('createLogModule', () => {
   let module: TestingModule;
 
   const mockElasticService = {

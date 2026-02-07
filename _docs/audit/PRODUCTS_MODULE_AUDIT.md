@@ -12,7 +12,7 @@
 #### ❌ `domain/events/emitters/orderCreated.emitter.ts`
 
 ```typescript
-import { OrderItem } from '@modules/order/domain/orderItem';  // ❌ Cross-module domain import
+import { OrderItem } from '@modules/order/domain/orderItem'; // ❌ Cross-module domain import
 ```
 
 **Problem:** Domain layer importing from another module's domain layer.
@@ -26,7 +26,7 @@ import { OrderItem } from '@modules/order/domain/orderItem';  // ❌ Cross-modul
 #### ❌ `application/events/orderCreated.handler.ts`
 
 ```typescript
-import { OrderCreated } from '@base/src/modules/order/domain/events/orderCreated';  // ❌ Importing from other module's domain
+import { OrderCreated } from '@base/src/modules/order/domain/events/orderCreated'; // ❌ Importing from other module's domain
 ```
 
 **Problem:** Application layer importing domain events from another module.
@@ -36,7 +36,7 @@ import { OrderCreated } from '@base/src/modules/order/domain/events/orderCreated
 #### ❌ `application/ms/http/http.module.ts`
 
 ```typescript
-import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler';  // ❌
+import { OrderCreatedEventHandler } from '@base/src/modules/order/application/events/orderCreated.handler'; // ❌
 ```
 
 **Problem:** Importing event handler from another module's application layer.
@@ -46,7 +46,7 @@ import { OrderCreatedEventHandler } from '@base/src/modules/order/application/ev
 #### ❌ `application/ms/http/api/api.service.ts`
 
 ```typescript
-import { CreateOrderDTO } from '@modules/order/application/ports/orderService.port';  // ❌
+import { CreateOrderDTO } from '@modules/order/application/ports/orderService.port'; // ❌
 ```
 
 **Problem:** Importing DTO from another module.
@@ -60,7 +60,7 @@ import { CreateOrderDTO } from '@modules/order/application/ports/orderService.po
 #### ❌ `adapters/repository/order.interface.ts`
 
 ```typescript
-import { OrderProps } from '@modules/order/domain/order';  // ❌ Cross-module domain import
+import { OrderProps } from '@modules/order/domain/order'; // ❌ Cross-module domain import
 ```
 
 **Problem:** Adapter importing domain types from another module.
@@ -69,7 +69,7 @@ import { OrderProps } from '@modules/order/domain/order';  // ❌ Cross-module d
 #### ❌ `adapters/repository/order.service.ts`
 
 ```typescript
-import { Order as OrderEntity } from '@modules/order/domain/order';  // ❌ Cross-module domain import
+import { Order as OrderEntity } from '@modules/order/domain/order'; // ❌ Cross-module domain import
 ```
 
 **Problem:** Adapter importing domain entities from another module.
@@ -82,9 +82,9 @@ import { Order as OrderEntity } from '@modules/order/domain/order';  // ❌ Cros
 #### ❌ `infrastructure/product.module.ts`
 
 ```typescript
-import { OrderRepositoryAdapter } from '@modules/order/adapters/repository/order.adapter';  // ❌
-import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module';    // ❌
-import { OrderService } from '@modules/order/adapters/repository/order.service';            // ❌
+import { OrderRepositoryAdapter } from '@modules/order/adapters/repository/order.adapter'; // ❌
+import { OrderRepositoryModule } from '@modules/order/adapters/repository/order.module'; // ❌
+import { OrderService } from '@modules/order/adapters/repository/order.service'; // ❌
 ```
 
 **Problem:** Infrastructure layer importing ALL adapters from order module.
@@ -168,12 +168,12 @@ For reference, the `order` module follows clean architecture:
 
 ## Summary
 
-| Layer | Violations | Status |
-|-------|------------|--------|
-| Domain | 2 | 🔴 Critical |
-| Application | 4 | 🔴 Critical |
-| Adapters | 2 | 🔴 Critical |
-| Infrastructure | 3 | 🔴 Critical |
-| **TOTAL** | **11** | 🔴 **CRITICAL** |
+| Layer          | Violations | Status          |
+| -------------- | ---------- | --------------- |
+| Domain         | 2          | 🔴 Critical     |
+| Application    | 4          | 🔴 Critical     |
+| Adapters       | 2          | 🔴 Critical     |
+| Infrastructure | 3          | 🔴 Critical     |
+| **TOTAL**      | **11**     | 🔴 **CRITICAL** |
 
 **Conclusion:** Products module violates clean architecture principles at every layer.

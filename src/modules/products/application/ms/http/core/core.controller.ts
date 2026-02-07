@@ -1,7 +1,7 @@
+import type { Responses } from '@shared/application/interfaces/responses';
+
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-
-import { Responses } from '@shared/application/interfaces/responses';
 
 import CoreService from './core.service';
 

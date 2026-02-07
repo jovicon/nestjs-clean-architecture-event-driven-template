@@ -1,8 +1,8 @@
 import { author, name, version } from '@base/package.json';
-import helmet from 'helmet';
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import helmet from 'helmet';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 import { CORS_CONFIG, PATH_BASE_MS, PORT, SERVICE_NAME } from './http.config';
 import { HttpModule } from './http.module';
@@ -36,7 +36,8 @@ export async function httpServerBootstrap(): Promise<void> {
       winstonLogger.log(`| Swagger path: /${PATH_BASE_MS}/api`, 'httpServerBootstrap');
       winstonLogger.log('|------------------------------------------------------------------|', 'httpServerBootstrap');
     });
-  } catch (error) {
+  }
+  catch (error) {
     console.log('ERROR: ', error);
   }
 }

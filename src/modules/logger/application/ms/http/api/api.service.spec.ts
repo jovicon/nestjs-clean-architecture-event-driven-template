@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
+import type { TestingModule } from '@nestjs/testing';
 
-import { ClientsService } from './api.service';
 import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
-import { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
+import { Test } from '@nestjs/testing';
+import { ClientsService } from './api.service';
 
-describe('Logger ClientsService', () => {
+describe('logger ClientsService', () => {
   let service: ClientsService;
   let createLogUseCase: CreateLogUseCase;
 

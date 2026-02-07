@@ -1,8 +1,8 @@
-import { OrderRepositoryModule } from './order.module';
 import { OrderRepositoryAdapter } from './order.adapter';
+import { OrderRepositoryModule } from './order.module';
 import { OrderService } from './order.service';
 
-describe('OrderRepositoryModule (Order)', () => {
+describe('orderRepositoryModule (Order)', () => {
   it('should have OrderRepositoryModule metadata', () => {
     const imports = Reflect.getMetadata('imports', OrderRepositoryModule);
     const providers = Reflect.getMetadata('providers', OrderRepositoryModule);

@@ -1,9 +1,11 @@
-import { Socket } from 'socket.io';
-import { INestApplication, Logger } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
+import type { INestApplication } from '@nestjs/common';
+import type { TestingModule } from '@nestjs/testing';
+import type { Socket } from 'socket.io';
+import { Logger } from '@nestjs/common';
+import { Test } from '@nestjs/testing';
 
-import { WebsocketGateway } from './websocket.service';
 import { WebsocketGatewayModule } from './websocket.module';
+import { WebsocketGateway } from './websocket.service';
 
 async function createNestApp(...gateways: any): Promise<INestApplication> {
   const testingModule = await Test.createTestingModule({
@@ -12,7 +14,7 @@ async function createNestApp(...gateways: any): Promise<INestApplication> {
   return testingModule.createNestApplication();
 }
 
-describe('WebsocketGateway', () => {
+describe('websocketGateway', () => {
   let websocketGateway: WebsocketGateway;
   let app: INestApplication;
 
@@ -41,7 +43,7 @@ describe('WebsocketGateway', () => {
 
   it('should handle connection', () => {
     const client = { id: 'test-client-id' } as Socket;
-    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+    const loggerSpy = jest.spyOn(websocketGateway.logger, 'log');
 
     websocketGateway.handleConnection(client);
 
@@ -51,7 +53,7 @@ describe('WebsocketGateway', () => {
 
   it('should handle disconnection', () => {
     const client = { id: 'test-client-id' } as Socket;
-    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+    const loggerSpy = jest.spyOn(websocketGateway.logger, 'log');
 
     websocketGateway.handleDisconnect(client);
 
@@ -68,7 +70,7 @@ describe('WebsocketGateway', () => {
       },
     };
 
-    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+    const loggerSpy = jest.spyOn(websocketGateway.logger, 'log');
 
     const result = websocketGateway.handleMessage(client, data);
 
@@ -89,7 +91,7 @@ describe('WebsocketGateway', () => {
         data: { roomId: 'test-room-id' },
       },
     };
-    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+    const loggerSpy = jest.spyOn(websocketGateway.logger, 'log');
 
     const client = {
       id: 'test-client-id',
@@ -105,7 +107,7 @@ describe('WebsocketGateway', () => {
     expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
     expect(loggerSpy).toHaveBeenCalledWith(
       `roomCreated`,
-      `${websocketGateway.constructor.name} - createRoom - Room id: ${data.detail.data.roomId}`
+      `${websocketGateway.constructor.name} - createRoom - Room id: ${data.detail.data.roomId}`,
     );
     expect(result).toEqual({
       event: 'roomCreated',
@@ -129,7 +131,7 @@ describe('WebsocketGateway', () => {
         },
       },
     };
-    const loggerSpy = jest.spyOn(websocketGateway['logger'], 'log');
+    const loggerSpy = jest.spyOn(websocketGateway.logger, 'log');
 
     const result = websocketGateway.roomMessage(client, data);
 
@@ -137,7 +139,7 @@ describe('WebsocketGateway', () => {
     expect(loggerSpy).toHaveBeenCalledWith(`Message received from client id: ${client.id}`);
     expect(loggerSpy).toHaveBeenCalledWith(
       `room`,
-      `${websocketGateway.constructor.name} - roomMessage - Room id: ${data.detail.data.roomId}`
+      `${websocketGateway.constructor.name} - roomMessage - Room id: ${data.detail.data.roomId}`,
     );
     expect(result).toEqual({
       event: 'MessageSended',
@@ -146,7 +148,7 @@ describe('WebsocketGateway', () => {
   });
 });
 
-describe('WebsocketGatewayModule', () => {
+describe('websocketGatewayModule', () => {
   it('should be defined', async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [WebsocketGatewayModule],
