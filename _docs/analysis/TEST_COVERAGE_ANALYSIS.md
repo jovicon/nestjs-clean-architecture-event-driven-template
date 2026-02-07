@@ -8,12 +8,12 @@
 
 ## Overall Coverage Summary
 
-| Metric | Coverage | Status | Change from Baseline |
-|--------|----------|--------|----------------------|
-| **Statements** | 12.91% | 🔴 Low | +0.80% ⬆️ |
-| **Branches** | 0% | 🔴 Critical | No change |
-| **Functions** | 22.36% | 🔴 Low | +1.25% ⬆️ |
-| **Lines** | 20.56% | 🔴 Low | +1.21% ⬆️ |
+| Metric         | Coverage | Status      | Change from Baseline |
+| -------------- | -------- | ----------- | -------------------- |
+| **Statements** | 12.91%   | 🔴 Low      | +0.80% ⬆️            |
+| **Branches**   | 0%       | 🔴 Critical | No change            |
+| **Functions**  | 22.36%   | 🔴 Low      | +1.25% ⬆️            |
+| **Lines**      | 20.56%   | 🔴 Low      | +1.21% ⬆️            |
 
 **Target:** >80% coverage (as specified in TODO.md)
 **Gap:** 67.09% statements coverage needed
@@ -31,13 +31,13 @@
 
 #### Config Module - 100% Coverage ✅
 
-| File | Statements | Branches | Functions | Lines |
-| ------ | ------------ | ---------- | ----------- | ------- |
-| `config.module.ts` | 100% | 100% | 100% | 100% |
-| `config.service.ts` | 100% | 100% | 100% | 100% |
-| `database.config.ts` | 100% | 100% | 100% | 100% |
-| `logger.module.config.ts` | 100% | 100% | 100% | 100% |
-| `microservice.config.ts` | 100% | 100% | 100% | 100% |
+| File                      | Statements | Branches | Functions | Lines |
+| ------------------------- | ---------- | -------- | --------- | ----- |
+| `config.module.ts`        | 100%       | 100%     | 100%      | 100%  |
+| `config.service.ts`       | 100%       | 100%     | 100%      | 100%  |
+| `database.config.ts`      | 100%       | 100%     | 100%      | 100%  |
+| `logger.module.config.ts` | 100%       | 100%     | 100%      | 100%  |
+| `microservice.config.ts`  | 100%       | 100%     | 100%      | 100%  |
 
 **Test Coverage:**
 
@@ -48,27 +48,27 @@
 
 #### Order Module - HTTP Core - 100% Coverage ✅
 
-| File | Statements | Branches | Functions | Lines |
-|------|------------|----------|-----------|-------|
-| `core.controller.ts` | 100% | 100% | 100% | 100% |
-| `core.module.ts` | 100% | 100% | 100% | 100% |
-| `core.service.ts` | 100% | 100% | 100% | 100% |
+| File                 | Statements | Branches | Functions | Lines |
+| -------------------- | ---------- | -------- | --------- | ----- |
+| `core.controller.ts` | 100%       | 100%     | 100%      | 100%  |
+| `core.module.ts`     | 100%       | 100%     | 100%      | 100%  |
+| `core.service.ts`    | 100%       | 100%     | 100%      | 100%  |
 
 #### Logger Module - HTTP Core - 100% Coverage ✅
 
-| File | Statements | Branches | Functions | Lines |
-|------|------------|----------|-----------|-------|
-| `core.controller.ts` | 100% | 100% | 100% | 100% |
-| `core.module.ts` | 100% | 100% | 100% | 100% |
-| `core.service.ts` | 100% | 100% | 100% | 100% |
+| File                 | Statements | Branches | Functions | Lines |
+| -------------------- | ---------- | -------- | --------- | ----- |
+| `core.controller.ts` | 100%       | 100%     | 100%      | 100%  |
+| `core.module.ts`     | 100%       | 100%     | 100%      | 100%  |
+| `core.service.ts`    | 100%       | 100%     | 100%      | 100%  |
 
 #### Order Module - WebSocket - 100% Coverage ✅ 🆕
 
-| File | Statements | Branches | Functions | Lines |
-|------|------------|----------|-----------|-------|
-| `index.ts` | 100% | 100% | 100% | 100% |
-| `websocket.module.ts` | 100% | 100% | 100% | 100% |
-| `websocket.service.ts` | 100% | 100% | 100% | 100% |
+| File                   | Statements | Branches | Functions | Lines |
+| ---------------------- | ---------- | -------- | --------- | ----- |
+| `index.ts`             | 100%       | 100%     | 100%      | 100%  |
+| `websocket.module.ts`  | 100%       | 100%     | 100%      | 100%  |
+| `websocket.service.ts` | 100%       | 100%     | 100%      | 100%  |
 
 **Test Coverage:**
 
@@ -90,13 +90,13 @@
 
 #### Order Module - HTTP API - 79.41% Coverage 🟡
 
-| Component | Statements | Branches | Functions | Lines |
-|-----------|------------|----------|-----------|-------|
-| `api.controller.ts` | 100% | 100% | 100% | 100% |
-| `api.dto.ts` | 100% | 100% | 100% | 100% |
-| `api.service.ts` | 100% | 100% | 100% | 100% |
-| `api.module.ts` | 0% | 100% | 100% | 0% |
-| **Average** | **79.41%** | **100%** | **100%** | **82.14%** |
+| Component           | Statements | Branches | Functions | Lines      |
+| ------------------- | ---------- | -------- | --------- | ---------- |
+| `api.controller.ts` | 100%       | 100%     | 100%      | 100%       |
+| `api.dto.ts`        | 100%       | 100%     | 100%      | 100%       |
+| `api.service.ts`    | 100%       | 100%     | 100%      | 100%       |
+| `api.module.ts`     | 0%         | 100%     | 100%      | 0%         |
+| **Average**         | **79.41%** | **100%** | **100%**  | **82.14%** |
 
 ---
 
@@ -104,10 +104,10 @@
 
 #### Order Module - Domain Layer - 34.61% Coverage
 
-| File | Statements | Branches | Functions | Lines | Uncovered |
-|------|------------|----------|-----------|-------|-----------|
-| `order.ts` | 31.25% | 0% | 0% | 33.33% | 18-46 |
-| `orderItem.ts` | 40% | 0% | 0% | 40% | 11-25 |
+| File           | Statements | Branches | Functions | Lines  | Uncovered |
+| -------------- | ---------- | -------- | --------- | ------ | --------- |
+| `order.ts`     | 31.25%     | 0%       | 0%        | 33.33% | 18-46     |
+| `orderItem.ts` | 40%        | 0%       | 0%        | 40%    | 11-25     |
 
 **Issues:**
 
@@ -118,9 +118,9 @@
 
 #### Order Module - Events - 50% Coverage
 
-| File | Statements | Branches | Functions | Lines | Uncovered |
-|------|------------|----------|-----------|-------|-----------|
-| `orderCreated.ts` | 50% | 100% | 0% | 50% | 9-10 |
+| File              | Statements | Branches | Functions | Lines | Uncovered |
+| ----------------- | ---------- | -------- | --------- | ----- | --------- |
+| `orderCreated.ts` | 50%        | 100%     | 0%        | 50%   | 9-10      |
 
 **Issues:**
 
@@ -129,9 +129,9 @@
 
 #### Order Module - Use Cases - 30.76% Coverage
 
-| File | Statements | Branches | Functions | Lines | Uncovered |
-|------|------------|----------|-----------|-------|-----------|
-| `CreateOrder.usecase.ts` | 30.76% | 100% | 0% | 27.27% | 25-66 |
+| File                     | Statements | Branches | Functions | Lines  | Uncovered |
+| ------------------------ | ---------- | -------- | --------- | ------ | --------- |
+| `CreateOrder.usecase.ts` | 30.76%     | 100%     | 0%        | 27.27% | 25-66     |
 
 **Critical Issue:**
 
@@ -462,12 +462,12 @@
 
 ### Compliance with TODO.md Goals
 
-| Goal | Status | Current | Target | Gap |
-|------|--------|---------|--------|-----|
-| Statement Coverage | 🔴 | 12.11% | 80% | 67.89% |
-| Branch Coverage | 🔴 | 0% | 80% | 80% |
-| Function Coverage | 🔴 | 21.11% | 80% | 58.89% |
-| Line Coverage | 🔴 | 19.35% | 80% | 60.65% |
+| Goal               | Status | Current | Target | Gap    |
+| ------------------ | ------ | ------- | ------ | ------ |
+| Statement Coverage | 🔴     | 12.11%  | 80%    | 67.89% |
+| Branch Coverage    | 🔴     | 0%      | 80%    | 80%    |
+| Function Coverage  | 🔴     | 21.11%  | 80%    | 58.89% |
+| Line Coverage      | 🔴     | 19.35%  | 80%    | 60.65% |
 
 **TODO.md Reference:** Section 4.3 (Lines 395-397)
 

@@ -14,10 +14,10 @@ Create these files in src/modules/$0/adapters/repository/:
 3. **$1.service.ts** - Service implementing the port interface
 4. **$1.module.ts** - Adapter module for DI
 
-Also create the port interface:
-5. **src/modules/$0/application/ports/$1.port.ts**
+Also create the port interface: 5. **src/modules/$0/application/ports/$1.port.ts**
 
 Requirements:
+
 - Schema: Use Mongoose decorators (@Schema, @Prop) from @nestjs/mongoose
 - Adapter: Implement generic IRepository<T> interface
 - Service: Implement the port interface defined in application layer
@@ -28,6 +28,7 @@ Requirements:
 - Use proper error handling with Result pattern
 
 Layer responsibilities:
+
 - Port (application): Interface definition
 - Adapter (adapters): Repository implementation
 - Schema (adapters): Database mapping

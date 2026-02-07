@@ -20,12 +20,14 @@ disable-model-invocation: true
 ### Step 1: Analyze Current Code
 
 Read the target entity and identify:
+
 - ❌ Public setters allowing uncontrolled state mutations
 - ❌ No business methods (only getters/setters)
 - ❌ Validation in use cases instead of entity
 - ❌ Business logic scattered in services
 
 **Example of Anemic Model:**
+
 ```typescript
 // ❌ ANEMIC - Just a data container
 export class Order {
@@ -197,12 +199,14 @@ class CancelOrderUseCase {
 ### Step 1: Identify Primitive Obsession
 
 Look for:
+
 - ❌ Strings representing emails, phone numbers, money
 - ❌ Numbers with business meaning (age, price, quantity)
 - ❌ Multiple related primitives (amount + currency, street + city + zip)
 - ❌ Validation scattered across codebase
 
 **Example:**
+
 ```typescript
 // ❌ PRIMITIVE OBSESSION
 interface UserProps {
@@ -213,7 +217,7 @@ interface UserProps {
 }
 
 // Validation scattered everywhere
-if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+if (!email.match(/^[^\s@]+@[^\s@][^\s.@]*\.[^\s@]+$/)) {
   throw new Error('Invalid email');
 }
 ```
@@ -238,7 +242,7 @@ export class Email extends ValueObject<EmailProps> {
       return Result.fail('Email is required');
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@][^\s.@]*\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return Result.fail('Invalid email format');
     }
@@ -617,6 +621,7 @@ class ApproveOrderUseCase {
 ## Output
 
 Provide:
+
 1. **Analysis** - What's wrong with current code
 2. **Refactored Code** - Complete implementation of new pattern
 3. **Migration Steps** - How to safely apply refactoring

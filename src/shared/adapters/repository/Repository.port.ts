@@ -46,7 +46,7 @@ export interface Repository<T> {
    * });
    * ```
    */
-  create(data: T): Promise<T>;
+  create: (data: T) => Promise<T>;
 
   /**
    * Updates an existing entity by its unique identifier
@@ -70,7 +70,7 @@ export interface Repository<T> {
    * });
    * ```
    */
-  update(id: string, data: T): Promise<T>;
+  update: (id: string, data: T) => Promise<T>;
 
   /**
    * Deletes an entity by its unique identifier
@@ -91,7 +91,7 @@ export interface Repository<T> {
    * console.log(`Deleted order: ${deleted.id}`);
    * ```
    */
-  delete(id: string): Promise<T>;
+  delete: (id: string) => Promise<T>;
 
   /**
    * Finds a single entity by its unique identifier
@@ -115,7 +115,7 @@ export interface Repository<T> {
    * }
    * ```
    */
-  find(id: string): Promise<any>;
+  find: (id: string) => Promise<any>;
 
   /**
    * Retrieves all entities from the repository
@@ -136,5 +136,5 @@ export interface Repository<T> {
    * console.log(`Total orders: ${allOrders.length}`);
    * ```
    */
-  findAll(): Promise<T[]>;
+  findAll: () => Promise<T[]>;
 }

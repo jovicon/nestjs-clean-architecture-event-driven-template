@@ -1,6 +1,8 @@
+import type { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
+import type { Observable } from 'rxjs';
+import { Injectable } from '@nestjs/common';
 import { nanoid } from 'nanoid';
-import { Observable, tap } from 'rxjs';
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+import { tap } from 'rxjs';
 
 import { RequestContextService } from './AppRequestContext';
 
@@ -20,7 +22,7 @@ export class ContextInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap(() => {
         // Perform cleaning if needed
-      })
+      }),
     );
   }
 }

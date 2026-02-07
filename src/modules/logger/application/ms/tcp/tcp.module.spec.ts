@@ -1,11 +1,12 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-import { TcpModule } from './tcp.module';
-import { LoggerController } from './tcp.controller';
+import type { TestingModule } from '@nestjs/testing';
 import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
-import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
 
-describe('Logger TcpModule', () => {
+import { Test } from '@nestjs/testing';
+import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
+import { LoggerController } from './tcp.controller';
+import { TcpModule } from './tcp.module';
+
+describe('logger TcpModule', () => {
   let module: TestingModule;
 
   const mockElasticService = {

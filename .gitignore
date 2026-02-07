@@ -52,6 +52,7 @@ typings/
 
 # Optional eslint cache
 .eslintcache
+eslint-results.json
 
 # Microbundle cache
 .rpt2_cache/
@@ -139,8 +140,6 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-package-lock.json
-
 # Coverage directory used by tools like istanbul
 coverage
 test-reporter.xml
@@ -153,3 +152,6 @@ bun.lockb
 debug.json
 debug.*
 .vercel
+
+# Build
+dist/

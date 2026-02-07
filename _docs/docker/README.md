@@ -22,7 +22,7 @@ docker build -t nest-js-architecture-app-node:latest -f docker/Dockerfile.node .
 
 docker run -it --rm -p 3000:3000 nest-js-architecture-app-node:latest
 
-# Docker Scout 
+# Docker Scout
 docker scout cves local://nest-js-architecture-app-node:latest
 
 docker scout recommendations local://nest-js-architecture-app-node:latest
@@ -35,7 +35,7 @@ docker build --no-cache -t nest-js-architecture-app-bun:latest -f docker/Dockerf
 
 docker run -it --rm -p 3000:3000 nest-js-architecture-app-bun:latest
 
-# Docker Scout 
+# Docker Scout
 docker scout cves local://nest-js-architecture-app-bun:latest
 
 docker scout recommendations local://nest-js-architecture-app-bun:latest

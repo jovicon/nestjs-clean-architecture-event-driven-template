@@ -44,7 +44,7 @@ export interface LoggerPort {
    * logger.log('User authenticated', { userId: user.id, timestamp: new Date() });
    * ```
    */
-  log(message: string, ...meta: unknown[]): void;
+  log: (message: string, ...meta: unknown[]) => void;
 
   /**
    * Logs an error message with optional stack trace
@@ -68,7 +68,7 @@ export interface LoggerPort {
    * }
    * ```
    */
-  error(message: string, trace?: unknown, ...meta: unknown[]): void;
+  error: (message: string, trace?: unknown, ...meta: unknown[]) => void;
 
   /**
    * Logs a warning message
@@ -87,7 +87,7 @@ export interface LoggerPort {
    * logger.warn('Deprecated method called', { method: 'oldCreateOrder', caller: 'OrderService' });
    * ```
    */
-  warn(message: string, ...meta: unknown[]): void;
+  warn: (message: string, ...meta: unknown[]) => void;
 
   /**
    * Logs a debug message
@@ -107,5 +107,5 @@ export interface LoggerPort {
    * logger.debug('Cache hit', { key: cacheKey, ttl: 3600 });
    * ```
    */
-  debug(message: string, ...meta: unknown[]): void;
+  debug: (message: string, ...meta: unknown[]) => void;
 }

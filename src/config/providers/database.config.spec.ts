@@ -1,9 +1,9 @@
-import { readFile } from 'fs/promises';
+import { readFile } from 'node:fs/promises';
 import { DataBaseConfig } from './database.config';
 
 jest.mock('fs/promises');
 
-describe('DataBaseConfig', () => {
+describe('dataBaseConfig', () => {
   const mockReadFile = readFile as jest.MockedFunction<typeof readFile>;
 
   beforeEach(() => {

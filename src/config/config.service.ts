@@ -1,4 +1,4 @@
-import { ConfigFactoryParams, ConfigServices, EnvConfig } from './config.types';
+import type { ConfigFactoryParams, ConfigServices, EnvConfig } from './config.types';
 import { DataBaseConfig } from './providers/database.config';
 import { LoggerModuleConfig } from './providers/logger.module.config';
 import { MicroserviceConfig } from './providers/microservice.config';

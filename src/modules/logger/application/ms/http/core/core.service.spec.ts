@@ -1,8 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 
 import CoreService from './core.service';
 
-describe('CoreService (Logger)', () => {
+describe('coreService (Logger)', () => {
   let service: CoreService;
 
   beforeEach(async () => {

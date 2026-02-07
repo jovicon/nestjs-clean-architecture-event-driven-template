@@ -1,8 +1,9 @@
-import { Order, OrderProps } from './order';
-import { OrderItem } from './orderItem';
+import type { OrderProps } from './order';
 import { OrderCreated } from './events/orderCreated';
+import { Order } from './order';
+import { OrderItem } from './orderItem';
 
-describe('Order', () => {
+describe('order', () => {
   const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
 
   afterEach(() => {
@@ -29,9 +30,9 @@ describe('Order', () => {
 
       const order = result.getValue();
       expect(order).toBeDefined();
-      expect(order['props'].items).toHaveLength(2);
-      expect(order['props'].items[0]).toBe(item1);
-      expect(order['props'].items[1]).toBe(item2);
+      expect(order.props.items).toHaveLength(2);
+      expect(order.props.items[0]).toBe(item1);
+      expect(order.props.items[1]).toBe(item2);
     });
 
     it('should create Order with single item', () => {
@@ -45,7 +46,7 @@ describe('Order', () => {
 
       expect(result.isSuccess).toBe(true);
       const order = result.getValue();
-      expect(order['props'].items).toHaveLength(1);
+      expect(order.props.items).toHaveLength(1);
     });
 
     it('should create Order with empty items array', () => {
@@ -57,7 +58,7 @@ describe('Order', () => {
 
       expect(result.isSuccess).toBe(true);
       const order = result.getValue();
-      expect(order['props'].items).toHaveLength(0);
+      expect(order.props.items).toHaveLength(0);
     });
 
     it('should create Order with multiple items', () => {
@@ -76,7 +77,7 @@ describe('Order', () => {
 
       expect(result.isSuccess).toBe(true);
       const order = result.getValue();
-      expect(order['props'].items).toHaveLength(4);
+      expect(order.props.items).toHaveLength(4);
     });
 
     it('should fail when items is null', () => {
@@ -260,7 +261,7 @@ describe('Order', () => {
 
       const json = order.toJson();
 
-      expect(json.items[0]).toEqual(item['props']);
+      expect(json.items[0]).toEqual(item.props);
       expect(json.items[0].value).toBe(item.value);
     });
 
@@ -286,7 +287,7 @@ describe('Order', () => {
     });
   });
 
-  describe('AggregateRoot behavior', () => {
+  describe('aggregateRoot behavior', () => {
     it('should be an AggregateRoot instance', () => {
       const item = OrderItem.create({ value: 'test' }).getValue();
       const props: OrderProps = {
@@ -334,9 +335,9 @@ describe('Order', () => {
       const result = Order.create(props);
       const order = result.getValue();
 
-      expect(order['props']).toBeDefined();
-      expect(order['props'].items).toBeDefined();
-      expect(order['props'].items).toHaveLength(1);
+      expect(order.props).toBeDefined();
+      expect(order.props.items).toBeDefined();
+      expect(order.props.items).toHaveLength(1);
     });
   });
 });

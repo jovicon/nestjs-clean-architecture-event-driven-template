@@ -1,7 +1,7 @@
 import { Order, OrderSchema } from './order.schema';
 
-describe('Order Schema (Order)', () => {
-  describe('Order class', () => {
+describe('order Schema (Order)', () => {
+  describe('order class', () => {
     it('should have items property', () => {
       const order = new Order();
       order.items = ['item1', 'item2'];
@@ -33,7 +33,7 @@ describe('Order Schema (Order)', () => {
     });
   });
 
-  describe('OrderSchema', () => {
+  describe('orderSchema', () => {
     it('should be defined', () => {
       expect(OrderSchema).toBeDefined();
     });

@@ -19,10 +19,10 @@ export class Guard {
   }
 
   public static againstNullOrUndefinedBulk(args: GuardArgumentCollection): IGuardResult {
-    // eslint-disable-next-line no-restricted-syntax
     for (const arg of args) {
       const result = this.againstNullOrUndefined(arg.argument, arg.argumentName);
-      if (!result.succeeded) return result;
+      if (!result.succeeded)
+        return result;
     }
 
     return { succeeded: true };
@@ -58,7 +58,7 @@ export class Guard {
 
   public static isOneOf(value: any, validValues: any[], argumentName: string): IGuardResult {
     let isValid = false;
-    // eslint-disable-next-line no-restricted-syntax
+
     for (const validValue of validValues) {
       if (value === validValue) {
         isValid = true;
@@ -83,10 +83,10 @@ export class Guard {
 
   public static checkArrayValues(argument: any, argumentName: string, validValues: any[]): IGuardResult {
     if (Array.isArray(argument)) {
-      // eslint-disable-next-line no-restricted-syntax
       for (const value of argument) {
         const result = this.isOneOf(value, validValues, argumentName);
-        if (!result.succeeded) return result;
+        if (!result.succeeded)
+          return result;
       }
 
       return { succeeded: true };
@@ -116,7 +116,7 @@ export class Guard {
         }
 
         const cleanRut = validator.rutClean(rut);
-        let rutDigits = parseInt(cleanRut.slice(0, -1), 10);
+        let rutDigits = Number.parseInt(cleanRut.slice(0, -1), 10);
         let m = 0;
         let s = 1;
 
@@ -130,7 +130,7 @@ export class Guard {
 
         return checkDigit === cleanRut.slice(-1);
       },
-      rutClean: (rut: string) => (typeof rut === 'string' ? rut.replace(/[^0-9kK]+/g, '').toUpperCase() : ''),
+      rutClean: (rut: string) => (typeof rut === 'string' ? rut.replace(/[^0-9k]+/gi, '').toUpperCase() : ''),
     };
 
     const isValidRut = validator.validatingRut(value);
@@ -161,7 +161,7 @@ export class Guard {
       if (value.length === 0) {
         return true;
       }
-      if (value.every((item) => Guard.isEmpty(item))) {
+      if (value.every(item => Guard.isEmpty(item))) {
         return true;
       }
     }

@@ -1,7 +1,7 @@
-import { readFile } from 'fs/promises';
-import { parse } from 'dotenv';
+import type { EnvConfig, IDatabaseConfig } from '@config/config.types';
+import { readFile } from 'node:fs/promises';
 
-import { EnvConfig, IDatabaseConfig } from '@config/config.types';
+import { parse } from 'dotenv';
 
 export class DataBaseConfig implements IDatabaseConfig {
   private readonly envConfig: EnvConfig;

@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { CreateOrderDTO } from '@modules/order/application/ports/orderService.port';
+import type { TestingModule } from '@nestjs/testing';
 
-import ClientsService from './api.service';
 import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
-import { CreateOrderDTO } from '@modules/order/application/ports/orderService.port';
+import { Test } from '@nestjs/testing';
+import ClientsService from './api.service';
 
-describe('ClientsService (Order)', () => {
+describe('clientsService (Order)', () => {
   let service: ClientsService;
   let createOrderUseCase: CreateOrderUseCase;
 

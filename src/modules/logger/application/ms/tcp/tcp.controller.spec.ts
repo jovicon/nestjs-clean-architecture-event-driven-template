@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
+import type { TestingModule } from '@nestjs/testing';
 
-import { LoggerController } from './tcp.controller';
 import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
-import { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
+import { Test } from '@nestjs/testing';
+import { LoggerController } from './tcp.controller';
 
-describe('Logger TCP Controller', () => {
+describe('logger TCP Controller', () => {
   let controller: LoggerController;
   let createLogUseCase: CreateLogUseCase;
 

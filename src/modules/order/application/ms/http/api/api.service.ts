@@ -1,10 +1,9 @@
+import type { CreateOrderDTO } from '@modules/order/application/ports/orderService.port';
+import type { CreateOrderUseCaseResponse } from '@modules/order/application/useCases/CreateOrder.usecase';
+
 import { Injectable } from '@nestjs/common';
 
-import { CreateOrderDTO } from '@modules/order/application/ports/orderService.port';
-import {
-  CreateOrderUseCase,
-  CreateOrderUseCaseResponse,
-} from '@modules/order/application/useCases/CreateOrder.usecase';
+import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
 
 @Injectable()
 export default class ClientsService {

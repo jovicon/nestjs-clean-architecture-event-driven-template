@@ -14,6 +14,7 @@ Create the following files in src/modules/$0/application/useCases/$1/:
 3. **$1.module.ts** - NestJS module (minimal, no adapter imports)
 
 Requirements:
+
 - Implement the UseCase<IRequest, IResponse> interface from '@shared/commons/core/UseCase'
 - Return Result<T> or Either<L, R> for error handling
 - Use Guard pattern for input validation

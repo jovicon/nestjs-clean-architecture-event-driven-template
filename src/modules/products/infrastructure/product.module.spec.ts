@@ -1,7 +1,7 @@
-import { ProductInfrastructureModule } from './product.module';
 import { CreateProductUseCase } from '@modules/products/application/useCases/CreateProduct.usecase';
+import { ProductInfrastructureModule } from './product.module';
 
-describe('ProductInfrastructureModule', () => {
+describe('productInfrastructureModule', () => {
   it('should have ProductInfrastructureModule metadata', () => {
     const imports = Reflect.getMetadata('imports', ProductInfrastructureModule);
     const providers = Reflect.getMetadata('providers', ProductInfrastructureModule);
@@ -28,7 +28,7 @@ describe('ProductInfrastructureModule', () => {
     const providers = Reflect.getMetadata('providers', ProductInfrastructureModule);
 
     const hasProductServicePort = providers.some(
-      (provider: any) => provider.provide === 'ProductServicePort'
+      (provider: any) => provider.provide === 'ProductServicePort',
     );
 
     expect(hasProductServicePort).toBe(true);

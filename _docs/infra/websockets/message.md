@@ -24,14 +24,14 @@ A Message, is a data record that the `messaging system` can transmit through a `
     "time": "2021-01-01T00:00:00Z",
     "source": "microservice-sender-identification-name",
     "tenant": "product_1", // optional - not required
-    "authorization": "Bearer token", // optional - not required
+    "authorization": "Bearer token" // optional - not required
   },
   "detail": {
     "metadata": {
-      "requestId": "123", // correlation ID
+      "requestId": "123" // correlation ID
     },
     "data": {
-      "orderId": "123",
+      "orderId": "123"
     }
   }
 }

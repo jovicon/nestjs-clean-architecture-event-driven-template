@@ -1,9 +1,9 @@
-import { EventEmitter2 } from '@nestjs/event-emitter';
+import type { EventEmitter2 } from '@nestjs/event-emitter';
 
+import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { Event } from '@shared/commons/core/Event.base';
 import { AggregateRoot } from './AggregateRoot';
 import { UniqueEntityID } from './UniqueEntityID';
-import { Event } from '@shared/commons/core/Event.base';
-import { RequestContextService } from '@shared/application/context/AppRequestContext';
 
 interface TestAggregateProps {
   name: string;
@@ -33,7 +33,7 @@ class TestAggregate extends AggregateRoot<TestAggregateProps> {
   }
 }
 
-describe('AggregateRoot', () => {
+describe('aggregateRoot', () => {
   const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
 
   beforeEach(() => {
@@ -144,11 +144,11 @@ describe('AggregateRoot', () => {
 
       expect(consoleLogSpy).toHaveBeenCalledWith(
         expect.stringContaining('[test-request-id]'),
-        expect.any(String)
+        expect.any(String),
       );
       expect(consoleLogSpy).toHaveBeenCalledWith(
         expect.stringContaining('TestEvent'),
-        expect.any(String)
+        expect.any(String),
       );
     });
 
@@ -194,7 +194,7 @@ describe('AggregateRoot', () => {
     });
   });
 
-  describe('Entity inheritance', () => {
+  describe('entity inheritance', () => {
     it('should have id from Entity', () => {
       const props: TestAggregateProps = {
         name: 'inheritance-test',

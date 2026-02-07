@@ -1,6 +1,7 @@
-import { Result, Left, Right, left, right, Either } from './Result';
+import type { Either } from './Result';
+import { Left, left, Result, Right, right } from './Result';
 
-describe('Result', () => {
+describe('result', () => {
   describe('constructor', () => {
     it('should create a successful result with value', () => {
       const result = new Result<string>(true, undefined, 'success-value');
@@ -102,7 +103,7 @@ describe('Result', () => {
       const result = Result.fail<string>('error');
 
       expect(() => result.getValue()).toThrow(
-        'Can\'t get the value of an error result. Use "errorValue" instead.'
+        'Can\'t get the value of an error result. Use "errorValue" instead.',
       );
     });
   });
@@ -138,8 +139,8 @@ describe('Result', () => {
   });
 });
 
-describe('Either', () => {
-  describe('Left', () => {
+describe('either', () => {
+  describe('left', () => {
     it('should create a Left with value', () => {
       const leftValue = new Left<string, number>('error');
 
@@ -161,7 +162,7 @@ describe('Either', () => {
     });
   });
 
-  describe('Right', () => {
+  describe('right', () => {
     it('should create a Right with value', () => {
       const rightValue = new Right<string, number>(42);
 

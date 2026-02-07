@@ -1,5 +1,6 @@
+import type { MicroserviceOptions } from '@nestjs/microservices';
 import { NestFactory } from '@nestjs/core';
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { Transport } from '@nestjs/microservices';
 
 import { TcpModule } from './tcp.module';
 

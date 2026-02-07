@@ -1,14 +1,15 @@
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { Test, TestingModule } from '@nestjs/testing';
-
+import type { TestingModule } from '@nestjs/testing';
 import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
+import { Test } from '@nestjs/testing';
+
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 import { ApiController } from './api/api.controller';
 import ClientsService from './api/api.service';
 import CoreController from './core/core.controller';
 import CoreService from './core/core.service';
 
-describe('CoreController', () => {
+describe('coreController', () => {
   let appController: CoreController;
 
   beforeEach(async () => {
@@ -27,7 +28,7 @@ describe('CoreController', () => {
   });
 });
 
-describe('ApiController', () => {
+describe('apiController', () => {
   let appController: ApiController;
 
   const mockCreateOrderUseCase = {

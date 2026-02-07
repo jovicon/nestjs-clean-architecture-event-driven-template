@@ -1,13 +1,13 @@
-import { RequestContextModule } from 'nestjs-request-context';
-import { Module } from '@nestjs/common';
-import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
-import { ClientProxyFactory, Transport } from '@nestjs/microservices';
-
 import { ConfigModule } from '@config/config.module';
 import { ConfigService } from '@config/config.service';
+import { OrderCreatedEventHandler } from '@modules/order/application/events/orderCreated.handler';
+import { Module } from '@nestjs/common';
+
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
+import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
 
-import { OrderCreatedEventHandler } from '@modules/order/application/events/orderCreated.handler';
+import { RequestContextModule } from 'nestjs-request-context';
 
 import { OrderModule } from './api/api.module';
 import { Logger } from './config/logger';

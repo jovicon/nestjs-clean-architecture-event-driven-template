@@ -13,8 +13,8 @@ jest.mock('@nestjs/core', () => {
   };
 });
 
-describe('WebSocket Bootstrap (index.ts)', () => {
-  const mockCreate = (NestFactory.create as jest.Mock);
+describe('webSocket Bootstrap (index.ts)', () => {
+  const mockCreate = NestFactory.create as jest.Mock;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -25,7 +25,7 @@ describe('WebSocket Bootstrap (index.ts)', () => {
     await import('./index');
 
     // Wait for async IIFE to complete
-    await new Promise((resolve) => setImmediate(resolve));
+    await new Promise(resolve => setImmediate(resolve));
 
     // Verify NestFactory.create was called
     expect(mockCreate).toHaveBeenCalled();

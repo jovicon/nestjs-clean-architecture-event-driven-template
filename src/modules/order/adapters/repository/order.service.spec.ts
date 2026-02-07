@@ -1,14 +1,15 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { EventEmitter2 } from '@nestjs/event-emitter';
-
-import { OrderService } from './order.service';
-import { OrderRepositoryAdapter } from './order.adapter';
-import { Order } from './order.schema';
+import type { TestingModule } from '@nestjs/testing';
+import type { Order } from './order.schema';
 import { Order as OrderEntity } from '@modules/order/domain/order';
-import { OrderItem } from '@modules/order/domain/orderItem';
-import { RequestContextService } from '@shared/application/context/AppRequestContext';
 
-describe('OrderService (Order)', () => {
+import { OrderItem } from '@modules/order/domain/orderItem';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Test } from '@nestjs/testing';
+import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { OrderRepositoryAdapter } from './order.adapter';
+import { OrderService } from './order.service';
+
+describe('orderService (Order)', () => {
   let service: OrderService;
   let orderRepository: OrderRepositoryAdapter;
   let eventEmitter: EventEmitter2;
@@ -131,7 +132,7 @@ describe('OrderService (Order)', () => {
         items: ['item1', 'item2', 'item3', 'item4', 'item5'],
       };
 
-      const items = orderSchema.items.map((i) => OrderItem.create({ value: i }).getValue());
+      const items = orderSchema.items.map(i => OrderItem.create({ value: i }).getValue());
       const orderEntity = OrderEntity.create({ items }).getValue();
 
       mockOrderRepository.orders.create.mockResolvedValue(orderSchema);

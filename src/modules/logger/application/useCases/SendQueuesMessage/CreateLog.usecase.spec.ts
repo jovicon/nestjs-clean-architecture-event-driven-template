@@ -1,10 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import type { CreateLogDTO } from './CreateLog.dto';
 
-import { CreateLogUseCase } from './CreateLog.usecase';
-import { CreateLogDTO } from './CreateLog.dto';
+import { Test } from '@nestjs/testing';
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
+import { CreateLogUseCase } from './CreateLog.usecase';
 
-describe('CreateLogUseCase', () => {
+describe('createLogUseCase', () => {
   let useCase: CreateLogUseCase;
   let elasticService: ElasticService;
 

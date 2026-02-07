@@ -1,8 +1,8 @@
-import { HttpModule } from './http.module';
-import { CoreModule } from './core/core.module';
 import { ProductModule } from './api/api.module';
+import { CoreModule } from './core/core.module';
+import { HttpModule } from './http.module';
 
-describe('HttpModule (Products)', () => {
+describe('httpModule (Products)', () => {
   it('should have HttpModule metadata', () => {
     const imports = Reflect.getMetadata('imports', HttpModule);
     const providers = Reflect.getMetadata('providers', HttpModule);
@@ -34,7 +34,7 @@ describe('HttpModule (Products)', () => {
     const providers = Reflect.getMetadata('providers', HttpModule);
 
     const hasInterceptor = providers.some(
-      (provider: any) => provider.provide === 'APP_INTERCEPTOR' || provider.useClass
+      (provider: any) => provider.provide === 'APP_INTERCEPTOR' || provider.useClass,
     );
 
     expect(hasInterceptor).toBe(true);

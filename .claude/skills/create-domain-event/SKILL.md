@@ -20,11 +20,13 @@ Create these files:
    - Implement business logic that reacts to the event
 
 Requirements:
+
 - Domain Event (domain layer): Pure TypeScript, extends DomainEvent from '@shared/ddd/DomainEvent.base'
 - Event Handler (application layer): NestJS decorators, implements IEventHandler
 - Follow the pattern: Domain emits data-only events, Application reacts with handlers
 - Reference the OrderCreated event and handler as examples
 
 IMPORTANT: Respect layer boundaries:
+
 - Domain events = Pure data, no framework dependencies
 - Event handlers = Framework integration (@Injectable, @OnEvent)

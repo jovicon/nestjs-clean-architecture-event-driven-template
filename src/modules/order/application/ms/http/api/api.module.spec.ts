@@ -1,8 +1,8 @@
-import { OrderModule } from './api.module';
 import { ApiController } from './api.controller';
+import { OrderModule } from './api.module';
 import ClientsService from './api.service';
 
-describe('OrderModule', () => {
+describe('orderModule', () => {
   it('should have OrderModule metadata', () => {
     const imports = Reflect.getMetadata('imports', OrderModule);
     const controllers = Reflect.getMetadata('controllers', OrderModule);

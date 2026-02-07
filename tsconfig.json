@@ -1,26 +1,10 @@
 {
-  "exclude": ["dist", "node_modules", "__tests__/**"],
-  "include": ["."],
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "declaration": true,
-    "removeComments": true,
+    "target": "es2017",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
     "baseUrl": ".",
-    // "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    // "strictBindCallApply": false,
-    "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "esModuleInterop": true,
+    "module": "commonjs",
     "paths": {
       "@base/*": ["./*"],
       "@config/*": ["src/config/*"],
@@ -29,6 +13,23 @@
       "@application/*": ["src/shared/application/*"],
       "@domain/*": ["src/shared/ddd/*"],
       "@modules/*": ["src/modules/*"]
-    }
-  }
+    },
+    // "strictBindCallApply": false,
+    "resolveJsonModule": true,
+    "strictNullChecks": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": false,
+    "isolatedModules": true,
+    // "incremental": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["dist", "node_modules", "__tests__/**"]
 }

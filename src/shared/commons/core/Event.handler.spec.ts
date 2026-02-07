@@ -1,8 +1,8 @@
-import { EventEmitter2 } from '@nestjs/event-emitter';
+import type { EventEmitter2 } from '@nestjs/event-emitter';
 
-import { EventHandler } from './Event.handler';
-import { Event } from './Event.base';
 import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { Event } from './Event.base';
+import { EventHandler } from './Event.handler';
 
 class TestEvent extends Event {
   readonly data: string;
@@ -27,7 +27,7 @@ class TestEventHandler extends EventHandler {
   }
 }
 
-describe('EventHandler', () => {
+describe('eventHandler', () => {
   const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
 
   beforeEach(() => {
@@ -160,7 +160,7 @@ describe('EventHandler', () => {
 
       expect(consoleLogSpy).toHaveBeenCalledWith(
         expect.stringContaining('[test-request-id]'),
-        'testHandler'
+        'testHandler',
       );
     });
 

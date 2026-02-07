@@ -1,10 +1,12 @@
-import { Model } from 'mongoose';
-import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
+import type { OnApplicationBootstrap } from '@nestjs/common';
+import type { Model } from 'mongoose';
+import type { OrderDocument } from './order.schema';
+import { Injectable } from '@nestjs/common';
+
 import { InjectModel } from '@nestjs/mongoose';
 
 import { MongoRepositoryService } from '@shared/adapters/repository/mongoose/mongoose.service';
-
-import { Order, OrderDocument } from './order.schema';
+import { Order } from './order.schema';
 
 @Injectable()
 export class OrderRepositoryAdapter implements OnApplicationBootstrap {
@@ -12,7 +14,7 @@ export class OrderRepositoryAdapter implements OnApplicationBootstrap {
 
   constructor(
     @InjectModel(Order.name)
-    private orderRepository: Model<OrderDocument>
+    private orderRepository: Model<OrderDocument>,
   ) {}
 
   onApplicationBootstrap() {

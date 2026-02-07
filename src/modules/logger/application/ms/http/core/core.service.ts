@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import type { Responses } from '@shared/application/interfaces/responses';
 
-import { Responses } from '@shared/application/interfaces/responses';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export default class CoreService {

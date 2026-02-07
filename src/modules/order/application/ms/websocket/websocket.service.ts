@@ -1,16 +1,18 @@
-import { Server, Socket } from 'socket.io';
-import { Logger } from '@nestjs/common';
-import {
+import type {
   OnGatewayConnection,
   OnGatewayDisconnect,
   OnGatewayInit,
+  WsResponse,
+} from '@nestjs/websockets';
+import type { Server, Socket } from 'socket.io';
+import type { CreateRoomMessage, Message, PingMessage, RoomMessageEvent } from './websocket.interface';
+import { Logger } from '@nestjs/common';
+
+import {
   SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
-  WsResponse,
 } from '@nestjs/websockets';
-
-import { CreateRoomMessage, Message, PingMessage, RoomMessageEvent } from './websocket.interface';
 
 @WebSocketGateway()
 export class WebsocketGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {

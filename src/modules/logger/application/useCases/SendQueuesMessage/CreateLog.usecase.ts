@@ -1,10 +1,10 @@
+import type { Responses } from '@shared/application/interfaces/responses';
+import type { UseCase } from '@shared/commons/core/UseCase';
+import type { CreateLogDTO, CreateLogUseCaseResponse } from './CreateLog.dto';
+
 import { Injectable } from '@nestjs/common';
 
 import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
-import { Responses } from '@shared/application/interfaces/responses';
-import { UseCase } from '@shared/commons/core/UseCase';
-
-import { CreateLogDTO, CreateLogUseCaseResponse } from './CreateLog.dto';
 
 @Injectable()
 export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<Responses<CreateLogUseCaseResponse>>> {
@@ -26,7 +26,8 @@ export class CreateLogUseCase implements UseCase<CreateLogDTO, Promise<Responses
         message: 'created order',
         data: {},
       };
-    } catch (error) {
+    }
+    catch (error) {
       console.error('CreateLogUseCase - ERROR: ', error);
       return {
         status: 'error',

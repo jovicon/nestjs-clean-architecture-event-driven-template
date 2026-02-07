@@ -1,6 +1,6 @@
 import { UniqueEntityID } from './UniqueEntityID';
 
-describe('UniqueEntityID', () => {
+describe('uniqueEntityID', () => {
   describe('constructor', () => {
     it('should generate a unique ID when no ID is provided', () => {
       const entityId = new UniqueEntityID();
@@ -69,12 +69,12 @@ describe('UniqueEntityID', () => {
     });
   });
 
-  describe('ID generation', () => {
+  describe('iD generation', () => {
     it('should generate nanoid-style IDs', () => {
       const entityId = new UniqueEntityID();
 
       // nanoid generates URL-friendly IDs with specific character set
-      expect(entityId.id).toMatch(/^[A-Za-z0-9_-]+$/);
+      expect(entityId.id).toMatch(/^[\w-]+$/);
     });
 
     it('should generate IDs with reasonable length', () => {

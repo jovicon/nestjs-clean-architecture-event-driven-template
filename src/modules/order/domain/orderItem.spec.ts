@@ -1,6 +1,7 @@
-import { OrderItem, OrderItemProps } from './orderItem';
+import type { OrderItemProps } from './orderItem';
+import { OrderItem } from './orderItem';
 
-describe('OrderItem', () => {
+describe('orderItem', () => {
   describe('create', () => {
     it('should create a valid OrderItem with a string value', () => {
       const props: OrderItemProps = {
@@ -114,11 +115,11 @@ describe('OrderItem', () => {
       const result = OrderItem.create(props);
       const orderItem = result.getValue();
 
-      expect(orderItem.value).toBe(orderItem['props'].value);
+      expect(orderItem.value).toBe(orderItem.props.value);
     });
   });
 
-  describe('ValueObject behavior', () => {
+  describe('valueObject behavior', () => {
     it('should be a ValueObject instance', () => {
       const props: OrderItemProps = {
         value: 'test',
@@ -139,8 +140,8 @@ describe('OrderItem', () => {
       const result = OrderItem.create(props);
       const orderItem = result.getValue();
 
-      expect(orderItem['props']).toBeDefined();
-      expect(orderItem['props'].value).toBe('test');
+      expect(orderItem.props).toBeDefined();
+      expect(orderItem.props.value).toBe('test');
     });
   });
 });

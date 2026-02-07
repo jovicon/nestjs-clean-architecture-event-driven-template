@@ -1,20 +1,21 @@
-import { Inject, Injectable } from '@nestjs/common';
+import type { CreateOrderDTO, ProductServicePort } from '@modules/products/application/ports/OrderService.port';
 
-import { Responses } from '@shared/application/interfaces/responses';
-import { StatusValues } from '@shared/application/types/status';
-import { UseCase } from '@shared/commons/core/UseCase';
+import type { OrderJson } from '@modules/products/domain/order';
+import type { Responses } from '@shared/application/interfaces/responses';
+import type { UseCase } from '@shared/commons/core/UseCase';
+import { Order } from '@modules/products/domain/order';
 
-import { CreateOrderDTO, ProductServicePort } from '@modules/products/application/ports/OrderService.port';
-import { Order, OrderJson } from '@modules/products/domain/order';
 import { OrderItem } from '@modules/products/domain/orderItem';
+import { Inject, Injectable } from '@nestjs/common';
+import { StatusValues } from '@shared/application/types/status';
 
-type CreateOrderSuccess = {
+interface CreateOrderSuccess {
   orderValidated: OrderJson;
-};
+}
 
-type CreateOrderError = {
+interface CreateOrderError {
   error: string;
-};
+}
 
 export type CreateProductUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;
 
@@ -36,13 +37,13 @@ export class CreateProductUseCase implements UseCase<CreateOrderDTO, CreateProdu
     try {
       const { items } = dto;
 
-      const itemsOrError = items.map((item) => OrderItem.create({ value: item }).getValue());
+      const itemsOrError = items.map(item => OrderItem.create({ value: item }).getValue());
 
       const order = Order.create({ items: itemsOrError });
 
       const orderValidated = order.getValue().toJson();
 
-      const orders = orderValidated.items.map((item) => item.value);
+      const orders = orderValidated.items.map(item => item.value);
 
       this.productService.createOrder({ items: orders }, order.getValue());
 
@@ -53,7 +54,8 @@ export class CreateProductUseCase implements UseCase<CreateOrderDTO, CreateProdu
           orderValidated,
         },
       };
-    } catch (err) {
+    }
+    catch (err) {
       return {
         status: this.error.status,
         message: this.error.message,

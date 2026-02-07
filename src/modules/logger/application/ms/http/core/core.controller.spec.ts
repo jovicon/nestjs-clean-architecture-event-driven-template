@@ -1,9 +1,10 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 
 import CoreController from './core.controller';
 import CoreService from './core.service';
 
-describe('CoreController (Logger)', () => {
+describe('coreController (Logger)', () => {
   let controller: CoreController;
   let coreService: CoreService;
 

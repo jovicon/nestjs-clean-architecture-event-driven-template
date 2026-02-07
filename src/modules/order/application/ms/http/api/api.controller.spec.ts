@@ -1,11 +1,12 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import type { TestingModule } from '@nestjs/testing';
+import type { CreateOrderDTO } from './api.dto';
+import { Test } from '@nestjs/testing';
 
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { ApiController } from './api.controller';
 import ClientsService from './api.service';
-import { CreateOrderDTO } from './api.dto';
 
-describe('ApiController (Order)', () => {
+describe('apiController (Order)', () => {
   let controller: ApiController;
   let clientsService: ClientsService;
 
@@ -141,7 +142,7 @@ describe('ApiController (Order)', () => {
         message: 'created order successfully',
         data: {
           orderValidated: {
-            items: dto.items.map((i) => ({ value: i })),
+            items: dto.items.map(i => ({ value: i })),
           },
         },
       });
