@@ -1,94 +1,94 @@
-import type { OrderJson } from '@modules/order/domain/order';
-import type { Responses } from '@shared/application/interfaces/responses';
+import type { OrderJson } from '@modules/order/domain/order'
+import type { Responses } from '@shared/application/interfaces/responses'
 
-import type { UseCase } from '@shared/commons/core/UseCase';
-import type { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port';
-import { Order } from '@modules/order/domain/order';
-import { OrderItem } from '@modules/order/domain/orderItem';
+import type { UseCase } from '@shared/commons/core/UseCase'
+import type { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port'
+import { Order } from '@modules/order/domain/order'
+import { OrderItem } from '@modules/order/domain/orderItem'
 
-import { Inject, Injectable } from '@nestjs/common';
-import { RequestContextService } from '@shared/application/context/AppRequestContext';
+import { Inject, Injectable } from '@nestjs/common'
+import { RequestContextService } from '@shared/application/context/AppRequestContext'
 
-import { StatusValues } from '@shared/application/types/status';
+import { StatusValues } from '@shared/application/types/status'
 
 interface CreateOrderSuccess {
-  orderValidated: OrderJson;
+  orderValidated: OrderJson
 }
 
 interface CreateOrderError {
-  error: string;
+  error: string
 }
 
-export type CreateOrderUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;
+export type CreateOrderUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>
 
 @Injectable()
 export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUseCaseResponse> {
-  private readonly useCaseName = this.constructor.name;
+  private readonly useCaseName = this.constructor.name
 
   private readonly log = (logMessage: string, ...args: string[]) =>
-    console.log(`[${this.useCaseName}]-[${RequestContextService.getRequestId()}]: ${logMessage}`, ...args);
+    console.log(`[${this.useCaseName}]-[${RequestContextService.getRequestId()}]: ${logMessage}`, ...args)
 
   private readonly success = {
     status: StatusValues.SUCCESS,
     message: 'created order successfully',
-  };
+  }
 
   private readonly error = {
     status: StatusValues.ERROR,
     message: 'error creating order',
-  };
+  }
 
   constructor(@Inject('OrderServicePort') private readonly orderService: OrderServicePort) {}
 
   public async execute(dto: CreateOrderDTO): CreateOrderUseCaseResponse {
-    const { items } = dto;
+    const { items } = dto
 
-    this.log('dto', JSON.stringify(dto));
+    this.log('dto', JSON.stringify(dto))
 
     // ✅ REFACTORED: Create OrderItems with proper Result checking
-    const itemResults = items.map(item => OrderItem.create({ value: item }));
+    const itemResults = items.map(item => OrderItem.create({ value: item }))
 
     // ✅ REFACTORED: Check for any failed OrderItem creations
-    const failedItems = itemResults.filter(result => result.isFailure);
+    const failedItems = itemResults.filter(result => result.isFailure)
     if (failedItems.length > 0) {
-      const errors = failedItems.map(result => result.errorValue()).join(', ');
-      this.log('Failed to create order items', errors);
+      const errors = failedItems.map(result => result.errorValue()).join(', ')
+      this.log('Failed to create order items', errors)
       return {
         status: this.error.status,
         message: this.error.message,
         data: {
           error: `Failed to create order items: ${errors}`,
         },
-      };
+      }
     }
 
     // ✅ REFACTORED: Safe to get values now - all Results are successful
-    const validItems = itemResults.map(result => result.getValue());
+    const validItems = itemResults.map(result => result.getValue())
 
     // ✅ REFACTORED: Create Order with proper Result checking
-    const orderResult = Order.create({ items: validItems });
+    const orderResult = Order.create({ items: validItems })
 
     if (orderResult.isFailure) {
-      const errorMessage = String(orderResult.errorValue() || 'Failed to create order');
-      this.log('Failed to create order', errorMessage);
+      const errorMessage = String(orderResult.errorValue() || 'Failed to create order')
+      this.log('Failed to create order', errorMessage)
       return {
         status: this.error.status,
         message: this.error.message,
         data: {
           error: errorMessage,
         },
-      };
+      }
     }
 
     // ✅ REFACTORED: Safe to get Order value
-    const order = orderResult.getValue();
-    const orderValidated = order.toJson();
-    const orders = orderValidated.items.map(item => item.value);
+    const order = orderResult.getValue()
+    const orderValidated = order.toJson()
+    const orders = orderValidated.items.map(item => item.value)
 
     // Persist order
-    await this.orderService.createOrder({ items: orders }, order);
+    await this.orderService.createOrder({ items: orders }, order)
 
-    this.log('Order created successfully', JSON.stringify(orderValidated));
+    this.log('Order created successfully', JSON.stringify(orderValidated))
 
     return {
       status: this.success.status,
@@ -96,6 +96,6 @@ export class CreateOrderUseCase implements UseCase<CreateOrderDTO, CreateOrderUs
       data: {
         orderValidated,
       },
-    };
+    }
   }
 }

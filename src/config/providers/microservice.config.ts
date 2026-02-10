@@ -1,21 +1,21 @@
-import type { IMicroserviceConfig } from '@config/config.types';
+import type { IMicroserviceConfig } from '@config/config.types'
 
-import { readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises'
 
 export class MicroserviceConfig implements IMicroserviceConfig {
-  private readonly envConfig;
+  private readonly envConfig
 
   private constructor(file: string) {
-    this.envConfig = JSON.parse(file);
-    console.log(`[${this.constructor.name}] - constructor init: OK`);
+    this.envConfig = JSON.parse(file)
+    console.log(`[${this.constructor.name}] - constructor init: OK`)
   }
 
   public static async create(filePath: string): Promise<MicroserviceConfig> {
-    const file = await readFile(filePath, 'utf8');
-    return new MicroserviceConfig(file);
+    const file = await readFile(filePath, 'utf8')
+    return new MicroserviceConfig(file)
   }
 
   get microserviceVersion(): string {
-    return this.envConfig.version;
+    return this.envConfig.version
   }
 }

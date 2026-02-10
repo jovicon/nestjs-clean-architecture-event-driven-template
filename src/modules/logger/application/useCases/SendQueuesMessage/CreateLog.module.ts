@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common'
 
-import { ElasticAdapterModule } from '@shared/adapters/repository/elastic/elastic.module';
+import { ElasticAdapterModule } from '@shared/adapters/repository/elastic/elastic.module'
 
-import { CreateLogUseCase } from './CreateLog.usecase';
+import { CreateLogUseCase } from './CreateLog.usecase'
 
 @Module({
   imports: [ElasticAdapterModule],

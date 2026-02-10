@@ -1,18 +1,18 @@
-import type { TestingModule } from '@nestjs/testing';
-import type { CreateOrderDTO } from './api.dto';
-import { Test } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing'
+import type { CreateOrderDTO } from './api.dto'
+import { Test } from '@nestjs/testing'
 
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { ApiController } from './api.controller';
-import ClientsService from './api.service';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston'
+import { ApiController } from './api.controller'
+import ClientsService from './api.service'
 
 describe('apiController (Products)', () => {
-  let controller: ApiController;
-  let clientsService: ClientsService;
+  let controller: ApiController
+  let clientsService: ClientsService
 
   const mockClientService = {
     createProduct: jest.fn(),
-  };
+  }
 
   const mockLogger = {
     log: jest.fn(),
@@ -20,7 +20,7 @@ describe('apiController (Products)', () => {
     warn: jest.fn(),
     debug: jest.fn(),
     verbose: jest.fn(),
-  };
+  }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -35,25 +35,25 @@ describe('apiController (Products)', () => {
           useValue: mockLogger,
         },
       ],
-    }).compile();
+    }).compile()
 
-    controller = module.get<ApiController>(ApiController);
-    clientsService = module.get<ClientsService>(ClientsService);
-  });
+    controller = module.get<ApiController>(ApiController)
+    clientsService = module.get<ClientsService>(ClientsService)
+  })
 
   afterEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
+    expect(controller).toBeDefined()
+  })
 
   describe('createOrder', () => {
     it('should call clientsService.createProduct with correct dto', async () => {
       const dto: CreateOrderDTO = {
         items: ['item1', 'item2'],
-      };
+      }
 
       const expectedResponse = {
         status: 'success',
@@ -63,40 +63,40 @@ describe('apiController (Products)', () => {
             items: [{ value: 'item1' }, { value: 'item2' }],
           },
         },
-      };
+      }
 
-      mockClientService.createProduct.mockResolvedValue(expectedResponse);
+      mockClientService.createProduct.mockResolvedValue(expectedResponse)
 
-      const result = await controller.createOrder(dto);
+      const result = await controller.createOrder(dto)
 
       expect(clientsService.createProduct).toHaveBeenCalledWith({
         items: ['item1', 'item2'],
-      });
-      expect(result).toEqual(expectedResponse);
-    });
+      })
+      expect(result).toEqual(expectedResponse)
+    })
 
     it('should pass items from body to service', async () => {
       const dto: CreateOrderDTO = {
         items: ['single-item'],
-      };
+      }
 
       mockClientService.createProduct.mockResolvedValue({
         status: 'success',
         message: 'created order successfully',
         data: { orderValidated: { items: [{ value: 'single-item' }] } },
-      });
+      })
 
-      await controller.createOrder(dto);
+      await controller.createOrder(dto)
 
       expect(clientsService.createProduct).toHaveBeenCalledWith({
         items: ['single-item'],
-      });
-    });
+      })
+    })
 
     it('should return the response from service', async () => {
       const dto: CreateOrderDTO = {
         items: ['test'],
-      };
+      }
 
       const expectedResponse = {
         status: 'success',
@@ -106,36 +106,36 @@ describe('apiController (Products)', () => {
             items: [{ value: 'test' }],
           },
         },
-      };
+      }
 
-      mockClientService.createProduct.mockResolvedValue(expectedResponse);
+      mockClientService.createProduct.mockResolvedValue(expectedResponse)
 
-      const result = await controller.createOrder(dto);
+      const result = await controller.createOrder(dto)
 
-      expect(result).toEqual(expectedResponse);
-    });
+      expect(result).toEqual(expectedResponse)
+    })
 
     it('should handle empty items array', async () => {
       const dto: CreateOrderDTO = {
         items: [],
-      };
+      }
 
       mockClientService.createProduct.mockResolvedValue({
         status: 'success',
         message: 'created order successfully',
         data: { orderValidated: { items: [] } },
-      });
+      })
 
-      const result = await controller.createOrder(dto);
+      const result = await controller.createOrder(dto)
 
-      expect(clientsService.createProduct).toHaveBeenCalledWith({ items: [] });
-      expect(result.status).toBe('success');
-    });
+      expect(clientsService.createProduct).toHaveBeenCalledWith({ items: [] })
+      expect(result.status).toBe('success')
+    })
 
     it('should handle multiple items', async () => {
       const dto: CreateOrderDTO = {
         items: ['item1', 'item2', 'item3', 'item4', 'item5'],
-      };
+      }
 
       mockClientService.createProduct.mockResolvedValue({
         status: 'success',
@@ -145,31 +145,31 @@ describe('apiController (Products)', () => {
             items: dto.items.map(i => ({ value: i })),
           },
         },
-      });
+      })
 
-      await controller.createOrder(dto);
+      await controller.createOrder(dto)
 
       expect(clientsService.createProduct).toHaveBeenCalledWith({
         items: ['item1', 'item2', 'item3', 'item4', 'item5'],
-      });
-    });
+      })
+    })
 
     it('should handle error response from service', async () => {
       const dto: CreateOrderDTO = {
         items: ['error-item'],
-      };
+      }
 
       const errorResponse = {
         status: 'error',
         message: 'error creating order',
         data: { error: 'Some error occurred' },
-      };
+      }
 
-      mockClientService.createProduct.mockResolvedValue(errorResponse);
+      mockClientService.createProduct.mockResolvedValue(errorResponse)
 
-      const result = await controller.createOrder(dto);
+      const result = await controller.createOrder(dto)
 
-      expect(result).toEqual(errorResponse);
-    });
-  });
-});
+      expect(result).toEqual(errorResponse)
+    })
+  })
+})

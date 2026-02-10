@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common'
 
-import { WebsocketGateway } from './websocket.service';
+import { WebsocketGateway } from './websocket.service'
 
 @Module({
   imports: [],

@@ -1,12 +1,12 @@
-import type { HydratedDocument } from 'mongoose';
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import type { HydratedDocument } from 'mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 @Schema()
 export class Order {
   @Prop()
-  items: string[];
+  items: string[]
 }
 
-export type OrderDocument = HydratedDocument<Order>;
+export type OrderDocument = HydratedDocument<Order>
 
-export const OrderSchema = SchemaFactory.createForClass(Order);
+export const OrderSchema = SchemaFactory.createForClass(Order)

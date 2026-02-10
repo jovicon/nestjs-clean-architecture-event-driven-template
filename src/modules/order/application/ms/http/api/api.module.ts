@@ -1,9 +1,9 @@
-import { OrderInfrastructureModule } from '@modules/order/infrastructure/order.module';
+import { OrderInfrastructureModule } from '@modules/order/infrastructure/order.module'
 
-import { Module } from '@nestjs/common';
+import { Module } from '@nestjs/common'
 
-import { ApiController } from './api.controller';
-import ClientsService from './api.service';
+import { ApiController } from './api.controller'
+import ClientsService from './api.service'
 
 @Module({
   imports: [OrderInfrastructureModule],

@@ -1,10 +1,10 @@
-import type { Order as OrderEntity } from '@modules/order/domain/order';
-import type { Order } from './order.schema';
+import type { Order as OrderEntity } from '@modules/order/domain/order'
+import type { Order } from './order.schema'
 
-import { Injectable } from '@nestjs/common';
-import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Injectable } from '@nestjs/common'
+import { EventEmitter2 } from '@nestjs/event-emitter'
 
-import { OrderRepositoryAdapter } from './order.adapter';
+import { OrderRepositoryAdapter } from './order.adapter'
 
 @Injectable()
 export class OrderService {
@@ -17,9 +17,9 @@ export class OrderService {
   // TODO: ID from ID REQUEST
   // TODO: Logger to Publish Events
   async createOrder(order: Order, entity: OrderEntity): Promise<Order> {
-    const queryResult = await this.orderRepository.orders.create(order);
-    entity.publishEvents(this.eventEmitter);
+    const queryResult = await this.orderRepository.orders.create(order)
+    entity.publishEvents(this.eventEmitter)
 
-    return queryResult;
+    return queryResult
   }
 }

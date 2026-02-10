@@ -1,4 +1,4 @@
-import { RequestContext } from 'nestjs-request-context';
+import { RequestContext } from 'nestjs-request-context'
 
 // import { DatabaseTransactionConnection } from 'slonik';
 
@@ -7,7 +7,7 @@ import { RequestContext } from 'nestjs-request-context';
  */
 
 export class AppRequestContext extends RequestContext {
-  requestId: string;
+  requestId: string
 
   // transactionConnection?: DatabaseTransactionConnection; // For global transactions
 }
@@ -15,17 +15,17 @@ export class AppRequestContext extends RequestContext {
 export class RequestContextService {
   // TODO: get a better way to do this (maybe a decorator) to remove of "|| { requestId: 'controller_testing' }"
   static getContext(): AppRequestContext {
-    const ctx: AppRequestContext = RequestContext.currentContext?.req || { requestId: 'controller_testing' };
-    return ctx;
+    const ctx: AppRequestContext = RequestContext.currentContext?.req || { requestId: 'controller_testing' }
+    return ctx
   }
 
   static setRequestId(id: string): void {
-    const ctx = this.getContext();
-    ctx.requestId = id;
+    const ctx = this.getContext()
+    ctx.requestId = id
   }
 
   static getRequestId(): string {
-    return this.getContext().requestId;
+    return this.getContext().requestId
   }
 
   // static getTransactionConnection(): DatabaseTransactionConnection | undefined {

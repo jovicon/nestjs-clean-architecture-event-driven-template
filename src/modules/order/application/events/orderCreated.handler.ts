@@ -1,9 +1,9 @@
-import type { ClientProxy } from '@nestjs/microservices';
-import { OrderCreated } from '@modules/order/domain/events/orderCreated';
-import { Inject, Injectable } from '@nestjs/common';
-import { OnEvent } from '@nestjs/event-emitter';
+import type { ClientProxy } from '@nestjs/microservices'
+import { OrderCreated } from '@modules/order/domain/events/orderCreated'
+import { Inject, Injectable } from '@nestjs/common'
+import { OnEvent } from '@nestjs/event-emitter'
 
-import { redBright } from 'cli-color';
+import { redBright } from 'cli-color'
 
 interface EventResponse { success: boolean }
 
@@ -13,12 +13,12 @@ export class OrderCreatedEventHandler {
 
   @OnEvent(OrderCreated.name, { async: true, promisify: true })
   async eventHandler(event: any): Promise<EventResponse> {
-    console.log(redBright('[OrderCreated eventHandler] - Inside handler'));
-    console.log(redBright('[OrderCreated eventHandler] - event: ', JSON.stringify(event)));
+    console.log(redBright('[OrderCreated eventHandler] - Inside handler'))
+    console.log(redBright('[OrderCreated eventHandler] - event: ', JSON.stringify(event)))
 
     // TODO: Reintentos en caso de fallbacks
-    this.clientLoggerService.emit('createdOrder', event);
+    this.clientLoggerService.emit('createdOrder', event)
 
-    return { success: true };
+    return { success: true }
   }
 }

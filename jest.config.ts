@@ -1,4 +1,4 @@
-import type { Config } from 'jest';
+import type { Config } from 'jest'
 
 const config: Config = {
   verbose: true,
@@ -39,6 +39,6 @@ const config: Config = {
       },
     ],
   ],
-};
+}
 
-export default config;
+export default config

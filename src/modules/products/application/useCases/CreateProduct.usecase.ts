@@ -1,51 +1,51 @@
-import type { CreateOrderDTO, ProductServicePort } from '@modules/products/application/ports/OrderService.port';
+import type { CreateOrderDTO, ProductServicePort } from '@modules/products/application/ports/OrderService.port'
 
-import type { OrderJson } from '@modules/products/domain/order';
-import type { Responses } from '@shared/application/interfaces/responses';
-import type { UseCase } from '@shared/commons/core/UseCase';
-import { Order } from '@modules/products/domain/order';
+import type { OrderJson } from '@modules/products/domain/order'
+import type { Responses } from '@shared/application/interfaces/responses'
+import type { UseCase } from '@shared/commons/core/UseCase'
+import { Order } from '@modules/products/domain/order'
 
-import { OrderItem } from '@modules/products/domain/orderItem';
-import { Inject, Injectable } from '@nestjs/common';
-import { StatusValues } from '@shared/application/types/status';
+import { OrderItem } from '@modules/products/domain/orderItem'
+import { Inject, Injectable } from '@nestjs/common'
+import { StatusValues } from '@shared/application/types/status'
 
 interface CreateOrderSuccess {
-  orderValidated: OrderJson;
+  orderValidated: OrderJson
 }
 
 interface CreateOrderError {
-  error: string;
+  error: string
 }
 
-export type CreateProductUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>;
+export type CreateProductUseCaseResponse = Promise<Responses<CreateOrderSuccess | CreateOrderError>>
 
 @Injectable()
 export class CreateProductUseCase implements UseCase<CreateOrderDTO, CreateProductUseCaseResponse> {
   private readonly success = {
     status: StatusValues.SUCCESS,
     message: 'created order successfully',
-  };
+  }
 
   private readonly error = {
     status: StatusValues.ERROR,
     message: 'error creating order',
-  };
+  }
 
   constructor(@Inject('ProductServicePort') private readonly productService: ProductServicePort) {}
 
   public async execute(dto: CreateOrderDTO): CreateProductUseCaseResponse {
     try {
-      const { items } = dto;
+      const { items } = dto
 
-      const itemsOrError = items.map(item => OrderItem.create({ value: item }).getValue());
+      const itemsOrError = items.map(item => OrderItem.create({ value: item }).getValue())
 
-      const order = Order.create({ items: itemsOrError });
+      const order = Order.create({ items: itemsOrError })
 
-      const orderValidated = order.getValue().toJson();
+      const orderValidated = order.getValue().toJson()
 
-      const orders = orderValidated.items.map(item => item.value);
+      const orders = orderValidated.items.map(item => item.value)
 
-      this.productService.createOrder({ items: orders }, order.getValue());
+      this.productService.createOrder({ items: orders }, order.getValue())
 
       return {
         status: this.success.status,
@@ -53,7 +53,7 @@ export class CreateProductUseCase implements UseCase<CreateOrderDTO, CreateProdu
         data: {
           orderValidated,
         },
-      };
+      }
     }
     catch (err) {
       return {
@@ -62,7 +62,7 @@ export class CreateProductUseCase implements UseCase<CreateOrderDTO, CreateProdu
         data: {
           error: err.message,
         },
-      };
+      }
     }
   }
 }

@@ -1,1 +1,1 @@
-export * from './DomainEvent.base';
+export * from './DomainEvent.base'

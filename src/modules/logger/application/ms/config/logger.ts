@@ -1,5 +1,5 @@
-import { WinstonModule } from 'nest-winston';
-import * as winston from 'winston';
+import { WinstonModule } from 'nest-winston'
+import * as winston from 'winston'
 
 export const Logger = WinstonModule.forRootAsync({
   useFactory: () => ({
@@ -8,4 +8,4 @@ export const Logger = WinstonModule.forRootAsync({
     transports: [new winston.transports.Console()],
   }),
   inject: [],
-});
+})

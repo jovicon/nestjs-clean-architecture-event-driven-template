@@ -1,5 +1,5 @@
 interface ValueObjectProps {
-  [index: string]: any;
+  [index: string]: any
 }
 
 /**
@@ -8,13 +8,13 @@ interface ValueObjectProps {
  */
 
 export abstract class ValueObject<T extends ValueObjectProps> {
-  public props: T;
+  public props: T
 
   constructor(props: T) {
     const baseProps: any = {
       ...props,
-    };
+    }
 
-    this.props = baseProps as T;
+    this.props = baseProps as T
   }
 }

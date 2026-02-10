@@ -1,7 +1,7 @@
-export type SUCCESS = 'success';
-export type ERROR = 'error';
-export type WARNING = 'warning';
-export type INFO = 'info';
+export type SUCCESS = 'success'
+export type ERROR = 'error'
+export type WARNING = 'warning'
+export type INFO = 'info'
 
 export enum StatusValues {
   SUCCESS = 'success',
@@ -10,4 +10,4 @@ export enum StatusValues {
   INFO = 'info',
 }
 
-export type Status = SUCCESS | ERROR | WARNING | INFO;
+export type Status = SUCCESS | ERROR | WARNING | INFO

@@ -1,11 +1,11 @@
-import { Global, Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common'
 
-import { ConfigService } from './config.service';
+import { ConfigService } from './config.service'
 
 const paths = {
-  envFilePath: `./.env`,
-  packageJsonPath: `./package.json`,
-};
+  envFilePath: './.env',
+  packageJsonPath: './package.json',
+}
 
 @Global()
 @Module({

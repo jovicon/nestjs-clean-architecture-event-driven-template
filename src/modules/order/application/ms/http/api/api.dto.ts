@@ -1,16 +1,16 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger'
 
 export class CreateOrderDTO {
   @ApiProperty({
     type: [String],
   })
-  items: string[];
+  items: string[]
 }
 
 export class CreateClientDto {
   @ApiProperty()
-  name: string;
+  name: string
 
   @ApiProperty()
-  lastName: string;
+  lastName: string
 }

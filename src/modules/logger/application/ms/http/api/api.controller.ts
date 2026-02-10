@@ -1,11 +1,11 @@
-import type { CreateLogUseCaseResponse } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
-import type { Responses } from '@shared/application/interfaces/responses';
-import type { CreateLogDTO } from './api.dto';
+import type { CreateLogUseCaseResponse } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto'
+import type { Responses } from '@shared/application/interfaces/responses'
+import type { CreateLogDTO } from './api.dto'
 
-import { Body, Controller, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Post } from '@nestjs/common'
+import { ApiTags } from '@nestjs/swagger'
 
-import { ClientsService } from './api.service';
+import { ClientsService } from './api.service'
 
 @ApiTags('Logger')
 @Controller()
@@ -17,8 +17,8 @@ export class ApiController {
     const dto = {
       id: body.trackingId,
       item: body.items,
-    };
+    }
 
-    return this.apiService.createLog(dto);
+    return this.apiService.createLog(dto)
   }
 }

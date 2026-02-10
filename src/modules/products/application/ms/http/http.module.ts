@@ -1,25 +1,25 @@
-import { ConfigModule } from '@config/config.module';
-import { ConfigService } from '@config/config.service';
-import { OrderCreatedEventHandler } from '@modules/order/application/events/orderCreated.handler';
-import { Module } from '@nestjs/common';
-import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
+import { ConfigModule } from '@config/config.module'
+import { ConfigService } from '@config/config.service'
+import { OrderCreatedEventHandler } from '@modules/order/application/events/orderCreated.handler'
+import { Module } from '@nestjs/common'
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core'
 
-import { ClientProxyFactory, Transport } from '@nestjs/microservices';
-import { InternalCacheModule } from '@shared/adapters/cache/CacheModule';
-import { ContextInterceptor } from '@shared/application/context/ContextInterceptor';
-import { RequestContextModule } from 'nestjs-request-context';
+import { ClientProxyFactory, Transport } from '@nestjs/microservices'
+import { InternalCacheModule } from '@shared/adapters/cache/CacheModule'
+import { ContextInterceptor } from '@shared/application/context/ContextInterceptor'
+import { RequestContextModule } from 'nestjs-request-context'
 
-import { ProductModule } from './api/api.module';
-import { Logger } from './config/logger';
-import { CoreModule } from './core/core.module';
-import { allRoutes } from './http.routes';
+import { ProductModule } from './api/api.module'
+import { Logger } from './config/logger'
+import { CoreModule } from './core/core.module'
+import { allRoutes } from './http.routes'
 
 const interceptors = [
   {
     provide: APP_INTERCEPTOR,
     useClass: ContextInterceptor,
   },
-];
+]
 
 const loggerMicroserviceProvider = {
   provide: 'LOGGER_SERVICE',
@@ -32,7 +32,7 @@ const loggerMicroserviceProvider = {
       transport: Transport.TCP,
     }),
   inject: [ConfigService],
-};
+}
 
 @Module({
   imports: [

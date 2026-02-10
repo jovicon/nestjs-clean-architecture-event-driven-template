@@ -1,5 +1,5 @@
-import { LoggerModule } from './api/api.module';
-import { CoreModule } from './core/core.module';
+import { LoggerModule } from './api/api.module'
+import { CoreModule } from './core/core.module'
 
 const loggerRoutes = [
   {
@@ -12,8 +12,8 @@ const loggerRoutes = [
       },
     ],
   },
-];
+]
 
-const allRoutes = [...loggerRoutes];
+const allRoutes = [...loggerRoutes]
 
-export default allRoutes;
+export default allRoutes

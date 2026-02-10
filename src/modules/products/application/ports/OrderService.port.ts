@@ -1,9 +1,9 @@
-import type { Order as OrderEntity } from '../../domain/order';
+import type { Order as OrderEntity } from '../../domain/order'
 
 export interface CreateOrderDTO {
-  items: string[];
+  items: string[]
 }
 
 export interface ProductServicePort {
-  createOrder: (order: CreateOrderDTO, entity: OrderEntity) => Promise<CreateOrderDTO>;
+  createOrder: (order: CreateOrderDTO, entity: OrderEntity) => Promise<CreateOrderDTO>
 }
