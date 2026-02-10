@@ -1,7 +1,7 @@
 import type { OnApplicationBootstrap } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import type { Model } from 'mongoose'
 import type { OrderDocument } from './order.schema'
-import { Injectable } from '@nestjs/common'
 
 import { InjectModel } from '@nestjs/mongoose'
 
@@ -14,7 +14,7 @@ export class OrderRepositoryAdapter implements OnApplicationBootstrap {
 
   constructor(
     @InjectModel(Order.name)
-    private orderRepository: Model<OrderDocument>,
+    private readonly orderRepository: Model<OrderDocument>,
   ) {}
 
   onApplicationBootstrap() {

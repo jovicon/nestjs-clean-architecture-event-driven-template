@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 
 export class UniqueEntityID {
-  private _id: string
+  private readonly _id: string
 
   get id(): string {
     return this._id

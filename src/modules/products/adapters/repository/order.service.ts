@@ -4,10 +4,11 @@ import type { Order } from './order.schema'
 import { Injectable } from '@nestjs/common'
 import { EventEmitter2 } from '@nestjs/event-emitter'
 
+import { ProductServicePort } from '../../application/ports/OrderService.port'
 import { OrderRepositoryAdapter } from './order.adapter'
 
 @Injectable()
-export class OrderService {
+export class OrderService implements ProductServicePort {
   constructor(
     private readonly orderRepository: OrderRepositoryAdapter,
     protected readonly eventEmitter: EventEmitter2,

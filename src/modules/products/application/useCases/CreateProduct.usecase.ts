@@ -1,9 +1,9 @@
 import type { CreateOrderDTO, ProductServicePort } from '@modules/products/application/ports/OrderService.port'
 
 import type { OrderJson } from '@modules/products/domain/order'
+import { Order } from '@modules/products/domain/order'
 import type { Responses } from '@shared/application/interfaces/responses'
 import type { UseCase } from '@shared/commons/core/UseCase'
-import { Order } from '@modules/products/domain/order'
 
 import { OrderItem } from '@modules/products/domain/orderItem'
 import { Inject, Injectable } from '@nestjs/common'

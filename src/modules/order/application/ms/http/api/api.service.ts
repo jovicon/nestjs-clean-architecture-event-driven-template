@@ -1,4 +1,4 @@
-import type { CreateOrderDTO } from '@modules/order/application/ports/orderService.port'
+import type { CreateOrderDTO } from '@base/src/modules/order/application/ports/orderRepository.port'
 import type { CreateOrderUseCaseResponse } from '@modules/order/application/useCases/CreateOrder.usecase'
 
 import { Injectable } from '@nestjs/common'

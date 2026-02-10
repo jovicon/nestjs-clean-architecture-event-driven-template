@@ -1,6 +1,6 @@
 import { OrderRepositoryAdapter } from './order.adapter'
 import { OrderRepositoryModule } from './order.module'
-import { OrderService } from './order.service'
+import { OrderService } from './order.repository'
 
 describe('orderRepositoryModule (Order)', () => {
   it('should have OrderRepositoryModule metadata', () => {

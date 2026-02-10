@@ -1,8 +1,9 @@
-import type { OrderItem, OrderItemProps } from './orderItem'
 import { Result } from '@shared/commons/core/Result'
 import { Guard } from '@shared/commons/Guard'
+import type { OrderItem, OrderItemProps } from './orderItem'
 
 import { AggregateRoot } from '@shared/ddd/AggregateRoot'
+import { UniqueEntityID } from '@shared/ddd/UniqueEntityID'
 import { OrderCreated } from './events/orderCreated'
 
 export interface OrderProps {
@@ -10,24 +11,25 @@ export interface OrderProps {
 }
 
 export interface OrderJson {
+  id: string
   items: OrderItemProps[]
 }
 
 export class Order extends AggregateRoot<OrderProps> {
-  private constructor(props: OrderProps) {
-    super(props)
+  private constructor(props: OrderProps, id?: UniqueEntityID) {
+    super(props, id)
   }
 
   toJson(): OrderJson {
     return {
+      id: this._id.id,
       items: this.props.items.map((item: OrderItem) => {
-        console.log('item: ', item)
         return item.props
       }),
     }
   }
 
-  public static create(props: OrderProps): Result<Order> {
+  public static create(props: OrderProps, id?: UniqueEntityID): Result<Order> {
     const propsGuardResult = Guard.againstNullOrUndefined(props, 'props')
 
     if (!propsGuardResult.succeeded) {
@@ -39,9 +41,7 @@ export class Order extends AggregateRoot<OrderProps> {
     if (!guardResult.succeeded)
       return Result.fail<Order>(guardResult.message)
 
-    const order = new Order({
-      ...props,
-    })
+    const order = new Order(props, id)
 
     const domainEvent = new OrderCreated({
       aggregateId: order.id,

@@ -22,6 +22,6 @@ import { OrderService } from './order.service'
     }),
   ],
   providers: [OrderRepositoryAdapter, OrderService],
-  exports: [OrderService],
+  exports: [OrderRepositoryAdapter, OrderService],
 })
 export class OrderRepositoryModule {}

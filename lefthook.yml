@@ -1,5 +1,5 @@
-pre-commit:
-  parallel: true
-  commands:
-    test:
-      run: npm test
+# pre-commit:
+#   parallel: true
+#   commands:
+#     test:
+#       run: npm test

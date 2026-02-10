@@ -1,5 +1,5 @@
 import type { TestingModule } from '@nestjs/testing'
-import type { CreateOrderDTO, OrderServicePort } from '../ports/orderService.port'
+import type { CreateOrderDTO, OrderRepositoryPort } from '../ports/orderRepository.port'
 
 import { Test } from '@nestjs/testing'
 import { RequestContextService } from '@shared/application/context/AppRequestContext'
@@ -7,10 +7,10 @@ import { CreateOrderUseCase } from './CreateOrder.usecase'
 
 describe('createOrderUseCase', () => {
   let useCase: CreateOrderUseCase
-  let orderService: OrderServicePort
+  let orderService: OrderRepositoryPort
 
-  const mockOrderService: OrderServicePort = {
-    createOrder: jest.fn().mockResolvedValue({ items: [] }),
+  const mockOrderService: OrderRepositoryPort = {
+    save: jest.fn().mockResolvedValue({ items: [] }),
   }
 
   const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation()
@@ -28,7 +28,7 @@ describe('createOrderUseCase', () => {
     }).compile()
 
     useCase = module.get<CreateOrderUseCase>(CreateOrderUseCase)
-    orderService = module.get<OrderServicePort>('OrderServicePort')
+    orderService = module.get<OrderRepositoryPort>('OrderRepositoryPort')
 
     // Mock RequestContextService
     jest.spyOn(RequestContextService, 'getRequestId').mockReturnValue('test-request-id-123')
@@ -66,7 +66,7 @@ describe('createOrderUseCase', () => {
         expect(result.data.orderValidated.items[2].value).toBe('item3')
       }
 
-      expect(orderService.createOrder).toHaveBeenCalled()
+      expect(orderService.save).toHaveBeenCalled()
     })
 
     it('should create order with single item', async () => {
@@ -84,7 +84,7 @@ describe('createOrderUseCase', () => {
         expect(result.data.orderValidated.items[0].value).toBe('single-item')
       }
 
-      expect(orderService.createOrder).toHaveBeenCalledWith({ items: ['single-item'] }, expect.any(Object))
+      expect(orderService.save).toHaveBeenCalledWith({ items: ['single-item'] }, expect.any(Object))
     })
 
     it('should log DTO with request ID', async () => {
@@ -107,9 +107,9 @@ describe('createOrderUseCase', () => {
 
       await useCase.execute(dto)
 
-      expect(orderService.createOrder).toHaveBeenCalledTimes(1)
+      expect(orderService.save).toHaveBeenCalledTimes(1)
 
-      const callArgs = (orderService.createOrder as jest.Mock).mock.calls[0]
+      const callArgs = (orderService.save as jest.Mock).mock.calls[0]
       expect(callArgs[0]).toEqual({ items: ['test-item-1', 'test-item-2'] })
       expect(callArgs[1]).toBeDefined()
       expect(callArgs[1].constructor.name).toBe('Order')
@@ -122,7 +122,7 @@ describe('createOrderUseCase', () => {
 
       await useCase.execute(dto)
 
-      const callArgs = (orderService.createOrder as jest.Mock).mock.calls[0]
+      const callArgs = (orderService.save as jest.Mock).mock.calls[0]
       expect(callArgs[0].items).toEqual(['value1', 'value2'])
     })
 
@@ -133,7 +133,7 @@ describe('createOrderUseCase', () => {
 
       await useCase.execute(dto)
 
-      const callArgs = (orderService.createOrder as jest.Mock).mock.calls[0]
+      const callArgs = (orderService.save as jest.Mock).mock.calls[0]
       const orderAggregate = callArgs[1]
 
       expect(orderAggregate).toBeDefined()

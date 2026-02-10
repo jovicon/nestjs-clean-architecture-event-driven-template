@@ -1,5 +1,5 @@
-import type { HydratedDocument } from 'mongoose'
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import type { HydratedDocument } from 'mongoose'
 
 @Schema()
 export class Order {

@@ -1,4 +1,4 @@
-import type { CreateOrderDTO } from '@modules/order/application/ports/orderService.port'
+import type { CreateOrderDTO } from '@base/src/modules/order/application/ports/orderRepository.port'
 import type { TestingModule } from '@nestjs/testing'
 
 import { CreateProductUseCase } from '@modules/products/application/useCases/CreateProduct.usecase'

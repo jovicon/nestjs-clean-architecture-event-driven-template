@@ -4,10 +4,11 @@ import { Module } from '@nestjs/common'
 
 import { EventEmitterModule } from '@nestjs/event-emitter'
 import { MongooseModule } from '@nestjs/mongoose'
-import { OrderRepositoryAdapter } from './order.adapter'
+import { OrderDataSource } from './order.adapter'
 
+import { OrderMapper } from './order.mapper'
+import { OrderRepository } from './order.repository'
 import { Order, OrderSchema } from './order.schema'
-import { OrderService } from './order.service'
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { OrderService } from './order.service'
       inject: [ConfigService],
     }),
   ],
-  providers: [OrderRepositoryAdapter, OrderService],
-  exports: [OrderService, OrderRepositoryAdapter],
+  providers: [OrderDataSource, OrderRepository, OrderMapper],
+  exports: [OrderRepository, OrderDataSource, OrderMapper],
 })
 export class OrderRepositoryModule {}

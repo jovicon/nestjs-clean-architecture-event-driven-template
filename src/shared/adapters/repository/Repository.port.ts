@@ -46,7 +46,7 @@ export interface Repository<T> {
    * });
    * ```
    */
-  create: (data: T) => Promise<T>
+  create: (data: T) => Promise<Omit<T, '_id'>>
 
   /**
    * Updates an existing entity by its unique identifier

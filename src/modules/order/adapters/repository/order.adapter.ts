@@ -1,7 +1,7 @@
 import type { OnApplicationBootstrap } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import type { Model } from 'mongoose'
 import type { OrderDocument } from './order.schema'
-import { Injectable } from '@nestjs/common'
 
 import { InjectModel } from '@nestjs/mongoose'
 
@@ -9,15 +9,15 @@ import { MongoRepositoryService } from '@shared/adapters/repository/mongoose/mon
 import { Order } from './order.schema'
 
 @Injectable()
-export class OrderRepositoryAdapter implements OnApplicationBootstrap {
+export class OrderDataSource implements OnApplicationBootstrap {
   orders: MongoRepositoryService<Order>
 
   constructor(
     @InjectModel(Order.name)
-    private readonly orderRepository: Model<OrderDocument>,
+    private readonly orderMongoRepository: Model<OrderDocument>,
   ) {}
 
   onApplicationBootstrap() {
-    this.orders = new MongoRepositoryService<Order>(this.orderRepository as Model<Order>)
+    this.orders = new MongoRepositoryService<Order>(this.orderMongoRepository as Model<Order>)
   }
 }

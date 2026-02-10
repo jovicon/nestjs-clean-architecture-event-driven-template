@@ -1,13 +1,13 @@
+import { Order as OrderEntity } from '@modules/order/domain/order'
 import type { TestingModule } from '@nestjs/testing'
 import type { Order } from './order.schema'
-import { Order as OrderEntity } from '@modules/order/domain/order'
 
 import { OrderItem } from '@modules/order/domain/orderItem'
 import { EventEmitter2 } from '@nestjs/event-emitter'
 import { Test } from '@nestjs/testing'
 import { RequestContextService } from '@shared/application/context/AppRequestContext'
 import { OrderRepositoryAdapter } from './order.adapter'
-import { OrderService } from './order.service'
+import { OrderService } from './order.repository'
 
 describe('orderService (Order)', () => {
   let service: OrderService

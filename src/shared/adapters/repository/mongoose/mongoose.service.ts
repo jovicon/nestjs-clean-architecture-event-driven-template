@@ -14,8 +14,8 @@ export class MongoRepositoryService<T> implements Repository<T> {
     this._populateOnFind = populateOnFind
   }
 
-  create(item: T): Promise<T> {
-    return this._repository.create(item)
+  create(data: T): Promise<T> {
+    return this._repository.create(data)
   }
 
   update(id: string, item: T) {
