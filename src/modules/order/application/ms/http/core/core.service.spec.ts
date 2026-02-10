@@ -1,7 +1,7 @@
 import type { TestingModule } from '@nestjs/testing';
 import { Test } from '@nestjs/testing';
 
-import CoreService from './core.service';
+import { CoreService } from './core.service';
 
 describe('coreService (Order)', () => {
   let service: CoreService;

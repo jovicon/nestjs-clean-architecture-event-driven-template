@@ -7,7 +7,7 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { ApiController } from './api/api.controller';
 import ClientsService from './api/api.service';
 import CoreController from './core/core.controller';
-import CoreService from './core/core.service';
+import { CoreService } from './core/core.service';
 
 describe('coreController', () => {
   let appController: CoreController;

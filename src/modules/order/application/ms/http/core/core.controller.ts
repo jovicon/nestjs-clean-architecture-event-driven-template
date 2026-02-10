@@ -3,7 +3,7 @@ import type { Responses } from '@shared/application/interfaces/responses';
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import CoreService from './core.service';
+import { CoreService } from './core.service';
 
 @ApiTags('core')
 @Controller()
