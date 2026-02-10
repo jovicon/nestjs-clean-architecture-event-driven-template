@@ -1,6 +1,6 @@
 import CoreController from './core.controller';
 import { CoreModule } from './core.module';
-import CoreService from './core.service';
+import { CoreService } from './core.service';
 
 describe('coreModule (Logger)', () => {
   it('should have CoreModule metadata', () => {

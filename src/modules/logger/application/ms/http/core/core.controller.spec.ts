@@ -2,7 +2,7 @@ import type { TestingModule } from '@nestjs/testing';
 import { Test } from '@nestjs/testing';
 
 import CoreController from './core.controller';
-import CoreService from './core.service';
+import { CoreService } from './core.service';
 
 describe('coreController (Logger)', () => {
   let controller: CoreController;
