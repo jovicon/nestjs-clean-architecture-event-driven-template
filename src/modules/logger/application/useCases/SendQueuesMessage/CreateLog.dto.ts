@@ -1,6 +1,6 @@
 export interface CreateLogDTO {
-  id: string;
-  item: string[];
+  id: string
+  item: string[]
 }
 
-export type CreateLogUseCaseResponse = Record<string, never>;
+export type CreateLogUseCaseResponse = Record<string, never>

@@ -1,15 +1,15 @@
-import type { TestingModule } from '@nestjs/testing';
-import type { Model } from 'mongoose';
-import type { OrderDocument } from './order.schema';
-import { getModelToken } from '@nestjs/mongoose';
+import type { TestingModule } from '@nestjs/testing'
+import type { Model } from 'mongoose'
+import type { OrderDocument } from './order.schema'
+import { getModelToken } from '@nestjs/mongoose'
 
-import { Test } from '@nestjs/testing';
-import { OrderRepositoryAdapter } from './order.adapter';
-import { Order } from './order.schema';
+import { Test } from '@nestjs/testing'
+import { OrderRepositoryAdapter } from './order.adapter'
+import { Order } from './order.schema'
 
 describe('orderRepositoryAdapter (Order)', () => {
-  let adapter: OrderRepositoryAdapter;
-  let orderModel: Model<OrderDocument>;
+  let adapter: OrderRepositoryAdapter
+  let orderModel: Model<OrderDocument>
 
   const mockOrderModel = {
     create: jest.fn(),
@@ -18,7 +18,7 @@ describe('orderRepositoryAdapter (Order)', () => {
     findById: jest.fn(),
     updateOne: jest.fn(),
     deleteOne: jest.fn(),
-  };
+  }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -29,46 +29,46 @@ describe('orderRepositoryAdapter (Order)', () => {
           useValue: mockOrderModel,
         },
       ],
-    }).compile();
+    }).compile()
 
-    adapter = module.get<OrderRepositoryAdapter>(OrderRepositoryAdapter);
-    orderModel = module.get<Model<OrderDocument>>(getModelToken(Order.name));
-  });
+    adapter = module.get<OrderRepositoryAdapter>(OrderRepositoryAdapter)
+    orderModel = module.get<Model<OrderDocument>>(getModelToken(Order.name))
+  })
 
   afterEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
   it('should be defined', () => {
-    expect(adapter).toBeDefined();
-  });
+    expect(adapter).toBeDefined()
+  })
 
   describe('onApplicationBootstrap', () => {
     it('should initialize orders MongoRepositoryService', () => {
-      expect(adapter.orders).toBeUndefined();
+      expect(adapter.orders).toBeUndefined()
 
-      adapter.onApplicationBootstrap();
+      adapter.onApplicationBootstrap()
 
-      expect(adapter.orders).toBeDefined();
-    });
+      expect(adapter.orders).toBeDefined()
+    })
 
     it('should create MongoRepositoryService with the model', () => {
-      adapter.onApplicationBootstrap();
+      adapter.onApplicationBootstrap()
 
-      expect(adapter.orders).toBeDefined();
-      expect(adapter.orders.constructor.name).toBe('MongoRepositoryService');
-    });
-  });
+      expect(adapter.orders).toBeDefined()
+      expect(adapter.orders.constructor.name).toBe('MongoRepositoryService')
+    })
+  })
 
   describe('orders property', () => {
     it('should have orders property after bootstrap', () => {
-      adapter.onApplicationBootstrap();
+      adapter.onApplicationBootstrap()
 
-      expect(adapter.orders).toBeDefined();
-    });
+      expect(adapter.orders).toBeDefined()
+    })
 
     it('should have orders undefined before bootstrap', () => {
-      expect(adapter.orders).toBeUndefined();
-    });
-  });
-});
+      expect(adapter.orders).toBeUndefined()
+    })
+  })
+})

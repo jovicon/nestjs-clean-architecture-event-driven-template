@@ -1,6 +1,6 @@
-import type { EventEmitter2 } from '@nestjs/event-emitter';
+import type { EventEmitter2 } from '@nestjs/event-emitter'
 
-import { Entity } from './Entity';
+import { Entity } from './Entity'
 
 export abstract class AggregateRoot<T> extends Entity<T> {
   public async publishEvents(eventEmitter: EventEmitter2): Promise<void> {
@@ -8,10 +8,10 @@ export abstract class AggregateRoot<T> extends Entity<T> {
       this.events.map(async (event) => {
         console.log(
           `[${this.requestId}] "${event.constructor.name}" event published for aggregate ${this.constructor.name} : ${this.id}`,
-        );
-        return eventEmitter.emitAsync(event.constructor.name, event);
+        )
+        return eventEmitter.emitAsync(event.constructor.name, event)
       }),
-    );
-    this.clearEvents();
+    )
+    this.clearEvents()
   }
 }

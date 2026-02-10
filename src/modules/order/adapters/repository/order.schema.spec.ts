@@ -1,49 +1,49 @@
-import { Order, OrderSchema } from './order.schema';
+import { Order, OrderSchema } from './order.schema'
 
 describe('order Schema (Order)', () => {
   describe('order class', () => {
     it('should have items property', () => {
-      const order = new Order();
-      order.items = ['item1', 'item2'];
+      const order = new Order()
+      order.items = ['item1', 'item2']
 
-      expect(order.items).toEqual(['item1', 'item2']);
-    });
+      expect(order.items).toEqual(['item1', 'item2'])
+    })
 
     it('should handle empty items array', () => {
-      const order = new Order();
-      order.items = [];
+      const order = new Order()
+      order.items = []
 
-      expect(order.items).toHaveLength(0);
-    });
+      expect(order.items).toHaveLength(0)
+    })
 
     it('should handle single item', () => {
-      const order = new Order();
-      order.items = ['single-item'];
+      const order = new Order()
+      order.items = ['single-item']
 
-      expect(order.items).toHaveLength(1);
-      expect(order.items[0]).toBe('single-item');
-    });
+      expect(order.items).toHaveLength(1)
+      expect(order.items[0]).toBe('single-item')
+    })
 
     it('should handle items with special characters', () => {
-      const order = new Order();
-      order.items = ['item-@#$%', 'item-日本語'];
+      const order = new Order()
+      order.items = ['item-@#$%', 'item-日本語']
 
-      expect(order.items).toContain('item-@#$%');
-      expect(order.items).toContain('item-日本語');
-    });
-  });
+      expect(order.items).toContain('item-@#$%')
+      expect(order.items).toContain('item-日本語')
+    })
+  })
 
   describe('orderSchema', () => {
     it('should be defined', () => {
-      expect(OrderSchema).toBeDefined();
-    });
+      expect(OrderSchema).toBeDefined()
+    })
 
     it('should be a valid Mongoose schema', () => {
-      expect(OrderSchema.paths).toBeDefined();
-    });
+      expect(OrderSchema.paths).toBeDefined()
+    })
 
     it('should have items path', () => {
-      expect(OrderSchema.paths.items).toBeDefined();
-    });
-  });
-});
+      expect(OrderSchema.paths.items).toBeDefined()
+    })
+  })
+})

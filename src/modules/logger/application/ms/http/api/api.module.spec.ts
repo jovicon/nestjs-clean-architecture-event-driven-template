@@ -1,18 +1,18 @@
-import type { TestingModule } from '@nestjs/testing';
-import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
+import type { TestingModule } from '@nestjs/testing'
+import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase'
 
-import { Test } from '@nestjs/testing';
-import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service';
-import { ApiController } from './api.controller';
-import { LoggerModule } from './api.module';
-import { ClientsService } from './api.service';
+import { Test } from '@nestjs/testing'
+import { ElasticService } from '@shared/adapters/repository/elastic/elastic.service'
+import { ApiController } from './api.controller'
+import { LoggerModule } from './api.module'
+import { ClientsService } from './api.service'
 
 describe('logger ApiModule', () => {
-  let module: TestingModule;
+  let module: TestingModule
 
   const mockElasticService = {
     create: jest.fn(),
-  };
+  }
 
   beforeEach(async () => {
     module = await Test.createTestingModule({
@@ -20,28 +20,28 @@ describe('logger ApiModule', () => {
     })
       .overrideProvider(ElasticService)
       .useValue(mockElasticService)
-      .compile();
-  });
+      .compile()
+  })
 
   it('should be defined', () => {
-    expect(module).toBeDefined();
-  });
+    expect(module).toBeDefined()
+  })
 
   it('should provide ApiController', () => {
-    const controller = module.get<ApiController>(ApiController);
-    expect(controller).toBeDefined();
-    expect(controller).toBeInstanceOf(ApiController);
-  });
+    const controller = module.get<ApiController>(ApiController)
+    expect(controller).toBeDefined()
+    expect(controller).toBeInstanceOf(ApiController)
+  })
 
   it('should provide ClientsService', () => {
-    const service = module.get<ClientsService>(ClientsService);
-    expect(service).toBeDefined();
-    expect(service).toBeInstanceOf(ClientsService);
-  });
+    const service = module.get<ClientsService>(ClientsService)
+    expect(service).toBeDefined()
+    expect(service).toBeInstanceOf(ClientsService)
+  })
 
   it('should provide CreateLogUseCase', () => {
-    const useCase = module.get<CreateLogUseCase>(CreateLogUseCase);
-    expect(useCase).toBeDefined();
-    expect(useCase).toBeInstanceOf(CreateLogUseCase);
-  });
-});
+    const useCase = module.get<CreateLogUseCase>(CreateLogUseCase)
+    expect(useCase).toBeDefined()
+    expect(useCase).toBeInstanceOf(CreateLogUseCase)
+  })
+})

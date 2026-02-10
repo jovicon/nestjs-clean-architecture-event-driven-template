@@ -1,16 +1,16 @@
-import type { TestingModule } from '@nestjs/testing';
-import { Test } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing'
+import { Test } from '@nestjs/testing'
 
-import CoreController from './core.controller';
-import { CoreService } from './core.service';
+import CoreController from './core.controller'
+import { CoreService } from './core.service'
 
 describe('coreController (Order)', () => {
-  let controller: CoreController;
-  let coreService: CoreService;
+  let controller: CoreController
+  let coreService: CoreService
 
   const mockCoreService = {
     healthCheck: jest.fn(),
-  };
+  }
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -21,57 +21,57 @@ describe('coreController (Order)', () => {
           useValue: mockCoreService,
         },
       ],
-    }).compile();
+    }).compile()
 
-    controller = module.get<CoreController>(CoreController);
-    coreService = module.get<CoreService>(CoreService);
-  });
+    controller = module.get<CoreController>(CoreController)
+    coreService = module.get<CoreService>(CoreService)
+  })
 
   afterEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
+    expect(controller).toBeDefined()
+  })
 
   describe('healthCheck', () => {
     it('should return health check response', () => {
       const expectedResponse = {
         status: 'success',
         message: 'NestJS is working!!!',
-      };
+      }
 
-      mockCoreService.healthCheck.mockReturnValue(expectedResponse);
+      mockCoreService.healthCheck.mockReturnValue(expectedResponse)
 
-      const result = controller.healthCheck();
+      const result = controller.healthCheck()
 
-      expect(result).toEqual(expectedResponse);
-    });
+      expect(result).toEqual(expectedResponse)
+    })
 
     it('should call coreService.healthCheck', () => {
       mockCoreService.healthCheck.mockReturnValue({
         status: 'success',
         message: 'NestJS is working!!!',
-      });
+      })
 
-      controller.healthCheck();
+      controller.healthCheck()
 
-      expect(coreService.healthCheck).toHaveBeenCalled();
-      expect(coreService.healthCheck).toHaveBeenCalledTimes(1);
-    });
+      expect(coreService.healthCheck).toHaveBeenCalled()
+      expect(coreService.healthCheck).toHaveBeenCalledTimes(1)
+    })
 
     it('should return the exact response from service', () => {
       const serviceResponse = {
         status: 'success',
         message: 'Custom message',
-      };
+      }
 
-      mockCoreService.healthCheck.mockReturnValue(serviceResponse);
+      mockCoreService.healthCheck.mockReturnValue(serviceResponse)
 
-      const result = controller.healthCheck();
+      const result = controller.healthCheck()
 
-      expect(result).toBe(serviceResponse);
-    });
-  });
-});
+      expect(result).toBe(serviceResponse)
+    })
+  })
+})

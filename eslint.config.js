@@ -16,7 +16,7 @@ export default antfu({
   stylistic: {
     indent: 2,        // 2 espacios
     quotes: 'single', // Comillas simples
-    semi: true,      // Sin punto y coma (puedes cambiar a true si prefieres)
+    semi: false,      // Sin punto y coma
   },
   
   // Archivos a ignorar
@@ -34,6 +34,9 @@ export default antfu({
   
   // Reglas personalizadas (ajusta según tu preferencia)
   rules: {
+    // Forzar comillas simples
+    '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
+
     // Permitir console.warn y console.error en development
     'no-console': ['warn', { allow: ['warn', 'error'] }],
 

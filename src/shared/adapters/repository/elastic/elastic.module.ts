@@ -1,10 +1,10 @@
-import { ConfigModule } from '@config/config.module';
-import { ConfigService } from '@config/config.service';
+import { ConfigModule } from '@config/config.module'
+import { ConfigService } from '@config/config.service'
 
-import { Module } from '@nestjs/common';
-import { ElasticsearchModule } from '@nestjs/elasticsearch';
+import { Module } from '@nestjs/common'
+import { ElasticsearchModule } from '@nestjs/elasticsearch'
 
-import { ElasticService } from './elastic.service';
+import { ElasticService } from './elastic.service'
 
 @Module({
   imports: [

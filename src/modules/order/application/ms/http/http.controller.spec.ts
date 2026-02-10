@@ -1,35 +1,35 @@
-import type { TestingModule } from '@nestjs/testing';
-import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase';
-import { Test } from '@nestjs/testing';
+import type { TestingModule } from '@nestjs/testing'
+import { CreateOrderUseCase } from '@modules/order/application/useCases/CreateOrder.usecase'
+import { Test } from '@nestjs/testing'
 
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston'
 
-import { ApiController } from './api/api.controller';
-import ClientsService from './api/api.service';
-import CoreController from './core/core.controller';
-import { CoreService } from './core/core.service';
+import { ApiController } from './api/api.controller'
+import ClientsService from './api/api.service'
+import CoreController from './core/core.controller'
+import { CoreService } from './core/core.service'
 
 describe('coreController', () => {
-  let appController: CoreController;
+  let appController: CoreController
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [CoreController],
       providers: [CoreService],
-    }).compile();
+    }).compile()
 
-    appController = app.get<CoreController>(CoreController);
-  });
+    appController = app.get<CoreController>(CoreController)
+  })
 
   describe('root', () => {
     it('should return "success" status', () => {
-      expect(appController.healthCheck().status).toBe('success');
-    });
-  });
-});
+      expect(appController.healthCheck().status).toBe('success')
+    })
+  })
+})
 
 describe('apiController', () => {
-  let appController: ApiController;
+  let appController: ApiController
 
   const mockCreateOrderUseCase = {
     execute: jest.fn().mockResolvedValue({
@@ -37,7 +37,7 @@ describe('apiController', () => {
       message: 'Order created successfully',
       data: { items: ['item1', 'item2'] },
     }),
-  };
+  }
 
   const mockLogger = {
     log: jest.fn(),
@@ -45,7 +45,7 @@ describe('apiController', () => {
     warn: jest.fn(),
     debug: jest.fn(),
     verbose: jest.fn(),
-  };
+  }
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
@@ -61,21 +61,21 @@ describe('apiController', () => {
           useValue: mockLogger,
         },
       ],
-    }).compile();
+    }).compile()
 
-    appController = app.get<ApiController>(ApiController);
-  });
+    appController = app.get<ApiController>(ApiController)
+  })
 
   describe('createOrder', () => {
     it('should return "success"', async () => {
       const dto = {
         items: ['hola', 'mundo'],
-      };
+      }
 
-      const result = await appController.createOrder(dto);
+      const result = await appController.createOrder(dto)
 
-      expect(result.status).toBe('success');
-      expect(mockCreateOrderUseCase.execute).toHaveBeenCalledWith(dto);
-    });
-  });
-});
+      expect(result.status).toBe('success')
+      expect(mockCreateOrderUseCase.execute).toHaveBeenCalledWith(dto)
+    })
+  })
+})

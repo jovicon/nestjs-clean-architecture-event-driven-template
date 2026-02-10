@@ -1,6 +1,6 @@
-import { ProductModule } from './api/api.module';
-import { CoreModule } from './core/core.module';
-import { PATH_BASE_MS } from './http.config';
+import { ProductModule } from './api/api.module'
+import { CoreModule } from './core/core.module'
+import { PATH_BASE_MS } from './http.config'
 
 const productRoutes = [
   {
@@ -13,8 +13,8 @@ const productRoutes = [
       },
     ],
   },
-];
+]
 
-const allRoutes = [...productRoutes];
+const allRoutes = [...productRoutes]
 
-export { allRoutes };
+export { allRoutes }

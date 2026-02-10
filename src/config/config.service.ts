@@ -1,28 +1,28 @@
-import type { ConfigFactoryParams, ConfigServices, EnvConfig } from './config.types';
-import { DataBaseConfig } from './providers/database.config';
-import { LoggerModuleConfig } from './providers/logger.module.config';
-import { MicroserviceConfig } from './providers/microservice.config';
+import type { ConfigFactoryParams, ConfigServices, EnvConfig } from './config.types'
+import { DataBaseConfig } from './providers/database.config'
+import { LoggerModuleConfig } from './providers/logger.module.config'
+import { MicroserviceConfig } from './providers/microservice.config'
 
 export class ConfigService {
-  private readonly envConfig: EnvConfig;
+  private readonly envConfig: EnvConfig
 
-  readonly providers: ConfigServices;
+  readonly providers: ConfigServices
 
   private constructor({ database, microservice, loggerModule }: ConfigServices) {
     this.providers = {
       database,
       microservice,
       loggerModule,
-    };
+    }
 
-    console.log(`[${this.constructor.name}] - constructor init: OK`);
+    console.log(`[${this.constructor.name}] - constructor init: OK`)
   }
 
   public static async create({ envFilePath, packageJsonPath }: ConfigFactoryParams): Promise<ConfigService> {
-    const database = await DataBaseConfig.create(envFilePath);
-    const microservice = await MicroserviceConfig.create(packageJsonPath);
-    const loggerModule = await LoggerModuleConfig.create(envFilePath);
+    const database = await DataBaseConfig.create(envFilePath)
+    const microservice = await MicroserviceConfig.create(packageJsonPath)
+    const loggerModule = await LoggerModuleConfig.create(envFilePath)
 
-    return new ConfigService({ database, microservice, loggerModule });
+    return new ConfigService({ database, microservice, loggerModule })
   }
 }

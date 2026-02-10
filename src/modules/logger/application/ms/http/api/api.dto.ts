@@ -1,13 +1,13 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger'
 
 export class CreateLogDTO {
   @ApiProperty({
     type: String,
   })
-  trackingId: string;
+  trackingId: string
 
   @ApiProperty({
     type: [String],
   })
-  items: string[];
+  items: string[]
 }

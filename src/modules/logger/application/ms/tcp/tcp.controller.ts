@@ -1,9 +1,9 @@
-import type { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto';
+import type { CreateLogDTO } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.dto'
 
-import { Controller } from '@nestjs/common';
-import { MessagePattern } from '@nestjs/microservices';
+import { Controller } from '@nestjs/common'
+import { MessagePattern } from '@nestjs/microservices'
 
-import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase';
+import { CreateLogUseCase } from '@modules/logger/application/useCases/SendQueuesMessage/CreateLog.usecase'
 
 @Controller()
 export class LoggerController {
@@ -11,7 +11,7 @@ export class LoggerController {
 
   @MessagePattern('createdOrder')
   async executeLogger(data: CreateLogDTO): Promise<void> {
-    console.log('LoggerController - executeLogger data: ', data);
-    await this.createLogUseCase.execute(data);
+    console.log('LoggerController - executeLogger data: ', data)
+    await this.createLogUseCase.execute(data)
   }
 }

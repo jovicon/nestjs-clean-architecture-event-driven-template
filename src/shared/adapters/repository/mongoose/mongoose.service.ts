@@ -1,36 +1,36 @@
-import type { Repository } from '@shared/adapters/repository/Repository.port';
-import type { Model } from 'mongoose';
+import type { Repository } from '@shared/adapters/repository/Repository.port'
+import type { Model } from 'mongoose'
 
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class MongoRepositoryService<T> implements Repository<T> {
-  private _repository: Model<T>;
+  private _repository: Model<T>
 
-  private _populateOnFind: string[];
+  private _populateOnFind: string[]
 
   constructor(repository: Model<T>, populateOnFind: string[] = []) {
-    this._repository = repository;
-    this._populateOnFind = populateOnFind;
+    this._repository = repository
+    this._populateOnFind = populateOnFind
   }
 
-  create(item: T): Promise<T> {
-    return this._repository.create(item);
+  create(data: T): Promise<T> {
+    return this._repository.create(data)
   }
 
   update(id: string, item: T) {
-    return this._repository.findByIdAndUpdate(id, item);
+    return this._repository.findByIdAndUpdate(id, item)
   }
 
   delete(id: string): Promise<any> {
-    return this._repository.deleteOne({ id });
+    return this._repository.deleteOne({ id })
   }
 
   find(id: string): Promise<any> {
-    return this._repository.find({ id }).populate(this._populateOnFind).exec();
+    return this._repository.find({ id }).populate(this._populateOnFind).exec()
   }
 
   findAll(): Promise<T[]> {
-    return this._repository.find().populate(this._populateOnFind).exec();
+    return this._repository.find().populate(this._populateOnFind).exec()
   }
 }
